@@ -1,0 +1,13 @@
+{
+  "extends": "tsconfig/nest.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "paths": {
+      "@app/auth": ["libs/auth/src"],
+      "@app/auth/*": ["libs/auth/src/*"],
+      "@app/account": ["libs/account/src"],
+      "@app/account/*": ["libs/account/src/*"]
+    }
+  }
+}

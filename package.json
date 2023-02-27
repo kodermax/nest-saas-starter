@@ -8,6 +8,8 @@
   ],
   "scripts": {
     "admin": "turbo run dev --scope=admin",
+    "api": "turbo run dev --scope=api",
+    "api:build": "turbo run dev --scope=api",
     "web": "turbo run dev --scope=web",
     "build": "turbo run build",
     "dev": "turbo run dev",
