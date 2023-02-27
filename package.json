@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "admin": "turbo run dev --scope=web",
+    "admin": "turbo run dev --scope=admin",
     "web": "turbo run dev --scope=web",
     "build": "turbo run build",
     "dev": "turbo run dev",
