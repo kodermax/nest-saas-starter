@@ -12,6 +12,7 @@
     "api:build": "turbo run dev --scope=api",
     "web": "turbo run dev --scope=web",
     "build": "turbo run build",
+    "build:admin": "turbo run build --scope=admin",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
