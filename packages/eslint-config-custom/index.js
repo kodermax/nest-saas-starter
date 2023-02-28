@@ -1,7 +1,8 @@
 module.exports = {
   extends: ['next', 'turbo', 'prettier', 'next/core-web-vitals', 'plugin:@typescript-eslint/recommended'],
   rules: {
-    '@next/next/no-html-link-for-pages': 'off',
+    'turbo/no-undeclared-env-vars': 'off',
+    '@next/next/no-img-element': 'off',
     'react/display-name': 'off',
     '@next/next/no-img-element': 'off',
     'react/no-unescaped-entities': 'off',
@@ -10,6 +11,7 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
+
     // add new line above comment
     'lines-around-comment': [
       'error',
@@ -22,8 +24,10 @@ module.exports = {
         allowArrayStart: true
       }
     ],
+
     // add new line above return
     'newline-before-return': 'error',
+
     // add new line below import
     'import/newline-after-import': [
       'error',
