@@ -12,6 +12,7 @@
     "api:build": "turbo run dev --scope=api",
     "web": "turbo run dev --scope=web",
     "build": "turbo run build",
+    "build:api": "turbo run build --scope=api",
     "build:admin": "turbo run build --scope=admin",
     "admin:build": "turbo run build --scope=admin",
     "dev": "turbo run dev",
