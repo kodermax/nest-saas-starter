@@ -9,7 +9,7 @@
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"libs/**/*.ts\"",
-    "dev": "nest start",
+    "dev": "nest start --watch ",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -22,8 +22,16 @@
   },
   "dependencies": {
     "@nestjs/common": "^9.3.9",
+    "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.3.9",
+    "@nestjs/jwt": "^10.0.2",
+    "@nestjs/passport": "^9.0.3",
     "@nestjs/platform-express": "^9.3.9",
+    "@nestjs/swagger": "^6.2.1",
+    "cookie-parser": "^1.4.6",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^4.1.2",
     "rxjs": "^7.8.0"
@@ -32,9 +40,12 @@
     "@nestjs/cli": "^9.2.0",
     "@nestjs/schematics": "^9.0.4",
     "@nestjs/testing": "^9.3.9",
+    "@types/cookie-parser": "^1.4.3",
     "@types/express": "^4.17.17",
     "@types/jest": "^29.4.0",
     "@types/node": "^18.14.2",
+    "@types/passport-jwt": "^3.0.8",
+    "@types/passport-local": "^1.0.35",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
@@ -70,12 +81,6 @@
     "roots": [
       "<rootDir>/src/",
       "<rootDir>/libs/"
-    ],
-    "moduleNameMapper": {
-      "@app/auth/(.*)": "<rootDir>/libs/auth/src/$1",
-      "@app/auth": "<rootDir>/libs/auth/src",
-      "@app/account/(.*)": "<rootDir>/libs/account/src/$1",
-      "@app/account": "<rootDir>/libs/account/src"
-    }
+    ]
   }
 }
