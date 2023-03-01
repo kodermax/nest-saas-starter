@@ -5,7 +5,7 @@
   "functions": {
     "main.js": {
       "memory": 3008,
-      "maxDuration": 30
+      "maxDuration": 10
     }
   },
   "routes": [
