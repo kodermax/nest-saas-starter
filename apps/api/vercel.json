@@ -2,14 +2,12 @@
   "version": 2,
   "outputDirectory": "dist",
   "buildCommand": "yarn build",
-  "functions": [
-    {
-      "main.js": {
-        "memory": 3008,
-        "maxDuration": 30
-      }
+  "functions": {
+    "main.js": {
+      "memory": 3008,
+      "maxDuration": 30
     }
-  ],
+  },
   "routes": [
     {
       "src": "/(.*)",
