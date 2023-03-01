@@ -8,6 +8,12 @@
         "memory": 3008,
         "maxDuration": 30
       }
+    },
+    {
+      "dist/main.js": {
+        "memory": 3008,
+        "maxDuration": 30
+      }
     }
   ],
   "routes": [
