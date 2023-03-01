@@ -4,7 +4,7 @@
   "buildCommand": "yarn build",
   "functions": {
     "main.js": {
-      "memory": 3008,
+      "memory": 1024,
       "maxDuration": 10
     }
   },
