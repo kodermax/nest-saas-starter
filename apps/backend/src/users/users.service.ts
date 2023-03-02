@@ -1,26 +1,48 @@
-import { Injectable } from '@nestjs/common';
-
-// This should be a real class/interface representing a user entity
-export type User = any;
+import { Injectable, BadRequestException } from '@nestjs/common';
+import { PasswordService } from 'src/auth/services/password.service';
+import { ChangePasswordInput } from './dto/change-password.input';
+import { UpdateUserInput } from './dto/update-user.input';
+import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class UsersService {
-    private readonly users = [
-        {
-            userId: 1,
-            username: 'john',
-            password: 'changeme',
-        },
-        {
-            userId: 2,
-            username: 'maria',
-            password: 'guess',
-            firstName: 'max',
-            phone: '123'
-        },
-    ];
+    constructor(
+        private prisma: PrismaService,
+        private passwordService: PasswordService
+    ) { }
 
-    async findOne(username: string): Promise<User | undefined> {
-        return this.users.find(user => user.username === username);
+    public updateUser(userId: string, newUserData: UpdateUserInput) {
+        return this.prisma.user.update({
+            data: newUserData,
+            where: {
+                id: userId,
+            },
+        });
+    }
+
+    public async changePassword(
+        userId: string,
+        userPassword: string,
+        changePassword: ChangePasswordInput
+    ) {
+        const passwordValid = await this.passwordService.validatePassword(
+            changePassword.oldPassword,
+            userPassword
+        );
+
+        if (!passwordValid) {
+            throw new BadRequestException('Invalid password');
+        }
+
+        const hashedPassword = await this.passwordService.hashPassword(
+            changePassword.newPassword
+        );
+
+        return this.prisma.user.update({
+            data: {
+                password: hashedPassword,
+            },
+            where: { id: userId },
+        });
     }
 }
