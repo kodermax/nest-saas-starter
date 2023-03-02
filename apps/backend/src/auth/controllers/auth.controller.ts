@@ -1,8 +1,8 @@
 import { Controller, HttpCode, Post, Req, Res, UseGuards } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { LocalAuthGuard } from './guards/local-auth.guard';
-import { RequestWithUser } from './interfaces/user';
-import { AuthService } from './auth.service';
+import { LocalAuthGuard } from '../guards/local-auth.guard';
+import { RequestWithUser } from '../interfaces/user';
+import { AuthService } from '../services/auth.service';
 import { Response } from 'express';
 
 @ApiTags('Авторизация')

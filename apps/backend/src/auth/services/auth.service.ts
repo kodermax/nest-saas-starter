@@ -1,8 +1,11 @@
-import { Injectable } from '@nestjs/common';
-import { UsersService } from '../users/users.service';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import { UsersService } from 'src/users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { JwtDto } from './dto/jwt.dto';
+import { JwtDto } from '../dto/jwt.dto';
+import { PrismaService } from 'src/prisma.service';
+import { User } from '@prisma/client';
+import { PasswordService } from './password.service';
 
 @Injectable()
 export class AuthService {
@@ -10,7 +13,9 @@ export class AuthService {
     constructor(
         private readonly usersService: UsersService,
         private readonly jwtService: JwtService,
-        private readonly configService: ConfigService
+        private readonly configService: ConfigService,
+        private readonly prisma: PrismaService,
+        private readonly passwordService: PasswordService
     ) { }
 
     public getCookieWithJwtAccessToken(userId: string) {
@@ -43,13 +48,25 @@ export class AuthService {
         };
     }
 
-    public async validateUser(username: string, pass: string): Promise<any> {
-        const user = await this.usersService.findOne(username);
-        if (user && user.password === pass) {
-            const { password, ...result } = user;
-            return result;
+    public async validateUserPassword(email: string, password: string) {
+        const user = await this.prisma.user.findUnique({ where: { email } });
+
+        if (!user) {
+            throw new NotFoundException(`No user found for email: ${email}`);
         }
-        return null;
+
+        const passwordValid = await this.passwordService.validatePassword(
+            password,
+            user.password
+        );
+
+        if (!passwordValid) {
+            throw new BadRequestException('Invalid password');
+        }
+        return true;
+    }
+    validateUser(userId: string): Promise<User> {
+        return this.prisma.user.findUnique({ where: { id: userId } });
     }
 
     async login(user: any) {
