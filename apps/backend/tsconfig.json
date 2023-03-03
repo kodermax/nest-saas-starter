@@ -1,0 +1,6 @@
+{
+  "extends": "tsconfig/nest.json",
+  "compilerOptions": {
+    "baseUrl": "./"
+  }
+}
