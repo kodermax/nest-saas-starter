@@ -1,0 +1,32 @@
+{
+  "name": "jewsource",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "admin": "turbo run dev --scope=admin",
+    "backend": "turbo run dev --scope=backend",
+    "backend:build": "turbo run dev --scope=backend",
+    "web": "turbo run dev --scope=web",
+    "build": "turbo run build",
+    "build:backend": "turbo run build --scope=backend",
+    "build:admin": "turbo run build --scope=admin",
+    "admin:build": "turbo run build --scope=admin",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "eslint-config-custom": "*",
+    "prettier": "latest",
+    "turbo": "1.8.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {},
+  "packageManager": "yarn@1.22.19"
+}
