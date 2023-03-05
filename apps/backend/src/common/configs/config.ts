@@ -9,7 +9,7 @@ const config: Config = {
     },
     swagger: {
         enabled: true,
-        title: 'Nestjs FTW',
+        title: 'NestJS Starter',
         description: 'The nestjs API description',
         version: '1.5',
         path: 'api',
@@ -25,6 +25,9 @@ const config: Config = {
         refreshIn: '7d',
         bcryptSaltOrRound: 10,
     },
+    database: {
+        url: 'localhost'
+    }
 };
 
 export default (): Config => config;

@@ -1,4 +1,5 @@
 export interface Config {
+    database: DatabaseConfig;
     nest: NestConfig;
     cors: CorsConfig;
     swagger: SwaggerConfig;
@@ -8,6 +9,10 @@ export interface Config {
 
 export interface NestConfig {
     port: number;
+}
+
+interface DatabaseConfig {
+    url: string;
 }
 
 export interface CorsConfig {

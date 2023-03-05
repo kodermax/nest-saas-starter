@@ -10,6 +10,6 @@ export class SignupInput {
     email: string;
 
     @IsNotEmpty()
-    @MinLength(8)
+    @MinLength(5)
     password: string;
 }

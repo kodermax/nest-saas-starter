@@ -1,14 +1,13 @@
-import { BadRequestException, ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { JwtDto } from '../dto/jwt.dto';
-import { PrismaService } from 'src/prisma.service';
-import { Prisma, User } from '@prisma/client';
+import { User } from '@prisma/client';
 import { PasswordService } from './password.service';
 import { RedisService } from 'src/redis/redis.service';
 import { SecurityConfig } from 'src/common/configs/config.interface';
 import { Token } from '../models/token.model';
-import { SignupInput } from '../dto/signup.input';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class AuthService {
@@ -21,6 +20,20 @@ export class AuthService {
         private readonly cacheManager: RedisService,
     ) { }
 
+    public getAuthCookies(accessToken: string, refreshToken: string) {
+        return {
+            accessToken: `Authentication=${accessToken}; HttpOnly; Domain=${this.getCookieDomain()}; ${this.configService.get('SECURE_COOKIE') === 'true' ?
+                'SameSite=None;' : ''
+                } ${this.configService.get('SECURE_COOKIE') === 'true' ? 'Secure;' : ''} Path=/; Max-Age=${this.configService.get(
+                    'JWT_ACCESS_TOKEN_EXPIRATION_TIME',
+                )}`,
+            refreshToken: `Refresh=${refreshToken}; HttpOnly; Domain=${this.getCookieDomain()}; ${this.configService.get('SECURE_COOKIE') === 'true'
+                ? 'SameSite=None;' : ''
+                } ${this.configService.get('SECURE_COOKIE') === 'true' ? 'Secure;' : ''} Path=/; Max-Age=${this.configService.get(
+                    'JWT_REFRESH_TOKEN_EXPIRATION_TIME',
+                )}`
+        }
+    }
     public getCookieWithJwtAccessToken(userId: string) {
         const payload: JwtDto = { userId };
         const token = this.jwtService.sign(payload, {
@@ -50,24 +63,26 @@ export class AuthService {
             token,
         };
     }
-
-    public async validateUserPassword(email: string, password: string) {
-        const user = await this.prisma.user.findUnique({ where: { email } });
-
-        if (!user) {
-            throw new NotFoundException(`No user found for email: ${email}`);
+    public async getAuthenticatedUser(email: string, hashedPassword: string) {
+        try {
+            const user = await this.prisma.user.findUnique({ where: { email } });
+            if (!user) {
+                throw new NotFoundException(`No user found for email: ${email}`);
+            }
+            const passwordValid = await this.passwordService.validatePassword(
+                hashedPassword,
+                user.password
+            );
+            if (!passwordValid) {
+                throw new BadRequestException('Wrong credentials provided');
+            }
+            user.password = undefined;
+            return user;
+        } catch (error) {
+            throw new BadRequestException('Wrong credentials provided');
         }
-
-        const passwordValid = await this.passwordService.validatePassword(
-            password,
-            user.password
-        );
-
-        if (!passwordValid) {
-            throw new BadRequestException('Invalid password');
-        }
-        return true;
     }
+
     public validateUser(userId: string): Promise<User> {
         return this.prisma.user.findUnique({ where: { id: userId } });
     }
@@ -110,39 +125,13 @@ export class AuthService {
             expiresIn: securityConfig.refreshIn,
         });
     }
-    private generateTokens(payload: { userId: string }): Token {
+    public generateTokens(payload: { userId: string }): Token {
         return {
             accessToken: this.generateAccessToken(payload),
             refreshToken: this.generateRefreshToken(payload),
         };
     }
 
-    public async createUser(payload: SignupInput): Promise<Token> {
-        const hashedPassword = await this.passwordService.hashPassword(
-            payload.password
-        );
 
-        try {
-            const user = await this.prisma.user.create({
-                data: {
-                    ...payload,
-                    password: hashedPassword,
-                    role: 'USER',
-                },
-            });
-
-            return this.generateTokens({
-                userId: user.id,
-            });
-        } catch (e) {
-            if (
-                e instanceof Prisma.PrismaClientKnownRequestError &&
-                e.code === 'P2002'
-            ) {
-                throw new ConflictException(`Email ${payload.email} already used.`);
-            }
-            throw new Error(e);
-        }
-    }
 
 }
