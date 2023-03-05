@@ -5,9 +5,11 @@ import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { CorsConfig, NestConfig, SwaggerConfig } from './common/configs/config.interface';
 import { PrismaService } from './prisma/prisma.service';
+import cookieParser from 'cookie-parser';
+import { NestExpressApplication } from '@nestjs/platform-express';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.useGlobalPipes(new ValidationPipe());
 
   const prismaService: PrismaService = app.get(PrismaService);
@@ -38,7 +40,9 @@ async function bootstrap() {
       optionsSuccessStatus: 204,
     });
   }
-
+  app.use(cookieParser());
+  app.set('trust proxy', true);
+  app.disable('x-powered-by');
   await app.listen(process.env.PORT || nestConfig.port || 3000);
 }
 bootstrap();

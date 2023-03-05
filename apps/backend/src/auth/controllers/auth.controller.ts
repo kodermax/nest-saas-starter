@@ -1,9 +1,11 @@
-import { Controller, HttpCode, Post, Req, Res, UseGuards } from '@nestjs/common';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { Controller, Get, HttpCode, Post, Req, Res, UseGuards } from '@nestjs/common';
+import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { LocalAuthGuard } from '../guards/local-auth.guard';
 import { RequestWithUser } from '../interfaces/user';
 import { AuthService } from '../services/auth.service';
 import { Response } from 'express';
+import { JwtAuthGuard } from '../guards/jwt-auth.guard';
+import { AuthStateDto } from '../dto/state.dto';
 
 @ApiTags('Авторизация')
 @Controller('auth')
@@ -33,5 +35,20 @@ export class AuthController {
         });
     }
 
-
+    @Get('me')
+    @UseGuards(JwtAuthGuard)
+    @ApiOperation({ summary: 'Получить состояние авторизации' })
+    @ApiOkResponse({ type: AuthStateDto })
+    getState(@Req() request: RequestWithUser, @Res() response: Response) {
+        const { user } = request;
+        return response.json({
+            id: user.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            middleName: user.middleName,
+            role: user.role,
+            email: user.email,
+            phone: user.phone
+        });
+    }
 }

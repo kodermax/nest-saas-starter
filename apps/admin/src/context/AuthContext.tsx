@@ -11,8 +11,8 @@ import axios from 'axios'
 import authConfig from 'src/configs/auth'
 
 // ** Types
-import { AuthValuesType, RegisterParams, LoginParams, ErrCallbackType, UserDataType } from './types'
-import { User, login } from 'src/@core/services/auth.service'
+import { AuthValuesType, RegisterParams, LoginParams, ErrCallbackType } from './types'
+import { User, authMe, login } from 'src/@core/services/auth.service'
 
 // ** Defaults
 const defaultProvider: AuthValuesType = {
@@ -41,29 +41,22 @@ const AuthProvider = ({ children }: Props) => {
 
   useEffect(() => {
     const initAuth = async (): Promise<void> => {
+      console.log('initAuth')
       const storedToken = window.localStorage.getItem(authConfig.storageTokenKeyName)!
       if (storedToken) {
         setLoading(true)
-        await axios
-          .get(authConfig.meEndpoint, {
-            headers: {
-              Authorization: storedToken
-            }
-          })
-          .then(async response => {
-            setLoading(false)
-            setUser({ ...response.data.userData })
-          })
-          .catch(() => {
-            localStorage.removeItem('userData')
-            localStorage.removeItem('refreshToken')
-            localStorage.removeItem('accessToken')
-            setUser(null)
-            setLoading(false)
-            if (authConfig.onTokenExpiration === 'logout' && !router.pathname.includes('login')) {
-              router.replace('/login')
-            }
-          })
+        try {
+          const response = await authMe()
+          setUser({ ...response.data })
+          setLoading(false)
+        } catch {
+          localStorage.removeItem('userData')
+          setUser(null)
+          setLoading(false)
+          if (authConfig.onTokenExpiration === 'logout' && !router.pathname.includes('login')) {
+            router.replace('/login')
+          }
+        }
       } else {
         setLoading(false)
       }
@@ -73,7 +66,7 @@ const AuthProvider = ({ children }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const handleLogin = async (params: LoginParams, errorCallback?: ErrCallbackType) => {
+  const handleLogin = async (params: LoginParams) => {
     try {
       const response = await login(params)
       console.log(response.data)

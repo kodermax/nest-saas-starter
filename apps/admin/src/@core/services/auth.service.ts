@@ -1,4 +1,3 @@
-import { AxiosResponse } from 'axios'
 import { http } from './http'
 
 
@@ -24,8 +23,8 @@ export const login = (payload: LoginInput) => {
     return http.post<User>('auth/login', payload)
 }
 
-export const getUser = () => {
-    return http.get<User>('users/me')
+export const authMe = () => {
+    return http.get<User>('auth/me')
 }
 
 export const logout = () => {

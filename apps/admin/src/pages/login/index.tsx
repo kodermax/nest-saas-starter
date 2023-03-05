@@ -134,14 +134,16 @@ const LoginPage = () => {
     resolver: yupResolver(schema)
   })
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
     const { email, password } = data
-    auth.login({ email, password, rememberMe }, () => {
+    try {
+      await auth.login({ email, password, rememberMe })
+    } catch {
       setError('email', {
         type: 'manual',
         message: 'Email or Password is invalid'
       })
-    })
+    }
   }
 
   const imageSource = skin === 'bordered' ? 'auth-v2-login-illustration-bordered' : 'auth-v2-login-illustration'
