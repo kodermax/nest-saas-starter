@@ -1,4 +1,4 @@
-# JEWSOURCE
+# Nest Monorepo Prisma Starter
 
 ## What's inside?
 

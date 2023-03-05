@@ -17,7 +17,6 @@ async function bootstrap() {
   const nestConfig = configService.get<NestConfig>('nest');
   const corsConfig = configService.get<CorsConfig>('cors');
   const swaggerConfig = configService.get<SwaggerConfig>('swagger');
-
   if (swaggerConfig.enabled) {
     const options = new DocumentBuilder()
       .setTitle(swaggerConfig.title || 'Nestjs')

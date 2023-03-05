@@ -34,6 +34,7 @@
     "bcrypt": "5.1.0",
     "cache-manager": "^5.1.7",
     "cache-manager-redis-store": "^3.0.1",
+    "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "cookie-parser": "^1.4.6",
     "passport": "^0.6.0",
@@ -52,7 +53,7 @@
     "@types/cookie-parser": "^1.4.3",
     "@types/express": "^4.17.17",
     "@types/jest": "^29.4.0",
-    "@types/node": "^18.14.4",
+    "@types/node": "^18.14.6",
     "@types/passport-jwt": "^3.0.8",
     "@types/passport-local": "^1.0.35",
     "@types/supertest": "^2.0.12",
@@ -67,8 +68,8 @@
     "ts-jest": "^29.0.5",
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
-    "tsconfig": "workspace:*",
-    "tsconfig-paths": "^3.14.2",
+    "tsconfig": "*",
+    "tsconfig-paths": "^4.1.2",
     "typescript": "^4.9.5"
   },
   "jest": {
