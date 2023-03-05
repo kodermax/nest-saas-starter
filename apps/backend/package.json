@@ -10,6 +10,12 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"libs/**/*.ts\"",
     "dev": "nest start --watch ",
+    "migrate:dev:create": "prisma migrate dev --create-only --preview-feature",
+    "migrate:dev": "prisma migrate dev --preview-feature",
+    "prisma:studio": "npx prisma studio",
+    "prisma:generate": "prisma generate",
+    "prisma:init": "prisma migrate dev --name initial-migration --create-only",
+    "seed": "prisma db seed",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -18,13 +24,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
-    "migrate:dev": "prisma migrate dev --preview-feature",
-    "prisma:studio": "npx prisma studio",
-    "prisma:generate": "prisma generate",
-    "prisma:init": "prisma migrate dev --name initial-migration --create-only",
-    "migrate:dev:create": "prisma migrate dev --create-only --preview-feature",
-    "seed": "prisma db seed"
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
     "@nestjs/common": "^9.3.9",
