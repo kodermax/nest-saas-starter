@@ -11,18 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
-const users_service_1 = require("../../users/users.service");
 const jwt_1 = require("@nestjs/jwt");
 const config_1 = require("@nestjs/config");
 const prisma_service_1 = require("../../prisma.service");
 const password_service_1 = require("./password.service");
+const redis_service_1 = require("../../redis/redis.service");
 let AuthService = class AuthService {
-    constructor(usersService, jwtService, configService, prisma, passwordService) {
-        this.usersService = usersService;
+    constructor(jwtService, configService, prisma, passwordService, cacheManager) {
         this.jwtService = jwtService;
         this.configService = configService;
         this.prisma = prisma;
         this.passwordService = passwordService;
+        this.cacheManager = cacheManager;
     }
     getCookieWithJwtAccessToken(userId) {
         const payload = { userId };
@@ -76,14 +76,20 @@ let AuthService = class AuthService {
                 return 'localhost';
         }
     }
+    async setCurrentRefreshToken(refreshToken, userId) {
+        const currentHashedRefreshToken = await this.passwordService.hashPassword(refreshToken);
+        await this.cacheManager.set(`refresh_token:${userId}`, currentHashedRefreshToken, {
+            ttl: this.configService.get('JWT_REFRESH_TOKEN_EXPIRATION_TIME') * 1000,
+        });
+    }
 };
 AuthService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [users_service_1.UsersService,
-        jwt_1.JwtService,
+    __metadata("design:paramtypes", [jwt_1.JwtService,
         config_1.ConfigService,
         prisma_service_1.PrismaService,
-        password_service_1.PasswordService])
+        password_service_1.PasswordService,
+        redis_service_1.RedisService])
 ], AuthService);
 exports.AuthService = AuthService;
 //# sourceMappingURL=auth.service.js.map

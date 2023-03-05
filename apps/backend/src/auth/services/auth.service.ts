@@ -1,21 +1,21 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
-import { UsersService } from 'src/users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { JwtDto } from '../dto/jwt.dto';
 import { PrismaService } from 'src/prisma.service';
 import { User } from '@prisma/client';
 import { PasswordService } from './password.service';
+import { RedisService } from 'src/redis/redis.service';
 
 @Injectable()
 export class AuthService {
 
     constructor(
-        private readonly usersService: UsersService,
         private readonly jwtService: JwtService,
         private readonly configService: ConfigService,
         private readonly prisma: PrismaService,
-        private readonly passwordService: PasswordService
+        private readonly passwordService: PasswordService,
+        private readonly cacheManager: RedisService,
     ) { }
 
     public getCookieWithJwtAccessToken(userId: string) {
@@ -65,11 +65,11 @@ export class AuthService {
         }
         return true;
     }
-    validateUser(userId: string): Promise<User> {
+    public validateUser(userId: string): Promise<User> {
         return this.prisma.user.findUnique({ where: { id: userId } });
     }
 
-    async login(user: any) {
+    public login(user: any) {
         const payload = { username: user.username, sub: user.userId };
         return {
             access_token: this.jwtService.sign(payload),
@@ -86,4 +86,12 @@ export class AuthService {
                 return 'localhost';
         }
     }
+
+    public async setCurrentRefreshToken(refreshToken: string, userId: string) {
+        const currentHashedRefreshToken = await this.passwordService.hashPassword(refreshToken);
+        await this.cacheManager.set(`refresh_token:${userId}`, currentHashedRefreshToken, {
+            ttl: this.configService.get('JWT_REFRESH_TOKEN_EXPIRATION_TIME') * 1000,
+        });
+    }
+
 }

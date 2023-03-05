@@ -22,7 +22,7 @@ export class AuthController {
         const accessTokenCookie = this.authService.getCookieWithJwtAccessToken(user.id);
         const { cookie: refreshTokenCookie, token: refreshToken } = this.authService.getCookieWithJwtRefreshToken(user.id);
         console.log(refreshToken);
-        //await this.authService.setCurrentRefreshToken(refreshToken, user.id);
+        await this.authService.setCurrentRefreshToken(refreshToken, user.id);
         const cookies = [accessTokenCookie, refreshTokenCookie];
         request.res.setHeader('Set-Cookie', cookies);
         return response.send({

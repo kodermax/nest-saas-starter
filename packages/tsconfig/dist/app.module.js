@@ -15,6 +15,7 @@ const auth_module_1 = require("./auth/auth.module");
 const users_module_1 = require("./users/users.module");
 const config_1 = require("@nestjs/config");
 const prisma_service_1 = require("./prisma.service");
+const redis_module_1 = require("./redis/redis.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -22,7 +23,7 @@ AppModule = __decorate([
         imports: [auth_module_1.AuthModule, users_module_1.UsersModule, config_1.ConfigModule.forRoot({
                 envFilePath: ['.env.development.local', '.env.development', '.env'],
                 isGlobal: true,
-            })],
+            }), redis_module_1.RedisModule],
         controllers: [app_controller_1.AppController],
         providers: [
             password_service_1.PasswordService, app_service_1.AppService, prisma_service_1.PrismaService
