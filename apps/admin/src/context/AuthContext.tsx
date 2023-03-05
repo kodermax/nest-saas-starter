@@ -12,6 +12,7 @@ import authConfig from 'src/configs/auth'
 
 // ** Types
 import { AuthValuesType, RegisterParams, LoginParams, ErrCallbackType, UserDataType } from './types'
+import { User, login } from 'src/@core/services/auth.service'
 
 // ** Defaults
 const defaultProvider: AuthValuesType = {
@@ -32,7 +33,7 @@ type Props = {
 
 const AuthProvider = ({ children }: Props) => {
   // ** States
-  const [user, setUser] = useState<UserDataType | null>(defaultProvider.user)
+  const [user, setUser] = useState<User | null>(defaultProvider.user)
   const [loading, setLoading] = useState<boolean>(defaultProvider.loading)
 
   // ** Hooks
@@ -72,27 +73,20 @@ const AuthProvider = ({ children }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const handleLogin = (params: LoginParams, errorCallback?: ErrCallbackType) => {
-    axios
-      .post(authConfig.loginEndpoint, params)
-      .then(async response => {
-        params.rememberMe
-          ? window.localStorage.setItem(authConfig.storageTokenKeyName, response.data.accessToken)
-          : null
+  const handleLogin = async (params: LoginParams, errorCallback?: ErrCallbackType) => {
+    try {
+      const response = await login(params)
+      console.log(response.data)
+      if (response) {
+        setUser({ ...response.data })
+        params.rememberMe ? window.localStorage.setItem('userData', JSON.stringify(response.data)) : null
         const returnUrl = router.query.returnUrl
-
-        setUser({ ...response.data.userData })
-        params.rememberMe ? window.localStorage.setItem('userData', JSON.stringify(response.data.userData)) : null
-
         const redirectURL = returnUrl && returnUrl !== '/' ? returnUrl : '/'
-
         router.replace(redirectURL as string)
-      })
-
-      .catch(err => {
-        console.log(err)
-        if (errorCallback) errorCallback(err)
-      })
+      }
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   const handleLogout = () => {
