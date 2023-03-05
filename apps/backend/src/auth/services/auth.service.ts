@@ -1,11 +1,14 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { JwtDto } from '../dto/jwt.dto';
 import { PrismaService } from 'src/prisma.service';
-import { User } from '@prisma/client';
+import { Prisma, User } from '@prisma/client';
 import { PasswordService } from './password.service';
 import { RedisService } from 'src/redis/redis.service';
+import { SecurityConfig } from 'src/common/configs/config.interface';
+import { Token } from '../models/token.model';
+import { SignupInput } from '../dto/signup.input';
 
 @Injectable()
 export class AuthService {
@@ -92,6 +95,54 @@ export class AuthService {
         await this.cacheManager.set(`refresh_token:${userId}`, currentHashedRefreshToken, {
             ttl: this.configService.get('JWT_REFRESH_TOKEN_EXPIRATION_TIME') * 1000,
         });
+    }
+    private generateAccessToken(payload: { userId: string }): string {
+        return this.jwtService.sign(payload, {
+            secret: this.configService.get('JWT_ACCESS_TOKEN_SECRET'),
+            expiresIn: this.configService.get('JWT_ACCESS_TOKEN_EXPIRATION_TIME')
+        });
+    }
+
+    private generateRefreshToken(payload: { userId: string }): string {
+        const securityConfig = this.configService.get<SecurityConfig>('security');
+        return this.jwtService.sign(payload, {
+            secret: this.configService.get('JWT_REFRESH_SECRET'),
+            expiresIn: securityConfig.refreshIn,
+        });
+    }
+    private generateTokens(payload: { userId: string }): Token {
+        return {
+            accessToken: this.generateAccessToken(payload),
+            refreshToken: this.generateRefreshToken(payload),
+        };
+    }
+
+    public async createUser(payload: SignupInput): Promise<Token> {
+        const hashedPassword = await this.passwordService.hashPassword(
+            payload.password
+        );
+
+        try {
+            const user = await this.prisma.user.create({
+                data: {
+                    ...payload,
+                    password: hashedPassword,
+                    role: 'USER',
+                },
+            });
+
+            return this.generateTokens({
+                userId: user.id,
+            });
+        } catch (e) {
+            if (
+                e instanceof Prisma.PrismaClientKnownRequestError &&
+                e.code === 'P2002'
+            ) {
+                throw new ConflictException(`Email ${payload.email} already used.`);
+            }
+            throw new Error(e);
+        }
     }
 
 }

@@ -2,7 +2,7 @@ import { IsEmail, IsNotEmpty, MinLength } from 'class-validator';
 
 export class SignupInput {
 
-    firstName?: string;
+    firstName: string;
 
     lastName?: string;
 
