@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@iconify/iconify": "3.1.0",
-    "@iconify/json": "2.2.29",
+    "@iconify/json": "2.2.31",
     "@iconify/tools": "2.2.6",
     "@iconify/types": "2.0.0",
     "@iconify/utils": "2.1.4",
