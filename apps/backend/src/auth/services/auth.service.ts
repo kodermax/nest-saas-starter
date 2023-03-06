@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { JwtDto } from '../dto/jwt.dto';
@@ -63,24 +63,21 @@ export class AuthService {
             token,
         };
     }
-    public async getAuthenticatedUser(email: string, hashedPassword: string) {
-        try {
-            const user = await this.prisma.user.findUnique({ where: { email } });
-            if (!user) {
-                throw new NotFoundException(`No user found for email: ${email}`);
-            }
-            const passwordValid = await this.passwordService.validatePassword(
-                hashedPassword,
-                user.password
-            );
-            if (!passwordValid) {
-                throw new BadRequestException('Wrong credentials provided');
-            }
-            user.password = undefined;
-            return user;
-        } catch (error) {
-            throw new BadRequestException('Wrong credentials provided');
+    public async getAuthenticatedUser(email: string, password: string) {
+        const user = await this.prisma.user.findUnique({ where: { email } });
+        if (!user) {
+            throw new NotFoundException(`No user found for email: ${email}`);
         }
+        const passwordValid = await this.passwordService.validatePassword(
+            password,
+            user.password
+        );
+        if (!passwordValid) {
+            throw new ForbiddenException('Неверный пароль!');
+        }
+        user.password = undefined;
+        return user;
+
     }
 
     public validateUser(userId: string): Promise<User> {
