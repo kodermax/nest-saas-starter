@@ -9,7 +9,7 @@
     "lint": {
       "outputs": []
     },
-    "start:prod": {},
+    "start": {},
     "dev": {
       "cache": false
     }
