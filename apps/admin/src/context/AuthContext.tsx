@@ -68,12 +68,12 @@ const AuthProvider = ({ children }: Props) => {
   const handleLogin = async (params: LoginParams) => {
     try {
       const response = await login(params)
-      console.log(response.data)
       if (response) {
         setUser({ ...response.data })
         params.rememberMe ? window.localStorage.setItem('userData', JSON.stringify(response.data)) : null
-        const returnUrl = decodeURIComponent(router.query.returnUrl as string)
+        const returnUrl = router.query.returnUrl as string
         const redirectURL = returnUrl && returnUrl !== '/' && returnUrl.indexOf('.') < 0 ? returnUrl : '/'
+        console.log(redirectURL)
         router.replace(redirectURL as string)
       }
     } catch (err) {
