@@ -16,9 +16,9 @@ export type ACLObj = {
  * We have just shown Admin and Client rules for demo purpose where
  * admin can manage everything and client can just visit ACL page
  */
-const defineRulesFor = (role: string, subject: string) => {
+const defineRulesFor = (userRole: string, subject: string) => {
   const { can, rules } = new AbilityBuilder(AppAbility)
-
+  const role = userRole.toLowerCase();
   if (role === 'admin') {
     can('manage', 'all')
   } else if (role === 'client') {

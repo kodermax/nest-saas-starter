@@ -41,23 +41,18 @@ const AuthProvider = ({ children }: Props) => {
 
   useEffect(() => {
     const initAuth = async (): Promise<void> => {
-      const storedToken = window.localStorage.getItem(authConfig.storageTokenKeyName)!
-      if (storedToken) {
-        setLoading(true)
-        try {
-          const response = await authMe()
-          setUser({ ...response.data })
-          setLoading(false)
-        } catch {
-          localStorage.removeItem('userData')
-          setUser(null)
-          setLoading(false)
-          if (authConfig.onTokenExpiration === 'logout' && !router.pathname.includes('login')) {
-            router.replace('/login')
-          }
-        }
-      } else {
+      setLoading(true)
+      try {
+        const response = await authMe()
+        setUser({ ...response.data })
         setLoading(false)
+      } catch {
+        localStorage.removeItem('userData')
+        setUser(null)
+        setLoading(false)
+        if (authConfig.onTokenExpiration === 'logout' && !router.pathname.includes('login')) {
+          router.replace('/login')
+        }
       }
     }
 
