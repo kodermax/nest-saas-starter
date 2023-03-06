@@ -10,6 +10,7 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"libs/**/*.ts\"",
     "dev": "nest start --watch ",
+    "install": "yarn install --workspaces=false",
     "migrate:dev:create": "prisma migrate dev --create-only --preview-feature",
     "migrate:dev": "prisma migrate dev --preview-feature",
     "prisma:studio": "npx prisma studio",
