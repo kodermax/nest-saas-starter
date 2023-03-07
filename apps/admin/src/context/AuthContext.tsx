@@ -41,37 +41,36 @@ const AuthProvider = ({ children }: Props) => {
 
   useEffect(() => {
     const initAuth = async (): Promise<void> => {
-      setLoading(true)
-      try {
-        const response = await authMe()
-        setUser({ ...response.data })
-        setLoading(false)
-      } catch {
-        localStorage.removeItem('userData')
-        setUser(null)
-        setLoading(false)
-        if (authConfig.onTokenExpiration === 'logout' && !router.pathname.includes('login')) {
-          router.replace('/login')
+      if (localStorage.getItem('userData')) {
+        setLoading(true)
+        try {
+          const response = await authMe()
+          setUser({ ...response.data })
+          setLoading(false)
+        } catch {
+          localStorage.removeItem('userData')
+          setUser(null)
+          setLoading(false)
+          if (authConfig.onTokenExpiration === 'logout' && !router.pathname.includes('login')) {
+            router.replace('/login')
+          }
         }
+      } else {
+        setLoading(false)
       }
     }
-
     initAuth()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleLogin = async (params: LoginParams) => {
-    try {
-      const response = await login(params)
-      if (response) {
-        setUser({ ...response.data })
-        params.rememberMe ? window.localStorage.setItem('userData', JSON.stringify(response.data)) : null
-        const returnUrl = router.query.returnUrl as string
-        const redirectURL = returnUrl && returnUrl !== '/' && returnUrl.indexOf('.') < 0 ? returnUrl : '/'
-        router.replace(redirectURL as string)
-      }
-    } catch (err) {
-      console.log(err)
+    const response = await login(params)
+    if (response) {
+      setUser({ ...response.data })
+      params.rememberMe ? window.localStorage.setItem('userData', JSON.stringify(response.data)) : null
+      const returnUrl = router.query.returnUrl as string
+      const redirectURL = returnUrl && returnUrl !== '/' && returnUrl.indexOf('.') < 0 ? returnUrl : '/'
+      router.replace(redirectURL as string)
     }
   }
 
