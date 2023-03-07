@@ -24,9 +24,6 @@ import MuiFormControlLabel, { FormControlLabelProps } from '@mui/material/FormCo
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
 
-// ** Third Party Imports
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm, Controller } from 'react-hook-form'
 
 // ** Configs
@@ -41,6 +38,8 @@ import { useSettings } from 'src/@core/hooks/useSettings'
 
 // ** Demo Imports
 import FooterIllustrationsV2 from 'src/views/pages/auth/FooterIllustrationsV2'
+import { classValidatorResolver } from '@hookform/resolvers/class-validator'
+import { RegisterInput } from 'src/@core/services/accounts.service'
 
 const defaultValues = {
   email: '',
@@ -48,11 +47,8 @@ const defaultValues = {
   password: '',
   terms: false
 }
-interface FormData {
-  email: string
+class FormData extends RegisterInput {
   terms: boolean
-  username: string
-  password: string
 }
 
 // ** Styled Components
@@ -117,40 +113,30 @@ const Register = () => {
 
   // ** Vars
   const { skin } = settings
-  const schema = yup.object().shape({
-    password: yup.string().min(5).required(),
-    username: yup.string().min(3).required(),
-    email: yup.string().email().required(),
-    terms: yup.bool().oneOf([true], 'You must accept the privacy policy & terms')
-  })
+
+  const resolver = classValidatorResolver(FormData)
 
   const {
     control,
     setError,
     handleSubmit,
     formState: { errors }
-  } = useForm({
+  } = useForm<FormData>({
     defaultValues,
     mode: 'onBlur',
-    resolver: yupResolver(schema)
+    resolver
   })
 
-  const onSubmit = (data: FormData) => {
-    const { email, username, password } = data
-    register({ email, username, password }, err => {
-      if (err.email) {
-        setError('email', {
-          type: 'manual',
-          message: err.email
-        })
-      }
-      if (err.username) {
-        setError('username', {
-          type: 'manual',
-          message: err.username
-        })
-      }
-    })
+  const onSubmit = async (data: FormData) => {
+    const { email, firstName, lastName, password } = data
+    try {
+      await register({ email, firstName, lastName, password })
+    } catch (err: any) {
+      setError('email', {
+        type: 'manual',
+        message: err.response.data.message
+      })
+    }
   }
 
   const imageSource = skin === 'bordered' ? 'auth-v2-register-illustration-bordered' : 'auth-v2-register-illustration'
@@ -271,7 +257,7 @@ const Register = () => {
             <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
               <FormControl fullWidth sx={{ mb: 4 }}>
                 <Controller
-                  name='username'
+                  name='firstName'
                   control={control}
                   rules={{ required: true }}
                   render={({ field: { value, onChange, onBlur } }) => (
@@ -279,15 +265,35 @@ const Register = () => {
                       autoFocus
                       value={value}
                       onBlur={onBlur}
-                      label='Username'
+                      label='First Name'
                       onChange={onChange}
-                      placeholder='johndoe'
-                      error={Boolean(errors.username)}
+                      placeholder='Admin'
+                      error={Boolean(errors.firstName)}
                     />
                   )}
                 />
-                {errors.username && (
-                  <FormHelperText sx={{ color: 'error.main' }}>{errors.username.message}</FormHelperText>
+                {errors.firstName && (
+                  <FormHelperText sx={{ color: 'error.main' }}>{errors.firstName.message}</FormHelperText>
+                )}
+              </FormControl>
+              <FormControl fullWidth sx={{ mb: 4 }}>
+                <Controller
+                  name='lastName'
+                  control={control}
+                  rules={{ required: true }}
+                  render={({ field: { value, onChange, onBlur } }) => (
+                    <TextField
+                      value={value}
+                      onBlur={onBlur}
+                      label='Last Name'
+                      onChange={onChange}
+                      placeholder='Starter'
+                      error={Boolean(errors.lastName)}
+                    />
+                  )}
+                />
+                {errors.lastName && (
+                  <FormHelperText sx={{ color: 'error.main' }}>{errors.lastName.message}</FormHelperText>
                 )}
               </FormControl>
               <FormControl fullWidth sx={{ mb: 4 }}>
@@ -302,7 +308,7 @@ const Register = () => {
                       onBlur={onBlur}
                       onChange={onChange}
                       error={Boolean(errors.email)}
-                      placeholder='user@email.com'
+                      placeholder='admin@starter.com'
                     />
                   )}
                 />

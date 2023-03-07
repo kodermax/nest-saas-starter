@@ -1,6 +1,6 @@
 import { IsEmail, IsNotEmpty, MinLength } from 'class-validator';
 
-export class SignupInput {
+export class RegisterInput {
 
     firstName: string;
 

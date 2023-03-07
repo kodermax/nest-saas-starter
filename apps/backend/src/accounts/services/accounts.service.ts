@@ -4,8 +4,8 @@ https://docs.nestjs.com/providers#services
 
 import { ConflictException, Injectable } from '@nestjs/common';
 import { PasswordService } from 'src/auth/services/password.service';
-import { SignupInput } from '../dto/signup.input';
-import { Prisma } from '@prisma/client';
+import { RegisterInput } from '../dto/register.input';
+import { Prisma, User } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class AccountsService {
 
     constructor(private readonly prisma: PrismaService, private readonly passwordService: PasswordService) { }
 
-    public async createUser(payload: SignupInput): Promise<string> {
+    public async createUser(payload: RegisterInput): Promise<User> {
         const hashedPassword = await this.passwordService.hashPassword(
             payload.password
         );
@@ -26,7 +26,7 @@ export class AccountsService {
                     role: 'USER',
                 },
             });
-            return user.id;
+            return user;
         } catch (e) {
             if (
                 e instanceof Prisma.PrismaClientKnownRequestError &&

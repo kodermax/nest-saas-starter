@@ -4,15 +4,13 @@ import { createContext, useEffect, useState, ReactNode } from 'react'
 // ** Next Import
 import { useRouter } from 'next/router'
 
-// ** Axios
-import axios from 'axios'
-
 // ** Config
 import authConfig from 'src/configs/auth'
 
 // ** Types
-import { AuthValuesType, RegisterParams, LoginParams, ErrCallbackType } from './types'
+import { AuthValuesType, LoginParams } from './types'
 import { User, authMe, login, logout } from 'src/@core/services/auth.service'
+import { register, RegisterInput } from 'src/@core/services/accounts.service'
 
 // ** Defaults
 const defaultProvider: AuthValuesType = {
@@ -67,7 +65,7 @@ const AuthProvider = ({ children }: Props) => {
     const response = await login(params)
     if (response) {
       setUser({ ...response.data })
-      params.rememberMe ? window.localStorage.setItem('userData', JSON.stringify(response.data)) : null
+      window.localStorage.setItem('userData', JSON.stringify(response.data))
       const returnUrl = router.query.returnUrl as string
       const redirectURL = returnUrl && returnUrl !== '/' && returnUrl.indexOf('.') < 0 ? returnUrl : '/'
       router.replace(redirectURL as string)
@@ -81,17 +79,11 @@ const AuthProvider = ({ children }: Props) => {
     router.push('/login')
   }
 
-  const handleRegister = (params: RegisterParams, errorCallback?: ErrCallbackType) => {
-    axios
-      .post(authConfig.registerEndpoint, params)
-      .then(res => {
-        if (res.data.error) {
-          if (errorCallback) errorCallback(res.data.error)
-        } else {
-          handleLogin({ email: params.email, password: params.password })
-        }
-      })
-      .catch((err: { [key: string]: string }) => (errorCallback ? errorCallback(err) : null))
+  const handleRegister = async (params: RegisterInput) => {
+    const response = await register(params)
+    setUser({ ...response.data })
+    window.localStorage.setItem('userData', JSON.stringify(response.data))
+    router.replace('/')
   }
 
   const values = {
