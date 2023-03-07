@@ -52,7 +52,8 @@ export class AuthController {
         if (request?.user) {
             await this.authService.removeRefreshToken(request.user.id);
         }
-        request.res.setHeader('Set-Cookie', this.authService.getCookiesForLogOut());
+        const cookies = this.authService.getCookiesForLogOut();
+        request.res.setHeader('Set-Cookie', cookies);
         return response.send({ loggedIn: false });
     }
 

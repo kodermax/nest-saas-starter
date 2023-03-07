@@ -12,7 +12,7 @@ import authConfig from 'src/configs/auth'
 
 // ** Types
 import { AuthValuesType, RegisterParams, LoginParams, ErrCallbackType } from './types'
-import { User, authMe, login } from 'src/@core/services/auth.service'
+import { User, authMe, login, logout } from 'src/@core/services/auth.service'
 
 // ** Defaults
 const defaultProvider: AuthValuesType = {
@@ -75,10 +75,10 @@ const AuthProvider = ({ children }: Props) => {
     }
   }
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await logout()
     setUser(null)
     window.localStorage.removeItem('userData')
-    window.localStorage.removeItem(authConfig.storageTokenKeyName)
     router.push('/login')
   }
 

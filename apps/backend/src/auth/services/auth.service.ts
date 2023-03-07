@@ -128,10 +128,10 @@ export class AuthService {
 
     public getCookiesForLogOut() {
         return [
-            `Authentication=; HttpOnly; SameSite=None; Domain=${this.getCookieDomain()}; ${this.getCookieDomain() !== 'localhost' ?
-                'Secure;' : ''
+            `Authentication=; HttpOnly; Domain=${this.getCookieDomain()}; ${this.getCookieDomain() !== 'localhost' ?
+                'SameSite=None;Secure;' : ''
             } Path=/; Max-Age=0`,
-            `Refresh=; HttpOnly; SameSite=None; Domain=${this.getCookieDomain()}; ${this.getCookieDomain() !== 'localhost' ? 'Secure;' : ''
+            `Refresh=; HttpOnly; Domain=${this.getCookieDomain()}; ${this.getCookieDomain() !== 'localhost' ? 'SameSite=None;Secure;' : ''
             } Path=/; Max-Age=0`,
         ];
     }

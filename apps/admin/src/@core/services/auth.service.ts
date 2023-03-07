@@ -28,5 +28,5 @@ export const authMe = () => {
 }
 
 export const logout = () => {
-    return http.post('logout')
+    return http.post('auth/logout')
 }
