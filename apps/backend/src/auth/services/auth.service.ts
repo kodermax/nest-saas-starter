@@ -40,9 +40,9 @@ export class AuthService {
             secret: this.configService.get('JWT_ACCESS_TOKEN_SECRET'),
             expiresIn: `${this.configService.get('JWT_ACCESS_TOKEN_EXPIRATION_TIME')}`,
         });
-        return `Authentication=${token}; HttpOnly; Domain=${this.getCookieDomain()}; ${this.configService.get('SECURE_COOKIE') === 'true' ?
+        return `Authentication=${token}; HttpOnly; Domain=${this.getCookieDomain()}; ${this.getCookieDomain() !== 'localhost' ?
             'SameSite=None;' : ''
-            } ${this.configService.get('SECURE_COOKIE') === 'true' ? 'Secure;' : ''} Path=/; Max-Age=${this.configService.get(
+            } ${this.getCookieDomain() !== 'localhost' ? 'Secure;' : ''} Path=/; Max-Age=${this.configService.get(
                 'JWT_ACCESS_TOKEN_EXPIRATION_TIME',
             )}`;
     }
