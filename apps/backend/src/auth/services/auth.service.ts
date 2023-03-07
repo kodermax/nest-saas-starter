@@ -53,9 +53,9 @@ export class AuthService {
             secret: this.configService.get('JWT_REFRESH_TOKEN_SECRET'),
             expiresIn: `${this.configService.get('JWT_REFRESH_TOKEN_EXPIRATION_TIME')}`,
         });
-        const cookie = `Refresh=${token}; HttpOnly; Domain=${this.getCookieDomain()}; ${this.configService.get('SECURE_COOKIE') === 'true'
+        const cookie = `Refresh=${token}; HttpOnly; Domain=${this.getCookieDomain()}; ${this.getCookieDomain() !== 'localhost'
             ? 'SameSite=None;' : ''
-            } ${this.configService.get('SECURE_COOKIE') === 'true' ? 'Secure;' : ''} Path=/; Max-Age=${this.configService.get(
+            } ${this.getCookieDomain() !== 'localhost' ? 'Secure;' : ''} Path=/; Max-Age=${this.configService.get(
                 'JWT_REFRESH_TOKEN_EXPIRATION_TIME',
             )}`;
         return {
