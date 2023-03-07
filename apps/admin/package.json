@@ -31,7 +31,7 @@
     "date-fns": "2.29.3",
     "depcheck": "^1.4.3",
     "draft-js": "0.11.7",
-    "i18next": "22.4.10",
+    "i18next": "22.4.11",
     "jsonwebtoken": "9.0.0",
     "keen-slider": "6.8.5",
     "next": "13.2.3",
