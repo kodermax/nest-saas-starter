@@ -122,6 +122,17 @@ export class AuthService {
         };
     }
 
+    public async removeRefreshToken(userId: string) {
+        return this.cacheManager.del(`refresh_token:${userId}`);
+    }
 
-
+    public getCookiesForLogOut() {
+        return [
+            `Authentication=; HttpOnly; SameSite=None; Domain=${this.getCookieDomain()}; ${this.getCookieDomain() !== 'localhost' ?
+                'Secure;' : ''
+            } Path=/; Max-Age=0`,
+            `Refresh=; HttpOnly; SameSite=None; Domain=${this.getCookieDomain()}; ${this.getCookieDomain() !== 'localhost' ? 'Secure;' : ''
+            } Path=/; Max-Age=0`,
+        ];
+    }
 }

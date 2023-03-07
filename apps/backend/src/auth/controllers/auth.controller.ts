@@ -11,7 +11,6 @@ import { AuthStateDto } from '../dto/state.dto';
 @Controller('auth')
 export class AuthController {
     constructor(private readonly authService: AuthService) { }
-
     @HttpCode(200)
     @UseGuards(LocalAuthGuard)
     @Post('login')
@@ -26,13 +25,7 @@ export class AuthController {
         await this.authService.setCurrentRefreshToken(refreshToken, user.id);
         const cookies = [accessTokenCookie, refreshTokenCookie];
         request.res.setHeader('Set-Cookie', cookies);
-        return response.send({
-            id: user.id,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email,
-            phone: user?.phone || '',
-        });
+        return response.send(user);
     }
 
     @Get('me')
@@ -51,4 +44,16 @@ export class AuthController {
             phone: user.phone
         });
     }
+
+    @Post('logout')
+    @UseGuards(JwtAuthGuard)
+    @ApiOperation({ summary: 'Разлогиниться' })
+    async logOut(@Req() request: RequestWithUser, @Res() response: Response) {
+        if (request?.user) {
+            await this.authService.removeRefreshToken(request.user.id);
+        }
+        request.res.setHeader('Set-Cookie', this.authService.getCookiesForLogOut());
+        return response.send({ loggedIn: false });
+    }
+
 }
