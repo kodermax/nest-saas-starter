@@ -1,6 +1,10 @@
 import type { Config } from './config.interface';
 
 const config: Config = {
+    mail: {
+        senderEmail: 'info@nest-starter.ru',
+        senderName: 'Nest Starter'
+    },
     nest: {
         port: 8000,
     },

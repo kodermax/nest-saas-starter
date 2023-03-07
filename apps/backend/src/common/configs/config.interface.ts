@@ -2,6 +2,7 @@ export interface Config {
     database: DatabaseConfig;
     nest: NestConfig;
     cors: CorsConfig;
+    mail: MailConfig;
     swagger: SwaggerConfig;
     graphql: GraphqlConfig;
     security: SecurityConfig;
@@ -38,4 +39,9 @@ export interface SecurityConfig {
     expiresIn: string;
     refreshIn: string;
     bcryptSaltOrRound: string | number;
+}
+
+export interface MailConfig {
+    senderName: string;
+    senderEmail: string;
 }
