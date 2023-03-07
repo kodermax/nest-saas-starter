@@ -4,10 +4,10 @@ import { ConfigService } from '@nestjs/config';
 import { JwtDto } from '../dto/jwt.dto';
 import { User } from '@prisma/client';
 import { PasswordService } from './password.service';
-import { RedisService } from 'src/redis/redis.service';
-import { SecurityConfig } from 'src/common/configs/config.interface';
+import { RedisService } from 'src/app/redis/redis.service';
+import { SecurityConfig } from 'src/app/common/configs/config.interface';
 import { Token } from '../models/token.model';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from 'src/app/prisma/prisma.service';
 
 @Injectable()
 export class AuthService {

@@ -3,10 +3,10 @@ https://docs.nestjs.com/providers#services
 */
 
 import { ConflictException, Injectable } from '@nestjs/common';
-import { PasswordService } from 'src/auth/services/password.service';
+import { PasswordService } from 'src/app/auth/services/password.service';
 import { RegisterInput } from '../dto/register.input';
 import { Prisma, User } from '@prisma/client';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from 'src/app/prisma/prisma.service';
 
 @Injectable()
 export class AccountsService {

@@ -1,10 +1,10 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { AppModule } from './app/app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { CorsConfig, NestConfig, SwaggerConfig } from './common/configs/config.interface';
-import { PrismaService } from './prisma/prisma.service';
+import { CorsConfig, NestConfig, SwaggerConfig } from './app/common/configs/config.interface';
+import { PrismaService } from './app/prisma/prisma.service';
 import cookieParser from 'cookie-parser';
 import { NestExpressApplication } from '@nestjs/platform-express';
 

@@ -1,0 +1,14 @@
+<mj-section padding="10px 0 10px 0">
+  <mj-column>
+    <mj-text align="center" color="#9B9B9B" font-size="11px">
+      Nest Starter
+    </mj-text>
+  </mj-column>
+</mj-section>
+
+<mj-section padding="20px 20px 0 20px" background-color="#FFFFFF">
+  <mj-column width="35%">
+    <mj-text align="left" font-size="20px" font-weight="500">nest-starter.ru</mj-text>
+  </mj-column>
+  <mj-column width="65%"></mj-column>
+</mj-section>

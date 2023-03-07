@@ -6,7 +6,7 @@ import { Body, Controller, HttpCode, HttpStatus, Post, Req, Res } from '@nestjs/
 import { ApiBadRequestResponse, ApiConflictResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { RegisterInput } from '../dto/register.input';
 import { AccountsService } from '../services/accounts.service';
-import { AuthService } from 'src/auth/services/auth.service';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { Request, Response } from 'express';
 import { NewUserDto } from '../dto/new-user.dto';
 import { classToPlain, instanceToPlain, plainToInstance } from 'class-transformer';

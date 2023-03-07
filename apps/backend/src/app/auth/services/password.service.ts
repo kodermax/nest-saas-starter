@@ -4,7 +4,7 @@ https://docs.nestjs.com/providers#services
 
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { SecurityConfig } from 'src/common/configs/config.interface';
+import { SecurityConfig } from 'src/app/common/configs/config.interface';
 import { hash, compare } from 'bcrypt';
 
 @Injectable()
