@@ -1,4 +1,4 @@
-import {  ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
+import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { JwtDto } from '../dto/jwt.dto';
@@ -92,8 +92,7 @@ export class AuthService {
     }
 
     private getCookieDomain() {
-        const url = new URL(this.configService.get('CORS_ORIGIN'));
-        return url.hostname;
+        return this.configService.get('AUTH_COOKIE_DOMAIN');
     }
 
     public async setCurrentRefreshToken(refreshToken: string, userId: string) {
