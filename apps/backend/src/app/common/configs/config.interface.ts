@@ -1,4 +1,5 @@
 export interface Config {
+    siteUrl: string
     database: DatabaseConfig;
     nest: NestConfig;
     cors: CorsConfig;

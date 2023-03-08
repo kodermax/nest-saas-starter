@@ -3,13 +3,14 @@ https://docs.nestjs.com/controllers#controllers
 */
 
 import { Body, Controller, HttpCode, HttpStatus, Post, Req, Res } from '@nestjs/common';
-import { ApiBadRequestResponse, ApiConflictResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBadRequestResponse, ApiConflictResponse, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { RegisterInput } from '../dto/register.input';
 import { AccountsService } from '../services/accounts.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Request, Response } from 'express';
 import { NewUserDto } from '../dto/new-user.dto';
 import { classToPlain, instanceToPlain, plainToInstance } from 'class-transformer';
+import { RequestPasswordResetInputDto } from '../dto/reset.dto';
 
 @ApiTags('Аккаунты')
 @Controller('accounts')
@@ -35,6 +36,14 @@ export class AccountsController {
         request.res.setHeader('Set-Cookie', [cookies.accessToken, cookies.refreshToken]);
         const newUser = plainToInstance(NewUserDto, user);
         res.status(HttpStatus.OK).json(newUser);
+    }
+
+    @Post('request-password-reset')
+    @HttpCode(200)
+    @ApiOperation({ summary: 'Запрос на сброс пароля' })
+    @ApiOkResponse()
+    async requestPasswordReset(@Body() postData: RequestPasswordResetInputDto) {
+        await this.accountsService.requestPasswordReset(postData.email);
     }
 
 }

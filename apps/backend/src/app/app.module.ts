@@ -1,4 +1,3 @@
-import { AccountsService } from './accounts/services/accounts.service';
 import { PasswordService } from './auth/services/password.service';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
@@ -18,7 +17,6 @@ import config from './common/configs/config';
   }), RedisModule, PrismaModule],
   controllers: [AppController],
   providers: [
-    AccountsService,
     PasswordService, AppService],
 })
 export class AppModule { }

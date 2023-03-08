@@ -11,6 +11,14 @@ export class UsersService {
         private passwordService: PasswordService
     ) { }
 
+    public getUserByEmail(email: string) {
+        return this.prisma.user.findUnique({
+            where: {
+                email: email
+            }
+        })
+    }
+
     public updateUser(userId: string, newUserData: UpdateUserInput) {
         return this.prisma.user.update({
             data: newUserData,

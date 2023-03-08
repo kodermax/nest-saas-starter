@@ -1,9 +1,10 @@
 import type { Config } from './config.interface';
 
 const config: Config = {
+    siteUrl: 'https://nest-starter-admin.vercel.app',
     mail: {
-        senderEmail: 'info@nest-starter.ru',
-        senderName: 'Nest Starter'
+        senderEmail: 'kodermax@yandex.ru',
+        senderName: 'Info'
     },
     nest: {
         port: 8000,
