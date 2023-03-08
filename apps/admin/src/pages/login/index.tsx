@@ -6,7 +6,6 @@ import Link from 'next/link'
 
 // ** MUI Components
 import Alert from '@mui/material/Alert'
-import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import Checkbox from '@mui/material/Checkbox'
 import TextField from '@mui/material/TextField'
@@ -41,6 +40,7 @@ import BlankLayout from 'src/@core/layouts/BlankLayout'
 // ** Demo Imports
 import FooterIllustrationsV1 from 'src/views/pages/auth/FooterIllustrationsV1'
 import { Card, CardContent, Typography } from '@mui/material'
+import { LoadingButton } from '@mui/lab'
 
 // ** Styled Components
 
@@ -264,9 +264,16 @@ const LoginPage = () => {
                 Forgot Password?
               </Typography>
             </Box>
-            <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 7 }}>
+            <LoadingButton
+              fullWidth
+              size='large'
+              type='submit'
+              variant='contained'
+              sx={{ mb: 7 }}
+              loading={auth.loading}
+            >
               Login
-            </Button>
+            </LoadingButton>
             <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
               <Typography sx={{ mr: 2, color: 'text.secondary' }}>New on our platform?</Typography>
               <Typography href='/register' component={Link} sx={{ color: 'primary.main', textDecoration: 'none' }}>
