@@ -21,8 +21,11 @@ import themeConfig from 'src/configs/themeConfig'
 // ** Layout Import
 import BlankLayout from 'src/@core/layouts/BlankLayout'
 
-import { CardContent } from '@mui/material'
+import { CardContent, FormControl, FormHelperText } from '@mui/material'
 import FooterIllustrationsV1 from 'src/views/pages/auth/FooterIllustrationsV1'
+import { RequestPasswordResetInput, requestPasswordReset } from 'src/@core/services/accounts.service'
+import { Controller, useForm } from 'react-hook-form'
+import { classValidatorResolver } from '@hookform/resolvers/class-validator'
 
 // Styled Components
 
@@ -42,9 +45,28 @@ const Card = styled(MuiCard)<CardProps>(({ theme }) => ({
 const ForgotPassword = () => {
   // ** Hooks
   const theme = useTheme()
+  const resolver = classValidatorResolver(RequestPasswordResetInput)
 
-  const handleSubmit = (e: SyntheticEvent) => {
-    e.preventDefault()
+  const {
+    control,
+    setError,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<RequestPasswordResetInput>({
+    mode: 'onBlur',
+    resolver
+  })
+
+  const onSubmit = async (data: RequestPasswordResetInput) => {
+    const { email } = data
+    try {
+      await requestPasswordReset({ email })
+    } catch (err: any) {
+      setError('email', {
+        type: 'manual',
+        message: err.response.data.message
+      })
+    }
   }
 
   return (
@@ -134,8 +156,25 @@ const ForgotPassword = () => {
               Enter your email and we&prime;ll send you instructions to reset your password
             </Typography>
           </Box>
-          <form noValidate autoComplete='off' onSubmit={handleSubmit}>
-            <TextField autoFocus type='email' label='Email' sx={{ display: 'flex', mb: 4 }} />
+          <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
+            <FormControl fullWidth sx={{ mb: 4 }}>
+              <Controller
+                name='email'
+                control={control}
+                rules={{ required: true }}
+                render={({ field: { value, onChange, onBlur } }) => (
+                  <TextField
+                    value={value}
+                    label='Email'
+                    onBlur={onBlur}
+                    onChange={onChange}
+                    error={Boolean(errors.email)}
+                    placeholder='admin@starter.com'
+                  />
+                )}
+              />
+              {errors.email && <FormHelperText sx={{ color: 'error.main' }}>{errors.email.message}</FormHelperText>}
+            </FormControl>{' '}
             <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 5.25 }}>
               Send reset link
             </Button>
