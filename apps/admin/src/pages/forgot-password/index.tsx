@@ -1,5 +1,5 @@
 // ** React Imports
-import { ReactNode, SyntheticEvent } from 'react'
+import { ReactNode } from 'react'
 
 // ** Next Import
 import Link from 'next/link'
