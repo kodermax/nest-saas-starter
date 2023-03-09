@@ -1,5 +1,5 @@
 // ** React Imports
-import { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
 
 // ** Next Import
 import Link from 'next/link'
@@ -21,11 +21,12 @@ import themeConfig from 'src/configs/themeConfig'
 // ** Layout Import
 import BlankLayout from 'src/@core/layouts/BlankLayout'
 
-import { CardContent, FormControl, FormHelperText } from '@mui/material'
+import { Alert, CardContent, FormControl, FormHelperText } from '@mui/material'
 import FooterIllustrationsV1 from 'src/views/pages/auth/FooterIllustrationsV1'
 import { RequestPasswordResetInput, requestPasswordReset } from 'src/@core/services/accounts.service'
 import { Controller, useForm } from 'react-hook-form'
 import { classValidatorResolver } from '@hookform/resolvers/class-validator'
+import useBgColor from 'src/@core/hooks/useBgColor'
 
 // Styled Components
 
@@ -45,6 +46,7 @@ const Card = styled(MuiCard)<CardProps>(({ theme }) => ({
 const ForgotPassword = () => {
   // ** Hooks
   const theme = useTheme()
+  const [successRequest, setSuccessRequest] = useState<boolean>(false)
   const resolver = classValidatorResolver(RequestPasswordResetInput)
 
   const {
@@ -56,11 +58,14 @@ const ForgotPassword = () => {
     mode: 'onBlur',
     resolver
   })
+  const bgColors = useBgColor()
 
   const onSubmit = async (data: RequestPasswordResetInput) => {
     const { email } = data
     try {
+      setSuccessRequest(false)
       await requestPasswordReset({ email })
+      setSuccessRequest(true)
     } catch (err: any) {
       setError('email', {
         type: 'manual',
@@ -178,6 +183,13 @@ const ForgotPassword = () => {
             <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 5.25 }}>
               Send reset link
             </Button>
+            {successRequest && (
+              <Alert icon={false} sx={{ py: 3, mb: 6, ...bgColors.primaryLight, '& .MuiAlert-message': { p: 0 } }}>
+                <Typography variant='caption' sx={{ mb: 2, display: 'block', color: 'primary.main' }}>
+                  An email with instructions for creating a new password has been sent to you.
+                </Typography>
+              </Alert>
+            )}
             <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <LinkStyled href='/login'>
                 <Icon icon='mdi:chevron-left' fontSize='2rem' />
