@@ -39,8 +39,7 @@ import BlankLayout from 'src/@core/layouts/BlankLayout'
 
 // ** Demo Imports
 import FooterIllustrationsV1 from 'src/views/pages/auth/FooterIllustrationsV1'
-import { Card, CardContent, Typography } from '@mui/material'
-import { LoadingButton } from '@mui/lab'
+import { Button, Card, CardContent, Typography } from '@mui/material'
 
 // ** Styled Components
 
@@ -264,16 +263,9 @@ const LoginPage = () => {
                 Forgot Password?
               </Typography>
             </Box>
-            <LoadingButton
-              fullWidth
-              size='large'
-              type='submit'
-              variant='contained'
-              sx={{ mb: 7 }}
-              loading={auth.loading}
-            >
+            <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 7 }}>
               Login
-            </LoadingButton>
+            </Button>
             <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
               <Typography sx={{ mr: 2, color: 'text.secondary' }}>New on our platform?</Typography>
               <Typography href='/register' component={Link} sx={{ color: 'primary.main', textDecoration: 'none' }}>
