@@ -2,7 +2,7 @@
 https://docs.nestjs.com/providers#services
 */
 
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { PasswordService } from 'src/app/auth/services/password.service';
 import { RegisterInput } from '../dto/register.input';
 import { Prisma, User } from '@prisma/client';
@@ -22,6 +22,31 @@ export class AccountsService {
         private readonly cacheManager: RedisService,
         private readonly mailService: MailService
     ) { }
+
+
+    public async resetPassword(token: string, password: string) {
+        if (!password) {
+            throw new BadRequestException('Не указан пароль!');
+        }
+        if (!token) {
+            throw new BadRequestException('Не указан токен!');
+        }
+        const userId = await this.cacheManager.get(`reset_token:${token}`);
+        if (!userId) {
+            throw new NotFoundException('Истёк срок действия токена!');
+        }
+        const hashedPassword = await this.passwordService.hashPassword(password);
+        await this.prisma.user.update({
+            where: {
+                id: userId
+            },
+            data: {
+                password: hashedPassword,
+            }
+        });
+        await this.cacheManager.del(`reset_token:${token}`);
+    }
+
 
     public async requestPasswordReset(email: string) {
         const user = await this.usersServices.getUserByEmail(email);

@@ -1,4 +1,4 @@
-import { IsEmail, MinLength } from 'class-validator';
+import { IsEmail, IsString, MinLength } from 'class-validator';
 import { http } from './http'
 
 export class RegisterInput {
@@ -20,6 +20,14 @@ export class RequestPasswordResetInput {
     email: string;
 }
 
+export class ResetPasswordInput {
+    @IsString()
+    token: string;
+
+    @MinLength(5)
+    password: string;
+}
+
 export const register = (payload: RegisterInput) => {
     return http.post('accounts/register', payload)
 }
@@ -27,4 +35,8 @@ export const register = (payload: RegisterInput) => {
 
 export const requestPasswordReset = (payload: RequestPasswordResetInput) => {
     return http.post('accounts/request-password-reset', payload)
+}
+
+export const resetPassword = (payload: ResetPasswordInput) => {
+    return http.post('accounts/reset-password', payload)
 }

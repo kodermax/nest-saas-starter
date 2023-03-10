@@ -25,13 +25,13 @@ export class MailService {
     public sendPasswordReset(name: string, email: string, token: string) {
         const context: PasswordResetContext = {
             siteUrl: this.configService.get('siteUrl'),
-            resetUrl: `${this.configService.get('siteUrl')}/password-reset-confirmation?token=${encodeURI(token)}`,
+            resetUrl: `${this.configService.get('siteUrl')}/reset-password?token=${encodeURI(token)}`,
             name,
             email
         };
 
         return this.send({
-            template: 'password-reset',
+            template: 'reset-password-request',
             to: email,
             subject: `Password Reset Request`,
             context,

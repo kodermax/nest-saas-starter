@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 import { Request, Response } from 'express';
 import { NewUserDto } from '../dto/new-user.dto';
 import { classToPlain, instanceToPlain, plainToInstance } from 'class-transformer';
-import { RequestPasswordResetInputDto } from '../dto/reset.dto';
+import { RequestPasswordResetInputDto, ResetInputDto } from '../dto/reset.dto';
 
 @ApiTags('Аккаунты')
 @Controller('accounts')
@@ -44,6 +44,15 @@ export class AccountsController {
     @ApiOkResponse()
     async requestPasswordReset(@Body() postData: RequestPasswordResetInputDto) {
         await this.accountsService.requestPasswordReset(postData.email);
+    }
+
+
+    @Post('reset-password')
+    @HttpCode(200)
+    @ApiOperation({ summary: 'Сброс пароля' })
+    @ApiOkResponse()
+    async resetPassword(@Body() postData: ResetInputDto) {
+        await this.accountsService.resetPassword(postData.token, postData.password);
     }
 
 }

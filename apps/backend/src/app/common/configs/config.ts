@@ -1,7 +1,7 @@
 import type { Config } from './config.interface';
 
 const config: Config = {
-    siteUrl: 'https://nest-starter-admin.vercel.app',
+    siteUrl: 'http://localhost:3000',
     mail: {
         senderEmail: 'kodermax@yandex.ru',
         senderName: 'Info'
