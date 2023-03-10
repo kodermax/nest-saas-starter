@@ -51,7 +51,7 @@ export class AccountsService {
     public async requestPasswordReset(email: string) {
         const user = await this.usersServices.getUserByEmail(email);
         if (!user) {
-            throw new NotFoundException();
+            throw new NotFoundException('We couldn’t find that email. Please try again.');
         }
         const token = crypto.randomBytes(24).toString('hex');
         await this.cacheManager.set(`reset_token:${token}`, user.id, { ttl: 3600000 });
