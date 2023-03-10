@@ -12,7 +12,7 @@ export interface User {
     lastName: string
     middleName: string
     name: string
-    role: UserRole
+    roles: UserRole[]
     email: string
 }
 export interface LoginInput {

@@ -30,7 +30,7 @@ export class AccountsController {
         @Res() res: Response,
     ) {
         const user = await this.accountsService.createUser(postData);
-        const tokens = this.authService.generateTokens({ userId: user.id });
+        const tokens = this.authService.generateTokens(user);
         const cookies = this.authService.getAuthCookies(tokens.accessToken, tokens.refreshToken);
         await this.authService.setCurrentRefreshToken(tokens.refreshToken, user.id);
         request.res.setHeader('Set-Cookie', [cookies.accessToken, cookies.refreshToken]);

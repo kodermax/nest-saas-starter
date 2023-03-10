@@ -3,13 +3,13 @@ import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { Request } from 'express';
-import { JwtDto } from '../dto/jwt.dto';
-import { User } from '@prisma/client';
 import { AuthService } from '../services/auth.service';
+import { JwtPayload } from '../models/jwt-payload';
+import { RequestUser } from '../interfaces/user';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
-    constructor(readonly configService: ConfigService, readonly authService: AuthService) {
+    constructor(readonly config: ConfigService, readonly authService: AuthService) {
         super({
             jwtFromRequest: ExtractJwt.fromExtractors([
                 (request: Request) => {
@@ -17,15 +17,19 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
                 },
             ]),
             ignoreExpiration: false,
-            secretOrKey: configService.get('JWT_ACCESS_TOKEN_SECRET'),
+            secretOrKey: config.get('JWT_ACCESS_TOKEN_SECRET'),
         });
     }
 
-    async validate(payload: JwtDto): Promise<User> {
-        const user = await this.authService.validateUser(payload.userId);
+    async validate(payload: JwtPayload): Promise<RequestUser | null> {
+        if (payload.aud !== this.config.get('siteUrl')) return null;
+        const user = await this.authService.validateUser(payload.sub);
         if (!user) {
             throw new UnauthorizedException();
         }
-        return user;
+        return {
+            id: user.id,
+            roles: user.roles,
+        };
     }
 }

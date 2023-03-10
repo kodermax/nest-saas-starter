@@ -1,3 +1,4 @@
+import { Role } from '@prisma/client';
 import { Request } from 'express';
 
 export interface User {
@@ -14,6 +15,16 @@ export interface User {
 }
 
 export interface RequestWithUser extends Request {
-    user: User;
+    user: RequestUser;
 }
 
+
+export class RequestUser {
+    id: string;
+    firstName?: string;
+    lastName?: string;
+    middleName?: string;
+    email?: string;
+    phone?: string;
+    roles: Role[];
+}

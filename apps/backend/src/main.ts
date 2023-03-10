@@ -7,6 +7,7 @@ import { CorsConfig, NestConfig, SwaggerConfig } from './app/common/configs/conf
 import { PrismaService } from './app/prisma/prisma.service';
 import cookieParser from 'cookie-parser';
 import { NestExpressApplication } from '@nestjs/platform-express';
+import helmet from 'helmet';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -39,6 +40,9 @@ async function bootstrap() {
       preflightContinue: false,
       optionsSuccessStatus: 204,
     });
+  }
+  if (configService.get<boolean>('production')) {
+    app.use(helmet());
   }
   app.use(cookieParser());
   app.set('trust proxy', true);

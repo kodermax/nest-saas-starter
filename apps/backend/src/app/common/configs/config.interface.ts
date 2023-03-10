@@ -1,3 +1,5 @@
+import { ThrottlerModuleOptions } from "@nestjs/throttler";
+
 export interface Config {
     siteUrl: string
     database: DatabaseConfig;
@@ -5,8 +7,9 @@ export interface Config {
     cors: CorsConfig;
     mail: MailConfig;
     swagger: SwaggerConfig;
-    graphql: GraphqlConfig;
     security: SecurityConfig;
+    throttle: ThrottlerModuleOptions;
+    production: boolean;
 }
 
 export interface NestConfig {
@@ -29,16 +32,10 @@ export interface SwaggerConfig {
     path: string;
 }
 
-export interface GraphqlConfig {
-    playgroundEnabled: boolean;
-    debug: boolean;
-    schemaDestination: string;
-    sortSchema: boolean;
-}
 
 export interface SecurityConfig {
     expiresIn: string;
-    refreshIn: string;
+    refreshIn: number;
     bcryptSaltOrRound: string | number;
 }
 

@@ -20,8 +20,8 @@ export class AuthController {
         @Res() response: Response,
     ) {
         const { user } = request;
-        const accessTokenCookie = this.authService.getCookieWithJwtAccessToken(user.id);
-        const { cookie: refreshTokenCookie, token: refreshToken } = this.authService.getCookieWithJwtRefreshToken(user.id);
+        const accessTokenCookie = this.authService.getCookieWithJwtAccessToken(user);
+        const { cookie: refreshTokenCookie, token: refreshToken } = this.authService.getCookieWithJwtRefreshToken(user);
         await this.authService.setCurrentRefreshToken(refreshToken, user.id);
         const cookies = [accessTokenCookie, refreshTokenCookie];
         request.res.setHeader('Set-Cookie', cookies);
@@ -39,7 +39,7 @@ export class AuthController {
             firstName: user.firstName,
             lastName: user.lastName,
             middleName: user.middleName,
-            role: user.role,
+            roles: user.roles,
             email: user.email,
             phone: user.phone
         });

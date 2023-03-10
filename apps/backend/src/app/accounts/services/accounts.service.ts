@@ -68,7 +68,7 @@ export class AccountsService {
                 data: {
                     ...payload,
                     password: hashedPassword,
-                    role: 'USER',
+                    roles: ['USER'],
                 },
             });
             return user;

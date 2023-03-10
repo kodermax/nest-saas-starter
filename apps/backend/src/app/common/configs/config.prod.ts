@@ -1,8 +1,8 @@
 import type { Config } from './config.interface';
 
 const config: Config = {
-    siteUrl: 'http://localhost:3000',
-    production: false,
+    siteUrl: 'https://nest-starter-admin.vercel.app',
+    production: true,
     mail: {
         senderEmail: 'kodermax@yandex.ru',
         senderName: 'Info'
@@ -22,7 +22,7 @@ const config: Config = {
     },
     security: {
         expiresIn: '1h',
-        refreshIn: 604_800, // 7d
+        refreshIn: 604_800,
         bcryptSaltOrRound: 10,
     },
     database: {
