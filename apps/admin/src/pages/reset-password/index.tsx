@@ -1,5 +1,5 @@
 // ** React Imports
-import { ChangeEvent, ReactNode, useEffect, useState, MouseEvent } from 'react'
+import { ReactNode, useEffect, useState, MouseEvent } from 'react'
 
 // ** Next Import
 import Link from 'next/link'
@@ -20,12 +20,22 @@ import themeConfig from 'src/configs/themeConfig'
 // ** Layout Import
 import BlankLayout from 'src/@core/layouts/BlankLayout'
 
-import { CardContent, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } from '@mui/material'
+import {
+  CardContent,
+  FormControl,
+  FormHelperText,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput
+} from '@mui/material'
 import FooterIllustrationsV1 from 'src/views/pages/auth/FooterIllustrationsV1'
-import { ResetPasswordInput, resetPassword } from 'src/@core/services/accounts.service'
-import { useForm } from 'react-hook-form'
+import { resetPassword } from 'src/@core/services/accounts.service'
+import { Controller, useForm } from 'react-hook-form'
 import { classValidatorResolver } from '@hookform/resolvers/class-validator'
 import { useRouter } from 'next/router'
+import { IsString, MinLength } from 'class-validator'
+import { Match } from 'src/@core/decorators/match.decorator'
 
 // Styled Components
 
@@ -33,10 +43,19 @@ const Card = styled(MuiCard)<CardProps>(({ theme }) => ({
   [theme.breakpoints.up('sm')]: { width: 450 }
 }))
 
-interface State {
+class FormState {
+  @IsString()
+  @MinLength(5)
   newPassword: string
-  showNewPassword: boolean
+
+  @IsString()
+  @MinLength(5)
+  @Match('newPassword', { message: 'This password doesn’t match. Try again.' })
   confirmNewPassword: string
+}
+
+interface State {
+  showNewPassword: boolean
   showConfirmNewPassword: boolean
   token: string
 }
@@ -46,15 +65,18 @@ const ResetPassword = () => {
   const theme = useTheme()
   const router = useRouter()
   const [successRequest, setSuccessRequest] = useState<boolean>(false)
-  const resolver = classValidatorResolver(ResetPasswordInput)
+  const resolver = classValidatorResolver(FormState)
   const [values, setValues] = useState<State>({
-    newPassword: '',
     showNewPassword: false,
-    confirmNewPassword: '',
     showConfirmNewPassword: false,
     token: ''
   })
-  const { setError, handleSubmit } = useForm<ResetPasswordInput>({
+  const {
+    control,
+    formState: { errors },
+    setError,
+    handleSubmit
+  } = useForm<FormState>({
     mode: 'onBlur',
     resolver
   })
@@ -66,33 +88,28 @@ const ResetPassword = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router])
 
-  const onSubmit = async (data: ResetPasswordInput) => {
-    const { password } = data
+  const onSubmit = async (data: FormState) => {
+    const { newPassword } = data
     try {
       setSuccessRequest(false)
-      await resetPassword({ password, token: values.token })
+      await resetPassword({ password: newPassword, token: values.token })
       setSuccessRequest(true)
     } catch (err: any) {
-      setError('password', {
+      setError('newPassword', {
         type: 'manual',
         message: err.response.data.message
       })
     }
   }
 
-  const handleNewPasswordChange = (prop: keyof State) => (event: ChangeEvent<HTMLInputElement>) => {
-    setValues({ ...values, [prop]: event.target.value })
-  }
-
   const handleClickShowNewPassword = () => {
     setValues({ ...values, showNewPassword: !values.showNewPassword })
   }
+
   const handleMouseDownNewPassword = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
   }
-  const handleConfirmNewPasswordChange = (prop: keyof State) => (event: ChangeEvent<HTMLInputElement>) => {
-    setValues({ ...values, [prop]: event.target.value })
-  }
+
   const handleClickShowConfirmNewPassword = () => {
     setValues({ ...values, showConfirmNewPassword: !values.showConfirmNewPassword })
   }
@@ -179,81 +196,120 @@ const ResetPassword = () => {
               {themeConfig.templateName}
             </Typography>
           </Box>
-          <Box sx={{ mb: 6 }}>
-            <Typography variant='h5' sx={{ mb: 1.5, letterSpacing: '0.18px', fontWeight: 600 }}>
-              Reset Password 🔒
-            </Typography>
-            <Typography variant='body2'>Your new password must be different from previously used passwords</Typography>
-          </Box>
-          {successRequest && <>success</>}
-          {!successRequest && (
-            <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
-              <FormControl fullWidth sx={{ mb: 4 }}>
-                <InputLabel htmlFor='auth-reset-password-new-password'>New Password</InputLabel>
-                <OutlinedInput
-                  autoFocus
-                  label='New Password'
-                  value={values.newPassword}
-                  id='auth-reset-password-new-password'
-                  onChange={handleNewPasswordChange('newPassword')}
-                  type={values.showNewPassword ? 'text' : 'password'}
-                  endAdornment={
-                    <InputAdornment position='end'>
-                      <IconButton
-                        edge='end'
-                        onClick={handleClickShowNewPassword}
-                        aria-label='toggle password visibility'
-                        onMouseDown={handleMouseDownNewPassword}
-                      >
-                        <Icon icon={values.showNewPassword ? 'mdi:eye-outline' : 'mdi:eye-off-outline'} />
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
-              <FormControl fullWidth sx={{ mb: 4 }}>
-                <InputLabel htmlFor='auth-reset-password-confirm-password'>Confirm Password</InputLabel>
-                <OutlinedInput
-                  label='Confirm Password'
-                  value={values.confirmNewPassword}
-                  id='auth-reset-password-confirm-password'
-                  type={values.showConfirmNewPassword ? 'text' : 'password'}
-                  onChange={handleConfirmNewPasswordChange('confirmNewPassword')}
-                  endAdornment={
-                    <InputAdornment position='end'>
-                      <IconButton
-                        edge='end'
-                        aria-label='toggle password visibility'
-                        onClick={handleClickShowConfirmNewPassword}
-                        onMouseDown={handleMouseDownConfirmNewPassword}
-                      >
-                        <Icon icon={values.showConfirmNewPassword ? 'mdi:eye-outline' : 'mdi:eye-off-outline'} />
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
-              <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 5.25 }}>
-                Set New Password
+
+          {successRequest && (
+            <>
+              <Typography variant='h5' sx={{ mb: 1.5, letterSpacing: '0.18px', fontWeight: 600 }}>
+                You've successfully changed your password
+              </Typography>
+              <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 5.25 }} href='/'>
+                Continue To Dashboard
               </Button>
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Typography
-                  component={Link}
-                  href='/login'
-                  sx={{
-                    display: 'flex',
-                    '& svg': { mr: 1.5 },
-                    alignItems: 'center',
-                    color: 'primary.main',
-                    textDecoration: 'none',
-                    justifyContent: 'center'
-                  }}
-                >
-                  <Icon icon='mdi:chevron-left' fontSize='2rem' />
-                  <span>Back to login</span>
+            </>
+          )}
+          {!successRequest && (
+            <>
+              <Box sx={{ mb: 6 }}>
+                <Typography variant='h5' sx={{ mb: 1.5, letterSpacing: '0.18px', fontWeight: 600 }}>
+                  Reset Password 🔒
+                </Typography>
+                <Typography variant='body2'>
+                  Your new password must be different from previously used passwords
                 </Typography>
               </Box>
-            </form>
+              <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
+                <FormControl fullWidth sx={{ mb: 4 }}>
+                  <InputLabel htmlFor='auth-reset-password-new-password'>New Password</InputLabel>
+                  <Controller
+                    name='newPassword'
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field: { value, onChange, onBlur } }) => (
+                      <OutlinedInput
+                        autoFocus
+                        value={value}
+                        label='New Password'
+                        onBlur={onBlur}
+                        onChange={onChange}
+                        error={Boolean(errors.newPassword)}
+                        placeholder='admin@starter.com'
+                        type={values.showNewPassword ? 'text' : 'password'}
+                        endAdornment={
+                          <InputAdornment position='end'>
+                            <IconButton
+                              edge='end'
+                              onClick={handleClickShowNewPassword}
+                              aria-label='toggle password visibility'
+                              onMouseDown={handleMouseDownNewPassword}
+                            >
+                              <Icon icon={values.showNewPassword ? 'mdi:eye-outline' : 'mdi:eye-off-outline'} />
+                            </IconButton>
+                          </InputAdornment>
+                        }
+                      />
+                    )}
+                  />
+                  {errors.newPassword && (
+                    <FormHelperText sx={{ color: 'error.main' }}>{errors.newPassword.message}</FormHelperText>
+                  )}
+                </FormControl>
+                <FormControl fullWidth sx={{ mb: 4 }}>
+                  <InputLabel htmlFor='auth-reset-password-confirm-password'>Confirm Password</InputLabel>
+                  <Controller
+                    name='confirmNewPassword'
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field: { value, onChange, onBlur } }) => (
+                      <OutlinedInput
+                        autoFocus
+                        value={value}
+                        label='Confirm Password'
+                        onBlur={onBlur}
+                        onChange={onChange}
+                        error={Boolean(errors.confirmNewPassword)}
+                        placeholder='admin@starter.com'
+                        type={values.showConfirmNewPassword ? 'text' : 'password'}
+                        endAdornment={
+                          <InputAdornment position='end'>
+                            <IconButton
+                              edge='end'
+                              aria-label='toggle password visibility'
+                              onClick={handleClickShowConfirmNewPassword}
+                              onMouseDown={handleMouseDownConfirmNewPassword}
+                            >
+                              <Icon icon={values.showConfirmNewPassword ? 'mdi:eye-outline' : 'mdi:eye-off-outline'} />
+                            </IconButton>
+                          </InputAdornment>
+                        }
+                      />
+                    )}
+                  />
+                  {errors.confirmNewPassword && (
+                    <FormHelperText sx={{ color: 'error.main' }}>{errors.confirmNewPassword.message}</FormHelperText>
+                  )}
+                </FormControl>
+                <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 5.25 }}>
+                  Set New Password
+                </Button>
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Typography
+                    component={Link}
+                    href='/login'
+                    sx={{
+                      display: 'flex',
+                      '& svg': { mr: 1.5 },
+                      alignItems: 'center',
+                      color: 'primary.main',
+                      textDecoration: 'none',
+                      justifyContent: 'center'
+                    }}
+                  >
+                    <Icon icon='mdi:chevron-left' fontSize='2rem' />
+                    <span>Back to login</span>
+                  </Typography>
+                </Box>
+              </form>
+            </>
           )}
         </CardContent>
       </Card>
