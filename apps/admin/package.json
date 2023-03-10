@@ -56,7 +56,7 @@
     "@iconify/utils": "2.1.4",
     "@types/draft-js": "0.11.10",
     "@types/jsonwebtoken": "9.0.1",
-    "@types/node": "18.14.6",
+    "@types/node": "18.15.0",
     "@types/nprogress": "0.2.0",
     "@types/payment": "2.1.4",
     "@types/prismjs": "1.26.0",
