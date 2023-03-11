@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
-    "eslint": "8.35.0",
+    "eslint": "8.36.0",
     "eslint-config-custom": "*",
     "tsconfig": "*",
     "@types/node": "^18.15.0",
