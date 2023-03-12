@@ -1,0 +1,18 @@
+{
+  "preset": "next",
+  "entry": ["./src/**/*.{js,jsx,ts,tsx}"],
+  "extensions": [".js", ".jsx", ".ts", ".tsx"],
+  "flow": false,
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/*.tests.{js,jsx,ts,tsx}",
+    "**/*.test.{js,jsx,ts,tsx}",
+    "**/*.spec.{js,jsx,ts,tsx}",
+    "**/tests/**",
+    "**/__tests__/**",
+    "**/*.d.ts"
+  ],
+  "ignoreUnimported": [],
+  "ignoreUnresolved": [],
+  "ignoreUnused": ["next", "react", "react-dom"]
+}

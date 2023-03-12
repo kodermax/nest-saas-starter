@@ -11,7 +11,8 @@
     "export": "next export",
     "lint": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "build:icons": "tsc -b src/iconify-bundle && node src/iconify-bundle/bundle-icons-react.js"
+    "build:icons": "tsc -b src/iconify-bundle && node src/iconify-bundle/bundle-icons-react.js",
+    "unimported": "unimported"
   },
   "dependencies": {
     "@casl/ability": "6.3.3",
@@ -32,8 +33,6 @@
     "clipboard-copy": "4.0.1",
     "clsx": "1.2.1",
     "depcheck": "^1.4.3",
-    "draft-js": "0.11.7",
-    "i18next": "22.4.11",
     "keen-slider": "6.8.5",
     "next": "13.2.4",
     "nprogress": "0.2.0",
@@ -43,7 +42,6 @@
     "react-draft-wysiwyg": "1.15.0",
     "react-hook-form": "7.43.5",
     "react-hot-toast": "2.4.0",
-    "react-i18next": "12.2.0",
     "react-perfect-scrollbar": "1.5.8",
     "react-popper": "2.3.0",
     "yup": "1.0.2"
@@ -71,6 +69,7 @@
     "eslint-config-custom": "*",
     "prettier": "2.8.4",
     "tsconfig": "*",
-    "typescript": "4.9.5"
+    "typescript": "4.9.5",
+    "unimported": "^1.26.0"
   }
 }
