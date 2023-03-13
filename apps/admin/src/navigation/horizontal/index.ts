@@ -8,6 +8,12 @@ const navigation = (): HorizontalNavItemsType => [
     icon: 'mdi:home-outline',
   },
   {
+    title: 'Users',
+    path: '/apps/user/list',
+    icon: 'mdi:user-outline',
+  },
+
+  {
     title: 'Second Page',
     path: '/second-page',
     icon: 'mdi:email-outline',

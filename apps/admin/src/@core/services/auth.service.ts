@@ -1,20 +1,7 @@
 import { http } from './http'
+import { User } from './user.types'
 
 
-export enum UserRole {
-    Admin = 'ADMIN',
-    User = 'USER'
-}
-
-export interface User {
-    id: string
-    firstName: string
-    lastName: string
-    middleName: string
-    name: string
-    roles: UserRole[]
-    email: string
-}
 export interface LoginInput {
     email: string
     password: string

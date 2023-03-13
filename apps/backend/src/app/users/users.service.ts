@@ -6,10 +6,15 @@ import { PrismaService } from 'src/app/prisma/prisma.service';
 
 @Injectable()
 export class UsersService {
+
     constructor(
         private prisma: PrismaService,
         private passwordService: PasswordService
     ) { }
+
+    public async getUsers() {
+        return this.prisma.user.findMany()
+    }
 
     public getUserByEmail(email: string) {
         return this.prisma.user.findUnique({
@@ -52,5 +57,9 @@ export class UsersService {
             },
             where: { id: userId },
         });
+    }
+
+    public async deleteUser(id: string) {
+        return this.prisma.user.delete({ where: { id } })
     }
 }
