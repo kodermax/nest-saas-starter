@@ -62,9 +62,7 @@ const AuthProvider = ({ children }: Props) => {
   }, [])
 
   const handleLogin = async (params: LoginParams) => {
-    setLoading(true)
     const response = await login(params)
-    setLoading(false)
     if (response) {
       setUser({ ...response.data })
       window.localStorage.setItem('userData', JSON.stringify(response.data))

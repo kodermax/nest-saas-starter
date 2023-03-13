@@ -39,7 +39,8 @@ import BlankLayout from 'src/@core/layouts/BlankLayout'
 
 // ** Demo Imports
 import FooterIllustrationsV1 from 'src/views/pages/auth/FooterIllustrationsV1'
-import { Button, Card, CardContent, Typography } from '@mui/material'
+import { Card, CardContent, Typography } from '@mui/material'
+import { LoadingButton } from '@mui/lab'
 
 // ** Styled Components
 
@@ -68,6 +69,7 @@ interface FormData {
 const LoginPage = () => {
   const [rememberMe, setRememberMe] = useState<boolean>(true)
   const [showPassword, setShowPassword] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false)
 
   // ** Hooks
   const auth = useAuth()
@@ -88,12 +90,15 @@ const LoginPage = () => {
   const onSubmit = async (data: FormData) => {
     const { email, password } = data
     try {
+      setLoading(true)
       await auth.login({ email, password, rememberMe })
     } catch {
       setError('email', {
         type: 'manual',
         message: 'Email or Password is invalid'
       })
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -263,9 +268,9 @@ const LoginPage = () => {
                 Forgot Password?
               </Typography>
             </Box>
-            <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 7 }}>
+            <LoadingButton fullWidth size='large' type='submit' variant='contained' sx={{ mb: 7 }} loading={loading}>
               Login
-            </Button>
+            </LoadingButton>
             <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
               <Typography sx={{ mr: 2, color: 'text.secondary' }}>New on our platform?</Typography>
               <Typography href='/register' component={Link} sx={{ color: 'primary.main', textDecoration: 'none' }}>
