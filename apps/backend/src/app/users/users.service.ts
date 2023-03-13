@@ -13,7 +13,14 @@ export class UsersService {
     ) { }
 
     public async getUsers() {
-        return this.prisma.user.findMany()
+        const data = await this.prisma.user.findMany()
+        const totalCount = await this.prisma.user.count()
+        return {
+            data,
+            page: 1,
+            limit: 15,
+            totalCount
+        }
     }
 
     public getUserByEmail(email: string) {

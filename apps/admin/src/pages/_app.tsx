@@ -56,6 +56,7 @@ import 'src/iconify-bundle/icons-bundle-react'
 
 // ** Global css styles
 import '../../styles/globals.css'
+import 'devextreme/dist/css/dx.material.blue.light.css'
 
 // ** Extend App Props with Emotion
 type ExtendedAppProps = AppProps & {
