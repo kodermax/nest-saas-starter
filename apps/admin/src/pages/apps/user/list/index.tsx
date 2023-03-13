@@ -150,7 +150,7 @@ const columns = [
           <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
             <StyledLink href='/user/view/overview/'>{fullName}</StyledLink>
             <Typography noWrap variant='caption'>
-              {`@${email}`}
+              {email}
             </Typography>
           </Box>
         </Box>
