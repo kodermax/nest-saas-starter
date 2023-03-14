@@ -9,8 +9,9 @@ import authConfig from 'src/configs/auth'
 
 // ** Types
 import { AuthValuesType, LoginParams } from './types'
-import { User, authMe, login, logout } from 'src/@core/services/auth.service'
+import { authMe, login, logout } from 'src/@core/services/auth.service'
 import { register, RegisterInput } from 'src/@core/services/accounts.service'
+import { User } from 'src/@core/services/user.types'
 
 // ** Defaults
 const defaultProvider: AuthValuesType = {

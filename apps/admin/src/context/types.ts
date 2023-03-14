@@ -1,5 +1,5 @@
 import { RegisterInput } from "src/@core/services/accounts.service"
-import { User } from "src/@core/services/auth.service"
+import { User } from "src/@core/services/user.types"
 
 export type ErrCallbackType = (err: { [key: string]: string }) => void
 
