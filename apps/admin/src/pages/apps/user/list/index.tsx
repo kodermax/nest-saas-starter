@@ -104,5 +104,8 @@ const UserList = () => {
     </Grid>
   )
 }
-
+UserList.acl = {
+  action: 'manage',
+  subject: 'all'
+}
 export default UserList

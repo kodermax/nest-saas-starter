@@ -11,6 +11,8 @@ const navigation = (): HorizontalNavItemsType => [
     title: 'Users',
     path: '/apps/user/list',
     icon: 'mdi:user-outline',
+    action: 'manage',
+    subject: 'all',
   },
 
   {
