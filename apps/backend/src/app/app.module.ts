@@ -8,8 +8,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import config from './common/configs/config';
 import configProd from './common/configs/config.prod';
 import { ThrottlerModule } from '@nestjs/throttler';
-import { APP_GUARD } from '@nestjs/core';
-import { AuthModule, RolesGuard } from '@app/auth';
+import { AuthModule } from '@app/auth';
 
 @Module({
   imports: [
@@ -30,11 +29,7 @@ import { AuthModule, RolesGuard } from '@app/auth';
   ],
   controllers: [AppController],
   providers: [
-    AppService,
-    {
-      provide: APP_GUARD,
-      useClass: RolesGuard,
-    }
+    AppService
   ],
 })
 export class AppModule { }
