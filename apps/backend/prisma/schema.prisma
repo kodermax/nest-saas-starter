@@ -15,7 +15,7 @@ model User {
     firstName  String
     middleName String?
     lastName   String?
-    password   String
+    password   String?
     phone      String?
     roles      Role[]
 }

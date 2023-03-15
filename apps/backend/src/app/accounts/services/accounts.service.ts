@@ -3,7 +3,6 @@ https://docs.nestjs.com/providers#services
 */
 
 import { BadRequestException, ConflictException, Injectable, NotFoundException } from '@nestjs/common';
-import { PasswordService } from 'src/app/auth/services/password.service';
 import { RegisterInput } from '../dto/register.input';
 import { Prisma, User } from '@prisma/client';
 import { PrismaService } from 'src/app/prisma/prisma.service';
@@ -11,6 +10,7 @@ import { UsersService } from 'src/app/users/users.service';
 import crypto from 'crypto';
 import { RedisService } from 'src/app/redis/redis.service';
 import { MailService } from 'src/app/mail/mail.service';
+import { PasswordService } from '@app/auth';
 
 @Injectable()
 export class AccountsService {

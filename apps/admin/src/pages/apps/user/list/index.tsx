@@ -20,6 +20,7 @@ import AddUserDrawer from 'src/views/apps/user/list/AddUserDrawer'
 import { getUsers } from 'src/@core/services/users.service'
 import CustomStore from 'devextreme/data/custom_store'
 import DataGrid, { Column, Pager, Paging } from 'devextreme-react/data-grid'
+import { User } from 'src/@core/services/user.types'
 
 const UserList = () => {
   // ** State
@@ -55,6 +56,10 @@ const UserList = () => {
 
   const toggleAddUserDrawer = () => setAddUserOpen(!addUserOpen)
 
+  const calculateFullName = (data: User) => {
+    return [data.firstName, data.lastName].join(' ')
+  }
+
   return (
     <Grid container spacing={6}>
       <Grid item xs={12}>
@@ -86,7 +91,7 @@ const UserList = () => {
           <TableHeader value={value} handleFilter={handleFilter} toggle={toggleAddUserDrawer} />
           <DataGrid dataSource={store} showBorders={true} remoteOperations={true}>
             <Column dataField='id' dataType='string' />
-            <Column dataField='firstName' dataType='string' />
+            <Column calculateCellValue={calculateFullName} dataType='string' caption='Full Name' />
             <Column dataField='email' dataType='string' />
             <Column dataField='roles' dataType='string' />
             <Paging defaultPageSize={12} />

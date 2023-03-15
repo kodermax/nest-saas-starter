@@ -18,6 +18,9 @@
     "noFallthroughCasesInSwitch": false,
     "esModuleInterop": true,
     "baseUrl": "./",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "paths": {
+      "@app/auth": ["src/app/auth"]
+    }
   }
 }

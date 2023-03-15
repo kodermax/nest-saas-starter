@@ -1,8 +1,9 @@
 import { Injectable, BadRequestException } from '@nestjs/common';
-import { PasswordService } from 'src/app/auth/services/password.service';
 import { ChangePasswordInput } from './dto/change-password.input';
 import { UpdateUserInput } from './dto/update-user.input';
 import { PrismaService } from 'src/app/prisma/prisma.service';
+import { CreateUserInputDto } from './dto/create-user.input';
+import { PasswordService } from '@app/auth';
 
 @Injectable()
 export class UsersService {
@@ -11,6 +12,16 @@ export class UsersService {
         private prisma: PrismaService,
         private passwordService: PasswordService
     ) { }
+
+    public async createUser(payload: CreateUserInputDto) {
+        const user = await this.prisma.user.create({
+            data: {
+                ...payload,
+            },
+        });
+        return user;
+    }
+
 
     public async getUsers() {
         const data = await this.prisma.user.findMany()

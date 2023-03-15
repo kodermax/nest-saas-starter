@@ -22,6 +22,7 @@ import { useForm, Controller } from 'react-hook-form'
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
+import { addUser } from 'src/@core/services/users.service'
 
 interface SidebarAddUserType {
   open: boolean
@@ -30,11 +31,8 @@ interface SidebarAddUserType {
 
 interface UserData {
   email: string
-  company: string
-  country: string
-  contact: number
-  fullName: string
-  username: string
+  firstName: string
+  lastName: string
 }
 
 const showErrors = (field: string, valueLen: number, min: number) => {
@@ -56,31 +54,21 @@ const Header = styled(Box)<BoxProps>(({ theme }) => ({
 }))
 
 const schema = yup.object().shape({
-  company: yup.string().required(),
-  country: yup.string().required(),
   email: yup.string().email().required(),
-  contact: yup
-    .number()
-    .typeError('Contact Number field is required')
-    .min(10, obj => showErrors('Contact Number', obj.value.length, obj.min))
-    .required(),
-  fullName: yup
+  firstName: yup
     .string()
     .min(3, obj => showErrors('First Name', obj.value.length, obj.min))
     .required(),
-  username: yup
+  lastName: yup
     .string()
-    .min(3, obj => showErrors('Username', obj.value.length, obj.min))
+    .min(3, obj => showErrors('Last Name', obj.value.length, obj.min))
     .required()
 })
 
 const defaultValues = {
   email: '',
-  company: '',
-  country: '',
-  fullName: '',
-  username: '',
-  contact: Number('')
+  firstName: '',
+  lastName: ''
 }
 
 const SidebarAddUser = (props: SidebarAddUserType) => {
@@ -88,14 +76,12 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
   const { open, toggle } = props
 
   // ** State
-  const [plan, setPlan] = useState<string>('basic')
-  const [role, setRole] = useState<string>('subscriber')
+  const [role, setRole] = useState<string>('User')
 
   // ** Hooks
   const {
     reset,
     control,
-    setValue,
     handleSubmit,
     formState: { errors }
   } = useForm({
@@ -106,17 +92,13 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
 
   const onSubmit = (data: UserData) => {
     console.log(data)
-
-    // addUser({ ...data, role, currentPlan: plan })
-
+    addUser({ ...data, roles: [role] })
     toggle()
     reset()
   }
 
   const handleClose = () => {
-    setPlan('basic')
-    setRole('subscriber')
-    setValue('contact', Number(''))
+    setRole('User')
     toggle()
     reset()
   }
@@ -140,37 +122,39 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller
-              name='fullName'
+              name='firstName'
               control={control}
               rules={{ required: true }}
               render={({ field: { value, onChange } }) => (
                 <TextField
                   value={value}
-                  label='Full Name'
+                  label='First Name'
                   onChange={onChange}
-                  placeholder='John Doe'
-                  error={Boolean(errors.fullName)}
+                  placeholder='John'
+                  error={Boolean(errors.firstName)}
                 />
               )}
             />
-            {errors.fullName && <FormHelperText sx={{ color: 'error.main' }}>{errors.fullName.message}</FormHelperText>}
+            {errors.firstName && (
+              <FormHelperText sx={{ color: 'error.main' }}>{errors.firstName.message}</FormHelperText>
+            )}
           </FormControl>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller
-              name='username'
+              name='lastName'
               control={control}
               rules={{ required: true }}
               render={({ field: { value, onChange } }) => (
                 <TextField
                   value={value}
-                  label='Username'
+                  label='Last Name'
                   onChange={onChange}
-                  placeholder='johndoe'
-                  error={Boolean(errors.username)}
+                  placeholder='Doe'
+                  error={Boolean(errors.lastName)}
                 />
               )}
             />
-            {errors.username && <FormHelperText sx={{ color: 'error.main' }}>{errors.username.message}</FormHelperText>}
+            {errors.lastName && <FormHelperText sx={{ color: 'error.main' }}>{errors.lastName.message}</FormHelperText>}
           </FormControl>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <Controller
@@ -191,58 +175,6 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
             {errors.email && <FormHelperText sx={{ color: 'error.main' }}>{errors.email.message}</FormHelperText>}
           </FormControl>
           <FormControl fullWidth sx={{ mb: 6 }}>
-            <Controller
-              name='company'
-              control={control}
-              rules={{ required: true }}
-              render={({ field: { value, onChange } }) => (
-                <TextField
-                  value={value}
-                  label='Company'
-                  onChange={onChange}
-                  placeholder='Company PVT LTD'
-                  error={Boolean(errors.company)}
-                />
-              )}
-            />
-            {errors.company && <FormHelperText sx={{ color: 'error.main' }}>{errors.company.message}</FormHelperText>}
-          </FormControl>
-          <FormControl fullWidth sx={{ mb: 6 }}>
-            <Controller
-              name='country'
-              control={control}
-              rules={{ required: true }}
-              render={({ field: { value, onChange } }) => (
-                <TextField
-                  value={value}
-                  label='Country'
-                  onChange={onChange}
-                  placeholder='Australia'
-                  error={Boolean(errors.country)}
-                />
-              )}
-            />
-            {errors.country && <FormHelperText sx={{ color: 'error.main' }}>{errors.country.message}</FormHelperText>}
-          </FormControl>
-          <FormControl fullWidth sx={{ mb: 6 }}>
-            <Controller
-              name='contact'
-              control={control}
-              rules={{ required: true }}
-              render={({ field: { value, onChange } }) => (
-                <TextField
-                  type='number'
-                  value={value}
-                  label='Contact'
-                  onChange={onChange}
-                  placeholder='(397) 294-5153'
-                  error={Boolean(errors.contact)}
-                />
-              )}
-            />
-            {errors.contact && <FormHelperText sx={{ color: 'error.main' }}>{errors.contact.message}</FormHelperText>}
-          </FormControl>
-          <FormControl fullWidth sx={{ mb: 6 }}>
             <InputLabel id='role-select'>Select Role</InputLabel>
             <Select
               fullWidth
@@ -253,28 +185,8 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
               onChange={e => setRole(e.target.value)}
               inputProps={{ placeholder: 'Select Role' }}
             >
-              <MenuItem value='admin'>Admin</MenuItem>
-              <MenuItem value='author'>Author</MenuItem>
-              <MenuItem value='editor'>Editor</MenuItem>
-              <MenuItem value='maintainer'>Maintainer</MenuItem>
-              <MenuItem value='subscriber'>Subscriber</MenuItem>
-            </Select>
-          </FormControl>
-          <FormControl fullWidth sx={{ mb: 6 }}>
-            <InputLabel id='plan-select'>Select Plan</InputLabel>
-            <Select
-              fullWidth
-              value={plan}
-              id='select-plan'
-              label='Select Plan'
-              labelId='plan-select'
-              onChange={e => setPlan(e.target.value)}
-              inputProps={{ placeholder: 'Select Plan' }}
-            >
-              <MenuItem value='basic'>Basic</MenuItem>
-              <MenuItem value='company'>Company</MenuItem>
-              <MenuItem value='enterprise'>Enterprise</MenuItem>
-              <MenuItem value='team'>Team</MenuItem>
+              <MenuItem value='Admin'>Admin</MenuItem>
+              <MenuItem value='User'>User</MenuItem>
             </Select>
           </FormControl>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>

@@ -13,3 +13,7 @@ export const deleteUser = (id: string) => {
 export const getUsers = () => {
     return http.get<UserList>('users')
 }
+
+export const addUser = (data: any) => {
+    return http.post('users', data)
+}

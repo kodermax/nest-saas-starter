@@ -11,6 +11,7 @@ import { AuthStateDto } from '../dto/state.dto';
 @Controller('auth')
 export class AuthController {
     constructor(private readonly authService: AuthService) { }
+
     @HttpCode(200)
     @UseGuards(LocalAuthGuard)
     @Post('login')
