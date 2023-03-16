@@ -11,9 +11,9 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.8.0",
-    "@strapi/plugin-users-permissions": "4.8.0",
-    "@strapi/plugin-i18n": "4.8.0",
+    "@strapi/strapi": "4.8.2",
+    "@strapi/plugin-users-permissions": "4.8.2",
+    "@strapi/plugin-i18n": "4.8.2",
     "pg": "8.10.0"
   },
   "author": {
