@@ -622,7 +622,7 @@
   resolved "https://registry.npmjs.org/@mui/types/-/types-7.2.3.tgz#06faae1c0e2f3a31c86af6f28b3a4a42143670b9"
   integrity sha512-tZ+CQggbe9Ol7e/Fs5RcKwg/woU+o8DCtOnccX6KmbBc7YrfqMYEYuaIcXHuhpT880QwNkZZ3wQwvtlDFA2yOw==
 
-"@mui/utils@^5.11.13", "@mui/utils@^5.11.7":
+"@mui/utils@^5.11.13":
   version "5.11.13"
   resolved "https://registry.yarnpkg.com/@mui/utils/-/utils-5.11.13.tgz#8d7317f221e8973200764820fa7f2a622dbc7150"
   integrity sha512-5ltA58MM9euOuUcnvwFJqpLdEugc9XFsRR8Gt4zZNb31XzMfSKJPR4eumulyhsOTK1rWf7K4D63NKFPfX0AxqA==
@@ -633,13 +633,13 @@
     prop-types "^15.8.1"
     react-is "^18.2.0"
 
-"@mui/x-data-grid@^6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@mui/x-data-grid/-/x-data-grid-6.0.1.tgz#621e2469b2de51bfba5d746f8f6027eaa4eefd78"
-  integrity sha512-ZrlrIshR2rvCkMZnQd1yShsRqC1IISlotof1SauqlXW5USNDV1UNJBO7iCLwyEzCTYYhIvFDaTXFEkmqDfQS5Q==
+"@mui/x-data-grid@^6.0.2":
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/@mui/x-data-grid/-/x-data-grid-6.0.2.tgz#84b0a3865fdd54c43df14db1bc02ea5792a7d4f0"
+  integrity sha512-VCr1hvW5k1zekovTvyB0PxfGGTueAgemkcaFZPDKJP0uTCAyJ69f+vyz9OzDJzbpb58U2onis4tQJETkHnyofg==
   dependencies:
     "@babel/runtime" "^7.20.13"
-    "@mui/utils" "^5.11.7"
+    "@mui/utils" "^5.11.13"
     clsx "^1.2.1"
     prop-types "^15.8.1"
     reselect "^4.1.7"
@@ -4542,7 +4542,12 @@ typed-array-length@^1.0.4:
     for-each "^0.3.3"
     is-typed-array "^1.1.9"
 
-typescript@4.9.5, typescript@^4.3.5, typescript@^4.9.5:
+typescript@5.0.2, typescript@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.0.2.tgz#891e1a90c5189d8506af64b9ef929fca99ba1ee5"
+  integrity sha512-wVORMBGO/FAs/++blGNeAVdbNKtIh1rbBL2EyQ1+J9lClJ93KiiKe8PmFIVdXhHcyv44SL9oglmfeSsndo0jRw==
+
+typescript@^4.3.5:
   version "4.9.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
