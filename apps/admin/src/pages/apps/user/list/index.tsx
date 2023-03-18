@@ -16,7 +16,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select'
 
 // ** Custom Table Components Imports
 import TableHeader from 'src/views/apps/user/list/TableHeader'
-import AddUserDrawer from 'src/views/apps/user/list/AddUserDrawer'
+import InviteUserDrawer from 'src/views/apps/user/list/InviteUserDrawer'
 import { getUsers } from 'src/@core/services/users.service'
 import CustomStore from 'devextreme/data/custom_store'
 import DataGrid, { Column, Pager, Paging } from 'devextreme-react/data-grid'
@@ -26,7 +26,7 @@ const UserList = () => {
   // ** State
   const [role, setRole] = useState<string>('')
   const [value, setValue] = useState<string>('')
-  const [addUserOpen, setAddUserOpen] = useState<boolean>(false)
+  const [inviteUserOpen, setInviteUserOpen] = useState<boolean>(false)
   const store = new CustomStore({
     key: 'id',
     async load(loadOptions) {
@@ -54,7 +54,7 @@ const UserList = () => {
     setRole(e.target.value)
   }, [])
 
-  const toggleAddUserDrawer = () => setAddUserOpen(!addUserOpen)
+  const toggleInviteUserDrawer = () => setInviteUserOpen(!inviteUserOpen)
 
   const calculateFullName = (data: User) => {
     return [data.firstName, data.lastName].join(' ')
@@ -88,7 +88,7 @@ const UserList = () => {
             </Grid>
           </CardContent>
           <Divider />
-          <TableHeader value={value} handleFilter={handleFilter} toggle={toggleAddUserDrawer} />
+          <TableHeader value={value} handleFilter={handleFilter} toggle={toggleInviteUserDrawer} />
           <DataGrid dataSource={store} showBorders={true} remoteOperations={true}>
             <Column dataField='id' dataType='string' />
             <Column calculateCellValue={calculateFullName} dataType='string' caption='Full Name' />
@@ -100,7 +100,7 @@ const UserList = () => {
         </Card>
       </Grid>
 
-      <AddUserDrawer open={addUserOpen} toggle={toggleAddUserDrawer} />
+      <InviteUserDrawer open={inviteUserOpen} toggle={toggleInviteUserDrawer} />
     </Grid>
   )
 }

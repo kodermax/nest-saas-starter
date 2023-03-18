@@ -24,7 +24,7 @@ import { useForm, Controller } from 'react-hook-form'
 import Icon from 'src/@core/components/icon'
 import { addUser } from 'src/@core/services/users.service'
 
-interface SidebarAddUserType {
+interface SidebarInviteUserType {
   open: boolean
   toggle: () => void
 }
@@ -71,7 +71,7 @@ const defaultValues = {
   lastName: ''
 }
 
-const SidebarAddUser = (props: SidebarAddUserType) => {
+const SidebarInviteUser = (props: SidebarInviteUserType) => {
   // ** Props
   const { open, toggle } = props
 
@@ -113,7 +113,7 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
       sx={{ '& .MuiDrawer-paper': { width: { xs: 300, sm: 400 } } }}
     >
       <Header>
-        <Typography variant='h6'>Add User</Typography>
+        <Typography variant='h6'>Invite User</Typography>
         <IconButton size='small' onClick={handleClose} sx={{ color: 'text.primary' }}>
           <Icon icon='mdi:close' fontSize={20} />
         </IconButton>
@@ -203,4 +203,4 @@ const SidebarAddUser = (props: SidebarAddUserType) => {
   )
 }
 
-export default SidebarAddUser
+export default SidebarInviteUser
