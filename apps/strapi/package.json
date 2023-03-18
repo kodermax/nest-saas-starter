@@ -11,10 +11,11 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.8.2",
-    "@strapi/plugin-users-permissions": "4.8.2",
     "@strapi/plugin-i18n": "4.8.2",
-    "pg": "8.10.0"
+    "@strapi/plugin-users-permissions": "4.8.2",
+    "@strapi/provider-email-nodemailer": "^4.8.2",
+    "@strapi/strapi": "4.8.2",
+    "better-sqlite3": "^8.2.0"
   },
   "author": {
     "name": "A Strapi developer"
