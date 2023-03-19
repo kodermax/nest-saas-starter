@@ -29,7 +29,6 @@
   },
   "dependencies": {
     "@nestjs/cli": "^9.3.0",
-    "@nestjs/schematics": "^9.0.4",
     "@nestjs/common": "^9.3.10",
     "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.3.10",
@@ -62,6 +61,7 @@
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
+    "@nestjs/schematics": "^9.0.4",
     "@nestjs/testing": "^9.3.10",
     "@types/bcrypt": "^5.0.0",
     "@types/cookie-parser": "^1.4.3",
