@@ -9,6 +9,11 @@ const navigation = (): VerticalNavItemsType => {
       icon: 'mdi:home-outline',
     },
     {
+      title: 'Books',
+      path: '/apps/books',
+      icon: 'mdi:bookshelf',
+    },
+    {
       title: 'Users',
       path: '/apps/user/list',
       icon: 'mdi:user-outline',
