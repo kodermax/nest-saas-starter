@@ -1,0 +1,694 @@
+{
+  "tag": "p",
+  "id": 0,
+  "sentences": [
+    {
+      "id": 0,
+      "audio": "potter_beatrix_the_tale_of_peter_rabbit",
+      "pieces": [
+        {
+          "id": 0,
+          "start": 35.45,
+          "end": 35.82,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 0,
+              "text": "Once",
+              "lemma": "once",
+              "pos": "RB",
+              "ner": "DATE",
+              "after": " ",
+              "offset": 0,
+              "offsetEnd": 4,
+              "piece_index": 0,
+              "index": 0,
+              "matches": []
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "start": 35.82,
+          "end": 36.12,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 1,
+              "text": "upon",
+              "lemma": "upon",
+              "pos": "IN",
+              "ner": "O",
+              "after": " ",
+              "offset": 5,
+              "offsetEnd": 9,
+              "piece_index": 1,
+              "index": 1,
+              "matches": []
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "start": 36.12,
+          "end": 36.22,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 2,
+              "text": "a",
+              "lemma": "a",
+              "pos": "DT",
+              "ner": "O",
+              "after": " ",
+              "offset": 10,
+              "offsetEnd": 11,
+              "piece_index": 2,
+              "index": 2,
+              "matches": []
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "start": 36.22,
+          "end": 36.69,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 3,
+              "text": "time",
+              "lemma": "time",
+              "pos": "NN",
+              "ner": "O",
+              "after": " ",
+              "offset": 12,
+              "offsetEnd": 16,
+              "piece_index": 3,
+              "index": 3,
+              "matches": []
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "start": 36.69,
+          "end": 36.83,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 4,
+              "text": "there",
+              "lemma": "there",
+              "pos": "EX",
+              "ner": "O",
+              "after": " ",
+              "offset": 17,
+              "offsetEnd": 22,
+              "piece_index": 4,
+              "index": 4,
+              "matches": []
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "start": 36.83,
+          "end": 36.99,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 5,
+              "text": "were",
+              "lemma": "be",
+              "pos": "VBD",
+              "ner": "O",
+              "after": " ",
+              "offset": 23,
+              "offsetEnd": 27,
+              "piece_index": 5,
+              "index": 5,
+              "matches": []
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "start": 37.02,
+          "end": 37.42,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 6,
+              "text": "four",
+              "lemma": "four",
+              "pos": "CD",
+              "ner": "NUMBER",
+              "after": " ",
+              "offset": 28,
+              "offsetEnd": 32,
+              "piece_index": 6,
+              "index": 6,
+              "matches": [5]
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "start": 37.43,
+          "end": 37.69,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 7,
+              "text": "little",
+              "lemma": "little",
+              "pos": "JJ",
+              "ner": "O",
+              "after": " ",
+              "offset": 33,
+              "offsetEnd": 39,
+              "piece_index": 7,
+              "index": 7,
+              "matches": []
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "start": 37.69,
+          "end": 38.03,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 8,
+              "text": "Rabbits",
+              "lemma": "rabbit",
+              "pos": "NNS",
+              "ner": "O",
+              "after": "",
+              "offset": 40,
+              "offsetEnd": 47,
+              "piece_index": 8,
+              "index": 8,
+              "matches": []
+            },
+            {
+              "id": 9,
+              "text": ",",
+              "lemma": ",",
+              "pos": ",",
+              "ner": "O",
+              "after": " ",
+              "offset": 47,
+              "offsetEnd": 48,
+              "piece_index": 8,
+              "index": 9,
+              "matches": []
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "start": 38.62,
+          "end": 38.84,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 10,
+              "text": "and",
+              "lemma": "and",
+              "pos": "CC",
+              "ner": "O",
+              "after": " ",
+              "offset": 49,
+              "offsetEnd": 52,
+              "piece_index": 9,
+              "index": 10,
+              "matches": [8]
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "start": 38.84,
+          "end": 39.02,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 11,
+              "text": "their",
+              "lemma": "they",
+              "pos": "PRP$",
+              "ner": "O",
+              "after": " ",
+              "offset": 53,
+              "offsetEnd": 58,
+              "piece_index": 10,
+              "index": 11,
+              "matches": [10]
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "start": 39.02,
+          "end": 39.47,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 12,
+              "text": "names",
+              "lemma": "name",
+              "pos": "NNS",
+              "ner": "O",
+              "after": " ",
+              "offset": 59,
+              "offsetEnd": 64,
+              "piece_index": 11,
+              "index": 12,
+              "matches": [9]
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "start": 39.47,
+          "end": 39.78,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 13,
+              "text": "were",
+              "lemma": "be",
+              "pos": "VBD",
+              "ner": "O",
+              "after": "",
+              "offset": 65,
+              "offsetEnd": 69,
+              "piece_index": 12,
+              "index": 13,
+              "matches": []
+            },
+            {
+              "id": 14,
+              "text": "—",
+              "lemma": "--",
+              "pos": ":",
+              "ner": "O",
+              "after": "",
+              "offset": 69,
+              "offsetEnd": 70,
+              "piece_index": 12,
+              "index": 14,
+              "matches": []
+            }
+          ]
+        },
+        {
+          "id": 13,
+          "start": 39.79,
+          "end": 40.15,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 15,
+              "text": "Flopsy",
+              "lemma": "Flopsy",
+              "pos": "NNP",
+              "ner": "O",
+              "after": "",
+              "offset": 70,
+              "offsetEnd": 76,
+              "piece_index": 13,
+              "index": 15,
+              "matches": []
+            },
+            {
+              "id": 16,
+              "text": ",",
+              "lemma": ",",
+              "pos": ",",
+              "ner": "O",
+              "after": " ",
+              "offset": 76,
+              "offsetEnd": 77,
+              "piece_index": 13,
+              "index": 16,
+              "matches": []
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "start": 41.15,
+          "end": 41.81,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 17,
+              "text": "Mopsy",
+              "lemma": "Mopsy",
+              "pos": "NNP",
+              "ner": "PERSON",
+              "after": "",
+              "offset": 78,
+              "offsetEnd": 83,
+              "piece_index": 14,
+              "index": 17,
+              "matches": []
+            },
+            {
+              "id": 18,
+              "text": ",",
+              "lemma": ",",
+              "pos": ",",
+              "ner": "O",
+              "after": " ",
+              "offset": 83,
+              "offsetEnd": 84,
+              "piece_index": 14,
+              "index": 18,
+              "matches": []
+            }
+          ]
+        },
+        {
+          "id": 15,
+          "start": 42.55,
+          "end": 43.46,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 19,
+              "text": "Cotton-tail",
+              "lemma": "Cotton-tail",
+              "pos": "NNP",
+              "ner": "O",
+              "after": "",
+              "offset": 85,
+              "offsetEnd": 96,
+              "piece_index": 15,
+              "index": 19,
+              "matches": [17, 18]
+            },
+            {
+              "id": 20,
+              "text": ",",
+              "lemma": ",",
+              "pos": ",",
+              "ner": "O",
+              "after": " ",
+              "offset": 96,
+              "offsetEnd": 97,
+              "piece_index": 15,
+              "index": 20,
+              "matches": []
+            }
+          ]
+        },
+        {
+          "id": 16,
+          "start": 44.82,
+          "end": 44.85,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 21,
+              "text": "and",
+              "lemma": "and",
+              "pos": "CC",
+              "ner": "O",
+              "after": " ",
+              "offset": 98,
+              "offsetEnd": 101,
+              "piece_index": 16,
+              "index": 21,
+              "matches": [19]
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "start": 46.72,
+          "end": 46.94,
+          "interpolated": 0,
+          "tokens": [
+            {
+              "id": 22,
+              "text": "Peter",
+              "lemma": "Peter",
+              "pos": "NNP",
+              "ner": "PERSON",
+              "after": "",
+              "offset": 102,
+              "offsetEnd": 107,
+              "piece_index": 17,
+              "index": 22,
+              "matches": [20]
+            },
+            {
+              "id": 23,
+              "text": ".",
+              "lemma": ".",
+              "pos": ".",
+              "ner": "O",
+              "after": "",
+              "offset": 107,
+              "offsetEnd": 108,
+              "piece_index": 17,
+              "index": 23,
+              "matches": []
+            }
+          ]
+        }
+      ],
+      "start": 35.45,
+      "end": 46.94
+    }
+  ],
+  "translation": "Жили‑были на свете четыре крольчонка, и звали их так: Флопси, Мопси, Ватный Хвост и Питер.",
+  "source": "Once upon a time there were four little Rabbits, and their names were—Flopsy, Mopsy, Cotton-tail, and Peter.",
+  "tokens_ru": [
+    {
+      "text": "Жили",
+      "lemma": "жить",
+      "before": "",
+      "after": "",
+      "offset": 0,
+      "matches": [],
+      "matched": 0,
+      "id": 0
+    },
+    {
+      "text": "‑",
+      "lemma": "‑",
+      "before": "",
+      "after": "",
+      "offset": 4,
+      "matches": [],
+      "matched": 0,
+      "id": 1
+    },
+    {
+      "text": "были",
+      "lemma": "быть",
+      "before": "",
+      "after": " ",
+      "offset": 5,
+      "matches": [],
+      "matched": 0,
+      "id": 2
+    },
+    {
+      "text": "на",
+      "lemma": "на",
+      "before": "",
+      "after": " ",
+      "offset": 10,
+      "matches": [],
+      "matched": 0,
+      "id": 3
+    },
+    {
+      "text": "свете",
+      "lemma": "свет",
+      "before": "",
+      "after": " ",
+      "offset": 13,
+      "matches": [],
+      "matched": 0,
+      "id": 4
+    },
+    {
+      "text": "четыре",
+      "lemma": "четыре",
+      "before": "",
+      "after": " ",
+      "offset": 19,
+      "matches": [6],
+      "matched": 1,
+      "id": 5
+    },
+    {
+      "text": "крольчонка",
+      "lemma": "крольчонок",
+      "before": "",
+      "after": "",
+      "offset": 26,
+      "matches": [],
+      "matched": 0,
+      "id": 6
+    },
+    {
+      "text": ",",
+      "lemma": ",",
+      "before": "",
+      "after": " ",
+      "offset": 36,
+      "matches": [],
+      "matched": 0,
+      "id": 7
+    },
+    {
+      "text": "и",
+      "lemma": "и",
+      "before": "",
+      "after": " ",
+      "offset": 38,
+      "matches": [10],
+      "matched": 1,
+      "id": 8
+    },
+    {
+      "text": "звали",
+      "lemma": "звать",
+      "before": "",
+      "after": " ",
+      "offset": 40,
+      "matches": [12],
+      "matched": 1,
+      "id": 9
+    },
+    {
+      "text": "их",
+      "lemma": "они",
+      "before": "",
+      "after": " ",
+      "offset": 46,
+      "matches": [11],
+      "matched": 1,
+      "id": 10
+    },
+    {
+      "text": "так",
+      "lemma": "так",
+      "before": "",
+      "after": "",
+      "offset": 49,
+      "matches": [],
+      "matched": 0,
+      "id": 11
+    },
+    {
+      "text": ":",
+      "lemma": ":",
+      "before": "",
+      "after": " ",
+      "offset": 52,
+      "matches": [],
+      "matched": 0,
+      "id": 12
+    },
+    {
+      "text": "Флопси",
+      "lemma": "Флопси",
+      "before": "",
+      "after": "",
+      "offset": 54,
+      "matches": [],
+      "matched": 0,
+      "id": 13
+    },
+    {
+      "text": ",",
+      "lemma": ",",
+      "before": "",
+      "after": " ",
+      "offset": 60,
+      "matches": [],
+      "matched": 0,
+      "id": 14
+    },
+    {
+      "text": "Мопси",
+      "lemma": "Мопси",
+      "before": "",
+      "after": "",
+      "offset": 62,
+      "matches": [],
+      "matched": 0,
+      "id": 15
+    },
+    {
+      "text": ",",
+      "lemma": ",",
+      "before": "",
+      "after": " ",
+      "offset": 67,
+      "matches": [],
+      "matched": 0,
+      "id": 16
+    },
+    {
+      "text": "Ватный",
+      "lemma": "ватный",
+      "before": "",
+      "after": " ",
+      "offset": 69,
+      "matches": [19],
+      "matched": 1,
+      "id": 17
+    },
+    {
+      "text": "Хвост",
+      "lemma": "хвост",
+      "before": "",
+      "after": " ",
+      "offset": 76,
+      "matches": [19],
+      "matched": 1,
+      "id": 18
+    },
+    {
+      "text": "и",
+      "lemma": "и",
+      "before": "",
+      "after": " ",
+      "offset": 82,
+      "matches": [21],
+      "matched": 1,
+      "id": 19
+    },
+    {
+      "text": "Питер",
+      "lemma": "Питер",
+      "before": "",
+      "after": "",
+      "offset": 84,
+      "matches": [22],
+      "matched": 1,
+      "id": 20
+    },
+    {
+      "text": ".",
+      "lemma": ".",
+      "before": "",
+      "after": "\n",
+      "offset": 89,
+      "matches": [],
+      "matched": 0,
+      "id": 21
+    }
+  ]
+}
