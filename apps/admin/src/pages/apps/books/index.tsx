@@ -7,15 +7,11 @@ import Token, { TokenAdvancedRef } from './Token'
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
-  padding: theme.spacing(1),
+  padding: theme.spacing(3),
   textAlign: 'center',
   color: theme.palette.text.secondary,
-  minHeight: 200,
-  '& .highlight': {
-    backgroundColor: '#008c1a',
-    color: 'white',
-    borderRadius: 3
-  }
+  minHeight: 50,
+  margin: 15
 }))
 
 const Books = () => {
@@ -44,47 +40,55 @@ const Books = () => {
   }
 
   return (
-    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+    <Grid container spacing={2}>
       <Grid xs={6}>
-        <Item>
-          {data.sentences.map((sentence: any) => {
-            return sentence.pieces.map((piece: any) => {
-              return piece.tokens.map((token: any) => {
+        {data.map((paragraph: any) => {
+          return (
+            <Item key={paragraph.id}>
+              {paragraph.sentences.map((sentence: any) => {
+                return sentence.pieces.map((piece: any) => {
+                  return piece.tokens.map((token: any) => {
+                    return (
+                      <Token
+                        key={token.id}
+                        id={token.id}
+                        matches={token.matches}
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        word={token.text}
+                        ref={el => (refs.current[token.id] = el)}
+                      >
+                        {token.text + token.after}
+                      </Token>
+                    )
+                  })
+                })
+              })}
+            </Item>
+          )
+        })}
+      </Grid>
+      <Grid xs={6}>
+        {data.map((paragraph: any) => {
+          return (
+            <Item key={paragraph.id}>
+              {paragraph.tokens_ru.map((token: any) => {
                 return (
                   <Token
-                    key={token.id}
                     id={token.id}
+                    key={token.id}
                     matches={token.matches}
+                    ref={el => (trRefs.current[token.id] = el)}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                    word={token.text}
-                    ref={el => (refs.current[token.id] = el)}
                   >
                     {token.text + token.after}
                   </Token>
                 )
-              })
-            })
-          })}
-        </Item>
-      </Grid>
-      <Grid xs={6}>
-        <Item id={'tr0'}>
-          {data.tokens_ru.map((token: any) => {
-            return (
-              <Token
-                id={token.id}
-                key={token.id}
-                matches={token.matches}
-                ref={el => (trRefs.current[token.id] = el)}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                {token.text + token.after}
-              </Token>
-            )
-          })}
-        </Item>
+              })}
+            </Item>
+          )
+        })}
       </Grid>
     </Grid>
   )
