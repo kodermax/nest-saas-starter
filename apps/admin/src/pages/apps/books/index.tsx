@@ -24,7 +24,8 @@ const Books = () => {
     if (matches) {
       const highlightIds = matches.split(',')
       for (const id of highlightIds) {
-        hasWord ? trRefs.current[id].setHightLightItem() : refs.current[id].setHightLightItem()
+        const idx = parseInt(id, 10)
+        hasWord ? trRefs.current[idx]!.setHightLightItem() : refs.current[idx]!.setHightLightItem()
       }
     }
   }
@@ -34,7 +35,8 @@ const Books = () => {
     if (matches) {
       const highlightIds = matches.split(',')
       for (const id of highlightIds) {
-        hasWord ? trRefs.current[id].setHightLightItem() : refs.current[id].setHightLightItem()
+        const idx = parseInt(id, 10)
+        hasWord ? trRefs.current[idx]!.setHightLightItem() : refs.current[idx]!.setHightLightItem()
       }
     }
   }
