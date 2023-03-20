@@ -1,15 +1,15 @@
 import { ThrottlerModuleOptions } from "@nestjs/throttler";
 
 export interface Config {
-    siteUrl: string
-    database: DatabaseConfig;
-    nest: NestConfig;
     cors: CorsConfig;
+    database: DatabaseConfig;
     mail: MailConfig;
-    swagger: SwaggerConfig;
-    security: SecurityConfig;
-    throttle: ThrottlerModuleOptions;
+    nest: NestConfig;
     production: boolean;
+    security: SecurityConfig;
+    siteUrl: string
+    swagger: SwaggerConfig;
+    throttle: ThrottlerModuleOptions;
 }
 
 export interface NestConfig {
@@ -25,21 +25,21 @@ export interface CorsConfig {
 }
 
 export interface SwaggerConfig {
-    enabled: boolean;
-    title: string;
     description: string;
-    version: string;
+    enabled: boolean;
     path: string;
+    title: string;
+    version: string;
 }
 
 
 export interface SecurityConfig {
+    bcryptSaltOrRound: string | number;
     expiresIn: number;
     refreshIn: number;
-    bcryptSaltOrRound: string | number;
 }
 
 export interface MailConfig {
-    senderName: string;
     senderEmail: string;
+    senderName: string;
 }

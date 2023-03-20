@@ -2,27 +2,27 @@ import { Exclude } from "class-transformer";
 import { Role, User } from '@prisma/client';
 
 export class NewUserDto implements User {
-    role: Role;
-    id: string;
 
     @Exclude()
     createdAt: Date;
 
-    @Exclude()
-    updatedAt: Date;
-
     email: string;
 
     firstName: string;
-
-    middleName: string;
+    id: string;
 
     lastName: string;
 
+    middleName: string;
+
+    @Exclude()
+    password: string;
+
     phone: string;
+    role: Role;
 
     roles: Role[];
 
     @Exclude()
-    password: string;
+    updatedAt: Date;
 }

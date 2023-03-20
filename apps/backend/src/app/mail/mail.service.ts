@@ -22,6 +22,18 @@ export class MailService {
             }
         });
     }
+    catch(error) {
+        console.error(error);
+    }
+
+    public async send(options: ISendMailOptions) {
+        options.from = {
+            name: this.configService.get('mail.senderName'),
+            address: this.configService.get('mail.senderEmail'),
+        }
+        options.html = this.compileTemplate(options)
+        await this.sendMail(options);
+    }
     public sendPasswordReset(name: string, email: string, token: string) {
         const context: PasswordResetContext = {
             siteUrl: this.configService.get('siteUrl'),
@@ -47,15 +59,6 @@ export class MailService {
         return htmlOutput.html;
     }
 
-    public async send(options: ISendMailOptions) {
-        options.from = {
-            name: this.configService.get('mail.senderName'),
-            address: this.configService.get('mail.senderEmail'),
-        }
-        options.html = this.compileTemplate(options)
-        await this.sendMail(options);
-    }
-
     private async sendMail(sendMailOptions: ISendMailOptions) {
         if (this.configService.get('SKIP_SEND_MAIL') === 'Y') {
             console.log('try send email: ', sendMailOptions.to);
@@ -67,7 +70,5 @@ export class MailService {
                 console.log(err);
             }
         });
-    } catch(error) {
-        console.error(error);
     }
 }

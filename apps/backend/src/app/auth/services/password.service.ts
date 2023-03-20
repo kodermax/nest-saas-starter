@@ -9,7 +9,6 @@ import { hash, compare } from 'bcrypt';
 
 @Injectable()
 export class PasswordService {
-    constructor(private configService: ConfigService) { }
 
     private get bcryptSaltRounds(): string | number {
         const securityConfig = this.configService.get<SecurityConfig>('security');
@@ -19,13 +18,14 @@ export class PasswordService {
             ? Number(saltOrRounds)
             : saltOrRounds;
     }
+    constructor(private configService: ConfigService) { }
+
+    public hashPassword(password: string): Promise<string> {
+        return hash(password, this.bcryptSaltRounds);
+    }
 
 
     public validatePassword(password: string, hashedPassword: string): Promise<boolean> {
         return compare(password, hashedPassword);
-    }
-
-    public hashPassword(password: string): Promise<string> {
-        return hash(password, this.bcryptSaltRounds);
     }
 }

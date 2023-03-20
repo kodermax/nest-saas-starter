@@ -12,23 +12,6 @@ import { AuthStateDto } from '../dto/state.dto';
 export class AuthController {
     constructor(private readonly authService: AuthService) { }
 
-    @HttpCode(200)
-    @UseGuards(LocalAuthGuard)
-    @Post('login')
-    @ApiOperation({ summary: 'Авторизация по email' })
-    async logIn(
-        @Req() request: RequestWithUser,
-        @Res() response: Response,
-    ) {
-        const { user } = request;
-        const accessTokenCookie = this.authService.getCookieWithJwtAccessToken(user);
-        const { cookie: refreshTokenCookie, token: refreshToken } = this.authService.getCookieWithJwtRefreshToken(user);
-        await this.authService.setCurrentRefreshToken(refreshToken, user.id);
-        const cookies = [accessTokenCookie, refreshTokenCookie];
-        request.res.setHeader('Set-Cookie', cookies);
-        return response.send(user);
-    }
-
     @Get('me')
     @UseGuards(JwtAuthGuard)
     @ApiOperation({ summary: 'Получить состояние авторизации' })
@@ -44,6 +27,23 @@ export class AuthController {
             email: user.email,
             phone: user.phone
         });
+    }
+
+    @HttpCode(200)
+    @UseGuards(LocalAuthGuard)
+    @Post('login')
+    @ApiOperation({ summary: 'Авторизация по email' })
+    async logIn(
+        @Req() request: RequestWithUser,
+        @Res() response: Response,
+    ) {
+        const { user } = request;
+        const accessTokenCookie = this.authService.getCookiesWithJwtAccessToken(user);
+        const { cookie: refreshTokenCookie, token: refreshToken } = this.authService.getCookiesWithJwtRefreshToken(user);
+        await this.authService.setCurrentRefreshToken(refreshToken, user.id);
+        const cookies = [accessTokenCookie, refreshTokenCookie];
+        request.res.setHeader('Set-Cookie', cookies);
+        return response.send(user);
     }
 
     @Post('logout')

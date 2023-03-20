@@ -10,7 +10,7 @@ export default function getAggregatefromFilter(filter: any, ...datekeys) {
     }
 
     let aggregate = [];
-    let matchTypes = {
+    const matchTypes = {
         ">": "$gt",
         "<": "$lt",
         "=": "$eq",
@@ -24,27 +24,27 @@ export default function getAggregatefromFilter(filter: any, ...datekeys) {
         "notcontains": "notcontains",
     }
 
-    let getFilterDepth = (filter: any) => {
+    const getFilterDepth = (filter: any) => {
         if (!(filter instanceof Array))
             return 0;
-        let depth = [];
+        const depth = [];
         filter.forEach(ele => {
             depth.push(getFilterDepth(ele) + 1);
         })
         return _.max(depth, num => num)
     }
 
-    let dealMatchByDepth = (filter: any): any => {
+    const dealMatchByDepth = (filter: any): any => {
 
         if (getFilterDepth(filter) == 1) {
             // {key:{matchType:value}}
-            let key = filter[0];
-            let matchType = matchTypes[filter[1]];
+            const key = filter[0];
+            const matchType = matchTypes[filter[1]];
             if (!matchType)
                 throw new Error('Filter error: matchType miss')
-            let value = filter[2];
+            const value = filter[2];
 
-            let data = {};
+            const data = {};
             data[key] = {};
             if (['startswith', 'endswith', 'contains', 'notcontains'].indexOf(matchType) != -1) {
                 switch (matchType) {
@@ -70,7 +70,7 @@ export default function getAggregatefromFilter(filter: any, ...datekeys) {
         if (getFilterDepth(filter) == 2) {
             // "or"
             if (filter.indexOf('or') > 0) {
-                let or = [];
+                const or = [];
                 filter.forEach(ele => {
                     if (ele instanceof Array)
                         or.push(dealMatchByDepth(ele));
@@ -78,12 +78,12 @@ export default function getAggregatefromFilter(filter: any, ...datekeys) {
                 return or;
                 // "and" or "empty"
             } else {
-                let and = {};
+                const and = {};
                 filter.forEach(ele => {
                     // filter
                     if (ele instanceof Array) {
-                        let data = dealMatchByDepth(ele);
-                        for (let key in data) {
+                        const data = dealMatchByDepth(ele);
+                        for (const key in data) {
                             if (and[key]) {
                                 Object.assign(and[key], data[key]);
                             } else {
@@ -102,7 +102,7 @@ export default function getAggregatefromFilter(filter: any, ...datekeys) {
                 filter.forEach(ele => {
                     // filter 'or'
                     if (ele instanceof Array) {
-                        let data = dealMatchByDepth(ele);
+                        const data = dealMatchByDepth(ele);
                         if (data instanceof Array) {
                             or = or.concat(data);
                         } else if (data instanceof Object) {
@@ -114,15 +114,15 @@ export default function getAggregatefromFilter(filter: any, ...datekeys) {
                 })
                 return or;
             } else if (filter.indexOf('and') > 0) {
-                let and = {};
+                const and = {};
                 filter.forEach(ele => {
                     // filter 'and'
                     if (ele instanceof Array) {
-                        let data = dealMatchByDepth(ele);
+                        const data = dealMatchByDepth(ele);
                         if (data instanceof Array) {
                             and['$or'] = data;
                         } else if (data instanceof Object) {
-                            for (let key in data) {
+                            for (const key in data) {
                                 if (and[key]) {
                                     Object.assign(and[key], data[key]);
                                 } else {
@@ -142,14 +142,14 @@ export default function getAggregatefromFilter(filter: any, ...datekeys) {
 
         if (getFilterDepth(filter) >= 4) {
             if (filter.indexOf('and') > 0) {
-                let aggregate = [];
+                const aggregate = [];
                 filter.forEach(ele => {
                     if (getFilterDepth(ele) >= 4) {
-                        let subAggregate = dealMatchByDepth(ele)
+                        const subAggregate = dealMatchByDepth(ele)
                         aggregate.push(...subAggregate)
                     } else if (ele instanceof Array) {
                         let match = {};
-                        let data = dealMatchByDepth(ele);
+                        const data = dealMatchByDepth(ele);
                         if (data instanceof Array) {
                             match['$or'] = data;
                         } else if (data instanceof Object) {
@@ -168,16 +168,16 @@ export default function getAggregatefromFilter(filter: any, ...datekeys) {
 
     }
 
-    let dealDate = (aggregate) => {
+    const dealDate = (aggregate) => {
         if (!(aggregate instanceof Array) && (aggregate instanceof Object)) {
-            for (let key in aggregate) {
+            for (const key in aggregate) {
                 aggregate[key] = new Date(aggregate[key])
             }
         }
     }
 
-    let dealAggregate = (aggregate) => {
-        for (let key in aggregate) {
+    const dealAggregate = (aggregate) => {
+        for (const key in aggregate) {
             if (datekeys.indexOf(key) >= 0) {
                 dealDate(aggregate[key])
                 continue
@@ -193,10 +193,10 @@ export default function getAggregatefromFilter(filter: any, ...datekeys) {
         }
     }
 
-    let data = dealMatchByDepth(filter);
+    const data = dealMatchByDepth(filter);
     if (data instanceof Array) {
         if (!data[0]['$match']) {
-            let match = {};
+            const match = {};
             match['$or'] = data;
             aggregate.push({ "$match": match });
         } else {

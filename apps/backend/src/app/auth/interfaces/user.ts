@@ -2,10 +2,10 @@ import { Role } from '@prisma/client';
 import { Request } from 'express';
 
 export interface User {
-    readonly id: string;
     readonly createdAt: Date;
     readonly email: string;
     readonly firstName: string;
+    readonly id: string;
     readonly lastName: string;
     readonly middleName: string;
     readonly password: string;
@@ -20,11 +20,11 @@ export interface RequestWithUser extends Request {
 
 
 export class RequestUser {
-    id: string;
+    email?: string;
     firstName?: string;
+    id: string;
     lastName?: string;
     middleName?: string;
-    email?: string;
     phone?: string;
     roles: Role[];
 }
