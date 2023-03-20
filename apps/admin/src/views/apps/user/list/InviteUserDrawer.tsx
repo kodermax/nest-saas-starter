@@ -1,6 +1,3 @@
-// ** React Imports
-import { useState } from 'react'
-
 // ** MUI Imports
 import Drawer from '@mui/material/Drawer'
 import Select from '@mui/material/Select'
@@ -16,13 +13,14 @@ import FormControl from '@mui/material/FormControl'
 import FormHelperText from '@mui/material/FormHelperText'
 
 // ** Third Party Imports
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm, Controller } from 'react-hook-form'
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
-import { addUser } from 'src/@core/services/users.service'
+import { inviteUser } from 'src/@core/services/users.service'
+import { IsArray, IsEmail, IsString, MinLength } from 'class-validator'
+import { classValidatorResolver } from '@hookform/resolvers/class-validator'
+import { Checkbox, ListItemText } from '@mui/material'
 
 interface SidebarInviteUserType {
   open: boolean
@@ -35,16 +33,6 @@ interface UserData {
   lastName: string
 }
 
-const showErrors = (field: string, valueLen: number, min: number) => {
-  if (valueLen === 0) {
-    return `${field} field is required`
-  } else if (valueLen > 0 && valueLen < min) {
-    return `${field} must be at least ${min} characters`
-  } else {
-    return ''
-  }
-}
-
 const Header = styled(Box)<BoxProps>(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
@@ -53,30 +41,32 @@ const Header = styled(Box)<BoxProps>(({ theme }) => ({
   backgroundColor: theme.palette.background.default
 }))
 
-const schema = yup.object().shape({
-  email: yup.string().email().required(),
-  firstName: yup
-    .string()
-    .min(3, obj => showErrors('First Name', obj.value.length, obj.min))
-    .required(),
-  lastName: yup
-    .string()
-    .min(3, obj => showErrors('Last Name', obj.value.length, obj.min))
-    .required()
-})
+class FormData {
+  @IsEmail()
+  email: string
+
+  @IsString()
+  @MinLength(2)
+  firstName: string
+
+  @IsString()
+  lastName: string
+
+  @IsArray()
+  roles: string[]
+}
 
 const defaultValues = {
   email: '',
   firstName: '',
-  lastName: ''
+  lastName: '',
+  roles: []
 }
+const UserRoles = ['Admin', 'User']
 
 const SidebarInviteUser = (props: SidebarInviteUserType) => {
   // ** Props
   const { open, toggle } = props
-
-  // ** State
-  const [role, setRole] = useState<string>('User')
 
   // ** Hooks
   const {
@@ -84,21 +74,17 @@ const SidebarInviteUser = (props: SidebarInviteUserType) => {
     control,
     handleSubmit,
     formState: { errors }
-  } = useForm({
+  } = useForm<FormData>({
     defaultValues,
     mode: 'onChange',
-    resolver: yupResolver(schema)
+    resolver: classValidatorResolver(FormData)
   })
 
   const onSubmit = (data: UserData) => {
-    console.log(data)
-    addUser({ ...data, roles: [role] })
-    toggle()
-    reset()
+    inviteUser({ ...data })
   }
 
   const handleClose = () => {
-    setRole('User')
     toggle()
     reset()
   }
@@ -176,18 +162,33 @@ const SidebarInviteUser = (props: SidebarInviteUserType) => {
           </FormControl>
           <FormControl fullWidth sx={{ mb: 6 }}>
             <InputLabel id='role-select'>Select Role</InputLabel>
-            <Select
-              fullWidth
-              value={role}
-              id='select-role'
-              label='Select Role'
-              labelId='role-select'
-              onChange={e => setRole(e.target.value)}
-              inputProps={{ placeholder: 'Select Role' }}
-            >
-              <MenuItem value='Admin'>Admin</MenuItem>
-              <MenuItem value='User'>User</MenuItem>
-            </Select>
+            <Controller
+              name='roles'
+              control={control}
+              rules={{ required: true }}
+              render={({ field: { value, onChange } }) => (
+                <Select
+                  value={value}
+                  onChange={e => {
+                    onChange(e)
+                  }}
+                  fullWidth
+                  id='select-role'
+                  label='Select Role'
+                  labelId='role-select'
+                  inputProps={{ placeholder: 'Select Role' }}
+                  renderValue={selected => selected.join(',')}
+                  multiple
+                >
+                  {UserRoles.map(name => (
+                    <MenuItem key={name} value={name}>
+                      <Checkbox checked={value.indexOf(name) > -1} />
+                      <ListItemText primary={name} />
+                    </MenuItem>
+                  ))}
+                </Select>
+              )}
+            />
           </FormControl>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Button size='large' type='submit' variant='contained' sx={{ mr: 3 }}>

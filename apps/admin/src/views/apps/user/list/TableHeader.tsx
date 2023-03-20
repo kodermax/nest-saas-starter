@@ -25,7 +25,7 @@ const TableHeader = (props: TableHeaderProps) => {
         />
 
         <Button sx={{ mb: 2 }} onClick={toggle} variant='contained'>
-          Add User
+          Invite User
         </Button>
       </Box>
     </Box>

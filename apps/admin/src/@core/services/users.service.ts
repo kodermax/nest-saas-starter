@@ -14,6 +14,6 @@ export const getUsers = () => {
     return http.get<UserList>('users')
 }
 
-export const addUser = (data: any) => {
-    return http.post('users', data)
+export const inviteUser = (data: any) => {
+    return http.post('users/invite', data)
 }
