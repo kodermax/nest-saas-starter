@@ -1,3 +1,4 @@
+import { UserRole } from '@prisma/client';
 import { Transform } from 'class-transformer';
 import { IsEmail, IsString, MinLength } from 'class-validator';
 import { transform } from 'src/app/common/transform';
@@ -13,8 +14,7 @@ export class InviteUserDto {
     firstName: string;
 
     @IsString()
-    @MinLength(2)
     lastName: string;
 
-    roles: string[];
+    roles: UserRole[];
 }

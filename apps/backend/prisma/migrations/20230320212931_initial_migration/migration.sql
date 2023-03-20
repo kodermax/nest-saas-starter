@@ -1,5 +1,5 @@
 -- CreateEnum
-CREATE TYPE "Role" AS ENUM ('ADMIN', 'USER');
+CREATE TYPE "UserRole" AS ENUM ('Admin', 'User');
 
 -- CreateTable
 CREATE TABLE "User" (
@@ -10,9 +10,9 @@ CREATE TABLE "User" (
     "firstName" TEXT NOT NULL,
     "middleName" TEXT,
     "lastName" TEXT,
-    "password" TEXT NOT NULL,
+    "password" TEXT,
     "phone" TEXT,
-    "role" "Role" NOT NULL,
+    "roles" "UserRole"[],
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );

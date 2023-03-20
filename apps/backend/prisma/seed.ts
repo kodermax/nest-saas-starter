@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, UserRole } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
@@ -10,7 +10,7 @@ async function main() {
             email: 'admin@starter.com',
             firstName: 'Admin',
             password: '$2b$10$mpRF.dW4GupwVD3apkH1y.oPvdFrmGELxSebXvanmHrU9sI84aYWi',
-            roles: ['Admin']
+            roles: [UserRole.Admin]
         },
     })
     await prisma.user.create({
@@ -18,7 +18,7 @@ async function main() {
             email: 'client@starter.com',
             firstName: 'Client',
             password: '$2b$10$oeMKDFLR.PN4obPdCcufY.SNuilb82PS4yzcSO/FEtyqTeymBcrwq',
-            roles: ['User']
+            roles: [UserRole.User]
         },
     })
     console.log(`Seeding finished.`)

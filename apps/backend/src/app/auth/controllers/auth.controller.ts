@@ -1,4 +1,4 @@
-import { Controller, Get, HttpCode, Post, Req, Res, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Post, Req, Res, UseGuards } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { LocalAuthGuard } from '../guards/local-auth.guard';
 import { RequestWithUser } from '../interfaces/user';
@@ -6,6 +6,7 @@ import { AuthService } from '../services/auth.service';
 import { Response } from 'express';
 import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 import { AuthStateDto } from '../dto/state.dto';
+import { LoginInput } from '../dto/login.input';
 
 @ApiTags('Авторизация')
 @Controller('auth')
@@ -35,6 +36,7 @@ export class AuthController {
     @ApiOperation({ summary: 'Авторизация по email' })
     async logIn(
         @Req() request: RequestWithUser,
+        @Body() _: LoginInput,
         @Res() response: Response,
     ) {
         const { user } = request;

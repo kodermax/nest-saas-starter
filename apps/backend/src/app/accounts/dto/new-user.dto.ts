@@ -1,28 +1,11 @@
-import { Exclude } from "class-transformer";
-import { Role, User } from '@prisma/client';
+import { UserRole, User } from '@prisma/client';
 
-export class NewUserDto implements User {
-
-    @Exclude()
-    createdAt: Date;
-
+export class NewUserDto implements Partial<User> {
     email: string;
-
     firstName: string;
     id: string;
-
     lastName: string;
-
     middleName: string;
-
-    @Exclude()
-    password: string;
-
     phone: string;
-    role: Role;
-
-    roles: Role[];
-
-    @Exclude()
-    updatedAt: Date;
+    roles: UserRole[];
 }
