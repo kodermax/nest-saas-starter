@@ -15,28 +15,35 @@ const Item = styled(Paper)(({ theme }) => ({
 }))
 
 const Books = () => {
-  const refs = useRef<[TokenAdvancedRef | null]>([null])
-  const trRefs = useRef<[TokenAdvancedRef | null]>([null])
+  const refs = useRef<{ [id: string]: TokenAdvancedRef | null }>({})
 
   const handleMouseEnter = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     const matches = event.currentTarget.getAttribute('data-matches')
-    const hasWord = !!event.currentTarget.getAttribute('data-word')
     if (matches) {
       const highlightIds = matches.split(',')
       for (const id of highlightIds) {
-        const idx = parseInt(id, 10)
-        hasWord ? trRefs.current[idx]!.setHightLightItem() : refs.current[idx]!.setHightLightItem()
+        refs.current[id]!.setHightLightItem()
+        const otherMatches = refs.current[id]!.getMatches()
+        if (otherMatches) {
+          for (const id of otherMatches) {
+            refs.current[id]!.setHightLightItem()
+          }
+        }
       }
     }
   }
   const handleMouseLeave = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     const matches = event.currentTarget.getAttribute('data-matches')
-    const hasWord = !!event.currentTarget.getAttribute('data-word')
     if (matches) {
       const highlightIds = matches.split(',')
       for (const id of highlightIds) {
-        const idx = parseInt(id, 10)
-        hasWord ? trRefs.current[idx]!.setHightLightItem() : refs.current[idx]!.setHightLightItem()
+        refs.current[id]!.unsetHightLightItem()
+        const otherMatches = refs.current[id]!.getMatches()
+        if (otherMatches) {
+          for (const id of otherMatches) {
+            refs.current[id]!.unsetHightLightItem()
+          }
+        }
       }
     }
   }
@@ -80,7 +87,7 @@ const Books = () => {
                     id={token.id}
                     key={token.id}
                     matches={token.matches}
-                    ref={el => (trRefs.current[token.id] = el)}
+                    ref={el => (refs.current[token.id] = el)}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >

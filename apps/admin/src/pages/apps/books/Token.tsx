@@ -7,8 +7,12 @@ interface TokenProps {
 
 export interface TokenAdvancedRef {
   setHightLightItem: () => void
+  unsetHightLightItem: () => void
+  getMatches: () => string
 }
-const StyledSpan = styled('span', { shouldForwardProp: prop => prop !== 'highlight' })<TokenProps>(({ highlight }) => ({
+const StyledSpan = styled('span', {
+  shouldForwardProp: prop => prop !== 'highlight'
+})<TokenProps>(({ highlight }) => ({
   cursor: 'pointer',
   '&:hover': {
     backgroundColor: '#008c1a',
@@ -33,11 +37,18 @@ interface Props {
 
 const Token = (props: Props, ref: ForwardedRef<TokenAdvancedRef>) => {
   const [highlight, setHighLight] = useState<boolean>(false)
+
   useImperativeHandle<TokenAdvancedRef, TokenAdvancedRef>(
     ref,
     () => ({
       setHightLightItem: () => {
-        setHighLight((prev: boolean) => !prev)
+        setHighLight(true)
+      },
+      unsetHightLightItem: () => {
+        setHighLight(false)
+      },
+      getMatches: () => {
+        return props.matches
       }
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
