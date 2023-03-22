@@ -2715,13 +2715,13 @@ cache-manager-redis-store@^3.0.1:
   dependencies:
     redis "^4.3.1"
 
-cache-manager@^5.1.7:
-  version "5.1.7"
-  resolved "https://registry.npmjs.org/cache-manager/-/cache-manager-5.1.7.tgz#07946574567877bcc4224a3010f592d2443d0ba0"
-  integrity sha512-2W43F4ruaYb7dSiCOqkKtpnmn51/3DqxbKMMTxHfLa6qtj1letd8rr17/P/c7D7wYViqQLa+LetLCoKSVwBN1w==
+cache-manager@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/cache-manager/-/cache-manager-5.2.0.tgz#2ea6bd8cf6bfb1bd40690a1fe194327595e3bd8f"
+  integrity sha512-jwXDLtn8tQGS2vGDTKAhee2OhuX/2cgxlh97fqMnWp328VszIn064BFyKZ87dwp9GmlBFuHYfaVQehI85hFwIw==
   dependencies:
     lodash.clonedeep "^4.5.0"
-    lru-cache "^7.17.0"
+    lru-cache "~7.18.3"
 
 call-bind@^1.0.0, call-bind@^1.0.2:
   version "1.0.2"
@@ -6067,7 +6067,7 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
-lru-cache@^7.14.1, lru-cache@^7.17.0:
+lru-cache@^7.14.1, lru-cache@~7.18.3:
   version "7.18.3"
   resolved "https://registry.npmjs.org/lru-cache/-/lru-cache-7.18.3.tgz#f793896e0fd0e954a59dfdd82f0773808df6aa89"
   integrity sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA==
