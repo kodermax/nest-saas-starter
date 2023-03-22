@@ -23,7 +23,7 @@
     "@emotion/styled": "11.10.6",
     "@hookform/resolvers": "3.0.0",
     "@iconify/react": "4.1.0",
-    "@mui/lab": "5.0.0-alpha.123",
+    "@mui/lab": "5.0.0-alpha.124",
     "@mui/material": "5.11.13",
     "@mui/x-data-grid": "^6.0.2",
     "@next/bundle-analyzer": "^13.2.4",
