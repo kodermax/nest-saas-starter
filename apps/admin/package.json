@@ -21,7 +21,7 @@
     "@emotion/react": "11.10.6",
     "@emotion/server": "11.10.0",
     "@emotion/styled": "11.10.6",
-    "@hookform/resolvers": "2.9.11",
+    "@hookform/resolvers": "3.0.0",
     "@iconify/react": "4.1.0",
     "@mui/lab": "5.0.0-alpha.123",
     "@mui/material": "5.11.13",
