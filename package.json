@@ -23,8 +23,8 @@
     "start": "turbo run start --scope=backend"
   },
   "devDependencies": {
-    "prettier": "2.8.5",
-    "turbo": "1.8.4"
+    "prettier": "2.8.6",
+    "turbo": "^1.8.5"
   },
   "engines": {
     "node": ">=18.0.0"
