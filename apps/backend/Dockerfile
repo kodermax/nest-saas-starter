@@ -20,4 +20,4 @@ COPY --from=builder /app/.env ./
 
 
 EXPOSE 8000
-CMD [ "yarn", "start:prod" ]
+CMD [ "yarn", "dir" ]
