@@ -7,7 +7,7 @@ COPY yarn.lock ./
 RUN yarn install --frozen-lockfile
 
 COPY . .
-COPY ./.production.env ./.env
+COPY .production.env ./.env
 RUN yarn build
 
 FROM node:18-alpine
