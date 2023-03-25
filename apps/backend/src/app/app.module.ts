@@ -1,3 +1,4 @@
+import { NoteModule } from './note/note.module';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -12,6 +13,7 @@ import { AuthModule } from '@app/auth';
 
 @Module({
   imports: [
+    NoteModule,
     ThrottlerModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -25,7 +27,8 @@ import { AuthModule } from '@app/auth';
       load: [process.env.NODE_ENV === 'production' ? configProd : config]
     }),
     RedisModule,
-    PrismaModule
+    PrismaModule,
+    NoteModule
   ],
   controllers: [AppController],
   providers: [

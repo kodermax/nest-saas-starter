@@ -12,8 +12,8 @@ export class PrismaClientManager implements OnModuleDestroy {
         let client = this.clients[tenantId];
 
         if (!client) {
-            const databaseUrl = `mongodb://localhost:27017/nest-${tenantId}`
-
+            const databaseUrl = `mongodb://localhost:30001/nest-${tenantId}`
+            console.log(databaseUrl)
             client = new PrismaClient({
                 datasources: {
                     db: {
@@ -29,7 +29,6 @@ export class PrismaClientManager implements OnModuleDestroy {
 
     getTenantId(request: Request): string {
         const tenant: string = request.headers.host.split('.')[0];
-        console.log(tenant)
         return tenant;
     }
 

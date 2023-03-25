@@ -8,19 +8,27 @@ datasource db {
 }
 
 model User {
-    id         String   @id @default(uuid()) @map("_id")
-    createdAt  DateTime @default(now())
-    updatedAt  DateTime @updatedAt
-    email      String   @unique
-    firstName  String
-    middleName String?
-    lastName   String?
-    password   String?
-    phone      String?
-    roles      Role[]
+    id                String     @id @default(uuid()) @map("_id")
+    createdAt         DateTime   @default(now())
+    updatedAt         DateTime   @updatedAt
+    email             String     @unique
+    firstName         String
+    invitedBy         String?
+    middleName        String?
+    lastName          String?
+    password          String?
+    phone             String?
+    registrationToken String?
+    roles             UserRole[]
 }
 
-enum Role {
+enum UserRole {
     Admin
     User
+}
+
+model Note {
+    id      String  @id @default(uuid()) @map("_id")
+    title   String
+    content String?
 }
