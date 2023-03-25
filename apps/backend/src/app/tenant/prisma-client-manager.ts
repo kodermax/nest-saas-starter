@@ -12,8 +12,7 @@ export class PrismaClientManager implements OnModuleDestroy {
         let client = this.clients[tenantId];
 
         if (!client) {
-            const databaseUrl = `mongodb://localhost:30001/nest-${tenantId}`
-            console.log(databaseUrl)
+            const databaseUrl = `${process.env.TENANT_DATABASE_URL}${tenantId}`
             client = new PrismaClient({
                 datasources: {
                     db: {
