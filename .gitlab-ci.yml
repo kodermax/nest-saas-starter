@@ -1,0 +1,36 @@
+stages:
+  - build
+  - deploy
+docker-build-main:
+  image: docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375 
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+  stage: build
+  services:
+    - name: docker:dind
+      alias: docker
+      command: ["--tls=false"]
+
+  before_script:
+    - echo ${CI_REGISTRY_PASSWORD} | docker login --username "${CI_REGISTRY_USER}" --password-stdin $CI_REGISTRY
+  script:
+    - cd apps/backend
+    - docker build -f Dockerfile -t $CI_REGISTRY_IMAGE/ep-back:latest -t $CI_REGISTRY_IMAGE/ep-back:${CI_COMMIT_SHORT_SHA} .
+    - docker push $CI_REGISTRY_IMAGE/ep-back:latest
+    - docker push $CI_REGISTRY_IMAGE/ep-back:${CI_COMMIT_SHORT_SHA}
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+docker-deploy-main:
+  image:
+      name: bitnami/kubectl:latest
+      entrypoint: [""]
+  stage: deploy
+  before_script:
+    - echo "$KUBE_CONFIG_PROD_DATA" > /tmp/config
+    - export KUBECONFIG=/tmp/config
+  script:
+    - kubectl -n eplace set image deployment/ep-back ep-back=$CI_REGISTRY_IMAGE/ep-back:${CI_COMMIT_SHORT_SHA}
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
