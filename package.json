@@ -4,7 +4,7 @@
   "private": true,
   "workspaces": [
     "apps/admin",
-    "apps/web",
+    "apps/backend",
     "packages/*"
   ],
   "scripts": {
