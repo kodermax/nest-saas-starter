@@ -175,7 +175,7 @@
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.21.3.tgz#1d285d67a19162ff9daa358d4cb41d50c06220b3"
   integrity sha512-lobG0d7aOfQRXh8AyklEAgZGvA4FShxo6xQbUrrT/cNBPUdIDojlokwJsQyCC/eKia7ifqM0yP+2DRZ4WKw2RQ==
 
-"@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.13", "@babel/runtime@^7.20.7", "@babel/runtime@^7.21.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.7", "@babel/runtime@^7.21.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
   version "7.21.0"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.21.0.tgz#5b55c9d394e5fcf304909a8b00c07dc217b56673"
   integrity sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==
@@ -633,12 +633,12 @@
     prop-types "^15.8.1"
     react-is "^18.2.0"
 
-"@mui/x-data-grid@^6.0.2":
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/@mui/x-data-grid/-/x-data-grid-6.0.2.tgz#84b0a3865fdd54c43df14db1bc02ea5792a7d4f0"
-  integrity sha512-VCr1hvW5k1zekovTvyB0PxfGGTueAgemkcaFZPDKJP0uTCAyJ69f+vyz9OzDJzbpb58U2onis4tQJETkHnyofg==
+"@mui/x-data-grid@^6.0.3":
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/@mui/x-data-grid/-/x-data-grid-6.0.3.tgz#ff780a83c7f298ada6c1c02149e4269e7eece4d3"
+  integrity sha512-wcv5O+p25ouvB100FwVPLTLBAmvoP1SaTtOxpCYbfVSLMKkP4bbynA9a+enWtnuvcC8k5qvI75Tx5nRVbFUykA==
   dependencies:
-    "@babel/runtime" "^7.20.13"
+    "@babel/runtime" "^7.21.0"
     "@mui/utils" "^5.11.13"
     clsx "^1.2.1"
     prop-types "^15.8.1"
