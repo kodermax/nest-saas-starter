@@ -22,7 +22,6 @@ export class PrismaClientManager implements OnModuleDestroy {
             });
             this.clients[tenantId] = client;
         }
-
         return client;
     }
 
