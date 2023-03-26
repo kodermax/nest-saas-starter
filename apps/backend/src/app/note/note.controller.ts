@@ -5,7 +5,7 @@ https://docs.nestjs.com/controllers#controllers
 import { Controller, Get } from '@nestjs/common';
 import { NoteService } from './note.service';
 
-@Controller('notes')
+@Controller('note')
 export class NoteController {
     constructor(private readonly service: NoteService) { }
 

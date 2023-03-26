@@ -13,7 +13,7 @@ const prismaClientProvider: FactoryProvider<PrismaClient> = {
 };
 
 @Module({
-    providers: [PrismaClientManager, prismaClientProvider],
+    providers: [prismaClientProvider, PrismaClientManager],
     exports: [PrismaClient],
 })
 export class TenantModule { }

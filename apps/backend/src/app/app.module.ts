@@ -10,6 +10,7 @@ import config from './common/configs/config';
 import configProd from './common/configs/config.prod';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { AuthModule } from '@app/auth';
+import { NotesModule } from './notes/notes.module';
 
 @Module({
   imports: [
@@ -28,7 +29,8 @@ import { AuthModule } from '@app/auth';
     }),
     RedisModule,
     PrismaModule,
-    NoteModule
+    NoteModule,
+    NotesModule
   ],
   controllers: [AppController],
   providers: [
