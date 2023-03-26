@@ -5,5 +5,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 module.exports = withBundleAnalyzer({
-  reactStrictMode: true
+  reactStrictMode: true,
+  output: "standalone",
+  experimental: {
+    outputFileTracingRoot: path.join(__dirname, "../../"),
+  },
 })
