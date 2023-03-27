@@ -4,7 +4,7 @@ function HomePage() {
   return (
     <div className='outer'>
       <header className='header'>
-        <a href='https://nest-saas-admin.vercel.app'>
+        <a href='https://nest-saas.com'>
           <div className='logo'>
             <svg width={47} fill='none' height={26} viewBox='0 0 268 150' xmlns='http://www.w3.org/2000/svg'>
               <rect
