@@ -4,7 +4,7 @@ function HomePage() {
   return (
     <div className='outer'>
       <header className='header'>
-        <a href='https://nest-saas.com'>
+        <a href='https://nest-starter-admin.vercel.app'>
           <div className='logo'>
             <svg width={47} fill='none' height={26} viewBox='0 0 268 150' xmlns='http://www.w3.org/2000/svg'>
               <rect
@@ -79,13 +79,13 @@ function HomePage() {
           </div>
         </a>
         <a className='error-cta' href='https://nest-starter-admin.vercel.app'>
-          What is Nest Starter?
+          Что такое Nest Starter?
         </a>
       </header>
       <div className='wrap'>
         <div className='content'>
-          <h1>Site unavailable.</h1>
-          <h2>If you're the owner, email us on support@nest-starter.org</h2>
+          <h1>Сайт не доступен.</h1>
+          <h2>Если вы владелец, свяжитесь с нами support@nest-starter.org</h2>
         </div>
       </div>
     </div>
