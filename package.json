@@ -5,6 +5,7 @@
   "workspaces": [
     "apps/admin",
     "apps/backend",
+    "apps/offline",
     "packages/*"
   ],
   "scripts": {
@@ -12,6 +13,7 @@
     "backend": "turbo run dev --scope=backend",
     "backend:build": "turbo run dev --scope=backend",
     "web": "turbo run dev --scope=web",
+    "offline": "turbo run dev --scope=offline",
     "build": "turbo run build",
     "build:backend": "turbo run build --scope=backend",
     "build:admin": "turbo run build --scope=admin",
