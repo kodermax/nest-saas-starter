@@ -1,0 +1,31 @@
+{
+  "name": "account",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3004",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/lab": "^5.0.0-alpha.124",
+    "@mui/material": "^5.11.14",
+    "next": "^13.2.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.8"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@types/node": "^18.15.10",
+    "@types/react": "^18.0.29",
+    "@types/react-dom": "^18.0.11",
+    "eslint": "8.36.0",
+    "eslint-config-custom": "*",
+    "tsconfig": "*",
+    "typescript": "^5.0.2"
+  }
+}
