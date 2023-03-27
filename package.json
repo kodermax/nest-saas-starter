@@ -6,6 +6,7 @@
     "apps/admin",
     "apps/backend",
     "apps/offline",
+    "apps/error",
     "packages/*"
   ],
   "scripts": {
@@ -14,6 +15,7 @@
     "backend:build": "turbo run dev --scope=backend",
     "web": "turbo run dev --scope=web",
     "offline": "turbo run dev --scope=offline",
+    "error": "turbo run dev --scope=error",
     "build": "turbo run build",
     "build:backend": "turbo run build --scope=backend",
     "build:admin": "turbo run build --scope=admin",

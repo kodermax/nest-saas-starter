@@ -78,14 +78,14 @@ function HomePage() {
             </svg>
           </div>
         </a>
-        <a className='error-cta' href='https://nest-starter-admin.vercel.app'>
-          What is Nest Starter?
+        <a className='error-cta' href='https://nest-saas-admin.vercel.app'>
+          Что такое Nest SaaS?
         </a>
       </header>
       <div className='wrap'>
         <div className='content'>
-          <h1>Site unavailable.</h1>
-          <h2>If you're the owner, email us on support@nest-starter.org</h2>
+          <h1>Сайт не доступен.</h1>
+          <h2>Если вы владелец, свяжитесь с нами support@nest-saas.org</h2>
         </div>
       </div>
     </div>
