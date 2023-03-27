@@ -1,13 +1,9 @@
 {
-  "name": "nest-starter",
+  "name": "nest-saas-starter",
   "version": "0.0.1",
   "private": true,
   "workspaces": [
-    "apps/admin",
-    "apps/backend",
-    "apps/offline",
-    "apps/error",
-    "apps/account",
+    "apps/*",
     "packages/*"
   ],
   "scripts": {
