@@ -1,11 +1,11 @@
 // ** MUI Imports
 import { styled } from '@mui/material/styles'
-import Box, { BoxProps } from '@mui/material/Box'
+import Box from '@mui/material/Box'
 
 // ** Hook Import
 import { useSettings } from 'src/@core/hooks/useSettings'
 
-const ReactHotToast = styled(Box)<BoxProps>(({ theme }) => {
+const ReactHotToast = styled(Box)<any>(({ theme }) => {
   // ** Hook & Var
   const { settings } = useSettings()
   const { layout, navHidden } = settings
