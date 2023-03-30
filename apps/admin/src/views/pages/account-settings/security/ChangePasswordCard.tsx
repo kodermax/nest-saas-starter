@@ -37,7 +37,7 @@ const defaultValues = {
   confirmNewPassword: ''
 }
 
-const schema = yup.object().shape({
+const schema: any = yup.object().shape({
   currentPassword: yup.string().min(8).required(),
   newPassword: yup
     .string()

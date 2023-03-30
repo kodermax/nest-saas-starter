@@ -23,9 +23,7 @@ import MuiFormControlLabel, { FormControlLabelProps } from '@mui/material/FormCo
 import Icon from 'src/@core/components/icon'
 
 // ** Third Party Imports
-import * as yup from 'yup'
 import { useForm, Controller } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
 
 // ** Hooks
 import { useAuth } from 'src/hooks/useAuth'
@@ -41,6 +39,8 @@ import BlankLayout from 'src/@core/layouts/BlankLayout'
 import FooterIllustrationsV1 from 'src/views/pages/auth/FooterIllustrationsV1'
 import { Card, CardContent, Typography } from '@mui/material'
 import { LoadingButton } from '@mui/lab'
+import { IsEmail, IsString, MinLength } from 'class-validator'
+import { classValidatorResolver } from '@hookform/resolvers/class-validator'
 
 // ** Styled Components
 
@@ -51,18 +51,17 @@ const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(({ t
   }
 }))
 
-const schema = yup.object().shape({
-  email: yup.string().email().required(),
-  password: yup.string().min(5).required()
-})
-
 const defaultValues = {
   password: 'admin',
   email: 'admin@starter.com'
 }
 
-interface FormData {
+class FormData {
+  @IsEmail()
   email: string
+
+  @IsString()
+  @MinLength(5)
   password: string
 }
 
@@ -81,10 +80,10 @@ const LoginPage = () => {
     setError,
     handleSubmit,
     formState: { errors }
-  } = useForm({
+  } = useForm<FormData>({
     defaultValues,
     mode: 'onBlur',
-    resolver: yupResolver(schema)
+    resolver: classValidatorResolver(FormData)
   })
 
   const onSubmit = async (data: FormData) => {
