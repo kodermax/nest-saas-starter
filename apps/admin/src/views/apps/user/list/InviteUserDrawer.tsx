@@ -80,8 +80,8 @@ const SidebarInviteUser = (props: SidebarInviteUserType) => {
     resolver: classValidatorResolver(FormData)
   })
 
-  const onSubmit = (data: UserData) => {
-    inviteUser({ ...data })
+  const onSubmit = async (data: UserData) => {
+    await inviteUser({ ...data })
   }
 
   const handleClose = () => {

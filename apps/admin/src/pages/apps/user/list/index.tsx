@@ -32,11 +32,11 @@ const UserList = () => {
     async load(loadOptions) {
       console.log(loadOptions)
       try {
-        const users = await getUsers()
+        const { data } = await getUsers()
 
         return {
-          data: users.data.data,
-          totalCount: users.data.totalCount
+          data: data.data,
+          totalCount: data.totalCount
         }
       } catch {
         throw new Error('Data Loading Error')
