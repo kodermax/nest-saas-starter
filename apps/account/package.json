@@ -19,7 +19,7 @@
     "react-hook-form": "^7.43.8"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.3",
+    "@babel/core": "^7.21.4",
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.31",
     "@types/react-dom": "^18.0.11",
