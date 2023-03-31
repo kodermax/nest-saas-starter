@@ -14,7 +14,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.3",
+    "@babel/core": "^7.21.4",
     "eslint": "8.37.0",
     "eslint-config-custom": "*",
     "tsconfig": "*",
