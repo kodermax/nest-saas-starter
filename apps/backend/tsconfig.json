@@ -20,7 +20,8 @@
     "baseUrl": "./",
     "outDir": "./dist",
     "paths": {
-      "@app/auth": ["src/app/auth"]
+      "@starter/common": ["libs/common/src"],
+      "@starter/common/*": ["libs/common/src/*"]
     }
   }
 }

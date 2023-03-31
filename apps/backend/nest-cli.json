@@ -1,9 +1,28 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/api-admin/src",
+  "monorepo": true,
+  "root": "apps/api-admin",
   "compilerOptions": {
-    "plugins": [
-      "@nestjs/swagger/plugin"
-    ]
+    "plugins": ["@nestjs/swagger/plugin"],
+    "tsConfigPath": "apps/api-admin/tsconfig.app.json",
+    "api-admin": {
+      "type": "application",
+      "root": "apps/api-admin",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-admin/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-admin/tsconfig.app.json"
+      }
+    },
+    "common": {
+      "type": "library",
+      "root": "libs/common",
+      "entryFile": "index",
+      "sourceRoot": "libs/common/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/common/tsconfig.lib.json"
+      }
+    }
   }
 }
