@@ -14,6 +14,7 @@ import createEmotionCache from '../utils/createEmotionCache'
 
 // theme
 import ThemeProvider from '../theme'
+import { ThemeSettings } from 'src/components/settings'
 
 // ----------------------------------------------------------------------
 
@@ -38,8 +39,9 @@ export default function MyApp(props: MyAppProps) {
       <Head>
         <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
-
-      <ThemeProvider>{getLayout(<Component {...pageProps} />)}</ThemeProvider>
+      <ThemeProvider>
+        <ThemeSettings>{getLayout(<Component {...pageProps} />)}</ThemeSettings>
+      </ThemeProvider>
     </CacheProvider>
   )
 }
