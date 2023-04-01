@@ -28,7 +28,7 @@ ComingSoonPage.getLayout = (page: React.ReactElement) => <CompactLayout>{page}</
 // ----------------------------------------------------------------------
 
 export default function ComingSoonPage() {
-  const { days, hours, minutes, seconds } = useCountdown(new Date('01/05/2023 21:30'))
+  const { days, hours, minutes, seconds } = useCountdown(new Date('05/01/2023 21:30'))
 
   return (
     <>
