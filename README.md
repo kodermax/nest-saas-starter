@@ -1,6 +1,6 @@
 <img src="https://api.codiga.io/project/36143/score/svg"/><img src="https://api.codiga.io/project/36143/status/svg"/>
 
-# Nest Monorepo Prisma Starter
+# Nest Monorepo SaaS Starter
 
 ## What's inside?
 
