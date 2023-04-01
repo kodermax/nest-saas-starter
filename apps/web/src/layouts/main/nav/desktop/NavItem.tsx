@@ -20,18 +20,8 @@ import { ListItem } from './styles'
 export const NavItem = forwardRef<HTMLDivElement, NavItemDesktopProps>(
   ({ item, open, isOffset, active, subItem, isExternalLink, ...other }, ref) => {
     const { title, path, children } = item
-    console.log(other)
     const renderContent = (
-      <ListItem
-        ref={ref}
-        disableRipple
-        isOffset={isOffset}
-        subItem={subItem}
-        active={active}
-        open={open}
-        {...other}
-        component='a'
-      >
+      <ListItem ref={ref} disableRipple isOffset={isOffset} subItem={subItem} active={active} open={open} {...other}>
         {title}
 
         {!!children && (
