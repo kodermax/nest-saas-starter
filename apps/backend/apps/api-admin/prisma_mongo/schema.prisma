@@ -3,13 +3,12 @@ generator client {
 }
 
 datasource db {
-    provider          = "postgresql"
-    url               = env("DATABASE_URL")
-    shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+    provider = "mongodb"
+    url      = env("DATABASE_URL")
 }
 
 model User {
-    id                String     @id @default(uuid())
+    id                String     @id @default(uuid()) @map("_id")
     createdAt         DateTime   @default(now())
     updatedAt         DateTime   @updatedAt
     email             String     @unique
@@ -26,4 +25,16 @@ model User {
 enum UserRole {
     Admin
     User
+}
+
+model Note {
+    id      String  @id @default(uuid()) @map("_id")
+    title   String
+    content String?
+}
+
+model Notes {
+    id      String  @id @default(uuid()) @map("_id")
+    title   String
+    content String?
 }

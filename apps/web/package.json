@@ -3,24 +3,27 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3001",
+    "dev": "next dev --port 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.15",
     "next": "^13.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
-    "eslint": "8.37.0",
-    "eslint-config-custom": "*",
-    "tsconfig": "*",
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.31",
     "@types/react-dom": "^18.0.11",
+    "eslint": "8.37.0",
+    "eslint-config-custom": "*",
+    "tsconfig": "*",
     "typescript": "^5.0.3"
   }
 }
