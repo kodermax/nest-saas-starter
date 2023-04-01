@@ -2,7 +2,7 @@
 const path = require("path");
 
 module.exports = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   output: "standalone",
   experimental: {
     outputFileTracingRoot: path.join(__dirname, "../../"),
