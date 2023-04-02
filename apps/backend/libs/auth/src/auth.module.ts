@@ -7,9 +7,12 @@ import { ConfigService } from '@nestjs/config';
 import { AuthController } from './controllers/auth.controller';
 import { LocalStrategy } from './strategies/local.strategy';
 import { PasswordService } from './services/password.service';
+import { PrismaModule } from '@app/prisma';
+import { RedisModule } from '@app/redis';
 
 @Module({
-  imports: [PassportModule,
+  imports: [
+    PassportModule,
     JwtModule.registerAsync({
       useFactory: async (configService: ConfigService) => {
         return {
@@ -20,7 +23,10 @@ import { PasswordService } from './services/password.service';
         };
       },
       inject: [ConfigService],
-    })],
+    }),
+    PrismaModule,
+    RedisModule
+  ],
   providers: [AuthService, JwtStrategy, LocalStrategy, PasswordService],
   exports: [AuthService, PasswordService],
   controllers: [AuthController]

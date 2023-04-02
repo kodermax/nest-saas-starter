@@ -12,11 +12,11 @@ export class AccountService {
 
   }
 
+
   public async createUser(payload: RegisterInput): Promise<User> {
     const hashedPassword = await this.passwordService.hashPassword(
       payload.password
     );
-
     try {
       const user = await this.prisma.user.create({
         data: {
@@ -31,10 +31,18 @@ export class AccountService {
         e instanceof Prisma.PrismaClientKnownRequestError &&
         e.code === 'P2002'
       ) {
-        throw new ConflictException(`Email ${payload.email} already used.`);
+        throw new ConflictException(`Email ${payload.email} уже используется.`);
       }
       throw new Error(e);
     }
+  }
+
+  public async existAccount(email: any): Promise<boolean> {
+    const user = await this.prisma.user.findFirst({ where: { email } })
+    if (user !== null) {
+      throw new ConflictException('Этот аккаунт уже используется')
+    }
+    return false;
   }
 
 

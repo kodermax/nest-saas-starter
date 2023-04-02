@@ -3,16 +3,17 @@ generator client {
 }
 
 datasource db {
-    provider = "mongodb"
-    url      = env("DATABASE_URL")
+    provider          = "postgresql"
+    url               = env("DATABASE_URL")
+    shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model User {
-    id                String     @id @default(uuid()) @map("_id")
+    id                String     @id @default(uuid())
     createdAt         DateTime   @default(now())
     updatedAt         DateTime   @updatedAt
     email             String     @unique
-    firstName         String
+    firstName         String?
     invitedBy         String?
     middleName        String?
     lastName          String?

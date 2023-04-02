@@ -24,7 +24,7 @@ import config from '@app/common/configs/config';
     AccountsModule,
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: ['.env', '.env.local'],
+      envFilePath: ['apps/main/.env', 'apps/main/.env.local'],
       load: [process.env.NODE_ENV === 'production' ? configProd : config]
     }),
     RedisModule,
