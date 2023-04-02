@@ -1,16 +1,15 @@
 import { BadRequestException, ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { RegisterInput } from '../dto/register.input';
 import { Prisma, User } from '@prisma/client';
-import { PrismaService } from '../../prisma/prisma.service';
 import { UsersService } from '../../users/services/users.service';
 import crypto from 'crypto';
-import { RedisService } from 'apps/api-admin/src/redis/redis.service';
-import { MailService } from 'apps/api-admin/src/mail/mail.service';
-import { PasswordService } from 'apps/api-admin/src/auth';
+import { RedisService } from 'apps/admin/src/redis/redis.service';
+import { MailService } from 'apps/admin/src/mail/mail.service';
+import { PasswordService } from 'apps/admin/src/auth';
+import { PrismaService } from '@app/prisma';
 
 @Injectable()
 export class AccountsService {
-
     constructor(
         private readonly prisma: PrismaService,
         private readonly passwordService: PasswordService,

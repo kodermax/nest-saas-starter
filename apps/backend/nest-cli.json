@@ -1,20 +1,18 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "apps/api-admin/src",
+  "sourceRoot": "apps/admin/src",
   "monorepo": true,
-  "root": "apps/api-admin",
+  "root": "apps/admin",
   "compilerOptions": {
-    "plugins": [
-      "@nestjs/swagger/plugin"
-    ],
-    "tsConfigPath": "apps/api-admin/tsconfig.app.json",
-    "api-admin": {
+    "plugins": ["@nestjs/swagger/plugin"],
+    "tsConfigPath": "apps/admin/tsconfig.app.json",
+    "admin": {
       "type": "application",
-      "root": "apps/api-admin",
+      "root": "apps/admin",
       "entryFile": "main",
-      "sourceRoot": "apps/api-admin/src",
+      "sourceRoot": "apps/admin/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/api-admin/tsconfig.app.json"
+        "tsConfigPath": "apps/admin/tsconfig.app.json"
       }
     },
     "common": {
@@ -25,7 +23,8 @@
       "compilerOptions": {
         "tsConfigPath": "libs/common/tsconfig.lib.json"
       }
-    }
+    },
+    "webpack": true
   },
   "projects": {
     "account": {
@@ -35,6 +34,15 @@
       "sourceRoot": "apps/account/src",
       "compilerOptions": {
         "tsConfigPath": "apps/account/tsconfig.app.json"
+      }
+    },
+    "prisma": {
+      "type": "library",
+      "root": "libs/prisma",
+      "entryFile": "index",
+      "sourceRoot": "libs/prisma/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/prisma/tsconfig.lib.json"
       }
     }
   }

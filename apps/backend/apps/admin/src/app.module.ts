@@ -5,12 +5,12 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { RedisModule } from './redis/redis.module';
 import { AccountsModule } from './accounts/accounts.module';
-import { PrismaModule } from './prisma/prisma.module';
 import config from '../../../libs/common/src/configs/config';
 import configProd from '../../../libs/common/src/configs/config.prod';
 import { ThrottlerModule } from '@nestjs/throttler';
-import { AuthModule } from 'apps/api-admin/src/auth';
+import { AuthModule } from 'apps/admin/src/auth';
 import { NotesModule } from './notes/notes.module';
+import { PrismaModule } from '@app/prisma';
 
 @Module({
   imports: [

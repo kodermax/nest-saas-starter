@@ -2,9 +2,9 @@
 https://docs.nestjs.com/providers#services
 */
 
+import { PrismaService } from '@app/prisma';
 import { Injectable } from '@nestjs/common';
 import { Notes } from '@prisma/client';
-import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class NotesService {

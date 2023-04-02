@@ -14,6 +14,8 @@
     "@app/auth/(.*)": "<rootDir>/../libs/auth/src/$1",
     "@app/auth": "<rootDir>/../libs/auth/src",
     "@app/account/(.*)": "<rootDir>/../libs/account/src/$1",
-    "@app/account": "<rootDir>/../libs/account/src"
+    "@app/account": "<rootDir>/../libs/account/src",
+    "@app/prisma/(.*)": "<rootDir>/../libs/prisma/src/$1",
+    "@app/prisma": "<rootDir>/../libs/prisma/src"
   }
 }

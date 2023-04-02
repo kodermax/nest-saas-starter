@@ -3,13 +3,13 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { User } from '@prisma/client';
 import { PasswordService } from './password.service';
-import { RedisService } from 'apps/api-admin/src/redis/redis.service';
+import { RedisService } from 'apps/admin/src/redis/redis.service';
 import { SecurityConfig } from 'libs/common/src/configs/config.interface';
 import { Token } from '../models/token.model';
-import { PrismaService } from '../../prisma/prisma.service';
 import { randomUUID } from 'crypto';
 import { JwtPayload } from '../models/jwt-payload';
 import { RequestUser } from '../interfaces/user';
+import { PrismaService } from '@app/prisma';
 
 @Injectable()
 export class AuthService {

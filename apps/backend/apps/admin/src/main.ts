@@ -3,11 +3,11 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { PrismaService } from './prisma/prisma.service';
 import cookieParser from 'cookie-parser';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import helmet from 'helmet';
 import { CorsConfig, NestConfig, SwaggerConfig } from '@starter/common';
+import { PrismaService } from '@app/prisma';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);

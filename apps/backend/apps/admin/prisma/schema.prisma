@@ -27,3 +27,15 @@ enum UserRole {
     Admin
     User
 }
+
+model Note {
+    id      String  @id @default(uuid()) @map("_id")
+    title   String
+    content String?
+}
+
+model Notes {
+    id      String  @id @default(uuid()) @map("_id")
+    title   String
+    content String?
+}

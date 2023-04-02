@@ -20,12 +20,10 @@
     "baseUrl": "./",
     "outDir": "./dist",
     "paths": {
-      "@starter/common": [
-        "libs/common/src"
-      ],
-      "@starter/common/*": [
-        "libs/common/src/*"
-      ]
+      "@starter/common": ["libs/common/src"],
+      "@starter/common/*": ["libs/common/src/*"],
+      "@app/prisma": ["libs/prisma/src"],
+      "@app/prisma/*": ["libs/prisma/src/*"]
     }
   }
 }
