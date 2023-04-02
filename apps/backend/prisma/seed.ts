@@ -5,7 +5,6 @@ const prisma = new PrismaClient()
 async function main() {
     console.log(`Start seeding ...`)
     await prisma.$connect();
-
     await prisma.user.deleteMany();
     await prisma.user.create({
         data: {
