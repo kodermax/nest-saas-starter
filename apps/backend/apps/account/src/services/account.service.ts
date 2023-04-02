@@ -1,11 +1,13 @@
 import { PrismaService } from '@app/prisma';
-import { Injectable } from '@nestjs/common';
-import { Prisma } from '@prisma/client';
+import { ConflictException, Injectable } from '@nestjs/common';
+import { Prisma, User } from '@prisma/client';
 import { RegisterInput } from '../dto/register.input';
+import { PasswordService } from '@app/auth';
 
 @Injectable()
 export class AccountService {
   constructor(private readonly prisma: PrismaService,
+    private readonly passwordService: PasswordService
   ) {
 
   }
@@ -34,6 +36,8 @@ export class AccountService {
       throw new Error(e);
     }
   }
+
+
   public getHello(): string {
     return 'Hello World!';
   }
