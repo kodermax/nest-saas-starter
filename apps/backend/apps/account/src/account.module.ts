@@ -3,9 +3,11 @@ import { AccountController } from './controllers/account.controller';
 import { AccountService } from './services/account.service';
 import { PrismaModule } from '@app/prisma';
 import { AuthModule } from '@app/auth';
-import { ConfigModule } from '@nestjs/config';
 import configProd from '@app/common/configs/config.prod';
 import config from '@app/common/configs/config';
+import { TenantsController } from './controllers/tenants.controller';
+import { TenantsService } from './services/tenants.service';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -17,7 +19,7 @@ import config from '@app/common/configs/config';
     }),
     PrismaModule
   ],
-  controllers: [AccountController],
-  providers: [AccountService],
+  controllers: [AccountController, TenantsController],
+  providers: [AccountService, TenantsService],
 })
 export class AccountModule { }
