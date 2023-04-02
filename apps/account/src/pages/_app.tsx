@@ -10,7 +10,7 @@ import { AppProps } from 'next/app'
 import { createEmotionCache } from 'ui'
 
 // theme
-import ThemeProvider from 'ui'
+import { ThemeProvider } from 'ui'
 import { ThemeSettings } from 'ui'
 
 // ----------------------------------------------------------------------

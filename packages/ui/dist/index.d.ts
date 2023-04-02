@@ -83,7 +83,7 @@ declare const hideScrollbarX: {
 type Props$1 = {
     children: React.ReactNode;
 };
-declare function ThemeProvider({ children }: Props$1): JSX.Element;
+declare const ThemeProvider: ({ children }: Props$1) => JSX.Element;
 
 type ColorVariants = {
     name: string;

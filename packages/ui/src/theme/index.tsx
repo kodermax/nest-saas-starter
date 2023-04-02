@@ -21,7 +21,7 @@ type Props = {
   children: React.ReactNode
 }
 
-export default function ThemeProvider({ children }: Props) {
+export const ThemeProvider = ({ children }: Props) => {
   const { themeMode, themeDirection } = useSettingsContext()
 
   const themeOptions: ThemeOptions = useMemo(
