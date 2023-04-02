@@ -33,14 +33,14 @@ export default function ComingSoonPage() {
   return (
     <>
       <Head>
-        <title> Coming Soon | Minimal UI</title>
+        <title> Скоро открытие</title>
       </Head>
 
       <Typography variant='h3' paragraph>
-        Coming Soon!
+        Скоро открытие!
       </Typography>
 
-      <Typography sx={{ color: 'text.secondary' }}>We are currently working hard on this page!</Typography>
+      <Typography sx={{ color: 'text.secondary' }}>Мы усердно работаем над открытием проекта!</Typography>
 
       <ComingSoonIllustration sx={{ my: 10, height: 240 }} />
 
@@ -66,7 +66,7 @@ export default function ComingSoonPage() {
           endAdornment: (
             <InputAdornment position='end'>
               <Button variant='contained' size='large'>
-                Notify Me
+                Уведомить меня
               </Button>
             </InputAdornment>
           ),

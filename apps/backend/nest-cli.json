@@ -4,7 +4,9 @@
   "monorepo": true,
   "root": "apps/api-admin",
   "compilerOptions": {
-    "plugins": ["@nestjs/swagger/plugin"],
+    "plugins": [
+      "@nestjs/swagger/plugin"
+    ],
     "tsConfigPath": "apps/api-admin/tsconfig.app.json",
     "api-admin": {
       "type": "application",
@@ -22,6 +24,17 @@
       "sourceRoot": "libs/common/src",
       "compilerOptions": {
         "tsConfigPath": "libs/common/tsconfig.lib.json"
+      }
+    }
+  },
+  "projects": {
+    "account": {
+      "type": "application",
+      "root": "apps/account",
+      "entryFile": "main",
+      "sourceRoot": "apps/account/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/account/tsconfig.app.json"
       }
     }
   }
