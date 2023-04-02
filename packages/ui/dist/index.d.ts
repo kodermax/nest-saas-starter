@@ -1,4 +1,5 @@
 import * as _emotion_utils from '@emotion/utils';
+import { ReactNode } from 'react';
 
 declare function createEmotionCache(): _emotion_utils.EmotionCache;
 
@@ -79,9 +80,62 @@ declare const hideScrollbarX: {
     };
 };
 
+type Props$1 = {
+    children: React.ReactNode;
+};
+declare function ThemeProvider({ children }: Props$1): JSX.Element;
+
+type ColorVariants = {
+    name: string;
+    lighter: string;
+    light: string;
+    main: string;
+    dark: string;
+    darker: string;
+    contrastText: string;
+};
+type ThemeModeValue = 'light' | 'dark';
+type ThemeDirectionValue = 'rtl' | 'ltr';
+type ThemeContrastValue = 'default' | 'bold';
+type ThemeLayoutValue = 'vertical' | 'horizontal' | 'mini';
+type ThemeColorPresetsValue = 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red';
+type ThemeStretchValue = boolean;
+type SettingsValueProps = {
+    themeMode: ThemeModeValue;
+    themeLayout: ThemeLayoutValue;
+    themeStretch: ThemeStretchValue;
+    themeContrast: ThemeContrastValue;
+    themeDirection: ThemeDirectionValue;
+    themeColorPresets: ThemeColorPresetsValue;
+};
+type SettingsContextProps = SettingsValueProps & {
+    presetsColor: ColorVariants;
+    presetsOption: {
+        name: string;
+        value: string;
+    }[];
+    onToggleMode: VoidFunction;
+    onChangeMode: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onToggleDirection: VoidFunction;
+    onChangeDirection: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChangeDirectionByLang: (lang: string) => void;
+    onChangeLayout: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onToggleContrast: VoidFunction;
+    onChangeContrast: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChangeColorPresets: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onToggleStretch: VoidFunction;
+    onResetSetting: VoidFunction;
+};
+
+declare const useSettingsContext: () => SettingsContextProps;
+type SettingsProviderProps = {
+    children: ReactNode;
+};
+declare function SettingsProvider({ children }: SettingsProviderProps): JSX.Element;
+
 type Props = {
     children: React.ReactNode;
 };
-declare function ThemeProvider({ children }: Props): JSX.Element;
+declare function ThemeSettings({ children }: Props): JSX.Element;
 
-export { ThemeProvider, bgBlur, bgGradient, createEmotionCache, filterStyles, hideScrollbarX, hideScrollbarY, textGradient };
+export { SettingsContextProps, SettingsProvider, SettingsValueProps, ThemeColorPresetsValue, ThemeContrastValue, ThemeDirectionValue, ThemeLayoutValue, ThemeModeValue, ThemeProvider, ThemeSettings, ThemeStretchValue, bgBlur, bgGradient, createEmotionCache, filterStyles, hideScrollbarX, hideScrollbarY, textGradient, useSettingsContext };
