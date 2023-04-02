@@ -16,6 +16,8 @@
     "@app/account/(.*)": "<rootDir>/../libs/account/src/$1",
     "@app/account": "<rootDir>/../libs/account/src",
     "@app/prisma/(.*)": "<rootDir>/../libs/prisma/src/$1",
-    "@app/prisma": "<rootDir>/../libs/prisma/src"
+    "@app/prisma": "<rootDir>/../libs/prisma/src",
+    "@app/redis/(.*)": "<rootDir>/../libs/redis/src/$1",
+    "@app/redis": "<rootDir>/../libs/redis/src"
   }
 }

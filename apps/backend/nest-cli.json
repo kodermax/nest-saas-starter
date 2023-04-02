@@ -1,20 +1,13 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "apps/admin/src",
+  "sourceRoot": "apps/main/src",
   "monorepo": true,
-  "root": "apps/admin",
+  "root": "apps/main",
   "compilerOptions": {
-    "plugins": ["@nestjs/swagger/plugin"],
-    "tsConfigPath": "apps/admin/tsconfig.app.json",
-    "admin": {
-      "type": "application",
-      "root": "apps/admin",
-      "entryFile": "main",
-      "sourceRoot": "apps/admin/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/admin/tsconfig.app.json"
-      }
-    },
+    "plugins": [
+      "@nestjs/swagger/plugin"
+    ],
+    "tsConfigPath": "apps/main/tsconfig.app.json",
     "common": {
       "type": "library",
       "root": "libs/common",
@@ -43,6 +36,33 @@
       "sourceRoot": "libs/prisma/src",
       "compilerOptions": {
         "tsConfigPath": "libs/prisma/tsconfig.lib.json"
+      }
+    },
+    "main": {
+      "type": "application",
+      "root": "apps/main",
+      "entryFile": "main",
+      "sourceRoot": "apps/main/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/main/tsconfig.app.json"
+      }
+    },
+    "auth": {
+      "type": "library",
+      "root": "libs/auth",
+      "entryFile": "index",
+      "sourceRoot": "libs/auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/auth/tsconfig.lib.json"
+      }
+    },
+    "redis": {
+      "type": "library",
+      "root": "libs/redis",
+      "entryFile": "index",
+      "sourceRoot": "libs/redis/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/redis/tsconfig.lib.json"
       }
     }
   }

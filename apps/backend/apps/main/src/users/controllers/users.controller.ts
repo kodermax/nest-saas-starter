@@ -2,10 +2,11 @@ import { Body, Controller, Delete, Get, Param, Post, Req, UseGuards } from '@nes
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { UsersService } from '../services/users.service';
 import { CreateUserInputDto } from '../dto/create-user.input';
-import { JwtAuthGuard, Role } from 'apps/admin/src/auth';
 import { InviteUserDto } from '../dto/invite-user.dto';
-import { RequestWithUser } from 'apps/admin/src/auth/interfaces/user';
-import { Roles, RolesGuard } from '@starter/common';
+import { Roles, RolesGuard } from '@app/common';
+import { JwtAuthGuard } from '@app/auth/guards/jwt-auth.guard';
+import { Role } from '@app/auth/enums/role.enum';
+import { RequestWithUser } from '@app/auth/interfaces/user';
 
 @ApiTags('Users')
 @Controller('users')

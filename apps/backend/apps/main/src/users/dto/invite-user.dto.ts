@@ -1,5 +1,5 @@
 import { UserRole } from '@prisma/client';
-import { transform } from '@starter/common';
+import { transform } from '@app/common';
 import { Transform } from 'class-transformer';
 import { IsEmail, IsString, MinLength } from 'class-validator';
 

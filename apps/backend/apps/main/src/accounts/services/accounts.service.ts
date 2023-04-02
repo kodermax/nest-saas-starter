@@ -3,10 +3,10 @@ import { RegisterInput } from '../dto/register.input';
 import { Prisma, User } from '@prisma/client';
 import { UsersService } from '../../users/services/users.service';
 import crypto from 'crypto';
-import { RedisService } from 'apps/admin/src/redis/redis.service';
-import { MailService } from 'apps/admin/src/mail/mail.service';
-import { PasswordService } from 'apps/admin/src/auth';
+import { MailService } from 'apps/main/src/mail/mail.service';
 import { PrismaService } from '@app/prisma';
+import { PasswordService } from '@app/auth/services/password.service';
+import { RedisService } from '@app/redis';
 
 @Injectable()
 export class AccountsService {

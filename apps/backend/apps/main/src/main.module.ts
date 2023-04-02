@@ -1,16 +1,16 @@
-import { NoteModule } from './note/note.module';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MainController } from './main.controller';
+import { MainService } from './main.service';
 import { RedisModule } from './redis/redis.module';
-import { AccountsModule } from './accounts/accounts.module';
-import config from '../../../libs/common/src/configs/config';
-import configProd from '../../../libs/common/src/configs/config.prod';
-import { ThrottlerModule } from '@nestjs/throttler';
-import { AuthModule } from 'apps/admin/src/auth';
-import { NotesModule } from './notes/notes.module';
 import { PrismaModule } from '@app/prisma';
+import { NoteModule } from './note/note.module';
+import { ThrottlerModule } from '@nestjs/throttler';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { AuthModule } from '@app/auth';
+import { NotesModule } from './notes/notes.module';
+import { AccountsModule } from './accounts/accounts.module';
+import configProd from '@app/common/configs/config.prod';
+import config from '@app/common/configs/config';
 
 @Module({
   imports: [
@@ -32,9 +32,9 @@ import { PrismaModule } from '@app/prisma';
     NoteModule,
     NotesModule
   ],
-  controllers: [AppController],
+  controllers: [MainController],
   providers: [
-    AppService
+    MainService
   ],
 })
-export class AppModule { }
+export class MainModule { }

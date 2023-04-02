@@ -1,16 +1,16 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { MainModule } from './main.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import cookieParser from 'cookie-parser';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import helmet from 'helmet';
-import { CorsConfig, NestConfig, SwaggerConfig } from '@starter/common';
+import { CorsConfig, NestConfig, SwaggerConfig } from '@app/common';
 import { PrismaService } from '@app/prisma';
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(MainModule);
   app.useGlobalPipes(new ValidationPipe());
 
   const prismaService: PrismaService = app.get(PrismaService);

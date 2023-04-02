@@ -2,12 +2,12 @@ import { Injectable, BadRequestException, ConflictException } from '@nestjs/comm
 import { ChangePasswordInput } from '../dto/change-password.input';
 import { UpdateUserInput } from '../dto/update-user.input';
 import { CreateUserInputDto } from '../dto/create-user.input';
-import { PasswordService } from 'apps/admin/src/auth';
 import { InviteUserDto } from '../dto/invite-user.dto';
-import { RequestUser } from 'apps/admin/src/auth/interfaces/user';
 import crypto from 'crypto';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from '@app/prisma';
+import { PasswordService } from '@app/auth/services/password.service';
+import { RequestUser } from '@app/auth/interfaces/user';
 
 
 @Injectable()

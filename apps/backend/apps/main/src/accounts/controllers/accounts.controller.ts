@@ -10,7 +10,7 @@ import { Request, Response } from 'express';
 import { NewUserDto } from '../dto/new-user.dto';
 import { plainToInstance } from 'class-transformer';
 import { RequestPasswordResetInputDto, ResetInputDto } from '../dto/reset.dto';
-import { AuthService } from 'apps/admin/src/auth';
+import { AuthService } from '@app/auth';
 
 @ApiTags('Аккаунты')
 @Controller('accounts')
