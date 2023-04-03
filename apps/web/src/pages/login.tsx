@@ -61,7 +61,7 @@ export default function ComingSoonPage() {
 
       <CustomTextField
         fullWidth
-        placeholder='Enter your email'
+        placeholder='Ваш email'
         InputProps={{
           endAdornment: (
             <InputAdornment position='end'>
