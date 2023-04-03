@@ -1,18 +1,12 @@
-// next
-import NextLink from 'next/link'
-
 // @mui
 import { useTheme } from '@mui/material/styles'
-import { AppBar, Toolbar, Box, BoxProps, Link } from '@mui/material'
+import { AppBar, Toolbar, Box, BoxProps } from '@mui/material'
 
 // config
 import { HEADER } from '../../config'
 
 // utils
 import { bgBlur } from '../../utils/cssStyles'
-
-// routes
-import { PATH_PAGE } from '../../routes/paths'
 
 // components
 import Logo from '../../components/logo'
