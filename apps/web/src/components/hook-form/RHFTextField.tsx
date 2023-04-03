@@ -8,15 +8,17 @@ import { TextField, TextFieldProps } from '@mui/material'
 
 type Props = TextFieldProps & {
   name: string
+  rules?: any
 }
 
-export default function RHFTextField({ name, ...other }: Props) {
+export default function RHFTextField({ name, rules, ...other }: Props) {
   const { control } = useFormContext()
 
   return (
     <Controller
       name={name}
       control={control}
+      rules={rules}
       render={({ field, fieldState: { error } }) => (
         <TextField
           {...field}

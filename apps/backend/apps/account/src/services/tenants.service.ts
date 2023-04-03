@@ -9,7 +9,14 @@ import { CreateTenantInput } from '../dto/create-tenant.input';
 
 @Injectable()
 export class TenantsService {
+
     constructor(private readonly prisma: PrismaService) { }
+
+
+    public async checkAvailability(domain: string) {
+        const tenant = await this.prisma.tenant.findFirst({ where: { domain: domain } })
+        return tenant === null
+    }
 
     public async createTenant(payload: CreateTenantInput) {
         try {

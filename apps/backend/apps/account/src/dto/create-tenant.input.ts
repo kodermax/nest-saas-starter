@@ -6,4 +6,8 @@ export class CreateTenantInput {
     @ApiProperty()
     @IsString()
     domain: string;
+
+    @ApiProperty()
+    @IsString()
+    name: string;
 }

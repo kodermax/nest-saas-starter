@@ -11,6 +11,7 @@ import { useForm } from 'react-hook-form'
 import { LoadingButton } from '@mui/lab'
 import FormProvider, { RHFTextField } from '../../../components/hook-form'
 import { InputAdornment } from '@mui/material'
+import { checkAvailability, createTenant } from 'src/@core/services/tenants.service'
 
 // components
 
@@ -26,12 +27,21 @@ export default function RegisterForm() {
 
   const ResetPasswordSchema = Yup.object().shape({
     name: Yup.string().required('Поле обязательно для заполнения'),
-    domain: Yup.string().required('Поле обязательно для заполнения')
+    domain: Yup.string()
+      .test('checkAvailabilty', 'Сайт с таким URL-адресом уже существует', async (value: any) => {
+        const {
+          data: { status }
+        } = await checkAvailability(value)
+
+        return status === 'available'
+      })
+      .required('Поле обязательно для заполнения')
   })
 
   const methods = useForm<FormValuesProps>({
     resolver: yupResolver(ResetPasswordSchema),
-    defaultValues: { domain: '' }
+    defaultValues: { domain: '', name: '' },
+    mode: 'onBlur'
   })
 
   const {
@@ -41,9 +51,7 @@ export default function RegisterForm() {
 
   const onSubmit = async (data: FormValuesProps) => {
     try {
-      console.log(data)
-      await new Promise(resolve => setTimeout(resolve, 500))
-
+      await createTenant(data)
       push('/login')
     } catch (error) {
       console.error(error)
@@ -60,7 +68,6 @@ export default function RegisterForm() {
           endAdornment: <InputAdornment position='end'>.nest-saas.io</InputAdornment>
         }}
       />
-
       <LoadingButton fullWidth size='large' type='submit' variant='contained' loading={isSubmitting} sx={{ mt: 3 }}>
         Продолжить
       </LoadingButton>
