@@ -29,11 +29,8 @@ export default function RegisterPage() {
       <PlanPremiumIcon sx={{ mb: 5, height: 96 }} />
 
       <Typography variant='h3' paragraph>
-        Создание сайта
+        Nest SaaS
       </Typography>
-
-      <Typography sx={{ color: 'text.secondary', mb: 5 }}>Укажите адрес сайта</Typography>
-
       <RegisterForm />
 
       <NextLink href={'/login'} passHref legacyBehavior>

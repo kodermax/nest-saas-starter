@@ -10,7 +10,7 @@ import { useForm } from 'react-hook-form'
 // @mui
 import { LoadingButton } from '@mui/lab'
 import FormProvider, { RHFTextField } from '../../../components/hook-form'
-import { InputAdornment } from '@mui/material'
+import { InputAdornment, Typography } from '@mui/material'
 import { checkAvailability, createTenant } from 'src/@core/services/tenants.service'
 
 // components
@@ -68,6 +68,10 @@ export default function RegisterForm() {
           endAdornment: <InputAdornment position='end'>.nest-saas.io</InputAdornment>
         }}
       />
+      <Typography component='div' sx={{ color: 'text.secondary', mt: 3, typography: 'caption', textAlign: 'left' }}>
+        Это временный URL-адрес для начала настройки вашего сайта. Как только вы настроите свой сайт, вы можете оставить
+        его как есть или заменить пользовательским доменным именем.
+      </Typography>
       <LoadingButton fullWidth size='large' type='submit' variant='contained' loading={isSubmitting} sx={{ mt: 3 }}>
         Продолжить
       </LoadingButton>
