@@ -57,7 +57,7 @@ export default function Header() {
           <Logo />
           <Box sx={{ flexGrow: 1 }} />
           {isDesktop && <NavDesktop isOffset={isOffset} data={navConfig} />}
-          <Button variant='contained' target='_blank' rel='noopener' href={PATH_MINIMAL_ON_STORE}>
+          <Button variant='contained' href={PATH_MINIMAL_ON_STORE}>
             Регистрация
           </Button>
 

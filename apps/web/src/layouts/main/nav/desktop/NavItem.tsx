@@ -50,7 +50,7 @@ export const NavItem = forwardRef<HTMLDivElement, NavItemDesktopProps>(
 
     // Default
     return (
-      <NextLink href={path} passHref>
+      <NextLink href={path} passHref legacyBehavior>
         {renderContent}
       </NextLink>
     )

@@ -48,12 +48,6 @@ export default function Header({ isOffset }: Props) {
         }}
       >
         <Logo />
-
-        <NextLink href={PATH_PAGE.faqs} passHref>
-          <Link variant='subtitle2' color='inherit'>
-            Need Help?
-          </Link>
-        </NextLink>
       </Toolbar>
 
       {isOffset && <Shadow />}
