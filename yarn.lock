@@ -636,7 +636,7 @@
     csstype "^3.1.1"
     prop-types "^15.8.1"
 
-"@mui/system@5.11.15", "@mui/system@^5.11.14", "@mui/system@^5.11.15":
+"@mui/system@^5.11.14", "@mui/system@^5.11.15":
   version "5.11.15"
   resolved "https://registry.npmjs.org/@mui/system/-/system-5.11.15.tgz#075fa6aef5ec765ea9573bf654049cf72066364d"
   integrity sha512-vCatoWCTnAPquoNifHbqMCMnOElEbLosVUeW0FQDyjCq+8yMABD9E6iY0s14O7iq1wD+qqU7rFAuDIVvJ/AzzA==

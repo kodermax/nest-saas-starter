@@ -65,7 +65,7 @@ export default function RegisterForm() {
         name='domain'
         label='Адрес сайта'
         InputProps={{
-          endAdornment: <InputAdornment position='end'>.nest-saas.io</InputAdornment>
+          endAdornment: <InputAdornment position='end'>.vercel.app</InputAdornment>
         }}
       />
       <Typography component='div' sx={{ color: 'text.secondary', mt: 3, typography: 'caption', textAlign: 'left' }}>
