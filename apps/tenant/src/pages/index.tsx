@@ -1,93 +1,70 @@
-import { m, useScroll, useSpring } from 'framer-motion';
 // next
 import Head from 'next/head';
 // @mui
-import { useTheme } from '@mui/material/styles';
-import { Box } from '@mui/material';
+import { Box, Switch, Container, Typography, Stack } from '@mui/material';
+// _mock_
+import { _pricingPlans } from '../_mock/arrays';
 // layouts
-import MainLayout from '../layouts/main';
+import SimpleLayout from '../layouts/simple';
 // sections
-import {
-  HomeHero,
-  HomeMinimal,
-  HomeDarkMode,
-  HomeLookingFor,
-  HomeForDesigner,
-  HomeColorPresets,
-  HomePricingPlans,
-  HomeAdvertisement,
-  HomeCleanInterfaces,
-  HomeHugePackElements,
-} from '../sections/home';
+import { PricingPlanCard } from '../sections/pricing';
 
 // ----------------------------------------------------------------------
 
-HomePage.getLayout = (page: React.ReactElement) => <MainLayout> {page} </MainLayout>;
+PricingPage.getLayout = (page: React.ReactElement) => <SimpleLayout>{page}</SimpleLayout>;
 
 // ----------------------------------------------------------------------
 
-export default function HomePage() {
-  const theme = useTheme();
-
-  const { scrollYProgress } = useScroll();
-
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
-  const progress = (
-    <m.div
-      style={{
-        top: 0,
-        left: 0,
-        right: 0,
-        height: 3,
-        zIndex: 1999,
-        position: 'fixed',
-        transformOrigin: '0%',
-        backgroundColor: theme.palette.primary.main,
-        scaleX,
-      }}
-    />
-  );
-
+export default function PricingPage() {
   return (
     <>
       <Head>
-        <title> The starting point for your next project | Minimal UI</title>
+        <title> Pricing | Minimal UI</title>
       </Head>
 
-      {progress}
-
-      <HomeHero />
-
-      <Box
+      <Container
         sx={{
-          overflow: 'hidden',
-          position: 'relative',
-          bgcolor: 'background.default',
+          pt: 15,
+          pb: 10,
+          minHeight: 1,
         }}
       >
-        <HomeMinimal />
+        <Typography variant="h3" align="center" paragraph>
+          Flexible plans for your
+          <br /> community&apos;s size and needs
+        </Typography>
 
-        <HomeHugePackElements />
+        <Typography align="center" sx={{ color: 'text.secondary' }}>
+          Choose your plan and make modern online conversation magic
+        </Typography>
 
-        <HomeForDesigner />
+        <Box sx={{ my: 5 }}>
+          <Stack direction="row" alignItems="center" justifyContent="flex-end">
+            <Typography variant="overline" sx={{ mr: 1.5 }}>
+              MONTHLY
+            </Typography>
 
-        <HomeDarkMode />
+            <Switch />
+            <Typography variant="overline" sx={{ ml: 1.5 }}>
+              YEARLY (save 10%)
+            </Typography>
+          </Stack>
 
-        <HomeColorPresets />
+          <Typography
+            variant="caption"
+            align="right"
+            sx={{ color: 'text.secondary', display: 'block' }}
+          >
+            * Plus applicable taxes
+          </Typography>
+        </Box>
 
-        <HomeCleanInterfaces />
-
-        <HomePricingPlans />
-
-        <HomeLookingFor />
-
-        <HomeAdvertisement />
-      </Box>
+        <Box gap={3} display="grid" gridTemplateColumns={{ md: 'repeat(3, 1fr)' }}>
+          {_pricingPlans.map((card, index) => (
+            <PricingPlanCard key={card.subscription} card={card} index={index} />
+          ))}
+        </Box>
+      </Container>
     </>
   );
 }
