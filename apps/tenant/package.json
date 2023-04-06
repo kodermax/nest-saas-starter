@@ -30,7 +30,7 @@
     "@fullcalendar/react": "^5.11.2",
     "@fullcalendar/timegrid": "^5.11.3",
     "@fullcalendar/timeline": "^5.11.3",
-    "@hookform/resolvers": "^2.9.8",
+    "@hookform/resolvers": "^3.0.1",
     "@iconify/react": "^4.0.0",
     "@mui/lab": "^5.0.0-alpha.103",
     "@mui/material": "^5.10.9",
