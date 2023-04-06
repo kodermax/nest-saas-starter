@@ -16,12 +16,6 @@ import { checkAvailability, createTenant } from 'src/@core/services/tenants.serv
 // components
 
 // ----------------------------------------------------------------------
-
-type FormValuesProps = {
-  name: string
-  domain: string
-}
-
 const ResetPasswordSchema: any = Yup.object().shape({
   name: Yup.string().required('Поле обязательно для заполнения'),
   domain: Yup.string()
@@ -35,7 +29,12 @@ const ResetPasswordSchema: any = Yup.object().shape({
     .required('Поле обязательно для заполнения')
 })
 
-export default function RegisterForm() {
+type FormValuesProps = {
+  name: string
+  domain: string
+}
+
+export default function RegisterTenantForm() {
   const { push } = useRouter()
 
   const methods = useForm<FormValuesProps>({

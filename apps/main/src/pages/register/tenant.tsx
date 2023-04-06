@@ -5,21 +5,18 @@ import NextLink from 'next/link'
 // @mui
 import { Link, Typography } from '@mui/material'
 
-// components
-
-// assets
-import RegisterForm from '../views/pages/register/RegisterForm'
-import CompactLayout from '../layouts/compact'
 import Iconify from 'src/components/iconify'
 import { PlanPremiumIcon } from 'src/assets/icons'
+import CompactLayout from 'src/layouts/compact'
+import RegisterTenantForm from 'src/views/pages/register/RegisterTenantForm'
 
 // ----------------------------------------------------------------------
 
-RegisterPage.getLayout = (page: React.ReactElement) => <CompactLayout>{page}</CompactLayout>
+RegisterTenantPage.getLayout = (page: React.ReactElement) => <CompactLayout>{page}</CompactLayout>
 
 // ----------------------------------------------------------------------
 
-export default function RegisterPage() {
+export default function RegisterTenantPage() {
   return (
     <>
       <Head>
@@ -31,7 +28,7 @@ export default function RegisterPage() {
       <Typography variant='h3' paragraph>
         Nest SaaS
       </Typography>
-      <RegisterForm />
+      <RegisterTenantForm />
 
       <NextLink href={'/login'} passHref legacyBehavior>
         <Link
