@@ -22,7 +22,7 @@ type FormValuesProps = {
   domain: string
 }
 
-const ResetPasswordSchema: any = Yup.object().shape({
+const ResetPasswordSchema = Yup.object().shape({
   name: Yup.string().required('Поле обязательно для заполнения'),
   domain: Yup.string()
     .test('checkAvailabilty', 'Сайт с таким URL-адресом уже существует', async (value: any) => {
@@ -39,7 +39,7 @@ export default function RegisterForm() {
   const { push } = useRouter()
 
   const methods = useForm<FormValuesProps>({
-    resolver: yupResolver(ResetPasswordSchema),
+    resolver: yupResolver<any>(ResetPasswordSchema),
     defaultValues: { domain: '', name: '' },
     mode: 'onBlur'
   })
@@ -52,7 +52,7 @@ export default function RegisterForm() {
   const onSubmit = async (data: FormValuesProps) => {
     try {
       await createTenant(data)
-      push('/login')
+      push('/register/account')
     } catch (error) {
       console.error(error)
     }

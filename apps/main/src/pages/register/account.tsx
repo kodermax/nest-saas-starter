@@ -8,7 +8,7 @@ import { Link, Typography } from '@mui/material'
 import Iconify from 'src/components/iconify'
 import { PlanPremiumIcon } from 'src/assets/icons'
 import CompactLayout from 'src/layouts/compact'
-import RegisterTenantForm from 'src/views/pages/register/RegisterTenantForm'
+import RegisterAccountForm from 'src/views/pages/register/RegisterAccountForm'
 
 // ----------------------------------------------------------------------
 
@@ -28,7 +28,7 @@ export default function RegisterTenantPage() {
       <Typography variant='h3' paragraph>
         Nest SaaS
       </Typography>
-      <RegisterTenantForm />
+      <RegisterAccountForm />
 
       <NextLink href={'/login'} passHref legacyBehavior>
         <Link
