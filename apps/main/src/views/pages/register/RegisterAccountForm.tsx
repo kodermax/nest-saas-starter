@@ -10,7 +10,6 @@ import { useForm } from 'react-hook-form'
 // @mui
 import { LoadingButton } from '@mui/lab'
 import FormProvider, { RHFTextField } from '../../../components/hook-form'
-import { checkAvailability, createTenant } from 'src/@core/services/tenants.service'
 
 // components
 
@@ -18,7 +17,7 @@ import { checkAvailability, createTenant } from 'src/@core/services/tenants.serv
 const ResetPasswordSchema = yup
   .object()
   .shape({
-    email: yup.string().required('Поле обязательно для заполнения'),
+    email: yup.string().email('Не правильный Email').required('Поле обязательно для заполнения'),
     password: yup
       .string()
       .min(6, 'Пароль должен содержать минимум 6 символов')
@@ -27,8 +26,8 @@ const ResetPasswordSchema = yup
   .required()
 
 type FormValuesProps = {
-  name: string
-  domain: string
+  email: string
+  password: string
 }
 
 export default function RegisterAccountForm() {
@@ -36,7 +35,7 @@ export default function RegisterAccountForm() {
 
   const methods = useForm<FormValuesProps>({
     resolver: yupResolver<any>(ResetPasswordSchema),
-    defaultValues: { domain: '', name: '' },
+    defaultValues: { email: '', password: '' },
     mode: 'onBlur'
   })
 
@@ -47,7 +46,6 @@ export default function RegisterAccountForm() {
 
   const onSubmit = async (data: FormValuesProps) => {
     try {
-      await createTenant(data)
       push('/login')
     } catch (error) {
       console.error(error)
@@ -56,7 +54,7 @@ export default function RegisterAccountForm() {
 
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-      <RHFTextField name='Email' label='Email' sx={{ mb: 3 }} />
+      <RHFTextField name='email' label='Email' sx={{ mb: 3 }} />
       <RHFTextField name='password' label='Пароль' />
       <LoadingButton fullWidth size='large' type='submit' variant='contained' loading={isSubmitting} sx={{ mt: 3 }}>
         Продолжить

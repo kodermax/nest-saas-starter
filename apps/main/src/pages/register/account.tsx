@@ -26,7 +26,7 @@ export default function RegisterTenantPage() {
       <PlanPremiumIcon sx={{ mb: 5, height: 96 }} />
 
       <Typography variant='h3' paragraph>
-        Nest SaaS
+        Создать аккаунт
       </Typography>
       <RegisterAccountForm />
 
