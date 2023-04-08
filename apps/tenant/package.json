@@ -27,7 +27,7 @@
     "@fullcalendar/daygrid": "^5.11.3",
     "@fullcalendar/interaction": "^5.11.3",
     "@fullcalendar/list": "^6.1.5",
-    "@fullcalendar/react": "^5.11.2",
+    "@fullcalendar/react": "^6.1.5",
     "@fullcalendar/timegrid": "^6.1.5",
     "@fullcalendar/timeline": "^5.11.3",
     "@hookform/resolvers": "^3.0.1",
