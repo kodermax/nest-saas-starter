@@ -905,13 +905,18 @@
   dependencies:
     tslib "^2.1.0"
 
-"@fullcalendar/daygrid@^5.11.3", "@fullcalendar/daygrid@~5.11.4":
+"@fullcalendar/daygrid@^5.11.3":
   version "5.11.4"
   resolved "https://registry.npmjs.org/@fullcalendar/daygrid/-/daygrid-5.11.4.tgz#8a9f0863bb3fa8c0bc0118020cdb63fbe966aa94"
   integrity sha512-M/pSrxgrtG5vDkOxqTgv6WrptrsXjp5QgQLyXantSy+9EuZOagPKJDh+HEU94DKUAc0mlXS6iDdf0WzjkTHe6A==
   dependencies:
     "@fullcalendar/common" "~5.11.4"
     tslib "^2.1.0"
+
+"@fullcalendar/daygrid@~6.1.5":
+  version "6.1.5"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-6.1.5.tgz#fa5df2ec926a0a2367a91f43981518643d3d63c7"
+  integrity sha512-wXQUNPOyEQ1FEHVdtxP/tLcAAGwY4zeFejujhcznhKC751X8voInF+7kFmI7GDTVgX9cd72Muku3c+gHi8ygEQ==
 
 "@fullcalendar/interaction@^5.11.3":
   version "5.11.4"
@@ -954,14 +959,12 @@
     "@fullcalendar/premium-common" "~5.11.4"
     tslib "^2.1.0"
 
-"@fullcalendar/timegrid@^5.11.3":
-  version "5.11.4"
-  resolved "https://registry.npmjs.org/@fullcalendar/timegrid/-/timegrid-5.11.4.tgz#def4932c8eec0bbb9967fd1fd36f9bdcac28981b"
-  integrity sha512-Ks9Kuiwf+JBqrN5qjC8Gy3ngLWIdbCQYISpYuREPvwMRnXxAmoYKvnkgkxoxde1X5w6X61CaT3sSYZQv9xJqVw==
+"@fullcalendar/timegrid@^6.1.5":
+  version "6.1.5"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/timegrid/-/timegrid-6.1.5.tgz#cf76716e279a383e17d624b36e4befd1d1558368"
+  integrity sha512-phofe7XQ+JbejQB9zGqtZOGmPr/vMkfkK5dwPY4rOjxZOG/wspL3aXoSurmXaVP5CIiRWBvX9QPq0UgVJt0j5A==
   dependencies:
-    "@fullcalendar/common" "~5.11.4"
-    "@fullcalendar/daygrid" "~5.11.4"
-    tslib "^2.1.0"
+    "@fullcalendar/daygrid" "~6.1.5"
 
 "@fullcalendar/timeline@^5.11.3":
   version "5.11.4"
