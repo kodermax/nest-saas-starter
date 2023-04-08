@@ -1,11 +1,15 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { Box, Card, CardHeader, Container, CardContent } from '@mui/material';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import Scrollbar from '../../../components/scrollbar';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';

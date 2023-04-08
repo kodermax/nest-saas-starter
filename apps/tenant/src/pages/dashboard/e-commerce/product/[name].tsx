@@ -1,25 +1,33 @@
 import { useEffect, useState } from 'react';
+
 // next
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+
 // @mui
 import { alpha } from '@mui/material/styles';
 import { Box, Tab, Tabs, Card, Grid, Divider, Container, Typography, Stack } from '@mui/material';
+
 // redux
 import { useDispatch, useSelector } from '../../../../redux/store';
 import { getProduct, addToCart, gotoStep } from '../../../../redux/slices/product';
+
 // routes
 import { PATH_DASHBOARD } from '../../../../routes/paths';
+
 // @types
 import { ICheckoutCartItem } from '../../../../@types/product';
+
 // layouts
 import DashboardLayout from '../../../../layouts/dashboard';
+
 // components
 import Iconify from '../../../../components/iconify';
 import Markdown from '../../../../components/markdown';
 import CustomBreadcrumbs from '../../../../components/custom-breadcrumbs';
 import { useSettingsContext } from '../../../../components/settings';
 import { SkeletonProductDetails } from '../../../../components/skeleton';
+
 // sections
 import {
   ProductDetailsSummary,

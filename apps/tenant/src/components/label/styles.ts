@@ -1,6 +1,7 @@
 // @mui
 import { alpha, Theme, styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
+
 //
 import { LabelColor, LabelVariant } from './types';
 
@@ -33,6 +34,7 @@ export const StyledLabel = styled(Box)(
           color: theme.palette.text.primary,
           border: `1px solid ${alpha(theme.palette.grey[500], 0.32)}`,
         }),
+
         // SOFT
         ...(softVariant && {
           color: isLight ? theme.palette.text.primary : theme.palette.common.white,
@@ -48,12 +50,14 @@ export const StyledLabel = styled(Box)(
           color: theme.palette[ownerState.color].contrastText,
           backgroundColor: theme.palette[ownerState.color].main,
         }),
+
         // OUTLINED
         ...(outlinedVariant && {
           backgroundColor: 'transparent',
           color: theme.palette[ownerState.color].main,
           border: `1px solid ${theme.palette[ownerState.color].main}`,
         }),
+
         // SOFT
         ...(softVariant && {
           color: theme.palette[ownerState.color][isLight ? 'dark' : 'light'],

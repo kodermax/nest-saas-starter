@@ -1,15 +1,20 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { Box, Button, Container } from '@mui/material';
 import { Masonry } from '@mui/lab';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import { useSnackbar, VariantType, SnackbarOrigin } from '../../../components/snackbar';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
+
 // sections
 import { Block } from '../../../sections/_examples/Block';
 

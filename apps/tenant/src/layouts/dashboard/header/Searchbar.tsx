@@ -1,8 +1,10 @@
 import { useState, memo, useEffect } from 'react';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
+
 // next
 import { useRouter } from 'next/router';
+
 // @mui
 import { alpha, styled } from '@mui/material/styles';
 import {
@@ -15,14 +17,17 @@ import {
   ClickAwayListener,
 } from '@mui/material';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
+
 // utils
 import { bgBlur } from '../../../utils/cssStyles';
 import flattenArray from '../../../utils/flattenArray';
+
 // components
 import Iconify from '../../../components/iconify';
 import { NavListProps } from '../../../components/nav-section';
 import { IconButtonAnimate } from '../../../components/animate';
 import SearchNotFound from '../../../components/search-not-found';
+
 //
 import NavConfig from '../nav/config';
 
@@ -270,7 +275,8 @@ function splitPath(array: NavListProps[], key: string) {
       );
     }
   }
-  return null;
+  
+return null;
 }
 
 // ----------------------------------------------------------------------

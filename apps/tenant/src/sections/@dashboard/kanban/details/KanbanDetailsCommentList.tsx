@@ -1,10 +1,14 @@
 import { useState } from 'react';
+
 // @mui
 import { Stack, Avatar, Typography } from '@mui/material';
+
 // utils
 import { fToNow } from '../../../../utils/formatTime';
+
 // @types
 import { IKanbanComment } from '../../../../@types/kanban';
+
 // components
 import Image from '../../../../components/image';
 import Lightbox from '../../../../components/lightbox';

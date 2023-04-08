@@ -1,8 +1,11 @@
 import { useState } from 'react';
+
 // @mui
 import { Box, Card, Button, Avatar, Typography, Stack } from '@mui/material';
+
 // @types
 import { IUserProfileFollower } from '../../../../@types/user';
+
 // components
 import Iconify from '../../../../components/iconify';
 

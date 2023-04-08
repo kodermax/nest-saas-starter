@@ -1,7 +1,9 @@
 // @mui
 import { Accordion, Typography, AccordionSummary, AccordionDetails } from '@mui/material';
+
 // _mock_
 import { _faqs } from '../../_mock/arrays';
+
 // components
 import Iconify from '../../components/iconify';
 

@@ -1,8 +1,10 @@
 // @mui
 import { alpha, useTheme, styled } from '@mui/material/styles';
 import { Box, Card, Button, CardContent, Typography, CardProps } from '@mui/material';
+
 // utils
 import { bgGradient } from '../../../../utils/cssStyles';
+
 // components
 import Image from '../../../../components/image';
 import Carousel, { CarouselDots } from '../../../../components/carousel';

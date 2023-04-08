@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+
 // @mui
 import { alpha } from '@mui/material/styles';
 import {
@@ -15,13 +16,17 @@ import {
   InputAdornment,
   FormControlLabel,
 } from '@mui/material';
+
 // @types
 import { IUserProfilePost } from '../../../../../@types/user';
+
 // auth
 import { useAuthContext } from '../../../../../auth/useAuthContext';
+
 // utils
 import { fDate } from '../../../../../utils/formatTime';
 import { fShortenNumber } from '../../../../../utils/formatNumber';
+
 // components
 import Image from '../../../../../components/image';
 import Iconify from '../../../../../components/iconify';

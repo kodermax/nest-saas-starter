@@ -1,7 +1,9 @@
 import { m } from 'framer-motion';
+
 // @mui
 import { styled, alpha } from '@mui/material/styles';
 import { Container, Typography, Stack, IconButton } from '@mui/material';
+
 // components
 import { useSettingsContext } from '../../components/settings';
 import SvgColor from '../../components/svg-color';

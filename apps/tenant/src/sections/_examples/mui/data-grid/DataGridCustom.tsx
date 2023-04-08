@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Stack, Typography, Box, Rating, LinearProgress, IconButton } from '@mui/material';
@@ -10,8 +11,10 @@ import {
   getGridNumericOperators,
   GridFilterInputValueProps,
 } from '@mui/x-data-grid';
+
 // utils
 import { fPercent } from '../../../../utils/formatNumber';
+
 // components
 import Label from '../../../../components/label';
 import Iconify from '../../../../components/iconify';
@@ -215,7 +218,8 @@ export default function DataGridCustom({ data }: Props) {
 function RenderStatus(getStatus: string) {
   const theme = useTheme();
   const isLight = theme.palette.mode === 'light';
-  return (
+  
+return (
     <Label
       variant={isLight ? 'soft' : 'filled'}
       color={(getStatus === 'busy' && 'error') || (getStatus === 'away' && 'warning') || 'success'}

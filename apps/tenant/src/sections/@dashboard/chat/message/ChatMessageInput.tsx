@@ -1,10 +1,14 @@
 import { useRef, useState } from 'react';
+
 // @mui
 import { Stack, InputBase, InputBaseProps, IconButton, InputAdornment } from '@mui/material';
+
 // utils
 import uuidv4 from '../../../../utils/uuidv4';
+
 // @types
 import { IChatSendMessage } from '../../../../@types/chat';
+
 // components
 import Iconify from '../../../../components/iconify';
 

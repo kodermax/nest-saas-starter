@@ -1,15 +1,20 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { Box, Stack, Container, Link, Tooltip } from '@mui/material';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import Iconify from '../../../components/iconify';
 import SvgColor from '../../../components/svg-color';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
+
 // sections
 import { Block } from '../../../sections/_examples/Block';
 

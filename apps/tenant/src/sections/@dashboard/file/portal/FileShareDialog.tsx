@@ -10,11 +10,14 @@ import {
   DialogActions,
   DialogContent,
 } from '@mui/material';
+
 // @types
 import { IFileShared } from '../../../../@types/file';
+
 // components
 import Iconify from '../../../../components/iconify';
 import Scrollbar from '../../../../components/scrollbar';
+
 //
 import FileInvitedItem from '../FileInvitedItem';
 
@@ -25,6 +28,7 @@ interface Props extends DialogProps {
   shared?: IFileShared[] | null;
   onCopyLink?: VoidFunction;
   onChangeInvite?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+
   //
   open: boolean;
   onClose: VoidFunction;
@@ -35,6 +39,7 @@ export default function FileShareDialog({
   inviteEmail,
   onCopyLink,
   onChangeInvite,
+
   //
   open,
   onClose,

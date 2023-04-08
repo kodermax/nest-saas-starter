@@ -1,14 +1,19 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography } from '@mui/material';
+
 // layouts
 import DashboardLayout from '../../layouts/dashboard';
+
 // _mock_
 import { _analyticPost, _analyticOrderTimeline, _analyticTraffic } from '../../_mock/arrays';
+
 // components
 import { useSettingsContext } from '../../components/settings';
+
 // sections
 import {
   AnalyticsTasks,

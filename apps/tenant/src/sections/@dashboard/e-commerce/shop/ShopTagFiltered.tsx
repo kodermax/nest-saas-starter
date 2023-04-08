@@ -1,11 +1,15 @@
 import { sentenceCase } from 'change-case';
+
 // form
 import { useFormContext } from 'react-hook-form';
+
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Chip, Stack, Button, Box, StackProps } from '@mui/material';
+
 // @type
 import { IProductFilter } from '../../../../@types/product';
+
 // components
 import Iconify from '../../../../components/iconify';
 

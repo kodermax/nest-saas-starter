@@ -1,13 +1,18 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { Box, Card, Container, CardHeader, CardContent } from '@mui/material';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
+
 // sections
 import { ReactHookForm } from '../../../sections/_examples/extra/form';
 

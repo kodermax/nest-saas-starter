@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+
 // @mui
 import {
   Table,
@@ -10,6 +11,7 @@ import {
   IconButton,
   TableContainer,
 } from '@mui/material';
+
 // components
 import Iconify from '../../../../../components/iconify';
 import Scrollbar from '../../../../../components/scrollbar';
@@ -22,6 +24,7 @@ import {
   TableSelectedAction,
   TablePaginationCustom,
 } from '../../../../../components/table';
+
 //
 import SortingSelectingToolbar from './SortingSelectingToolbar';
 
@@ -71,10 +74,12 @@ export default function SortingSelecting() {
     order,
     orderBy,
     rowsPerPage,
+
     //
     selected,
     onSelectRow,
     onSelectAllRows,
+
     //
     onSort,
     onChangeDense,
@@ -179,6 +184,7 @@ export default function SortingSelecting() {
           rowsPerPage={rowsPerPage}
           onPageChange={onChangePage}
           onRowsPerPageChange={onChangeRowsPerPage}
+
           //
           dense={dense}
           onChangeDense={onChangeDense}

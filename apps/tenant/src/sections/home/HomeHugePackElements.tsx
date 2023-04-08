@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { m } from 'framer-motion';
+
 // @mui
 import { alpha, styled } from '@mui/material/styles';
 import {
@@ -31,14 +32,19 @@ import {
   FormControlLabel,
   ToggleButtonGroup,
 } from '@mui/material';
+
 // hooks
 import useResponsive from '../../hooks/useResponsive';
+
 // utils
 import { bgGradient } from '../../utils/cssStyles';
+
 // routes
 import { PATH_PAGE } from '../../routes/paths';
+
 // _mock
 import _mock from '../../_mock';
+
 // components
 import Label from '../../components/label';
 import Image from '../../components/image';

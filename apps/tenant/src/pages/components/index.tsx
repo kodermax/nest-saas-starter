@@ -1,10 +1,14 @@
 import orderBy from 'lodash/orderBy';
+
 // next
 import Head from 'next/head';
+
 // @mui
 import { Container, Typography, Stack, Link, Box, BoxProps, Divider } from '@mui/material';
+
 // layouts
 import MainLayout from '../../layouts/main';
+
 // sections
 import { ComponentHero, ComponentCard } from '../../sections/_examples';
 import { foundation, mui, extra } from '../../sections/_examples/config';

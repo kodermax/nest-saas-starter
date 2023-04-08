@@ -1,8 +1,10 @@
 // @mui
 import { alpha, styled } from '@mui/material/styles';
 import { ListItemIcon, ListSubheader, ListItemButton } from '@mui/material';
+
 // config
 import { ICON, NAV } from '../../../config';
+
 //
 import { NavItemProps } from '../types';
 
@@ -42,6 +44,7 @@ export const StyledItem = styled(ListItemButton, {
     color: theme.palette.text.secondary,
     borderRadius: theme.shape.borderRadius,
     height: NAV.H_DASHBOARD_ITEM,
+
     // Sub item
     ...(subItem && {
       height: NAV.H_DASHBOARD_ITEM_SUB,
@@ -52,6 +55,7 @@ export const StyledItem = styled(ListItemButton, {
         height: NAV.H_DASHBOARD_ITEM,
       }),
     }),
+
     // Active item
     ...(active && {
       ...activeStyle,
@@ -59,6 +63,7 @@ export const StyledItem = styled(ListItemButton, {
         ...activeStyle,
       },
     }),
+
     // Active sub item
     ...(subItem &&
       active && {
@@ -67,6 +72,7 @@ export const StyledItem = styled(ListItemButton, {
           ...activeSubStyle,
         },
       }),
+
     // Disabled
     ...(disabled && {
       '&.Mui-disabled': {

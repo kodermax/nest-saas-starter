@@ -1,6 +1,8 @@
 import { useState } from 'react';
+
 // next
 import Head from 'next/head';
+
 // @mui
 import { styled } from '@mui/material/styles';
 import {
@@ -23,13 +25,17 @@ import {
   ListItemSecondaryAction,
 } from '@mui/material';
 import { Masonry } from '@mui/lab';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import Iconify from '../../../components/iconify';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
+
 // sections
 import { Block } from '../../../sections/_examples/Block';
 
@@ -280,7 +286,8 @@ export default function MUIListPage() {
               <List>
                 {[0, 1, 2, 3].map((value) => {
                   const labelId = `checkbox-list-label-${value}`;
-                  return (
+                  
+return (
                     <ListItemButton key={value} role={undefined} dense onClick={handleCheck(value)}>
                       <ListItemIcon>
                         <Checkbox

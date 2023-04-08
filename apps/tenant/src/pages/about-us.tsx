@@ -1,9 +1,12 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { Divider } from '@mui/material';
+
 // layouts
 import MainLayout from '../layouts/main';
+
 // sections
 import { AboutHero, AboutWhat, AboutTeam, AboutVision, AboutTestimonials } from '../sections/about';
 

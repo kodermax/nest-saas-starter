@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 // @mui
 import { alpha } from '@mui/material/styles';
 import { Box, Step, Paper, Button, Stepper, StepLabel, Typography } from '@mui/material';
@@ -41,7 +42,8 @@ export default function HorizontalLinearStepper() {
     setSkipped((prevSkipped) => {
       const newSkipped = new Set(prevSkipped.values());
       newSkipped.add(activeStep);
-      return newSkipped;
+      
+return newSkipped;
     });
   };
 
@@ -63,7 +65,8 @@ export default function HorizontalLinearStepper() {
           if (isStepSkipped(index)) {
             stepProps.completed = false;
           }
-          return (
+          
+return (
             <Step key={label} {...stepProps}>
               <StepLabel {...labelProps}>{label}</StepLabel>
             </Step>

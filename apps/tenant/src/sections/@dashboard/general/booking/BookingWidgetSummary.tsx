@@ -1,5 +1,6 @@
 // @mui
 import { Card, Typography, Box, CardProps } from '@mui/material';
+
 // utils
 import { fShortenNumber } from '../../../../utils/formatNumber';
 

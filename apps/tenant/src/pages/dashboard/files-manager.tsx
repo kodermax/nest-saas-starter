@@ -1,18 +1,26 @@
 import { useState } from 'react';
+
 // next
 import Head from 'next/head';
+
 // @mui
 import { Stack, Button, Container } from '@mui/material';
+
 // routes
 import { PATH_DASHBOARD } from '../../routes/paths';
+
 // utils
 import { fTimestamp } from '../../utils/formatTime';
+
 // layouts
 import DashboardLayout from '../../layouts/dashboard';
+
 // _mock_
 import { _allFiles } from '../../_mock/arrays';
+
 // @types
 import { IFile } from '../../@types/file';
+
 // components
 import Iconify from '../../components/iconify';
 import ConfirmDialog from '../../components/confirm-dialog';
@@ -21,6 +29,7 @@ import CustomBreadcrumbs from '../../components/custom-breadcrumbs';
 import { useSettingsContext } from '../../components/settings';
 import { useTable, getComparator } from '../../components/table';
 import DateRangePicker, { useDateRangePicker } from '../../components/date-range-picker';
+
 // sections
 import {
   FileListView,
@@ -353,7 +362,8 @@ function applyFilter({
   stabilizedThis.sort((a, b) => {
     const order = comparator(a[0], b[0]);
     if (order !== 0) return order;
-    return a[1] - b[1];
+    
+return a[1] - b[1];
   });
 
   inputData = stabilizedThis.map((el) => el[0]);

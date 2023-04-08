@@ -1,22 +1,30 @@
 import { useEffect, useState, useCallback } from 'react';
+
 // next
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+
 // @mui
 import { Box, Divider, Stack, Container, Typography, Pagination } from '@mui/material';
+
 // routes
 import { PATH_DASHBOARD } from '../../../../routes/paths';
+
 // utils
 import axios from '../../../../utils/axios';
+
 // layouts
 import DashboardLayout from '../../../../layouts/dashboard';
+
 // @types
 import { IBlogPost } from '../../../../@types/blog';
+
 // components
 import Markdown from '../../../../components/markdown';
 import CustomBreadcrumbs from '../../../../components/custom-breadcrumbs';
 import { useSettingsContext } from '../../../../components/settings';
 import { SkeletonPostDetails } from '../../../../components/skeleton';
+
 // sections
 import {
   BlogPostHero,

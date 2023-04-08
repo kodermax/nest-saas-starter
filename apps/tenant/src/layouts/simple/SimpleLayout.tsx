@@ -1,9 +1,12 @@
 // next
 import dynamic from 'next/dynamic';
+
 // hooks
 import useOffSetTop from '../../hooks/useOffSetTop';
+
 // config
 import { HEADER } from '../../config';
+
 //
 const Header = dynamic(() => import('./Header'), { ssr: false });
 

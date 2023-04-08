@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 // @mui
 import {
   Box,
@@ -11,13 +12,17 @@ import {
   CardProps,
   IconButton,
 } from '@mui/material';
+
 // hooks
 import useCopyToClipboard from '../../../../hooks/useCopyToClipboard';
+
 // utils
 import { fDateTime } from '../../../../utils/formatTime';
 import { fData } from '../../../../utils/formatNumber';
+
 // @types
 import { IFileManager } from '../../../../@types/file';
+
 // components
 import Iconify from '../../../../components/iconify';
 import MenuPopover from '../../../../components/menu-popover';
@@ -25,6 +30,7 @@ import { useSnackbar } from '../../../../components/snackbar';
 import TextMaxLine from '../../../../components/text-max-line';
 import FileThumbnail from '../../../../components/file-thumbnail';
 import ConfirmDialog from '../../../../components/confirm-dialog';
+
 //
 import FileShareDialog from '../portal/FileShareDialog';
 import FileDetailsDrawer from '../portal/FileDetailsDrawer';

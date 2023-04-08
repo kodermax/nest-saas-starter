@@ -1,7 +1,9 @@
 // next
 import Head from 'next/head';
+
 // layouts
 import DashboardLayout from '../../../layouts/dashboard';
+
 // sections
 import { Mail } from '../../../sections/@dashboard/mail';
 

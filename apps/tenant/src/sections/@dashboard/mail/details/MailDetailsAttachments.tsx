@@ -1,7 +1,9 @@
 // @mui
 import { Box, Stack } from '@mui/material';
+
 // @types
 import { IMailAttachment } from '../../../../@types/mail';
+
 // components
 import Scrollbar from '../../../../components/scrollbar';
 import FileThumbnail from '../../../../components/file-thumbnail';

@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import sumBy from 'lodash/sumBy';
+
 // next
 import Head from 'next/head';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
+
 // @mui
 import { useTheme } from '@mui/material/styles';
 import {
@@ -20,16 +22,22 @@ import {
   IconButton,
   TableContainer,
 } from '@mui/material';
+
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
+
 // utils
 import { fTimestamp } from '../../../utils/formatTime';
+
 // _mock_
 import { _invoices } from '../../../_mock/arrays';
+
 // @types
 import { IInvoice } from '../../../@types/invoice';
+
 // layouts
 import DashboardLayout from '../../../layouts/dashboard';
+
 // components
 import Label from '../../../components/label';
 import Iconify from '../../../components/iconify';
@@ -47,6 +55,7 @@ import {
   TableSelectedAction,
   TablePaginationCustom,
 } from '../../../components/table';
+
 // sections
 import InvoiceAnalytic from '../../../sections/@dashboard/invoice/InvoiceAnalytic';
 import { InvoiceTableRow, InvoiceTableToolbar } from '../../../sections/@dashboard/invoice/list';
@@ -92,11 +101,13 @@ export default function InvoiceListPage() {
     orderBy,
     rowsPerPage,
     setPage,
+
     //
     selected,
     setSelected,
     onSelectRow,
     onSelectAllRows,
+
     //
     onSort,
     onChangeDense,
@@ -451,6 +462,7 @@ export default function InvoiceListPage() {
             rowsPerPage={rowsPerPage}
             onPageChange={onChangePage}
             onRowsPerPageChange={onChangeRowsPerPage}
+
             //
             dense={dense}
             onChangeDense={onChangeDense}
@@ -508,7 +520,8 @@ function applyFilter({
   stabilizedThis.sort((a, b) => {
     const order = comparator(a[0], b[0]);
     if (order !== 0) return order;
-    return a[1] - b[1];
+    
+return a[1] - b[1];
   });
 
   inputData = stabilizedThis.map((el) => el[0]);

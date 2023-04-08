@@ -1,8 +1,11 @@
 import { formatDistanceToNowStrict } from 'date-fns';
+
 // @mui
 import { Avatar, Typography, Stack } from '@mui/material';
+
 // @types
 import { IChatConversation, IChatMessage } from '../../../../@types/chat';
+
 // components
 import Image from '../../../../components/image';
 

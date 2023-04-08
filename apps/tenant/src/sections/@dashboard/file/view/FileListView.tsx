@@ -1,7 +1,9 @@
 // @mui
 import { Table, Tooltip, TableBody, IconButton, TableContainer, Box } from '@mui/material';
+
 // @types
 import { IFile } from '../../../../@types/file';
+
 // components
 import Iconify from '../../../../components/iconify';
 import {
@@ -13,6 +15,7 @@ import {
   TableSelectedAction,
   TablePaginationCustom,
 } from '../../../../components/table';
+
 //
 import FileTableRow from '../item/FileTableRow';
 
@@ -50,10 +53,12 @@ export default function FileListView({
     order,
     orderBy,
     rowsPerPage,
+
     //
     selected,
     onSelectRow,
     onSelectAllRows,
+
     //
     onSort,
     onChangeDense,
@@ -164,6 +169,7 @@ export default function FileListView({
         rowsPerPage={rowsPerPage}
         onPageChange={onChangePage}
         onRowsPerPageChange={onChangeRowsPerPage}
+
         //
         dense={dense}
         onChangeDense={onChangeDense}

@@ -1,11 +1,15 @@
 import { useState, useRef, useEffect } from 'react';
+
 // @mui
 import { alpha, useTheme, styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
+
 // utils
 import { bgGradient } from '../../../../utils/cssStyles';
+
 // @types
 import { IProduct } from '../../../../@types/product';
+
 // components
 import Image from '../../../../components/image';
 import Lightbox from '../../../../components/lightbox';

@@ -1,10 +1,13 @@
 // @mui
 import { useTheme, styled, Theme } from '@mui/material/styles';
 import { Typography, Box, IconButton, SxProps } from '@mui/material';
+
 // utils
 import { bgBlur } from '../../utils/cssStyles';
+
 //
 import { IconifyProps } from '../iconify';
+
 //
 import { LeftIcon, RightIcon } from './Icon';
 

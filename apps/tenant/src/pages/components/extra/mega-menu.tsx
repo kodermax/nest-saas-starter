@@ -1,14 +1,19 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { Box, Card, Stack, Container, AppBar, Typography } from '@mui/material';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
 import { NAV } from '../../../config';
+
 // _mock
 import _mock from '../../../_mock';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import Image from '../../../components/image';
 import Iconify from '../../../components/iconify';

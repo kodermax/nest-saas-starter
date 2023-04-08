@@ -1,5 +1,6 @@
 // @mui
 import { styled, alpha } from '@mui/material/styles';
+
 //
 import { MenuPopoverArrowValue } from './types';
 
@@ -52,18 +53,22 @@ export const StyledArrow = styled('span')<{ arrow: MenuPopoverArrowValue }>(({ a
       transform: 'rotate(-135deg)',
       background: theme.palette.background.paper,
     },
+
     // Top
     ...(arrow === 'top-left' && { ...topStyle, left: 20 }),
     ...(arrow === 'top-center' && { ...topStyle, left: 0, right: 0, margin: 'auto' }),
     ...(arrow === 'top-right' && { ...topStyle, right: 20 }),
+
     // Bottom
     ...(arrow === 'bottom-left' && { ...bottomStyle, left: 20 }),
     ...(arrow === 'bottom-center' && { ...bottomStyle, left: 0, right: 0, margin: 'auto' }),
     ...(arrow === 'bottom-right' && { ...bottomStyle, right: 20 }),
+
     // Left
     ...(arrow === 'left-top' && { ...leftStyle, top: 20 }),
     ...(arrow === 'left-center' && { ...leftStyle, top: 0, bottom: 0, margin: 'auto' }),
     ...(arrow === 'left-bottom' && { ...leftStyle, bottom: 20 }),
+
     // Right
     ...(arrow === 'right-top' && { ...rightStyle, top: 20 }),
     ...(arrow === 'right-center' && { ...rightStyle, top: 0, bottom: 0, margin: 'auto' }),

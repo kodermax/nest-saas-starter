@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 // @mui
 import {
   Avatar,
@@ -10,8 +11,10 @@ import {
   ListItemText,
   ListItemAvatar,
 } from '@mui/material';
+
 // @types
 import { IFileShared } from '../../../@types/file';
+
 // components
 import Iconify from '../../../components/iconify';
 import MenuPopover from '../../../components/menu-popover';

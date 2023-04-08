@@ -12,15 +12,15 @@ import RegisterAccountForm from 'src/views/pages/register/RegisterAccountForm'
 
 // ----------------------------------------------------------------------
 
-RegisterTenantPage.getLayout = (page: React.ReactElement) => <CompactLayout>{page}</CompactLayout>
+RegisterAccountPage.getLayout = (page: React.ReactElement) => <CompactLayout>{page}</CompactLayout>
 
 // ----------------------------------------------------------------------
 
-export default function RegisterTenantPage() {
+export default function RegisterAccountPage() {
   return (
     <>
       <Head>
-        <title> Регистрация</title>
+        <title>Регистрация</title>
       </Head>
 
       <PlanPremiumIcon sx={{ mb: 5, height: 96 }} />

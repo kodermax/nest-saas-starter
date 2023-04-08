@@ -1,9 +1,12 @@
 import { ApexOptions } from 'apexcharts';
+
 // @mui
 import { useTheme, styled } from '@mui/material/styles';
 import { Box, Card, Stack, Divider, CardHeader, Typography, CardProps } from '@mui/material';
+
 // hooks
 import useResponsive from '../../../../hooks/useResponsive';
+
 // components
 import Chart, { useChart } from '../../../../components/chart';
 

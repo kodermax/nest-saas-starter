@@ -1,20 +1,27 @@
 import { useEffect } from 'react';
 import { paramCase } from 'change-case';
+
 // next
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+
 // @mui
 import { Container } from '@mui/material';
+
 // redux
 import { useDispatch, useSelector } from '../../../../../redux/store';
 import { getProducts } from '../../../../../redux/slices/product';
+
 // routes
 import { PATH_DASHBOARD } from '../../../../../routes/paths';
+
 // layouts
 import DashboardLayout from '../../../../../layouts/dashboard';
+
 // components
 import { useSettingsContext } from '../../../../../components/settings';
 import CustomBreadcrumbs from '../../../../../components/custom-breadcrumbs';
+
 // sections
 import ProductNewEditForm from '../../../../../sections/@dashboard/e-commerce/ProductNewEditForm';
 

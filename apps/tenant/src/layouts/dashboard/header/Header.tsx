@@ -1,17 +1,22 @@
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Stack, AppBar, Toolbar, IconButton } from '@mui/material';
+
 // utils
 import { bgBlur } from '../../../utils/cssStyles';
+
 // hooks
 import useOffSetTop from '../../../hooks/useOffSetTop';
 import useResponsive from '../../../hooks/useResponsive';
+
 // config
 import { HEADER, NAV } from '../../../config';
+
 // components
 import Logo from '../../../components/logo';
 import Iconify from '../../../components/iconify';
 import { useSettingsContext } from '../../../components/settings';
+
 //
 import Searchbar from './Searchbar';
 import AccountPopover from './AccountPopover';

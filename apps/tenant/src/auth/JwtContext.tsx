@@ -1,6 +1,8 @@
 import { createContext, useEffect, useReducer, useCallback } from 'react';
+
 // utils
 import axios from '../utils/axios';
+
 //
 import { isValidToken, setSession } from './utils';
 import { ActionMapType, AuthStateType, AuthUserType, JWTContextType } from './types';
@@ -73,7 +75,8 @@ const reducer = (state: AuthStateType, action: ActionsType) => {
       user: null,
     };
   }
-  return state;
+  
+return state;
 };
 
 // ----------------------------------------------------------------------

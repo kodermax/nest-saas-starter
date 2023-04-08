@@ -1,11 +1,14 @@
 // @mui
 import { styled } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
+
 // components
 import Markdown from '../../../../components/markdown';
 import Scrollbar from '../../../../components/scrollbar';
+
 // @types
 import { IMailAttachment } from '../../../../@types/mail';
+
 //
 import MailDetailsReplyInput from './MailDetailsReplyInput';
 import MailDetailsAttachments from './MailDetailsAttachments';

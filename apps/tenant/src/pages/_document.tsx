@@ -1,10 +1,14 @@
 import * as React from 'react';
+
 // next
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+
 // @emotion
 import createEmotionServer from '@emotion/server/create-instance';
+
 // utils
 import createEmotionCache from '../utils/createEmotionCache';
+
 // theme
 import palette from '../theme/palette';
 

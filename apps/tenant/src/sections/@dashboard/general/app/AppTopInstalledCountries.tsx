@@ -1,8 +1,10 @@
 // @mui
 import { styled } from '@mui/material/styles';
 import { Card, CardHeader, Typography, Stack, StackProps, CardProps } from '@mui/material';
+
 // utils
 import { fShortenNumber } from '../../../../utils/formatNumber';
+
 // components
 import Image from '../../../../components/image';
 import Iconify from '../../../../components/iconify';

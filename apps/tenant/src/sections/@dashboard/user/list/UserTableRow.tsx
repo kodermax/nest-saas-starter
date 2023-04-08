@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 // @mui
 import {
   Stack,
@@ -11,8 +12,10 @@ import {
   IconButton,
   Typography,
 } from '@mui/material';
+
 // @types
 import { IUserAccountGeneral } from '../../../../@types/user';
+
 // components
 import Label from '../../../../components/label';
 import Iconify from '../../../../components/iconify';

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 // @mui
 import {
   Box,
@@ -16,15 +17,19 @@ import {
   DrawerProps,
   Autocomplete,
 } from '@mui/material';
+
 // utils
 import { fData } from '../../../../utils/formatNumber';
 import { fDateTime } from '../../../../utils/formatTime';
+
 // @types
 import { IFile } from '../../../../@types/file';
+
 // components
 import Iconify from '../../../../components/iconify';
 import Scrollbar from '../../../../components/scrollbar';
 import FileThumbnail, { fileFormat } from '../../../../components/file-thumbnail';
+
 //
 import FileShareDialog from './FileShareDialog';
 import FileInvitedItem from '../FileInvitedItem';
@@ -34,9 +39,11 @@ import FileInvitedItem from '../FileInvitedItem';
 interface Props extends DrawerProps {
   item: IFile;
   favorited?: boolean;
+
   //
   onFavorite?: VoidFunction;
   onCopyLink: VoidFunction;
+
   //
   onClose: VoidFunction;
   onDelete: VoidFunction;
@@ -46,6 +53,7 @@ export default function FileDetailsDrawer({
   item,
   open,
   favorited,
+
   //
   onFavorite,
   onCopyLink,

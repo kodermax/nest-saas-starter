@@ -1,5 +1,6 @@
 import { Theme } from '@mui/material/styles';
 import { AlertProps } from '@mui/material';
+
 //
 import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from './CustomIcons';
 
@@ -27,11 +28,13 @@ export default function Alert(theme: Theme) {
             color: theme.palette[color][isLight ? 'main' : 'light'],
           },
         }),
+
         // FILLED
         ...(filledVariant && {
           color: theme.palette[color].contrastText,
           backgroundColor: theme.palette[color].main,
         }),
+
         // OUTLINED
         ...(outlinedVariant && {
           color: theme.palette[color][isLight ? 'dark' : 'light'],

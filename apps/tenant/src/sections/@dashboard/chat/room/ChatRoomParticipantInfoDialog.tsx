@@ -1,7 +1,9 @@
 // @mui
 import { Typography, Dialog, DialogContent, Stack, IconButton } from '@mui/material';
+
 // @types
 import { IChatParticipant } from '../../../../@types/chat';
+
 // components
 import { CustomAvatar } from '../../../../components/custom-avatar';
 import Iconify from '../../../../components/iconify';

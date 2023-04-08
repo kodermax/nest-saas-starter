@@ -12,8 +12,10 @@ import {
   createUserWithEmailAndPassword,
 } from 'firebase/auth';
 import { getFirestore, collection, doc, getDoc, setDoc } from 'firebase/firestore';
+
 // config
 import { FIREBASE_API } from '../config';
+
 //
 import { ActionMapType, AuthStateType, AuthUserType, FirebaseContextType } from './types';
 
@@ -54,7 +56,8 @@ const reducer = (state: AuthStateType, action: ActionsType) => {
       user: action.payload.user,
     };
   }
-  return state;
+  
+return state;
 };
 
 // ----------------------------------------------------------------------

@@ -1,14 +1,19 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Stack, Box, Paper, Container, Typography, PaperProps } from '@mui/material';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
+
 // sections
 import { Block } from '../../../sections/_examples/Block';
 

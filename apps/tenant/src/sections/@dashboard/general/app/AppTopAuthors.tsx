@@ -1,9 +1,12 @@
 import orderBy from 'lodash/orderBy';
+
 // @mui
 import { alpha } from '@mui/material/styles';
 import { Box, Stack, Card, Avatar, CardHeader, Typography, CardProps } from '@mui/material';
+
 // utils
 import { fShortenNumber } from '../../../../utils/formatNumber';
+
 // components
 import Iconify from '../../../../components/iconify';
 

@@ -1,21 +1,29 @@
 import * as Yup from 'yup';
 import { useCallback, useEffect, useMemo } from 'react';
+
 // next
 import { useRouter } from 'next/router';
+
 // form
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+
 // @mui
 import { LoadingButton } from '@mui/lab';
 import { Box, Card, Grid, Stack, Switch, Typography, FormControlLabel } from '@mui/material';
+
 // utils
 import { fData } from '../../../utils/formatNumber';
+
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
+
 // @types
 import { IUserAccountGeneral } from '../../../@types/user';
+
 // assets
 import { countries } from '../../../assets/data';
+
 // components
 import Label from '../../../components/label';
 import { CustomFile } from '../../../components/upload';

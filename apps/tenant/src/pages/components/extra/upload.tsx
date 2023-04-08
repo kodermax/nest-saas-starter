@@ -1,6 +1,8 @@
 import { useState, useCallback } from 'react';
+
 // next
 import Head from 'next/head';
+
 // @mui
 import {
   Box,
@@ -13,12 +15,16 @@ import {
   CardContent,
   FormControlLabel,
 } from '@mui/material';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // utils
 import { fData } from '../../../utils/formatNumber';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import Iconify from '../../../components/iconify';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';

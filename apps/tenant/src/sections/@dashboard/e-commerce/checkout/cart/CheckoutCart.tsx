@@ -1,15 +1,21 @@
 import sum from 'lodash/sum';
+
 // next
 import NextLink from 'next/link';
+
 // @mui
 import { Grid, Card, Button, CardHeader, Typography } from '@mui/material';
+
 // routes
 import { PATH_DASHBOARD } from '../../../../../routes/paths';
+
 // @types
 import { IProductCheckoutState } from '../../../../../@types/product';
+
 // components
 import Iconify from '../../../../../components/iconify';
 import EmptyContent from '../../../../../components/empty-content';
+
 //
 import CheckoutSummary from '../CheckoutSummary';
 import CheckoutCartProductList from './CheckoutCartProductList';

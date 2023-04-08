@@ -1,9 +1,12 @@
 // @mui
 import { Stack, Box, Link, Typography, IconButton } from '@mui/material';
+
 // utils
 import { fToNow } from '../../../../utils/formatTime';
+
 // @types
 import { IChatParticipant } from '../../../../@types/chat';
+
 // components
 import Iconify from '../../../../components/iconify';
 import BadgeStatus from '../../../../components/badge-status';

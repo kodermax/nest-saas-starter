@@ -1,17 +1,24 @@
 import { paramCase } from 'change-case';
+
 // next
 import NextLink from 'next/link';
+
 // @mui
 import { Box, Card, Link, Stack, Fab } from '@mui/material';
+
 // routes
 import { PATH_DASHBOARD } from '../../../../routes/paths';
+
 // utils
 import { fCurrency } from '../../../../utils/formatNumber';
+
 // redux
 import { useDispatch } from '../../../../redux/store';
 import { addToCart } from '../../../../redux/slices/product';
+
 // @types
 import { IProduct } from '../../../../@types/product';
+
 // components
 import Iconify from '../../../../components/iconify';
 import Label from '../../../../components/label';

@@ -1,8 +1,11 @@
 import { ApexOptions } from 'apexcharts';
+
 // @mui
 import { Box, Card, CardHeader, CardProps } from '@mui/material';
+
 // utils
 import { fNumber } from '../../../../utils/formatNumber';
+
 // components
 import Chart, { useChart } from '../../../../components/chart';
 

@@ -1,8 +1,10 @@
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { IconButton } from '@mui/material';
+
 // utils
 import { bgBlur } from '../../utils/cssStyles';
+
 //
 import Iconify from '../iconify';
 
@@ -17,6 +19,7 @@ export default function DownloadButton({ onDownload }: Props) {
 
   return (
     <IconButton
+
       // color="inherit"
       onClick={onDownload}
       sx={{
@@ -29,6 +32,7 @@ export default function DownloadButton({ onDownload }: Props) {
         opacity: 0,
         position: 'absolute',
         borderRadius: 'unset',
+
         // color: 'common.white',
         justifyContent: 'center',
         bgcolor: 'grey.800',

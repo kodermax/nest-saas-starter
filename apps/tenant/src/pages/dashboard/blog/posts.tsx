@@ -1,23 +1,31 @@
 import orderBy from 'lodash/orderBy';
 import { useEffect, useCallback, useState } from 'react';
+
 // next
 import Head from 'next/head';
 import NextLink from 'next/link';
+
 // @mui
 import { Grid, Button, Container, Stack } from '@mui/material';
+
 // utils
 import axios from '../../../utils/axios';
+
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
+
 // @types
 import { IBlogPost } from '../../../@types/blog';
+
 // layouts
 import DashboardLayout from '../../../layouts/dashboard';
+
 // components
 import Iconify from '../../../components/iconify';
 import { SkeletonPostItem } from '../../../components/skeleton';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
 import { useSettingsContext } from '../../../components/settings';
+
 // sections
 import { BlogPostCard, BlogPostsSort, BlogPostsSearch } from '../../../sections/@dashboard/blog';
 
@@ -127,5 +135,6 @@ const applySortBy = (posts: IBlogPost[], sortBy: string) => {
   if (sortBy === 'popular') {
     return orderBy(posts, ['view'], ['desc']);
   }
-  return posts;
+  
+return posts;
 };

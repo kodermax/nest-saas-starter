@@ -1,7 +1,9 @@
 import { useState, useEffect, useMemo, memo } from 'react';
 import Map, { Source, Layer } from 'react-map-gl';
+
 // components
 import { MapBoxProps } from '../../../../../components/map';
+
 //
 import ControlPanel from './ControlPanel';
 import { heatmapLayer } from './map-style';
@@ -99,5 +101,6 @@ function filterFeaturesByDay(
       featureDate.getDate() === day
     );
   });
-  return { type: 'FeatureCollection', features };
+  
+return { type: 'FeatureCollection', features };
 }

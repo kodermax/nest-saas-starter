@@ -1,5 +1,6 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { useTheme, hexToRgb, alpha } from '@mui/material/styles';
 import {
@@ -14,10 +15,13 @@ import {
   IconButton,
 } from '@mui/material';
 import useCopyToClipboard from '../../../hooks/useCopyToClipboard';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import Iconify from '../../../components/iconify';
 import { useSnackbar } from '../../../components/snackbar';

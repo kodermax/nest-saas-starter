@@ -40,6 +40,7 @@ export default function Button(theme: Theme) {
             backgroundColor: theme.palette.grey[400],
           },
         }),
+
         // OUTLINED
         ...(outlinedVariant && {
           borderColor: alpha(theme.palette.grey[500], 0.32),
@@ -48,12 +49,14 @@ export default function Button(theme: Theme) {
             backgroundColor: theme.palette.action.hover,
           },
         }),
+
         // TEXT
         ...(textVariant && {
           '&:hover': {
             backgroundColor: theme.palette.action.hover,
           },
         }),
+
         // SOFT
         ...(softVariant && {
           color: theme.palette.text.primary,
@@ -73,6 +76,7 @@ export default function Button(theme: Theme) {
             boxShadow: theme.customShadows[color],
           },
         }),
+
         // SOFT
         ...(softVariant && {
           color: theme.palette[color][isLight ? 'dark' : 'light'],

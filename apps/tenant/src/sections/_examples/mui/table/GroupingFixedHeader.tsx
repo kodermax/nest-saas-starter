@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+
 // @mui
 import { Table, TableRow, TableHead, TableBody, TableCell, TableContainer } from '@mui/material';
+
 // components
 import Scrollbar from '../../../../components/scrollbar';
 import { useTable, TablePaginationCustom } from '../../../../components/table';
@@ -9,7 +11,8 @@ import { useTable, TablePaginationCustom } from '../../../../components/table';
 
 function createData(name: string, code: string, population: number, size: number) {
   const density = population / size;
-  return { name, code, population, size, density };
+  
+return { name, code, population, size, density };
 }
 
 const TABLE_DATA = [
@@ -70,6 +73,7 @@ export default function GroupingFixedHeader() {
   const {
     page,
     rowsPerPage,
+
     //
     onChangePage,
     onChangeRowsPerPage,
@@ -122,7 +126,8 @@ export default function GroupingFixedHeader() {
                 <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                   {COLUMNS.map((column) => {
                     const value = row[column.id];
-                    return (
+                    
+return (
                       <TableCell key={column.id} align={column.align}>
                         {column.format && typeof value === 'number' ? column.format(value) : value}
                       </TableCell>

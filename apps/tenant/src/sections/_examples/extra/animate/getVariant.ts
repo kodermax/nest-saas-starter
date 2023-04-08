@@ -24,6 +24,7 @@ export default function getVariant(variant = 'slideInUp') {
     slideOutDown: varSlide().outDown,
     slideOutLeft: varSlide().outLeft,
     slideOutRight: varSlide().outRight,
+
     // Fade
     fadeIn: varFade().in,
     fadeInUp: varFade().inUp,
@@ -35,6 +36,7 @@ export default function getVariant(variant = 'slideInUp') {
     fadeOutDown: varFade().outDown,
     fadeOutLeft: varFade().outLeft,
     fadeOutRight: varFade().outRight,
+
     // Zoom
     zoomIn: varZoom({ distance: 80 }).in,
     zoomInUp: varZoom({ distance: 80 }).inUp,
@@ -46,6 +48,7 @@ export default function getVariant(variant = 'slideInUp') {
     zoomOutRight: varZoom().outRight,
     zoomOutUp: varZoom().outUp,
     zoomOutDown: varZoom().outDown,
+
     // Bounce
     bounceIn: varBounce().in,
     bounceInUp: varBounce().inUp,
@@ -57,19 +60,23 @@ export default function getVariant(variant = 'slideInUp') {
     bounceOutDown: varBounce().outDown,
     bounceOutLeft: varBounce().outLeft,
     bounceOutRight: varBounce().outRight,
+
     // Flip
     flipInX: varFlip().inX,
     flipInY: varFlip().inY,
     flipOutX: varFlip().outX,
     flipOutY: varFlip().outY,
+
     // Scale
     scaleInX: varScale().inX,
     scaleInY: varScale().inY,
     scaleOutX: varScale().outX,
     scaleOutY: varScale().outY,
+
     // Rotate
     rotateIn: varRotate().in,
     rotateOut: varRotate().out,
+
     // Background
     kenburnsTop: varBgKenburns().top,
     kenburnsBottom: varBgKenburns().bottom,

@@ -2,9 +2,11 @@ import sum from 'lodash/sum';
 import uniq from 'lodash/uniq';
 import uniqBy from 'lodash/uniqBy';
 import { createSlice } from '@reduxjs/toolkit';
+
 // utils
 import axios from '../../utils/axios';
 import { IProductState, ICheckoutCartItem } from '../../@types/product';
+
 //
 import { dispatch } from '../store';
 
@@ -133,7 +135,8 @@ const slice = createSlice({
             quantity: product.quantity + 1,
           };
         }
-        return product;
+        
+return product;
       });
 
       state.checkout.cart = updateCart;
@@ -148,7 +151,8 @@ const slice = createSlice({
             quantity: product.quantity - 1,
           };
         }
-        return product;
+        
+return product;
       });
 
       state.checkout.cart = updateCart;

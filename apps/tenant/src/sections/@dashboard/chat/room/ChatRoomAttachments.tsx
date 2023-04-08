@@ -1,14 +1,19 @@
 import uniq from 'lodash/uniq';
 import flatten from 'lodash/flatten';
+
 // @mui
 import { Box, Typography, Stack } from '@mui/material';
+
 // utils
 import { fDateTime } from '../../../../utils/formatTime';
+
 // @types
 import { IChatConversation, IChatAttachment } from '../../../../@types/chat';
+
 // components
 import Scrollbar from '../../../../components/scrollbar';
 import FileThumbnail from '../../../../components/file-thumbnail';
+
 //
 import ChatRoomCollapseButton from './ChatRoomCollapseButton';
 

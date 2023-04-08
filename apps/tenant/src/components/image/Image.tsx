@@ -1,7 +1,9 @@
 import { forwardRef } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 // @mui
 import { Box } from '@mui/material';
+
 //
 import getRatio from './getRatio';
 import { ImageProps } from './types';

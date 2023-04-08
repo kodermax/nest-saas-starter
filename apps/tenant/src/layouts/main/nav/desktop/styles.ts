@@ -1,6 +1,7 @@
 // @mui
 import { styled, alpha } from '@mui/material/styles';
 import { Popover, ListSubheader, ListItemButton } from '@mui/material';
+
 //
 import { NavItemDesktopProps } from '../types';
 
@@ -34,20 +35,24 @@ export const ListItem = styled(ListItemButton, {
       opacity: 0.48,
       backgroundColor: 'transparent',
     },
+
     // Sub item
     ...(subItem && {
       ...theme.typography.body2,
       color: theme.palette.text.secondary,
     }),
+
     // isOffset
     ...(isOffset && {
       color: theme.palette.text.primary,
     }),
+
     // Active
     ...(active && {
       color: theme.palette.primary.main,
       '&::before': dotActive,
     }),
+
     // Active sub item
     ...(active &&
       subItem && {
@@ -58,6 +63,7 @@ export const ListItem = styled(ListItemButton, {
           color: theme.palette.primary.main,
         },
       }),
+
     // Open
     ...(open && {
       opacity: 0.48,

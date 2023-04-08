@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
+
 // next
 import { useRouter } from 'next/router';
+
 // @mui
 import { Card, Container, Stack } from '@mui/material';
+
 // redux
 import { useDispatch, useSelector } from '../../../redux/store';
 import {
@@ -15,13 +18,17 @@ import {
   markConversationAsRead,
   resetActiveConversation,
 } from '../../../redux/slices/chat';
+
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
+
 // components
 import { useSettingsContext } from '../../../components/settings';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
+
 // @types
 import { IChatParticipant, IChatSendMessage } from '../../../@types/chat';
+
 // sections
 import ChatNav from './nav/ChatNav';
 import ChatRoom from './room/ChatRoom';

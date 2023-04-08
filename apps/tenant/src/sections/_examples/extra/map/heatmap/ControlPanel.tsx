@@ -1,8 +1,11 @@
 import { memo } from 'react';
+
 // @mui
 import { Box, Slider, Switch, Typography } from '@mui/material';
+
 // utils
 import { fDate } from '../../../../../utils/formatTime';
+
 // components
 import { StyledControlPanel } from '../../../../../components/map';
 

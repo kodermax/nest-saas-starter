@@ -1,16 +1,22 @@
 import { useEffect } from 'react';
+
 // next
 import { useRouter } from 'next/router';
+
 // @mui
 import { Box, Stack, Drawer } from '@mui/material';
+
 // hooks
 import useResponsive from '../../../hooks/useResponsive';
+
 // config
 import { NAV } from '../../../config';
+
 // components
 import Logo from '../../../components/logo';
 import Scrollbar from '../../../components/scrollbar';
 import { NavSectionVertical } from '../../../components/nav-section';
+
 //
 import navConfig from './config';
 import NavDocs from './NavDocs';

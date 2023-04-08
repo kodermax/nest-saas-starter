@@ -1,8 +1,10 @@
 // @mui
 import { Card, Button, Typography, Box, Stack, CardProps } from '@mui/material';
+
 // components
 import Label from '../../components/label';
 import Iconify from '../../components/iconify';
+
 // assets
 import { PlanFreeIcon, PlanStarterIcon, PlanPremiumIcon } from '../../assets/icons';
 

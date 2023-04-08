@@ -1,24 +1,33 @@
 import { useState, useEffect } from 'react';
 import orderBy from 'lodash/orderBy';
+
 // form
 import { useForm } from 'react-hook-form';
+
 // next
 import Head from 'next/head';
+
 // @mui
 import { Container, Typography, Stack } from '@mui/material';
+
 // redux
 import { useDispatch, useSelector } from '../../../redux/store';
 import { getProducts } from '../../../redux/slices/product';
+
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
+
 // @types
 import { IProduct, IProductFilter } from '../../../@types/product';
+
 // layouts
 import DashboardLayout from '../../../layouts/dashboard';
+
 // components
 import FormProvider from '../../../components/hook-form';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
 import { useSettingsContext } from '../../../components/settings';
+
 // sections
 import {
   ShopTagFiltered,
@@ -206,9 +215,11 @@ function applyFilter(products: IProduct[], filters: IProductFilter) {
         if (value === 'up4Star') return 4;
         if (value === 'up3Star') return 3;
         if (value === 'up2Star') return 2;
-        return 1;
+        
+return 1;
       };
-      return product.totalRating > convertRating(rating);
+      
+return product.totalRating > convertRating(rating);
     });
   }
 

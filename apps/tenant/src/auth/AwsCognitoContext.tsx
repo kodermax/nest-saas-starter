@@ -6,12 +6,16 @@ import {
   CognitoUserAttribute,
   AuthenticationDetails,
 } from 'amazon-cognito-identity-js';
+
 // utils
 import axios from '../utils/axios';
+
 // routes
 import { PATH_AUTH } from '../routes/paths';
+
 // config
 import { COGNITO_API } from '../config';
+
 //
 import { ActionMapType, AuthStateType, AuthUserType, AWSCognitoContextType } from './types';
 
@@ -66,7 +70,8 @@ const reducer = (state: AuthStateType, action: ActionsType) => {
       user: null,
     };
   }
-  return state;
+  
+return state;
 };
 
 // ----------------------------------------------------------------------
@@ -230,7 +235,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
           if (error) {
             reject(error);
             console.error(error);
-            return;
+            
+return;
           }
 
           resolve(undefined);

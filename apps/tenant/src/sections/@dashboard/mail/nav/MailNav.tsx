@@ -1,18 +1,25 @@
 import { useEffect } from 'react';
+
 // next
 import { useRouter } from 'next/router';
+
 // @mui
 import { List, Drawer, Button, Divider, Stack } from '@mui/material';
+
 // hooks
 import useResponsive from '../../../../hooks/useResponsive';
+
 // config
 import { NAV } from '../../../../config';
+
 // @types
 import { IMailLabel } from '../../../../@types/mail';
+
 // components
 import Iconify from '../../../../components/iconify';
 import Scrollbar from '../../../../components/scrollbar';
 import { SkeletonMailNavItem } from '../../../../components/skeleton';
+
 //
 import MailNavItem from './MailNavItem';
 

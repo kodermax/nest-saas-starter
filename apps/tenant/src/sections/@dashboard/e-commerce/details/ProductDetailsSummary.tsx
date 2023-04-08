@@ -1,19 +1,27 @@
 import { useEffect } from 'react';
 import { sentenceCase } from 'change-case';
+
 // next
 import { useRouter } from 'next/router';
+
 // form
 import { Controller, useForm } from 'react-hook-form';
+
 // @mui
 import { Box, Link, Stack, Button, Rating, Divider, Typography, IconButton } from '@mui/material';
+
 // routes
 import { PATH_DASHBOARD } from '../../../../routes/paths';
+
 // utils
 import { fShortenNumber, fCurrency } from '../../../../utils/formatNumber';
+
 // @types
 import { IProduct, ICheckoutCartItem } from '../../../../@types/product';
+
 // _mock
 import { _socials } from '../../../../_mock/arrays';
+
 // components
 import Label from '../../../../components/label';
 import Iconify from '../../../../components/iconify';

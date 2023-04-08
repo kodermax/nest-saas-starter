@@ -1,11 +1,15 @@
 import { useState } from 'react';
+
 // @mui
 import { Stack, Button, Rating, Avatar, Pagination, Typography } from '@mui/material';
+
 // utils
 import { fDate } from '../../../../utils/formatTime';
 import { fShortenNumber } from '../../../../utils/formatNumber';
+
 // @types
 import { IProductReview } from '../../../../@types/product';
+
 // components
 import Iconify from '../../../../components/iconify';
 

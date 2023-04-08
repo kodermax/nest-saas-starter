@@ -1,5 +1,6 @@
 import { alpha, Theme } from '@mui/material/styles';
 import { ChipProps } from '@mui/material';
+
 //
 import { CloseIcon } from './CustomIcons';
 
@@ -32,10 +33,12 @@ export default function Chip(theme: Theme) {
           color: theme.palette.text[isLight ? 'secondary' : 'primary'],
           backgroundColor: alpha(theme.palette.grey[500], 0.48),
         },
+
         // OUTLINED
         ...(outlinedVariant && {
           border: `solid 1px ${alpha(theme.palette.grey[500], 0.32)}`,
         }),
+
         // SOFT
         ...(softVariant && {
           color: theme.palette.text.primary,
@@ -53,6 +56,7 @@ export default function Chip(theme: Theme) {
           color: theme.palette[color].lighter,
           backgroundColor: theme.palette[color].dark,
         },
+
         // FILLED
         ...(filledVariant && {
           '& .MuiChip-deleteIcon': {
@@ -62,6 +66,7 @@ export default function Chip(theme: Theme) {
             },
           },
         }),
+
         // SOFT
         ...(softVariant && {
           color: theme.palette[color][isLight ? 'dark' : 'light'],

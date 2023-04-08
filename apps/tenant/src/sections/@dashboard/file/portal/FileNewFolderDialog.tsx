@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
+
 // @mui
 import {
   Stack,
@@ -10,6 +11,7 @@ import {
   DialogContent,
   DialogActions,
 } from '@mui/material';
+
 // components
 import Iconify from '../../../../components/iconify';
 import { Upload } from '../../../../components/upload';
@@ -18,12 +20,15 @@ import { Upload } from '../../../../components/upload';
 
 interface Props extends DialogProps {
   title?: string;
+
   //
   onCreate?: VoidFunction;
   onUpdate?: VoidFunction;
+
   //
   folderName?: string;
   onChangeFolderName?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+
   //
   open: boolean;
   onClose: VoidFunction;
@@ -33,9 +38,11 @@ export default function FileNewFolderDialog({
   title = 'Upload Files',
   open,
   onClose,
+
   //
   onCreate,
   onUpdate,
+
   //
   folderName,
   onChangeFolderName,

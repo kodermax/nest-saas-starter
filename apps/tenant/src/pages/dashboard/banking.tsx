@@ -1,18 +1,23 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Stack } from '@mui/material';
+
 // layouts
 import DashboardLayout from '../../layouts/dashboard';
+
 // _mock_
 import {
   _bankingContacts,
   _bankingCreditCard,
   _bankingRecentTransitions,
 } from '../../_mock/arrays';
+
 // components
 import { useSettingsContext } from '../../components/settings';
+
 // sections
 import {
   BankingContacts,

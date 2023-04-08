@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
+
 // @mui
 import { alpha } from '@mui/material/styles';
 import {
@@ -13,8 +14,10 @@ import {
   StackProps,
   Autocomplete,
 } from '@mui/material';
+
 // @types
 import { IChatParticipant } from '../../../../@types/chat';
+
 // components
 import Iconify from '../../../../components/iconify';
 import SearchNotFound from '../../../../components/search-not-found';

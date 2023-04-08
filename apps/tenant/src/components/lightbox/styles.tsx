@@ -22,7 +22,8 @@ export default function StyledLightbox() {
       backgroundPosition: 'center center',
       transition: theme.transitions.create('background'),
     };
-    return {
+    
+return {
       background: `url('https://api.iconify.design/carbon/${name}.svg?color=%23${ICON_COLOR}')`,
       ...common,
       '&:hover': {

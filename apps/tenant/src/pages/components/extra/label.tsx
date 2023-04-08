@@ -1,12 +1,16 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { alpha } from '@mui/material/styles';
 import { Box, Container, Stack, Paper, CardHeader, Tooltip } from '@mui/material';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import Label from '../../../components/label';
 import Iconify from '../../../components/iconify';

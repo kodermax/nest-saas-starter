@@ -1,6 +1,7 @@
 // @mui
 import { styled } from '@mui/material/styles';
 import { Typography, CardProps, Stack } from '@mui/material';
+
 // utils
 import { bgGradient } from '../../../../utils/cssStyles';
 

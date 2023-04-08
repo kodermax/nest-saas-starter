@@ -1,7 +1,9 @@
 // @mui
 import { Stack, Paper, Button, Tooltip, IconButton, InputBase } from '@mui/material';
+
 // auth
 import { useAuthContext } from '../../../../auth/useAuthContext';
+
 // components
 import Iconify from '../../../../components/iconify';
 import { CustomAvatar } from '../../../../components/custom-avatar';

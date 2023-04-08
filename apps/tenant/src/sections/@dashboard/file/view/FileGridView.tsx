@@ -1,11 +1,15 @@
 import { useState, useRef } from 'react';
+
 // @mui
 import { Collapse, Box, Divider, Button } from '@mui/material';
+
 // @types
 import { IFile } from '../../../../@types/file';
+
 // components
 import Iconify from '../../../../components/iconify';
 import { TableProps } from '../../../../components/table';
+
 //
 import FilePanel from '../FilePanel';
 import FileCard from '../item/FileCard';

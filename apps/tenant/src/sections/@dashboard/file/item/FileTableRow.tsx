@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 // @mui
 import {
   Stack,
@@ -13,20 +14,25 @@ import {
   Typography,
   AvatarGroup,
 } from '@mui/material';
+
 // hooks
 import useDoubleClick from '../../../../hooks/useDoubleClick';
 import useCopyToClipboard from '../../../../hooks/useCopyToClipboard';
+
 // utils
 import { fDate } from '../../../../utils/formatTime';
 import { fData } from '../../../../utils/formatNumber';
+
 // @types
 import { IFileManager } from '../../../../@types/file';
+
 // components
 import Iconify from '../../../../components/iconify';
 import MenuPopover from '../../../../components/menu-popover';
 import { useSnackbar } from '../../../../components/snackbar';
 import ConfirmDialog from '../../../../components/confirm-dialog';
 import FileThumbnail from '../../../../components/file-thumbnail';
+
 //
 import FileShareDialog from '../portal/FileShareDialog';
 import FileDetailsDrawer from '../portal/FileDetailsDrawer';

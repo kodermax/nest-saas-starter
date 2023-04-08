@@ -1,13 +1,18 @@
 import '../../utils/highlight';
 import ReactMarkdown from 'react-markdown';
+
 // markdown plugins
 import rehypeRaw from 'rehype-raw';
+
 // next
 import NextLink from 'next/link';
+
 // @mui
 import { Link, Typography, Divider } from '@mui/material';
+
 //
 import Image from '../image';
+
 //
 import StyledMarkdown from './styles';
 import { MarkdownProps } from './types';

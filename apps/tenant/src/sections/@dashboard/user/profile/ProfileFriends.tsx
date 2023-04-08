@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 // @mui
 import { alpha } from '@mui/material/styles';
 import {
@@ -12,10 +13,13 @@ import {
   Typography,
   InputAdornment,
 } from '@mui/material';
+
 // @types
 import { IUserProfileFriend } from '../../../../@types/user';
+
 // _mock
 import { _socials } from '../../../../_mock/arrays';
+
 // components
 import Iconify from '../../../../components/iconify';
 import MenuPopover from '../../../../components/menu-popover';

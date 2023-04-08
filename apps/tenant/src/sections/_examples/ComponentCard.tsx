@@ -1,7 +1,9 @@
 import { m } from 'framer-motion';
+
 // @mui
 import { alpha } from '@mui/material/styles';
 import { Link, Paper, Typography, CardActionArea } from '@mui/material';
+
 // components
 import Image from '../../components/image';
 

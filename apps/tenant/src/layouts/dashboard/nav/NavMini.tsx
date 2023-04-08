@@ -1,12 +1,16 @@
 // @mui
 import { Stack, Box } from '@mui/material';
+
 // config
 import { NAV } from '../../../config';
+
 // utils
 import { hideScrollbarX } from '../../../utils/cssStyles';
+
 // components
 import Logo from '../../../components/logo';
 import { NavSectionMini } from '../../../components/nav-section';
+
 //
 import navConfig from './config';
 

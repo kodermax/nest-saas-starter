@@ -1,7 +1,9 @@
 // @mui
 import { Grid, Stack } from '@mui/material';
+
 // @types
 import { IUserProfile, IUserProfilePost } from '../../../../../@types/user';
+
 //
 import ProfileAbout from './ProfileAbout';
 import ProfilePostCard from './ProfilePostCard';

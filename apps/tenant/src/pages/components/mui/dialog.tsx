@@ -1,14 +1,19 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { Box, Container } from '@mui/material';
 import { Masonry } from '@mui/lab';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
+
 // sections
 import FormDialogs from '../../../sections/_examples/mui/dialog/FormDialogs';
 import AlertDialog from '../../../sections/_examples/mui/dialog/AlertDialog';

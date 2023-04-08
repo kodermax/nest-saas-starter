@@ -1,12 +1,16 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { Variant } from '@mui/material/styles/createTypography';
 import { Box, Container, Grid, Typography, Stack, Paper } from '@mui/material';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
 import { useTypography } from '../../../components/text-max-line';

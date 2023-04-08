@@ -1,12 +1,17 @@
 import { useState } from 'react';
+
 // next
 import { useRouter } from 'next/router';
+
 // @mui
 import { Collapse } from '@mui/material';
+
 // hooks
 import useActiveLink from '../../../../hooks/useActiveLink';
+
 // components
 import { NavSectionVertical } from '../../../../components/nav-section';
+
 //
 import { NavItemProps } from '../types';
 import NavItem from './NavItem';

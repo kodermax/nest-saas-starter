@@ -1,17 +1,23 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { alpha } from '@mui/material/styles';
 import { Box, Stack, Button, Typography, IconButton, InputAdornment } from '@mui/material';
+
 // hooks
 import useCountdown from '../hooks/useCountdown';
+
 // layouts
 import CompactLayout from '../layouts/compact';
+
 // _mock
 import { _socials } from '../_mock/arrays';
+
 // components
 import Iconify from '../components/iconify';
 import { CustomTextField } from '../components/custom-input';
+
 // assets
 import { ComingSoonIllustration } from '../assets/illustrations';
 

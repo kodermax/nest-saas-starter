@@ -7,7 +7,8 @@ export default function flattenArray<T>(list: T[], key = 'children'): T[] {
     if (item[key] && item[key].length) {
       children = [...children, ...item[key]];
     }
-    return item;
+    
+return item;
   });
 
   return flatten?.concat(children.length ? flattenArray(children, key) : children);

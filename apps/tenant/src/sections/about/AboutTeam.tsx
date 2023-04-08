@@ -1,10 +1,13 @@
 import { m } from 'framer-motion';
 import { useRef } from 'react';
+
 // @mui
 import { useTheme, alpha } from '@mui/material/styles';
 import { Box, Stack, Card, Button, Container, Typography, IconButton } from '@mui/material';
+
 // _mock_
 import { _carouselsMembers, _socials } from '../../_mock/arrays';
+
 // components
 import Image from '../../components/image';
 import Iconify from '../../components/iconify';
@@ -133,7 +136,8 @@ type MemberCardProps = {
 
 function MemberCard({ member }: MemberCardProps) {
   const { name, role, avatar } = member;
-  return (
+  
+return (
     <Card key={name}>
       <Typography variant="subtitle1" sx={{ mt: 2, mb: 0.5 }}>
         {name}

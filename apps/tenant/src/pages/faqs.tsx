@@ -1,9 +1,12 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { Box, Container, Typography } from '@mui/material';
+
 // layouts
 import MainLayout from '../layouts/main';
+
 // sections
 import { FaqsHero, FaqsCategory, FaqsList, FaqsForm } from '../sections/faqs';
 

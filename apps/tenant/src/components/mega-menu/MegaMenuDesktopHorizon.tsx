@@ -1,13 +1,18 @@
 import { useState } from 'react';
+
 // next
 import NextLink from 'next/link';
+
 // @mui
 import { Masonry } from '@mui/lab';
 import { Link, Paper, Typography, Divider, Stack } from '@mui/material';
+
 // @types
 import { ParentItemProps, MegaMenuItemProps } from './types';
+
 // components
 import Iconify from '../iconify';
+
 //
 import MenuHotProducts from './MenuHotProducts';
 import MegaMenuCarousel from './MenuCarousel';

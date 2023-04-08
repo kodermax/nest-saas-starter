@@ -1,13 +1,18 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { Box, Card, Container, Typography, CardHeader } from '@mui/material';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // _mock
 import _mock from '../../../_mock';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import Image from '../../../components/image';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';

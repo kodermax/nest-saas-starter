@@ -1,7 +1,9 @@
 // @mui
 import { Box, Card, Rating, CardHeader, Typography, Stack, CardProps } from '@mui/material';
+
 // utils
 import { fCurrency, fShortenNumber } from '../../../../utils/formatNumber';
+
 // components
 import Label from '../../../../components/label';
 import Iconify from '../../../../components/iconify';

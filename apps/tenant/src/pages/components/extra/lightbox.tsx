@@ -1,14 +1,20 @@
 import { useState } from 'react';
+
 // next
 import Head from 'next/head';
+
 // @mui
 import { Box, Card, Container } from '@mui/material';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // _mock
 import _mock from '../../../_mock';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import Image from '../../../components/image';
 import Lightbox from '../../../components/lightbox';

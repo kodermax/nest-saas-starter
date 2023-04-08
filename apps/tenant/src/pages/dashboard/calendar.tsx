@@ -5,12 +5,16 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import timelinePlugin from '@fullcalendar/timeline';
 import { EventInput } from '@fullcalendar/common';
+
 //
 import { useState, useRef, useEffect } from 'react';
+
 // next
 import Head from 'next/head';
+
 // @mui
 import { Card, Button, Container, DialogTitle, Dialog } from '@mui/material';
+
 // redux
 import { useDispatch, useSelector } from '../../redux/store';
 import {
@@ -23,22 +27,29 @@ import {
   onOpenModal,
   onCloseModal,
 } from '../../redux/slices/calendar';
+
 // routes
 import { PATH_DASHBOARD } from '../../routes/paths';
+
 // utils
 import { fTimestamp } from '../../utils/formatTime';
+
 // hooks
 import useResponsive from '../../hooks/useResponsive';
+
 // @types
 import { ICalendarEvent, ICalendarViewValue } from '../../@types/calendar';
+
 // layouts
 import DashboardLayout from '../../layouts/dashboard';
+
 // components
 import Iconify from '../../components/iconify';
 import { useSnackbar } from '../../components/snackbar';
 import CustomBreadcrumbs from '../../components/custom-breadcrumbs';
 import { useSettingsContext } from '../../components/settings';
 import { useDateRangePicker } from '../../components/date-range-picker';
+
 // sections
 import {
   CalendarForm,

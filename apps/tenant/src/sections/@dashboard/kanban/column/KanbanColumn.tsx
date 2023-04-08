@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
+
 // @mui
 import { Paper, Stack, Button } from '@mui/material';
+
 // redux
 import { useDispatch } from '../../../../redux/store';
 import { deleteColumn, updateColumn, addTask, deleteTask } from '../../../../redux/slices/kanban';
+
 // @types
 import { IKanbanColumn, IKanbanCard } from '../../../../@types/kanban';
+
 // components
 import Iconify from '../../../../components/iconify';
 import { useSnackbar } from '../../../../components/snackbar';
+
 //
 import KanbanTaskAdd from '../KanbanTaskAdd';
 import KanbanTaskCard from '../KanbanTaskCard';

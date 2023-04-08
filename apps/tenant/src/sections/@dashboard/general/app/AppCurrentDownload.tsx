@@ -1,9 +1,12 @@
 import { ApexOptions } from 'apexcharts';
+
 // @mui
 import { useTheme, styled } from '@mui/material/styles';
 import { Card, CardHeader, CardProps } from '@mui/material';
+
 // utils
 import { fNumber } from '../../../../utils/formatNumber';
+
 // components
 import Chart, { useChart } from '../../../../components/chart';
 
@@ -83,7 +86,8 @@ export default function AppCurrentDownload({ title, subheader, chart, ...other }
             total: {
               formatter: (w: { globals: { seriesTotals: number[] } }) => {
                 const sum = w.globals.seriesTotals.reduce((a, b) => a + b, 0);
-                return fNumber(sum);
+                
+return fNumber(sum);
               },
             },
           },

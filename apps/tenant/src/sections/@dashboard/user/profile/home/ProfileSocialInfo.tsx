@@ -1,9 +1,12 @@
 // @mui
 import { Link, Card, CardHeader, Stack } from '@mui/material';
+
 // _mock
 import { _socials } from '../../../../../_mock/arrays';
+
 // @types
 import { IUserSocialLink } from '../../../../../@types/user';
+
 // components
 import Iconify from '../../../../../components/iconify';
 

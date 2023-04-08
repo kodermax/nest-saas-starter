@@ -1,12 +1,16 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import Masonry from '@mui/lab/Masonry';
 import { Box, Card, CardHeader, Container, CardContent } from '@mui/material';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import TextMaxLine from '../../../components/text-max-line';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';

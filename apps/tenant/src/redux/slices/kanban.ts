@@ -1,10 +1,13 @@
 import keyBy from 'lodash/keyBy';
 import { createSlice } from '@reduxjs/toolkit';
 import omit from 'lodash/omit';
+
 // utils
 import axios from '../../utils/axios';
+
 // @types
 import { IKanbanState, IKanbanCard, IKanbanColumn } from '../../@types/kanban';
+
 //
 import { dispatch } from '../store';
 

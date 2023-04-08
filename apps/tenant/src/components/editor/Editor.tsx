@@ -1,8 +1,11 @@
 import '../../utils/highlight';
+
 // next
 import dynamic from 'next/dynamic';
+
 // @mui
 import { Box } from '@mui/material';
+
 //
 import { EditorProps } from './types';
 import { StyledEditor } from './styles';

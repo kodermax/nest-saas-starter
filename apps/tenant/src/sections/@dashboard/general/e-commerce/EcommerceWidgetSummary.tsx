@@ -1,9 +1,12 @@
 import { ApexOptions } from 'apexcharts';
+
 // @mui
 import { alpha } from '@mui/material/styles';
 import { Box, Card, Typography, Stack, CardProps } from '@mui/material';
+
 // utils
 import { fNumber, fPercent } from '../../../../utils/formatNumber';
+
 // components
 import Iconify from '../../../../components/iconify';
 import Chart, { useChart } from '../../../../components/chart';

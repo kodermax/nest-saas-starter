@@ -1,9 +1,12 @@
 import { useRef } from 'react';
+
 // @mui
 import { alpha, useTheme, styled } from '@mui/material/styles';
 import { Box, Card, Typography, IconButton } from '@mui/material';
+
 // utils
 import { bgBlur } from '../../../../utils/cssStyles';
+
 // components
 import Image from '../../../../components/image';
 import Iconify from '../../../../components/iconify';

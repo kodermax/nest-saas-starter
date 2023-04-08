@@ -1,4 +1,5 @@
 import { m } from 'framer-motion';
+
 // @mui
 import { styled } from '@mui/material/styles';
 import {
@@ -12,6 +13,7 @@ import {
   CardActionArea,
   FormControlLabel,
 } from '@mui/material';
+
 // components
 import { useSettingsContext } from '../../components/settings';
 import Image from '../../components/image';

@@ -1,9 +1,11 @@
 import { paramCase } from 'change-case';
 import { useState } from 'react';
+
 // next
 import Head from 'next/head';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
+
 // @mui
 import {
   Tab,
@@ -18,14 +20,19 @@ import {
   IconButton,
   TableContainer,
 } from '@mui/material';
+
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
+
 // @types
 import { IUserAccountGeneral } from '../../../@types/user';
+
 // _mock_
 import { _userList } from '../../../_mock/arrays';
+
 // layouts
 import DashboardLayout from '../../../layouts/dashboard';
+
 // components
 import Iconify from '../../../components/iconify';
 import Scrollbar from '../../../components/scrollbar';
@@ -42,6 +49,7 @@ import {
   TableSelectedAction,
   TablePaginationCustom,
 } from '../../../components/table';
+
 // sections
 import { UserTableToolbar, UserTableRow } from '../../../sections/@dashboard/user/list';
 
@@ -85,11 +93,13 @@ export default function UserListPage() {
     orderBy,
     rowsPerPage,
     setPage,
+
     //
     selected,
     setSelected,
     onSelectRow,
     onSelectAllRows,
+
     //
     onSort,
     onChangeDense,
@@ -309,6 +319,7 @@ export default function UserListPage() {
             rowsPerPage={rowsPerPage}
             onPageChange={onChangePage}
             onRowsPerPageChange={onChangeRowsPerPage}
+
             //
             dense={dense}
             onChangeDense={onChangeDense}
@@ -362,7 +373,8 @@ function applyFilter({
   stabilizedThis.sort((a, b) => {
     const order = comparator(a[0], b[0]);
     if (order !== 0) return order;
-    return a[1] - b[1];
+    
+return a[1] - b[1];
   });
 
   inputData = stabilizedThis.map((el) => el[0]);

@@ -1,13 +1,18 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { Box, Paper, Container, Stack } from '@mui/material';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
+
 // sections
 import { Block } from '../../../sections/_examples/Block';
 import CustomizedStepper from '../../../sections/_examples/mui/stepper/CustomizedStepper';

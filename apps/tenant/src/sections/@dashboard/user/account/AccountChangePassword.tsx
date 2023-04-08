@@ -1,12 +1,16 @@
 import * as Yup from 'yup';
+
 // form
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+
 // @mui
 import { Stack, Card } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+
 // @types
 import { IUserAccountChangePassword } from '../../../../@types/user';
+
 // components
 import Iconify from '../../../../components/iconify';
 import { useSnackbar } from '../../../../components/snackbar';

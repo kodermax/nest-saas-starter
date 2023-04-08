@@ -1,8 +1,10 @@
 // @mui
 import { Link, Button, Divider, Typography, Stack, DialogProps } from '@mui/material';
+
 // components
 import Iconify from '../../../../components/iconify';
 import { DialogAnimate } from '../../../../components/animate';
+
 // assets
 import { OrderCompleteIllustration } from '../../../../assets/illustrations';
 

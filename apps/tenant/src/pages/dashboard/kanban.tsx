@@ -1,21 +1,29 @@
 import { useEffect } from 'react';
+
 // next
 import Head from 'next/head';
+
 // @mui
 import { Container, Stack } from '@mui/material';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
+
 // redux
 import { useDispatch, useSelector } from '../../redux/store';
 import { getBoard, persistColumn, persistCard } from '../../redux/slices/kanban';
+
 // routes
 import { PATH_DASHBOARD } from '../../routes/paths';
+
 // utils
 import { hideScrollbarX } from '../../utils/cssStyles';
+
 // layouts
 import DashboardLayout from '../../layouts/dashboard';
+
 // components
 import CustomBreadcrumbs from '../../components/custom-breadcrumbs';
 import { SkeletonKanbanColumn } from '../../components/skeleton';
+
 // sections
 import { KanbanColumn, KanbanColumnAdd } from '../../sections/@dashboard/kanban';
 
@@ -50,7 +58,8 @@ export default function KanbanPage() {
       newColumnOrder.splice(destination.index, 0, draggableId);
 
       dispatch(persistColumn(newColumnOrder));
-      return;
+      
+return;
     }
 
     const start = board.columns[source.droppableId];
@@ -74,7 +83,8 @@ export default function KanbanPage() {
           [updatedColumn.id]: updatedColumn,
         })
       );
-      return;
+      
+return;
     }
 
     const startCardIds = [...start.cardIds];

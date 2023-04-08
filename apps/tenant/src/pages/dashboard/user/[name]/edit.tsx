@@ -1,18 +1,25 @@
 import { paramCase } from 'change-case';
+
 // next
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+
 // @mui
 import { Container } from '@mui/material';
+
 // routes
 import { PATH_DASHBOARD } from '../../../../routes/paths';
+
 // _mock_
 import { _userList } from '../../../../_mock/arrays';
+
 // layouts
 import DashboardLayout from '../../../../layouts/dashboard';
+
 // components
 import { useSettingsContext } from '../../../../components/settings';
 import CustomBreadcrumbs from '../../../../components/custom-breadcrumbs';
+
 // sections
 import UserNewEditForm from '../../../../sections/@dashboard/user/UserNewEditForm';
 

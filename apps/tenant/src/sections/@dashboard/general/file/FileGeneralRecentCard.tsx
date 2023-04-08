@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 // @mui
 import {
   Box,
@@ -12,19 +13,24 @@ import {
   IconButton,
   AvatarGroup,
 } from '@mui/material';
+
 // hooks
 import useResponsive from '../../../../hooks/useResponsive';
 import useCopyToClipboard from '../../../../hooks/useCopyToClipboard';
+
 // utils
 import { fData } from '../../../../utils/formatNumber';
 import { fDateTime } from '../../../../utils/formatTime';
+
 // @types
 import { IFileManager } from '../../../../@types/file';
+
 // components
 import Iconify from '../../../../components/iconify';
 import { useSnackbar } from '../../../../components/snackbar';
 import MenuPopover from '../../../../components/menu-popover';
 import FileThumbnail from '../../../../components/file-thumbnail';
+
 //
 import { FileShareDialog, FileDetailsDrawer } from '../../file';
 

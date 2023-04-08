@@ -1,10 +1,13 @@
 // next
 import Head from 'next/head';
 import NextLink from 'next/link';
+
 // @mui
 import { Button, Typography, Stack } from '@mui/material';
+
 // layouts
 import CompactLayout from '../layouts/compact';
+
 // assets
 import { MaintenanceIllustration } from '../assets/illustrations';
 

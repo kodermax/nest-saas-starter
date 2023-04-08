@@ -1,7 +1,9 @@
 import { useState, memo } from 'react';
 import Map from 'react-map-gl';
+
 // @mui
 import { Box, Typography } from '@mui/material';
+
 // components
 import Image from '../../../../components/image';
 import { MapPopup, MapMarker, MapControl, MapBoxProps } from '../../../../components/map';

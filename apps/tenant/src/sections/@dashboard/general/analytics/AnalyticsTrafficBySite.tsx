@@ -1,7 +1,9 @@
 // @mui
 import { Box, Card, Paper, Typography, CardHeader, CardContent, CardProps } from '@mui/material';
+
 // utils
 import { fShortenNumber } from '../../../../utils/formatNumber';
+
 // components
 import Iconify from '../../../../components/iconify';
 

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+
 // @mui
 import { useTheme } from '@mui/material/styles';
 import {
@@ -22,8 +23,10 @@ import {
   CardContent,
   DialogActions,
 } from '@mui/material';
+
 // utils
 import { fCurrency } from '../../../../utils/formatNumber';
+
 // components
 import Carousel, { CarouselArrows } from '../../../../components/carousel';
 

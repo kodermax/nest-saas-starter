@@ -1,12 +1,16 @@
 // next
 import NextLink from 'next/link';
+
 // @mui
 import { styled, alpha } from '@mui/material/styles';
 import { Box, Link, Typography } from '@mui/material';
+
 // auth
 import { useAuthContext } from '../../../auth/useAuthContext';
+
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
+
 // components
 import { CustomAvatar } from '../../../components/custom-avatar';
 

@@ -1,9 +1,12 @@
 import { ApexOptions } from 'apexcharts';
+
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Card, Typography, CardProps, Stack, Avatar } from '@mui/material';
+
 // utils
 import { fData } from '../../../../utils/formatNumber';
+
 // components
 import Chart, { useChart } from '../../../../components/chart';
 

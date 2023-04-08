@@ -1,7 +1,9 @@
 // @mui
 import { List, Stack } from '@mui/material';
+
 // locales
 import { useLocales } from '../../../locales';
+
 //
 import { NavSectionProps } from '../types';
 import { StyledSubheader } from './styles';

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 // @mui
 import {
   Paper,
@@ -11,8 +12,10 @@ import {
   IconButton,
   Typography,
 } from '@mui/material';
+
 // hooks
 import useResponsive from '../../../hooks/useResponsive';
+
 // components
 import Iconify from '../../../components/iconify';
 import Editor from '../../../components/editor';

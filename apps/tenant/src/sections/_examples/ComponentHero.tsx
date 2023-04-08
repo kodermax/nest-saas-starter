@@ -1,11 +1,15 @@
 import { m } from 'framer-motion';
+
 // @mui
 import { styled, alpha } from '@mui/material/styles';
 import { Container, Typography, Stack } from '@mui/material';
+
 // hooks
 import useResponsive from '../../hooks/useResponsive';
+
 // utils
 import { bgGradient } from '../../utils/cssStyles';
+
 // components
 import Image from '../../components/image';
 import { MotionContainer, varFade } from '../../components/animate';

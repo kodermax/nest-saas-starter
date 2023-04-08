@@ -1,5 +1,6 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { alpha } from '@mui/material/styles';
 import { Box, Paper, Container, Typography } from '@mui/material';
@@ -13,13 +14,17 @@ import {
   TimelineConnector,
   TimelineOppositeContent,
 } from '@mui/lab';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import Iconify from '../../../components/iconify';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
+
 // sections
 import { Block } from '../../../sections/_examples/Block';
 

@@ -1,8 +1,10 @@
 import { m } from 'framer-motion';
 import { useState, useRef } from 'react';
+
 // @mui
 import { alpha, useTheme, styled } from '@mui/material/styles';
 import { Stack, Card, Typography, Link, CardProps } from '@mui/material';
+
 // components
 import Image from '../../../../components/image';
 import { MotionContainer, varFade } from '../../../../components/animate';

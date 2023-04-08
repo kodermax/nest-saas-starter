@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { format } from 'date-fns';
 import { sentenceCase } from 'change-case';
+
 // @mui
 import { useTheme } from '@mui/material/styles';
 import {
@@ -20,8 +21,10 @@ import {
   IconButton,
   TableContainer,
 } from '@mui/material';
+
 // utils
 import { fCurrency } from '../../../../utils/formatNumber';
+
 // components
 import Label from '../../../../components/label';
 import Iconify, { IconifyProps } from '../../../../components/iconify';
@@ -266,7 +269,8 @@ function renderAvatar(category: string, avatar: string | null) {
   if (category === 'Beauty & Health') {
     return <AvatarIcon icon="eva:heart-fill" />;
   }
-  return avatar ? (
+  
+return avatar ? (
     <Avatar
       alt={category}
       src={avatar}

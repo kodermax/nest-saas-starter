@@ -1,21 +1,29 @@
 import { useState, useEffect } from 'react';
+
 // next
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
+
 // @mui
 import { useTheme, styled } from '@mui/material/styles';
 import { Box, Stack, Drawer, IconButton, IconButtonProps } from '@mui/material';
+
 // hooks
 import useResponsive from '../../../../hooks/useResponsive';
+
 // utils
 import axios from '../../../../utils/axios';
+
 // routes
 import { PATH_DASHBOARD } from '../../../../routes/paths';
+
 // @types
 import { IChatContact, IChatConversationsState } from '../../../../@types/chat';
+
 // components
 import Iconify from '../../../../components/iconify';
 import Scrollbar from '../../../../components/scrollbar';
+
 //
 import ChatNavList from './ChatNavList';
 import ChatNavSearch from './ChatNavSearch';

@@ -1,6 +1,8 @@
 import { useState } from 'react';
+
 // form
 import { Controller, useFormContext } from 'react-hook-form';
+
 // @mui
 import {
   Box,
@@ -18,11 +20,14 @@ import {
   FormHelperText,
   FormControlLabel,
 } from '@mui/material';
+
 // @types
 import { ICheckoutCardOption, ICheckoutPaymentOption } from '../../../../../@types/product';
+
 // components
 import Image from '../../../../../components/image';
 import Iconify from '../../../../../components/iconify';
+
 // section
 import { PaymentNewCardDialog } from '../../../../payment';
 

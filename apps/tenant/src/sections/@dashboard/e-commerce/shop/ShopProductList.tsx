@@ -1,9 +1,12 @@
 // @mui
 import { Box, BoxProps } from '@mui/material';
+
 // @type
 import { IProduct } from '../../../../@types/product';
+
 // components
 import { SkeletonProductItem } from '../../../../components/skeleton';
+
 //
 import ShopProductCard from './ShopProductCard';
 

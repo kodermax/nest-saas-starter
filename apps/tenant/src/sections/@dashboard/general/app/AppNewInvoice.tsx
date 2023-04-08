@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { sentenceCase } from 'change-case';
+
 // @mui
 import {
   Box,
@@ -16,8 +17,10 @@ import {
   IconButton,
   TableContainer,
 } from '@mui/material';
+
 // utils
 import { fCurrency } from '../../../../utils/formatNumber';
+
 // components
 import Label from '../../../../components/label';
 import Iconify from '../../../../components/iconify';

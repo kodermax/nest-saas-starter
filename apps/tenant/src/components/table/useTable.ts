@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+
 //
 import { TableProps } from './types';
 
@@ -65,7 +66,8 @@ export default function useTable(props?: UseTableProps): ReturnType {
   const onSelectAllRows = useCallback((checked: boolean, newSelecteds: string[]) => {
     if (checked) {
       setSelected(newSelecteds);
-      return;
+      
+return;
     }
     setSelected([]);
   }, []);
@@ -89,15 +91,18 @@ export default function useTable(props?: UseTableProps): ReturnType {
     page,
     orderBy,
     rowsPerPage,
+
     //
     selected,
     onSelectRow,
     onSelectAllRows,
+
     //
     onSort,
     onChangePage,
     onChangeDense,
     onChangeRowsPerPage,
+
     //
     setPage,
     setDense,

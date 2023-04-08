@@ -1,13 +1,18 @@
 import { useState, useEffect } from 'react';
+
 // @mui
 import { useTheme, styled } from '@mui/material/styles';
 import { Box, Drawer, IconButton, IconButtonProps } from '@mui/material';
+
 // hooks
 import useResponsive from '../../../../hooks/useResponsive';
+
 // @types
 import { IChatConversation, IChatParticipant } from '../../../../@types/chat';
+
 // components
 import Iconify from '../../../../components/iconify';
+
 //
 import ChatRoomAttachments from './ChatRoomAttachments';
 import ChatRoomSingle from './ChatRoomSingle';

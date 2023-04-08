@@ -2,15 +2,19 @@ import * as Yup from 'yup';
 import merge from 'lodash/merge';
 import { isBefore } from 'date-fns';
 import { EventInput } from '@fullcalendar/common';
+
 // form
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+
 // @mui
 import { Box, Stack, Button, Tooltip, TextField, IconButton, DialogActions } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { MobileDateTimePicker } from '@mui/x-date-pickers';
+
 // @types
 import { ICalendarEvent } from '../../../@types/calendar';
+
 // components
 import Iconify from '../../../components/iconify';
 import { ColorSinglePicker } from '../../../components/color-utils';

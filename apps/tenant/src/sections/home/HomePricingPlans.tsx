@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { m } from 'framer-motion';
+
 // @mui
 import { styled } from '@mui/material/styles';
 import {
@@ -13,12 +14,16 @@ import {
   Typography,
   StackProps,
 } from '@mui/material';
+
 // hooks
 import useResponsive from '../../hooks/useResponsive';
+
 // routes
 import { PATH_MINIMAL_ON_STORE } from '../../routes/paths';
+
 // _mock_
 import { _homePlans } from '../../_mock/arrays';
+
 // components
 import SvgColor from '../../components/svg-color';
 import Iconify from '../../components/iconify';

@@ -1,8 +1,10 @@
 // @mui
 import { Typography, Stack } from '@mui/material';
+
 // components
 import Logo from '../../components/logo';
 import Image from '../../components/image';
+
 //
 import { StyledRoot, StyledSectionBg, StyledSection, StyledContent } from './styles';
 

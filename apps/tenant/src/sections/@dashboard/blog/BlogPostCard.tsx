@@ -1,18 +1,25 @@
 import { paramCase } from 'change-case';
+
 // next
 import NextLink from 'next/link';
+
 // @mui
 import { alpha, styled } from '@mui/material/styles';
 import { Box, Card, Avatar, Typography, CardContent, Stack } from '@mui/material';
+
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
+
 // hooks
 import useResponsive from '../../../hooks/useResponsive';
+
 // utils
 import { fDate } from '../../../utils/formatTime';
 import { fShortenNumber } from '../../../utils/formatNumber';
+
 // @types
 import { IBlogPost } from '../../../@types/blog';
+
 // components
 import Image from '../../../components/image';
 import Iconify from '../../../components/iconify';

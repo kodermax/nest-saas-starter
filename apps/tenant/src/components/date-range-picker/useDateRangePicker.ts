@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { isSameDay, isSameMonth, getYear, isBefore } from 'date-fns';
+
 // utils
 import { fDate } from '../../utils/formatTime';
+
 //
 import { DateRangePickerProps } from './types';
 
@@ -64,17 +66,21 @@ export default function useDateRangePicker(start: Date | null, end: Date | null)
     endDate,
     onChangeStartDate,
     onChangeEndDate,
+
     //
     open,
     onOpen: () => setOpen(true),
     onClose: () => setOpen(false),
     onReset,
+
     //
     isSelected: !!startDate && !!endDate,
     isError,
+
     //
     label: standardLabel || '',
     shortLabel: shortLabel || '',
+
     //
     setStartDate,
     setEndDate,

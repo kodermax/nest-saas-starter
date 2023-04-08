@@ -72,8 +72,10 @@ export type Auth0ContextType = {
   isAuthenticated: boolean;
   isInitialized: boolean;
   user: AuthUserType;
+
   // login: () => Promise<void>;
   logout: VoidFunction;
+
   // To avoid conflicts between types this is just a temporary declaration.
   // Remove below when you choose to authenticate with Auth0.
   login: (email?: string, password?: string) => Promise<void>;

@@ -1,8 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 // utils
 import axios from '../../utils/axios';
+
 // @types
 import { ICalendarState, ICalendarEvent } from '../../@types/calendar';
+
 //
 import { dispatch } from '../store';
 
@@ -51,7 +54,8 @@ const slice = createSlice({
         if (event.id === action.payload.id) {
           return action.payload;
         }
-        return event;
+        
+return event;
       });
 
       state.isLoading = false;

@@ -1,6 +1,8 @@
 import { ApexOptions } from 'apexcharts';
+
 // @mui
 import { Card, CardHeader, Box, CardProps } from '@mui/material';
+
 // components
 import Chart, { useChart } from '../../../../components/chart';
 
@@ -47,7 +49,8 @@ export default function AnalyticsWebsiteVisits({ title, subheader, chart, ...oth
           if (typeof value !== 'undefined') {
             return `${value.toFixed(0)} visits`;
           }
-          return value;
+          
+return value;
         },
       },
     },

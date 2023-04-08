@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 // @mui
 import {
   Box,
@@ -14,10 +15,13 @@ import {
   DialogTitle,
   DialogContent,
 } from '@mui/material';
+
 // _mock_
 import { _contacts } from '../../../_mock/arrays';
+
 // @types
 import { IKanbanAssignee } from '../../../@types/kanban';
+
 // components
 import Iconify from '../../../components/iconify';
 import Scrollbar from '../../../components/scrollbar';

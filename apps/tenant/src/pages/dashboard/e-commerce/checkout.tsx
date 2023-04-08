@@ -1,13 +1,18 @@
 import { useEffect } from 'react';
+
 // next
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+
 // @mui
 import { Grid, Container } from '@mui/material';
+
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
+
 // layouts
 import DashboardLayout from '../../../layouts/dashboard';
+
 // redux
 import { useDispatch, useSelector } from '../../../redux/store';
 import {
@@ -23,11 +28,14 @@ import {
   increaseQuantity,
   decreaseQuantity,
 } from '../../../redux/slices/product';
+
 // @types
 import { ICheckoutBillingAddress } from '../../../@types/product';
+
 // components
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
 import { useSettingsContext } from '../../../components/settings';
+
 // sections
 import {
   CheckoutCart,

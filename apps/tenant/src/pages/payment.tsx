@@ -1,11 +1,15 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { Box, Grid, Container, Typography } from '@mui/material';
+
 // hooks
 import useResponsive from '../hooks/useResponsive';
+
 // layouts
 import SimpleLayout from '../layouts/simple';
+
 // sections
 import { PaymentSummary, PaymentMethods, PaymentBillingAddress } from '../sections/payment';
 

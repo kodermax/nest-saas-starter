@@ -1,12 +1,16 @@
 // @mui
 import { alpha, styled } from '@mui/material/styles';
 import { Box, Card, Avatar, Divider, Typography, Stack, IconButton } from '@mui/material';
+
 // utils
 import { fShortenNumber } from '../../../../utils/formatNumber';
+
 // @types
 import { IUserCard } from '../../../../@types/user';
+
 // _mock
 import { _socials } from '../../../../_mock/arrays';
+
 // components
 import Image from '../../../../components/image';
 import Iconify from '../../../../components/iconify';

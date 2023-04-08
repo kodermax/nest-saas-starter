@@ -1,8 +1,10 @@
 // @mui
 import { alpha, useTheme } from '@mui/material/styles';
 import { Box, Stack, Typography, Button, BoxProps, InputBase } from '@mui/material';
+
 // components
 import Image from '../../../../components/image';
+
 // utils
 import { bgGradient } from '../../../../utils/cssStyles';
 

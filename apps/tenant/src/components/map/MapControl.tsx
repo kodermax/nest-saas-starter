@@ -1,4 +1,5 @@
 import { NavigationControl, FullscreenControl, ScaleControl, GeolocateControl } from 'react-map-gl';
+
 //
 import { StyledMapControls } from './styles';
 

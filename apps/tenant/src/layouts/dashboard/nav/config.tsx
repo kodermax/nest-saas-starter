@@ -1,5 +1,6 @@
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
+
 // components
 import Label from '../../../components/label';
 import Iconify from '../../../components/iconify';

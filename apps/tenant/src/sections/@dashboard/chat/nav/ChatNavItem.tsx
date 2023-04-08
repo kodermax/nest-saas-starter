@@ -1,4 +1,5 @@
 import { formatDistanceToNowStrict } from 'date-fns';
+
 // @mui
 import {
   Badge,
@@ -8,8 +9,10 @@ import {
   ListItemButton,
   ListItemAvatar,
 } from '@mui/material';
+
 // @types
 import { IChatConversation } from '../../../../@types/chat';
+
 // components
 import { CustomAvatar, CustomAvatarGroup } from '../../../../components/custom-avatar';
 import BadgeStatus from '../../../../components/badge-status';
@@ -135,5 +138,6 @@ const getDetails = (conversation: IChatConversation, currentUserId: string) => {
 
     displayText = `${sender}${message}`;
   }
-  return { otherParticipants, displayNames, displayText };
+  
+return { otherParticipants, displayNames, displayText };
 };

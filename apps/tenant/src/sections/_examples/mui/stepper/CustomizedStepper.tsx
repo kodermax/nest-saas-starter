@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 // @mui
 import { styled, alpha } from '@mui/material/styles';
 import {
@@ -13,8 +14,10 @@ import {
   stepConnectorClasses,
 } from '@mui/material';
 import { StepIconProps } from '@mui/material/StepIcon';
+
 // utils
 import { bgGradient } from '../../../../utils/cssStyles';
+
 // components
 import Iconify from '../../../../components/iconify';
 

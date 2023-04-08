@@ -1,14 +1,19 @@
 // @mui
 import { alpha, styled } from '@mui/material/styles';
 import { Box, Avatar, SpeedDial, Typography, SpeedDialAction } from '@mui/material';
+
 // hooks
 import useResponsive from '../../../hooks/useResponsive';
+
 // utils
 import { fDate } from '../../../utils/formatTime';
+
 // _mock
 import { _socials } from '../../../_mock/arrays';
+
 // @types
 import { IBlogPost } from '../../../@types/blog';
+
 // components
 import Image from '../../../components/image';
 import Iconify from '../../../components/iconify';

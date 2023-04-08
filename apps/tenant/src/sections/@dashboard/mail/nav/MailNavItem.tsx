@@ -1,15 +1,21 @@
 // next
 import { useRouter } from 'next/router';
+
 // @mui
 import { Typography, ListItemText, ListItemButton } from '@mui/material';
+
 // @config
 import { ICON } from '../../../../config';
+
 // hooks
 import useActiveLink from '../../../../hooks/useActiveLink';
+
 // @types
 import { IMailLabel } from '../../../../@types/mail';
+
 // routes
 import { PATH_DASHBOARD } from '../../../../routes/paths';
+
 // components
 import Iconify, { IconifyProps } from '../../../../components/iconify';
 

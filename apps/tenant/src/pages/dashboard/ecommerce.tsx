@@ -1,12 +1,16 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Container, Grid, Button } from '@mui/material';
+
 // auth
 import { useAuthContext } from '../../auth/useAuthContext';
+
 // layouts
 import DashboardLayout from '../../layouts/dashboard';
+
 // _mock_
 import {
   _ecommerceNewProducts,
@@ -14,8 +18,10 @@ import {
   _ecommerceBestSalesman,
   _ecommerceLatestProducts,
 } from '../../_mock/arrays';
+
 // components
 import { useSettingsContext } from '../../components/settings';
+
 // sections
 import {
   EcommerceNewProducts,
@@ -28,6 +34,7 @@ import {
   EcommerceCurrentBalance,
 } from '../../sections/@dashboard/general/e-commerce';
 import { AppWelcome } from '../../sections/@dashboard/general/app';
+
 // assets
 import { MotivationIllustration } from '../../assets/illustrations';
 

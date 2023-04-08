@@ -1,11 +1,15 @@
 import { useRef } from 'react';
+
 // next
 import NextLink from 'next/link';
+
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Box, Link } from '@mui/material';
+
 // @types
 import { MenuCarouselProps } from './types';
+
 //
 import Image from '../image';
 import TextMaxLine from '../text-max-line';

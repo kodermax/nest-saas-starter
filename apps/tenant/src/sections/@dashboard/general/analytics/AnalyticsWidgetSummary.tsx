@@ -1,11 +1,14 @@
 // @mui
 import { alpha, useTheme } from '@mui/material/styles';
 import { Card, Typography, CardProps } from '@mui/material';
+
 // utils
 import { bgGradient } from '../../../../utils/cssStyles';
 import { fShortenNumber } from '../../../../utils/formatNumber';
+
 // theme
 import { ColorSchema } from '../../../../theme/palette';
+
 // components
 import Iconify from '../../../../components/iconify';
 

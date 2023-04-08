@@ -1,11 +1,15 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { Box, Switch, Container, Typography, Stack } from '@mui/material';
+
 // _mock_
 import { _pricingPlans } from '../_mock/arrays';
+
 // layouts
 import SimpleLayout from '../layouts/simple';
+
 // sections
 import { PricingPlanCard } from '../sections/pricing';
 

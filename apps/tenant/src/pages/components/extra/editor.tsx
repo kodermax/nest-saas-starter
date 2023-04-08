@@ -1,6 +1,8 @@
 import { useState } from 'react';
+
 // next
 import Head from 'next/head';
+
 // @mui
 import {
   Box,
@@ -12,10 +14,13 @@ import {
   Typography,
   CardContent,
 } from '@mui/material';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import Editor from '../../../components/editor';
 import Markdown from '../../../components/markdown';

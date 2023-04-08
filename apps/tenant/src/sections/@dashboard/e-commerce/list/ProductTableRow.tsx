@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { sentenceCase } from 'change-case';
+
 // @mui
 import {
   Link,
@@ -11,11 +12,14 @@ import {
   TableCell,
   IconButton,
 } from '@mui/material';
+
 // utils
 import { fDate } from '../../../../utils/formatTime';
 import { fCurrency } from '../../../../utils/formatNumber';
+
 // @types
 import { IProduct } from '../../../../@types/product';
+
 // components
 import Label from '../../../../components/label';
 import Image from '../../../../components/image';

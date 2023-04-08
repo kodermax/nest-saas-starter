@@ -23,23 +23,31 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 // ----------------------------------------------------------------------
 
 import { CacheProvider, EmotionCache } from '@emotion/react';
+
 // next
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
+
 // redux
 import { Provider as ReduxProvider } from 'react-redux';
+
 // @mui
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+
 // redux
 import { store } from '../redux/store';
+
 // utils
 import createEmotionCache from '../utils/createEmotionCache';
+
 // theme
 import ThemeProvider from '../theme';
+
 // locales
 import ThemeLocalization from '../locales';
+
 // components
 import { StyledChart } from '../components/chart';
 import ProgressBar from '../components/progress-bar';
@@ -51,6 +59,7 @@ import { ThemeSettings, SettingsProvider } from '../components/settings';
 // https://docs.minimals.cc/authentication/ts-version
 
 import { AuthProvider } from '../auth/JwtContext';
+
 // import { AuthProvider } from '../auth/Auth0Context';
 // import { AuthProvider } from '../auth/FirebaseContext';
 // import { AuthProvider } from '../auth/AwsCognitoContext';

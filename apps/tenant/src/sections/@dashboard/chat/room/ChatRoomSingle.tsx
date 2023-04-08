@@ -1,9 +1,12 @@
 // @mui
 import { Avatar, Divider, Collapse, Typography, Stack } from '@mui/material';
+
 // @types
 import { IChatParticipant } from '../../../../@types/chat';
+
 // components
 import Iconify from '../../../../components/iconify';
+
 //
 import ChatRoomCollapseButton from './ChatRoomCollapseButton';
 

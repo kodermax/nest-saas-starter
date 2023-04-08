@@ -1,20 +1,27 @@
 // next
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
+
 // @mui
 import { styled } from '@mui/material/styles';
 import { Box, Card, Stack, Container, CardHeader, CardContent } from '@mui/material';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // config
 import { MAPBOX_API } from '../../../config';
+
 // _mock_
 import { cities as CITIES } from '../../../_mock/map/cities';
 import { countries as COUNTRIES } from '../../../_mock/map/countries';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
+
 // sections
 const MapHeatmap = dynamic(() => import('../../../sections/_examples/extra/map/heatmap'));
 const MapClusters = dynamic(() => import('../../../sections/_examples/extra/map/clusters'));

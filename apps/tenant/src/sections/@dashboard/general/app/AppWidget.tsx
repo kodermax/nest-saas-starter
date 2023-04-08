@@ -1,12 +1,16 @@
 import { ApexOptions } from 'apexcharts';
+
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Typography, Box, CardProps, Stack } from '@mui/material';
+
 // utils
 import { fNumber } from '../../../../utils/formatNumber';
+
 // components
 import Iconify from '../../../../components/iconify';
 import Chart, { useChart } from '../../../../components/chart';
+
 // theme
 import { ColorSchema } from '../../../../theme/palette';
 

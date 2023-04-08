@@ -1,18 +1,25 @@
 import { m, useScroll } from 'framer-motion';
 import { useEffect, useState } from 'react';
+
 // next
 import NextLink from 'next/link';
+
 // @mui
 import { styled, alpha, useTheme } from '@mui/material/styles';
 import { Button, Box, Link, Container, Typography, Stack, Grid } from '@mui/material';
+
 // routes
 import { PATH_DASHBOARD, PATH_FIGMA_PREVIEW, PATH_FREE_VERSION } from '../../routes/paths';
+
 // hooks
 import useResponsive from '../../hooks/useResponsive';
+
 // utils
 import { textGradient, bgGradient } from '../../utils/cssStyles';
+
 // config
 import { HEADER } from '../../config';
+
 // components
 import SvgColor from '../../components/svg-color';
 import Iconify from '../../components/iconify';

@@ -1,5 +1,6 @@
 import { noCase } from 'change-case';
 import { useState } from 'react';
+
 // @mui
 import {
   Box,
@@ -17,10 +18,13 @@ import {
   ListItemAvatar,
   ListItemButton,
 } from '@mui/material';
+
 // utils
 import { fToNow } from '../../../utils/formatTime';
+
 // _mock_
 import { _notifications } from '../../../_mock/arrays';
+
 // components
 import Iconify from '../../../components/iconify';
 import Scrollbar from '../../../components/scrollbar';
@@ -206,7 +210,8 @@ function renderContent(notification: NotificationItemProps) {
       title,
     };
   }
-  return {
+  
+return {
     avatar: notification.avatar ? <img alt={notification.title} src={notification.avatar} /> : null,
     title,
   };

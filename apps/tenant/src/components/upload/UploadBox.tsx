@@ -1,8 +1,11 @@
 import { useDropzone } from 'react-dropzone';
+
 // @mui
 import { styled, alpha } from '@mui/material/styles';
+
 //
 import Iconify from '../iconify';
+
 //
 import { UploadProps } from './types';
 

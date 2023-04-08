@@ -1,11 +1,14 @@
 // @mui
 import { Box, ListItemText, ListItemAvatar, ListItemButton } from '@mui/material';
+
 // @types
 import { IChatParticipant } from '../../../../@types/chat';
+
 // components
 import { CustomAvatar } from '../../../../components/custom-avatar';
 import Scrollbar from '../../../../components/scrollbar';
 import BadgeStatus from '../../../../components/badge-status';
+
 //
 import ChatRoomParticipantInfoDialog from './ChatRoomParticipantInfoDialog';
 import ChatRoomCollapseButton from './ChatRoomCollapseButton';

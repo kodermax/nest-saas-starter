@@ -1,18 +1,24 @@
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Box, Button, AppBar, Toolbar, Container, Link, BoxProps } from '@mui/material';
+
 // hooks
 import useOffSetTop from '../../hooks/useOffSetTop';
 import useResponsive from '../../hooks/useResponsive';
+
 // utils
 import { bgBlur } from '../../utils/cssStyles';
+
 // config
 import { HEADER } from '../../config';
+
 // routes
 import { PATH_DOCS, PATH_MINIMAL_ON_STORE } from '../../routes/paths';
+
 // components
 import Logo from '../../components/logo';
 import Label from '../../components/label';
+
 //
 import NavMobile from './nav/mobile';
 import navConfig from './nav/config';

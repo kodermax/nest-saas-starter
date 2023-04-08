@@ -1,15 +1,21 @@
 // next
 import { useRouter } from 'next/router';
+
 // @mui
 import { Box, Link, Tooltip, Typography, IconButton, Stack, StackProps } from '@mui/material';
+
 // routes
 import { PATH_DASHBOARD } from '../../../../routes/paths';
+
 // hooks
 import useResponsive from '../../../../hooks/useResponsive';
+
 // utils
 import { fDateTime } from '../../../../utils/formatTime';
+
 // @types
 import { IMailSender } from '../../../../@types/mail';
+
 // components
 import { CustomAvatar } from '../../../../components/custom-avatar';
 import Iconify from '../../../../components/iconify';
@@ -39,7 +45,8 @@ export default function MailHeaderDetails({ mailFrom, mailTo, createdAt, sx, ...
     if (customLabel) {
       return push(`${baseUrl}/label/${customLabel}`);
     }
-    return push(`${baseUrl}/inbox`);
+    
+return push(`${baseUrl}/inbox`);
   };
 
   return (

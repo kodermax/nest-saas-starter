@@ -1,7 +1,9 @@
 // @mui
 import { Card, Stack, Typography, Divider } from '@mui/material';
+
 // utils
 import { fNumber } from '../../../../../utils/formatNumber';
+
 // @types
 import { IUserProfileFollowers } from '../../../../../@types/user';
 

@@ -1,13 +1,18 @@
 import { m } from 'framer-motion';
+
 // @mui
 import { alpha, useTheme, styled } from '@mui/material/styles';
 import { Box, Grid, Button, Container, Typography, LinearProgress } from '@mui/material';
+
 // hooks
 import useResponsive from '../../hooks/useResponsive';
+
 // utils
 import { fPercent } from '../../utils/formatNumber';
+
 // _mock_
 import { _skills } from '../../_mock/arrays';
+
 // components
 import Image from '../../components/image';
 import Iconify from '../../components/iconify';
@@ -129,7 +134,8 @@ type ProgressItemProps = {
 
 function ProgressItem({ progress }: ProgressItemProps) {
   const { label, value } = progress;
-  return (
+  
+return (
     <Box sx={{ mt: 3 }}>
       <Box sx={{ mb: 1.5, display: 'flex', alignItems: 'center' }}>
         <Typography variant="subtitle2">{label}&nbsp;-&nbsp;</Typography>

@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
+
 // @mui
 import { alpha, useTheme } from '@mui/material/styles';
 import { Tooltip, Box } from '@mui/material';
+
 // utils
 import { bgBlur } from '../../../utils/cssStyles';
+
 //
 import { IconButtonAnimate } from '../../animate';
 import SvgColor from '../../svg-color';
+
 //
 import BadgeDot from './BadgeDot';
 

@@ -1,9 +1,12 @@
 import keyBy from 'lodash/keyBy';
 import { createSlice } from '@reduxjs/toolkit';
+
 // utils
 import axios from '../../utils/axios';
+
 // @types
 import { IMailState } from '../../@types/mail';
+
 //
 import { dispatch } from '../store';
 

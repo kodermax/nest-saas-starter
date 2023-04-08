@@ -60,7 +60,8 @@ export default function ChartMixed() {
           if (typeof value !== 'undefined') {
             return `${value.toFixed(0)} points`;
           }
-          return value;
+          
+return value;
         },
       },
     },

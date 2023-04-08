@@ -1,16 +1,22 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { Container, Box } from '@mui/material';
+
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
+
 // _mock_
 import { _userCards } from '../../../_mock/arrays';
+
 // layouts
 import DashboardLayout from '../../../layouts/dashboard';
+
 // components
 import { useSettingsContext } from '../../../components/settings';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
+
 // sections
 import { UserCard } from '../../../sections/@dashboard/user/cards';
 

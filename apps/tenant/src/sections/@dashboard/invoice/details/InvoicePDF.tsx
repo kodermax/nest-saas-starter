@@ -1,10 +1,13 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { Page, View, Text, Image, Document } from '@react-pdf/renderer';
+
 // utils
 import { fDate } from '../../../../utils/formatTime';
 import { fCurrency } from '../../../../utils/formatNumber';
+
 // @types
 import { IInvoice } from '../../../../@types/invoice';
+
 //
 import styles from './InvoiceStyle';
 

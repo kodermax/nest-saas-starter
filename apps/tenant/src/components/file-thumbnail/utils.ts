@@ -109,7 +109,8 @@ export function fileThumb(fileUrl: string) {
     default:
       thumb = iconUrl('ic_file');
   }
-  return thumb;
+  
+return thumb;
 }
 
 // ----------------------------------------------------------------------

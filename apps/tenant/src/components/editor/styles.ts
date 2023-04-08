@@ -134,6 +134,7 @@ export const StyledEditorToolbar = styled('div')(({ theme }) => {
             justifyContent: 'center',
           },
         },
+
         // Color & Background
         '&.ql-color, &.ql-background': {
           '& .ql-picker-options': { padding: 8 },
@@ -143,6 +144,7 @@ export const StyledEditorToolbar = styled('div')(({ theme }) => {
             '&.ql-selected': { border: 'solid 1px black' },
           },
         },
+
         // Font, Size, Header
         '&.ql-font, &.ql-size, &.ql-header': {
           '& .ql-picker-options': {

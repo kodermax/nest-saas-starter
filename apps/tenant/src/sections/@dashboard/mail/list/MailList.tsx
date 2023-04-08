@@ -1,10 +1,13 @@
 // @mui
 import { Stack, LinearProgress } from '@mui/material';
+
 // components
 import Scrollbar from '../../../../components/scrollbar';
 import EmptyContent from '../../../../components/empty-content';
+
 // @types
 import { IMailListState, IMailLabel } from '../../../../@types/mail';
+
 //
 import MailItem from './MailItem';
 

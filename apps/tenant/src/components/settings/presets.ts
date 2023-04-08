@@ -1,5 +1,6 @@
 // theme
 import palette from '../../theme/palette';
+
 //
 import { ThemeColorPresetsValue } from './types';
 
@@ -13,6 +14,7 @@ export const presets = [
     name: 'default',
     ...themePalette.primary,
   },
+
   // CYAN
   {
     name: 'cyan',
@@ -23,6 +25,7 @@ export const presets = [
     darker: '#012972',
     contrastText: '#FFFFFF',
   },
+
   // PURPLE
   {
     name: 'purple',
@@ -33,6 +36,7 @@ export const presets = [
     darker: '#200A69',
     contrastText: '#FFFFFF',
   },
+
   // BLUE
   {
     name: 'blue',
@@ -43,6 +47,7 @@ export const presets = [
     darker: '#061B64',
     contrastText: '#FFFFFF',
   },
+
   // ORANGE
   {
     name: 'orange',
@@ -53,6 +58,7 @@ export const presets = [
     darker: '#793908',
     contrastText: themePalette.grey[800],
   },
+
   // RED
   {
     name: 'red',

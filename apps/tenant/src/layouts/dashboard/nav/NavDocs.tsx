@@ -1,9 +1,12 @@
 // @mui
 import { Stack, Button, Typography, Box } from '@mui/material';
+
 // hooks
 import { useAuthContext } from '../../../auth/useAuthContext';
+
 // locales
 import { useLocales } from '../../../locales';
+
 // routes
 import { PATH_DOCS } from '../../../routes/paths';
 

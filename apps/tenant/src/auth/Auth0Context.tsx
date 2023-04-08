@@ -1,9 +1,12 @@
 import { createContext, useEffect, useReducer, useCallback } from 'react';
 import { Auth0Client } from '@auth0/auth0-spa-js';
+
 // routes
 import { PATH_AUTH } from '../routes/paths';
+
 // config
 import { AUTH0_API } from '../config';
+
 //
 import { ActionMapType, AuthStateType, AuthUserType, Auth0ContextType } from './types';
 
@@ -64,7 +67,8 @@ const reducer = (state: AuthStateType, action: ActionsType) => {
       user: null,
     };
   }
-  return state;
+  
+return state;
 };
 
 // ----------------------------------------------------------------------

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 // @mui
 import {
   Box,
@@ -37,6 +38,7 @@ export default function MaxWidthDialog() {
 
   const handleMaxWidthChange = (event: SelectChangeEvent<typeof maxWidth>) => {
     setMaxWidth(
+
       // @ts-expect-error autofill of arbitrary value is not handled.
       event.target.value
     );

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 // @mui
 import {
   Box,
@@ -10,13 +11,17 @@ import {
   InputBase,
   ClickAwayListener,
 } from '@mui/material';
+
 // utils
 import uuidv4 from '../../../utils/uuidv4';
+
 // @types
 import { IKanbanCard } from '../../../@types/kanban';
+
 // components
 import Iconify from '../../../components/iconify';
 import DateRangePicker, { useDateRangePicker } from '../../../components/date-range-picker';
+
 //
 import KanbanContactsDialog from './KanbanContactsDialog';
 

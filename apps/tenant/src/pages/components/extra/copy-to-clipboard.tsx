@@ -1,6 +1,8 @@
 import { useState } from 'react';
+
 // next
 import Head from 'next/head';
+
 // @mui
 import {
   Box,
@@ -13,14 +15,19 @@ import {
   Typography,
   InputAdornment,
 } from '@mui/material';
+
 // hooks
 import useCopyToClipboard from '../../../hooks/useCopyToClipboard';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // hooks
 import useDoubleClick from '../../../hooks/useDoubleClick';
+
 // components
 import Iconify from '../../../components/iconify';
 import { useSnackbar } from '../../../components/snackbar';

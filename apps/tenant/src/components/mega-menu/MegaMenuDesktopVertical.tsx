@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import NextLink from 'next/link';
+
 // @mui
 import Masonry from '@mui/lab/Masonry';
 import { alpha, Theme } from '@mui/material/styles';
 import { Link, List, Paper, ListItem, Typography, Divider, Stack } from '@mui/material';
+
 // @types
 import { ParentItemProps, MegaMenuItemProps } from './types';
+
 // config
 import { NAV } from '../../config';
+
 // components
 import Iconify from '../iconify';
+
 //
 import MenuHotProducts from './MenuHotProducts';
 import MegaMenuCarousel from './MenuCarousel';

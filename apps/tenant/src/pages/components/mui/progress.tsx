@@ -1,14 +1,20 @@
 import { useState, useEffect, useRef } from 'react';
+
 // next
 import Head from 'next/head';
+
 // @mui
 import { Box, Container, Stack } from '@mui/material';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
+
 // sections
 import ProgressLinear from '../../../sections/_examples/mui/progress/ProgressLinear';
 import ProgressCircular from '../../../sections/_examples/mui/progress/ProgressCircular';
@@ -32,7 +38,8 @@ export default function MUIProgressPage() {
           return 0;
         }
         const diff = Math.random() * 10;
-        return Math.min(oldProgress + diff, 100);
+        
+return Math.min(oldProgress + diff, 100);
       });
     }, 500);
 

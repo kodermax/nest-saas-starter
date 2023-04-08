@@ -1,12 +1,16 @@
 import { m } from 'framer-motion';
+
 // @mui
 import { alpha, styled, useTheme } from '@mui/material/styles';
 import { Box, Grid, Link, Paper, Rating, Container, Typography } from '@mui/material';
+
 // hooks
 import useResponsive from '../../hooks/useResponsive';
+
 // utils
 import { bgBlur, bgGradient } from '../../utils/cssStyles';
 import { fDate } from '../../utils/formatTime';
+
 // components
 import Iconify from '../../components/iconify';
 import { MotionViewport, varFade } from '../../components/animate';

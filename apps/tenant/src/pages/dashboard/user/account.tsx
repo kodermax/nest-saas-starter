@@ -1,18 +1,25 @@
 import { useState } from 'react';
+
 // next
 import Head from 'next/head';
+
 // @mui
 import { Container, Tab, Tabs, Box } from '@mui/material';
+
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
+
 // _mock_
 import { _userPayment, _userAddressBook, _userInvoices, _userAbout } from '../../../_mock/arrays';
+
 // layouts
 import DashboardLayout from '../../../layouts/dashboard';
+
 // components
 import Iconify from '../../../components/iconify';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
 import { useSettingsContext } from '../../../components/settings';
+
 // sections
 import {
   AccountGeneral,

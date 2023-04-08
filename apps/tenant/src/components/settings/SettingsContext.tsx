@@ -7,6 +7,7 @@ import {
   useCallback,
   createContext,
 } from 'react';
+
 //
 import { defaultSettings } from './config';
 import { defaultPreset, getPresets, presetsOption } from './presets';
@@ -24,24 +25,31 @@ import {
 
 const initialState: SettingsContextProps = {
   ...defaultSettings,
+
   // Mode
   onToggleMode: () => {},
   onChangeMode: () => {},
+
   // Direction
   onToggleDirection: () => {},
   onChangeDirection: () => {},
   onChangeDirectionByLang: () => {},
+
   // Layout
   onChangeLayout: () => {},
+
   // Contrast
   onToggleContrast: () => {},
   onChangeContrast: () => {},
+
   // Color
   onChangeColorPresets: () => {},
   presetsColor: defaultPreset,
   presetsOption: [],
+
   // Stretch
   onToggleStretch: () => {},
+
   // Reset
   onResetSetting: () => {},
 };
@@ -190,26 +198,32 @@ export function SettingsProvider({ children }: SettingsProviderProps) {
       themeMode,
       onToggleMode,
       onChangeMode,
+
       // Direction
       themeDirection,
       onToggleDirection,
       onChangeDirection,
       onChangeDirectionByLang,
+
       // Layout
       themeLayout,
       onChangeLayout,
+
       // Contrast
       themeContrast,
       onChangeContrast,
       onToggleContrast,
+
       // Stretch
       themeStretch,
       onToggleStretch,
+
       // Color
       themeColorPresets,
       onChangeColorPresets,
       presetsOption,
       presetsColor: getPresets(themeColorPresets),
+
       // Reset
       onResetSetting,
     }),

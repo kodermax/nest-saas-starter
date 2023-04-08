@@ -1,13 +1,18 @@
 import { useState } from 'react';
 import sumBy from 'lodash/sumBy';
+
 // @mui
 import { Divider, Typography, Rating, Button, LinearProgress, Stack, Box } from '@mui/material';
+
 // utils
 import { fShortenNumber } from '../../../../utils/formatNumber';
+
 // @types
 import { IProduct } from '../../../../@types/product';
+
 // components
 import Iconify from '../../../../components/iconify';
+
 //
 import ProductDetailsReviewList from './ProductDetailsReviewList';
 import ProductDetailsReviewNewDialog from './ProductDetailsNewReviewForm';

@@ -1,10 +1,13 @@
 // @mui
 import { styled, alpha } from '@mui/material/styles';
 import { Popover, ListItemButton, ListItemIcon } from '@mui/material';
+
 // utils
 import { bgBlur } from '../../../utils/cssStyles';
+
 // config
 import { NAV, ICON } from '../../../config';
+
 //
 import { NavItemProps } from '../types';
 
@@ -46,6 +49,7 @@ export const StyledItem = styled(ListItemButton, {
     borderRadius: theme.shape.borderRadius,
     height: NAV.H_DASHBOARD_ITEM_HORIZONTAL,
     '&:hover': hoverStyle,
+
     // Sub item
     ...(subItem && {
       width: '100%',
@@ -53,6 +57,7 @@ export const StyledItem = styled(ListItemButton, {
       paddingRight: 0,
       paddingLeft: theme.spacing(1),
     }),
+
     // Active item
     ...(active && {
       ...activeStyle,
@@ -60,6 +65,7 @@ export const StyledItem = styled(ListItemButton, {
         ...activeStyle,
       },
     }),
+
     // Active sub item
     ...(subItem &&
       active && {
@@ -68,8 +74,10 @@ export const StyledItem = styled(ListItemButton, {
           ...activeSubStyle,
         },
       }),
+
     // Open
     ...(open && !active && hoverStyle),
+
     // Disabled
     ...(disabled && {
       '&.Mui-disabled': {

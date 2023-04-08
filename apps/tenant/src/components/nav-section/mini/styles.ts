@@ -1,10 +1,13 @@
 // @mui
 import { alpha, styled } from '@mui/material/styles';
 import { Popover, ListItemButton, ListItemIcon } from '@mui/material';
+
 // utils
 import { bgBlur } from '../../../utils/cssStyles';
+
 // config
 import { ICON } from '../../../config';
+
 //
 import { NavItemProps } from '../types';
 
@@ -44,11 +47,13 @@ export const StyledItem = styled(ListItemButton, {
     color: theme.palette.text.secondary,
     borderRadius: theme.shape.borderRadius,
     '&:hover': hoverStyle,
+
     // Sub item
     ...(subItem && {
       flexDirection: 'row',
       padding: theme.spacing(1),
     }),
+
     // Active item
     ...(active && {
       ...activeStyle,
@@ -56,6 +61,7 @@ export const StyledItem = styled(ListItemButton, {
         ...activeStyle,
       },
     }),
+
     // Active sub item
     ...(subItem &&
       active && {
@@ -64,8 +70,10 @@ export const StyledItem = styled(ListItemButton, {
           ...activeSubStyle,
         },
       }),
+
     // Open
     ...(open && !active && hoverStyle),
+
     // Disabled
     ...(disabled && {
       '&.Mui-disabled': {

@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import ReactLightbox from 'react-image-lightbox';
+
 // @mui
 import { Typography } from '@mui/material';
+
 //
 import StyledLightbox from './styles';
 import { LightBoxProps } from './types';

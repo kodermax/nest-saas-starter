@@ -7,8 +7,10 @@ import Map, {
   GeoJSONSource,
   MapLayerMouseEvent,
 } from 'react-map-gl';
+
 // components
 import { MapBoxProps } from '../../../../../components/map';
+
 //
 import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from './layers';
 

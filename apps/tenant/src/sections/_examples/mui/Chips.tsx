@@ -1,9 +1,12 @@
 // @mui
 import { Avatar, Chip, Stack, Paper } from '@mui/material';
+
 // _mock
 import _mock from '../../../_mock';
+
 // components
 import Iconify from '../../../components/iconify';
+
 //
 import { Label } from '../Block';
 

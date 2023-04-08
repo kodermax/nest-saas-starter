@@ -1,7 +1,9 @@
 import { memo } from 'react';
 import { LngLat } from 'react-map-gl';
+
 // @mui
 import { Typography } from '@mui/material';
+
 // components
 import { StyledControlPanel } from '../../../../../components/map';
 

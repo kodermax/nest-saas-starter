@@ -1,6 +1,8 @@
 import { m } from 'framer-motion';
+
 // @mui
 import { Box, Container, Typography, Stack } from '@mui/material';
+
 // components
 import Image from '../../components/image';
 import { MotionViewport, varFade } from '../../components/animate';

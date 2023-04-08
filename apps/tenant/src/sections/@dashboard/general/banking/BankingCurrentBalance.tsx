@@ -1,10 +1,13 @@
 import { useState } from 'react';
+
 // @mui
 import { styled, useTheme, Theme } from '@mui/material/styles';
 import { Box, Typography, Stack, MenuItem, IconButton, SxProps, alpha } from '@mui/material';
+
 // utils
 import { bgGradient } from '../../../../utils/cssStyles';
 import { fCurrency } from '../../../../utils/formatNumber';
+
 // components
 import Image from '../../../../components/image';
 import Iconify from '../../../../components/iconify';

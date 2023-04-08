@@ -1,8 +1,11 @@
 import { m } from 'framer-motion';
+
 // @mui
 import { Box, Paper } from '@mui/material';
+
 // _mock
 import _mock from '../../../../../_mock';
+
 //
 import getVariant from '../getVariant';
 

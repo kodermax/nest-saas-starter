@@ -1,12 +1,16 @@
 import { useState } from 'react';
+
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Box, Card, IconButton, Typography, Stack } from '@mui/material';
+
 // utils
 import { fDate } from '../../../../utils/formatTime';
 import { bgBlur } from '../../../../utils/cssStyles';
+
 // @types
 import { IUserProfileGallery } from '../../../../@types/user';
+
 // components
 import Image from '../../../../components/image';
 import Iconify from '../../../../components/iconify';

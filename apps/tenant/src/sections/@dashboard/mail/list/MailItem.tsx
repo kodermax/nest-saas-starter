@@ -1,20 +1,27 @@
 // next
 import { useRouter } from 'next/router';
+
 // @mui
 import { styled } from '@mui/material/styles';
 import { Box, Tooltip, Typography, Checkbox, Stack, TypographyProps } from '@mui/material';
+
 // hooks
 import useResponsive from '../../../../hooks/useResponsive';
+
 // utils
 import { fDate } from '../../../../utils/formatTime';
+
 // routes
 import { PATH_DASHBOARD } from '../../../../routes/paths';
+
 // @types
 import { IMail, IMailLabel } from '../../../../@types/mail';
+
 // components
 import Label from '../../../../components/label';
 import { CustomAvatar } from '../../../../components/custom-avatar';
 import Iconify from '../../../../components/iconify';
+
 //
 import MailItemAction from './MailItemAction';
 

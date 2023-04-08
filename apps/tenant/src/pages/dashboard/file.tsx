@@ -1,22 +1,30 @@
 import { useState, useCallback } from 'react';
+
 // next
 import Head from 'next/head';
+
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Box, Stack, Typography } from '@mui/material';
+
 // routes
 import { PATH_DASHBOARD } from '../../routes/paths';
+
 // hooks
 import useResponsive from '../../hooks/useResponsive';
+
 // _mock
 import { _folders, _files } from '../../_mock/arrays';
+
 // layouts
 import DashboardLayout from '../../layouts/dashboard';
+
 // components
 import Iconify from '../../components/iconify';
 import Scrollbar from '../../components/scrollbar';
 import { UploadBox } from '../../components/upload';
 import { useSettingsContext } from '../../components/settings';
+
 // sections
 import {
   FileGeneralWidget,

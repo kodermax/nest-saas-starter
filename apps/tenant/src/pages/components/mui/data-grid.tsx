@@ -1,15 +1,21 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { Box, Container, Stack, Card, CardHeader, Typography, Link } from '@mui/material';
+
 // routes
 import { PATH_PAGE } from '../../../routes/paths';
+
 // _mock_
 import _mock, { randomInArray } from '../../../_mock';
+
 // layouts
 import MainLayout from '../../../layouts/main';
+
 // components
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
+
 // sections
 import DataGridBasic from '../../../sections/_examples/mui/data-grid/DataGridBasic';
 import DataGridCustom from '../../../sections/_examples/mui/data-grid/DataGridCustom';

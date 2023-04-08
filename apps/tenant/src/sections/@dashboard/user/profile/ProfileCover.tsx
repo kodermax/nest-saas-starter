@@ -1,12 +1,16 @@
 // @mui
 import { styled } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
+
 // @types
 import { IUserProfileCover } from '../../../../@types/user';
+
 // utils
 import { bgBlur } from '../../../../utils/cssStyles';
+
 // auth
 import { useAuthContext } from '../../../../auth/useAuthContext';
+
 // components
 import Image from '../../../../components/image';
 import { CustomAvatar } from '../../../../components/custom-avatar';

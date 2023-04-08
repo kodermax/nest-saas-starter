@@ -1,7 +1,9 @@
 import { ApexOptions } from 'apexcharts';
+
 // @mui
 import { styled, useTheme } from '@mui/material/styles';
 import { Card, CardHeader, CardProps } from '@mui/material';
+
 // components
 import Chart, { useChart } from '../../../../components/chart';
 

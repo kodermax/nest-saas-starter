@@ -1,8 +1,10 @@
 // @mui
 import { styled } from '@mui/material/styles';
 import { Link, Card, Typography, CardHeader, Stack } from '@mui/material';
+
 // @types
 import { IUserProfileAbout } from '../../../../../@types/user';
+
 // components
 import Iconify from '../../../../../components/iconify';
 

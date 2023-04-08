@@ -1,11 +1,15 @@
 import { useDropzone } from 'react-dropzone';
+
 // @mui
 import { Box, Stack, Button, IconButton, Typography, StackProps } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
+
 // assets
 import { UploadIllustration } from '../../assets/illustrations';
+
 //
 import Iconify from '../iconify';
+
 //
 import { UploadProps } from './types';
 import RejectionFiles from './errors/RejectionFiles';
@@ -36,9 +40,11 @@ export default function Upload({
   multiple = false,
   error,
   helperText,
+
   //
   file,
   onDelete,
+
   //
   files,
   thumbnail,

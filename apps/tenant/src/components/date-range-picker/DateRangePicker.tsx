@@ -11,8 +11,10 @@ import {
   FormHelperText,
 } from '@mui/material';
 import { DatePicker, CalendarPicker } from '@mui/x-date-pickers';
+
 // hooks
 import useResponsive from '../../hooks/useResponsive';
+
 //
 import { DateRangePickerProps } from './types';
 
@@ -21,15 +23,19 @@ import { DateRangePickerProps } from './types';
 export default function DateRangePicker({
   title = 'Select date range',
   variant = 'input',
+
   //
   startDate,
   endDate,
+
   //
   onChangeStartDate,
   onChangeEndDate,
+
   //
   open,
   onClose,
+
   //
   isError,
 }: DateRangePickerProps) {

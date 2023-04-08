@@ -1,9 +1,12 @@
 import { useMemo } from 'react';
+
 // @mui
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeOptions, ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
+
 // components
 import { useSettingsContext } from '../components/settings';
+
 //
 import palette from './palette';
 import typography from './typography';

@@ -1,14 +1,19 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container } from '@mui/material';
+
 // layouts
 import DashboardLayout from '../../layouts/dashboard';
+
 // _mock_
 import { _bookings, _bookingNew, _bookingsOverview, _bookingReview } from '../../_mock/arrays';
+
 // components
 import { useSettingsContext } from '../../components/settings';
+
 // sections
 import {
   BookingDetails,
@@ -21,6 +26,7 @@ import {
   BookingCustomerReviews,
   BookingReservationStats,
 } from '../../sections/@dashboard/general/booking';
+
 // assets
 import {
   BookingIllustration,

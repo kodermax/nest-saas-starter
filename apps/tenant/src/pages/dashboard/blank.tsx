@@ -1,9 +1,12 @@
 // next
 import Head from 'next/head';
+
 // @mui
 import { Container, Typography } from '@mui/material';
+
 // layouts
 import DashboardLayout from '../../layouts/dashboard';
+
 // components
 import { useSettingsContext } from '../../components/settings';
 

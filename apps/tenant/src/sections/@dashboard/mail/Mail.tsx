@@ -1,16 +1,22 @@
 import { useEffect, useState } from 'react';
+
 // next
 import { useRouter } from 'next/router';
+
 // @mui
 import { Container, Card, Stack } from '@mui/material';
+
 // redux
 import { useDispatch, useSelector } from '../../../redux/store';
 import { getMail, getLabels, getMails } from '../../../redux/slices/mail';
+
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
+
 // components
 import { useSettingsContext } from '../../../components/settings';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
+
 // sections
 import MailNav from './nav/MailNav';
 import MailList from './list/MailList';
@@ -89,7 +95,8 @@ export default function Mail() {
       if (!selected.includes(mailId)) {
         return [...selected, mailId];
       }
-      return selected;
+      
+return selected;
     });
   };
 

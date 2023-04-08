@@ -1,13 +1,17 @@
 import { useState, useRef } from 'react';
+
 // @mui
 import { styled, alpha } from '@mui/material/styles';
 import { Stack, Drawer, Avatar, Tooltip, Divider, TextField, Box, IconButton } from '@mui/material';
+
 // @types
 import { IKanbanCard } from '../../../../@types/kanban';
+
 // components
 import Iconify from '../../../../components/iconify';
 import Scrollbar from '../../../../components/scrollbar';
 import DateRangePicker, { useDateRangePicker } from '../../../../components/date-range-picker';
+
 //
 import KanbanInputName from '../KanbanInputName';
 import KanbanDetailsToolbar from './KanbanDetailsToolbar';

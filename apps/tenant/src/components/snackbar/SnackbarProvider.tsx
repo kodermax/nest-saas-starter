@@ -1,11 +1,14 @@
 import { useRef } from 'react';
 import { SnackbarProvider as NotistackProvider, SnackbarKey } from 'notistack';
+
 // @mui
 import { alpha } from '@mui/material/styles';
 import { Box, Collapse, IconButton } from '@mui/material';
+
 //
 import { useSettingsContext } from '../settings';
 import Iconify, { IconifyProps } from '../iconify';
+
 //
 import StyledNotistack from './styles';
 
@@ -45,6 +48,7 @@ export default function SnackbarProvider({ children }: Props) {
           warning: <SnackbarIcon icon="eva:alert-triangle-fill" color="warning" />,
           error: <SnackbarIcon icon="eva:alert-circle-fill" color="error" />,
         }}
+
         // With close as default
         action={(key) => (
           <IconButton size="small" onClick={onClose(key)} sx={{ p: 0.5 }}>
