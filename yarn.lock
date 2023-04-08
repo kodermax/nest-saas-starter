@@ -926,13 +926,10 @@
     "@fullcalendar/common" "~5.11.4"
     tslib "^2.1.0"
 
-"@fullcalendar/list@^5.11.3":
-  version "5.11.4"
-  resolved "https://registry.npmjs.org/@fullcalendar/list/-/list-5.11.4.tgz#33319da67523aa57cd67407b625e34eb182f21b3"
-  integrity sha512-GA1nUx9rvZcwwcQFBmTnxX0M7s7ywRCPsx/WWsBqxnkTYSufNMXp1hXyZo9o/K5MlqzcKalBOEz16HSlckZB9w==
-  dependencies:
-    "@fullcalendar/common" "~5.11.4"
-    tslib "^2.1.0"
+"@fullcalendar/list@^6.1.5":
+  version "6.1.5"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/list/-/list-6.1.5.tgz#0276d495fbb2b229871ec5fb0547078531eaf756"
+  integrity sha512-Z34h32ZuI0+sU6GdV2WrXnF6Z17VvsagjSBY+8/bMrMHfDoLbT76sGfoI6N0GCAr7aW9N2NgWWz8kuQw9uFAZQ==
 
 "@fullcalendar/premium-common@~5.11.4":
   version "5.11.4"
