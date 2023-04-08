@@ -939,13 +939,10 @@
     "@fullcalendar/common" "~5.11.4"
     tslib "^2.1.0"
 
-"@fullcalendar/react@^5.11.2":
-  version "5.11.4"
-  resolved "https://registry.npmjs.org/@fullcalendar/react/-/react-5.11.4.tgz#a256f9510567f8e024e01b1e7838f5332b5b7ace"
-  integrity sha512-I9n9ENcQJWBZRNUfKrfab5z5ZXVHC4XdNnjqOHCG1JJzl1jRZjkK/6v3mORbXHoxa+vf9LP62sNl4Yb9RYZwPA==
-  dependencies:
-    "@fullcalendar/common" "~5.11.4"
-    tslib "^2.1.0"
+"@fullcalendar/react@^6.1.5":
+  version "6.1.5"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/react/-/react-6.1.5.tgz#75f9f705be7297ee0ee700dfab3e6997153b54f3"
+  integrity sha512-OVQJQhtDAwxHbFk84bm5Y6iGLjGDrrBgr3491JbfnqHUjSaO+T1rNHUvtnot0X4/ZdnoxWr2nKqxPxpmCCL/lw==
 
 "@fullcalendar/scrollgrid@~5.11.4":
   version "5.11.4"
