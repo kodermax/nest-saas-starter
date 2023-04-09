@@ -11,6 +11,9 @@ import { useForm } from 'react-hook-form'
 import { LoadingButton } from '@mui/lab'
 import FormProvider, { RHFTextField } from '../../../components/hook-form'
 import { createAccount } from 'src/@core/services/accounts.service'
+import { useState } from 'react'
+import { IconButton, InputAdornment } from '@mui/material'
+import Iconify from 'src/components/iconify'
 
 // components
 
@@ -33,6 +36,7 @@ type FormValuesProps = {
 
 export default function RegisterAccountForm() {
   const { push } = useRouter()
+  const [showPassword, setShowPassword] = useState(false)
 
   const methods = useForm<FormValuesProps>({
     resolver: yupResolver<any>(ResetPasswordSchema),
@@ -57,7 +61,20 @@ export default function RegisterAccountForm() {
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <RHFTextField name='email' label='Email' sx={{ mb: 3 }} />
-      <RHFTextField name='password' label='Пароль' />
+      <RHFTextField
+        name='password'
+        label='Пароль'
+        type={showPassword ? 'text' : 'password'}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position='end'>
+              <IconButton onClick={() => setShowPassword(!showPassword)} edge='end'>
+                <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
+              </IconButton>
+            </InputAdornment>
+          )
+        }}
+      />
       <LoadingButton fullWidth size='large' type='submit' variant='contained' loading={isSubmitting} sx={{ mt: 3 }}>
         Продолжить
       </LoadingButton>
