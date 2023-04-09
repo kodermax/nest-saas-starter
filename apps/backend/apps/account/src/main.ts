@@ -36,7 +36,8 @@ async function bootstrap() {
     app.enableCors({
       credentials: true,
       origin: function (origin, callback) {
-        if (!origin || 'vercel.app'.indexOf(origin) !== -1) {
+        console.log(origin)
+        if ('vercel.app'.indexOf(origin) >= 0) {
           callback(null, true)
         } else {
           callback(new Error('Not allowed by CORS'))
