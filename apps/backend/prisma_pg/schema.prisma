@@ -21,6 +21,7 @@ model User {
     phone             String?
     registrationToken String?
     roles             UserRole[]
+    Tenant            Tenant[]
 }
 
 enum UserRole {
@@ -38,4 +39,14 @@ model Notes {
     id      String  @id @default(uuid()) @map("_id")
     title   String
     content String?
+}
+
+model Tenant {
+    id        String   @id @default(uuid()) @map("_id")
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    name      String?
+    domain    String   @unique
+    owner     User?    @relation(fields: [createdBy], references: [id])
+    createdBy String?
 }
