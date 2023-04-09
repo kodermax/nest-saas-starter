@@ -17,7 +17,7 @@ docker-build-main:
     - echo ${CI_REGISTRY_PASSWORD} | docker login --username "${CI_REGISTRY_USER}" --password-stdin $CI_REGISTRY
   script:
     - cd apps/backend
-    - docker build -f Dockerfile -t $CI_REGISTRY_IMAGE/ep-back:latest -t $CI_REGISTRY_IMAGE/ep-back:${CI_COMMIT_SHORT_SHA} .
+    - docker build -f Dockerfile --build-arg project=account -t $CI_REGISTRY_IMAGE/ep-back:latest -t $CI_REGISTRY_IMAGE/ep-back:${CI_COMMIT_SHORT_SHA} .
     - docker push $CI_REGISTRY_IMAGE/ep-back:latest
     - docker push $CI_REGISTRY_IMAGE/ep-back:${CI_COMMIT_SHORT_SHA}
   rules:

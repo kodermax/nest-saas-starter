@@ -1,5 +1,5 @@
 FROM node:alpine AS builder
-
+ARG project
 WORKDIR /app
 
 COPY package*.json ./
@@ -8,7 +8,7 @@ RUN yarn install --frozen-lockfile
 
 COPY . .
 COPY .production.env .env
-RUN yarn build
+RUN yarn build $project
 
 FROM node:18-alpine
 WORKDIR /app
@@ -19,4 +19,4 @@ COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/.env ./
 
 EXPOSE 8000
-CMD [ "yarn", "start:prod" ]
+CMD [ "yarn", "start:${project}" ]
