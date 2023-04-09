@@ -12,7 +12,7 @@
     "dev": "nest start --watch ",
     "mongo": "docker-compose up -d",
     "migrate:dev:create": "prisma migrate dev --create-only --preview-feature",
-    "migrate:dev": "prisma migrate dev --preview-feature",
+    "migrate:dev": "prisma migrate dev --preview-feature --schema=./prisma_pg/schema.prisma",
     "prisma:studio": "npx prisma studio",
     "prisma:generate": "prisma generate",
     "prisma:init": "prisma migrate dev --name initial-migration --create-only",
