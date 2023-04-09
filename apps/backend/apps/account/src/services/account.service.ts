@@ -1,6 +1,6 @@
 import { PrismaService } from '@app/prisma';
 import { ConflictException, Injectable } from '@nestjs/common';
-import { Prisma, User } from '@prisma/client';
+import { Prisma, User, UserRole } from '@prisma/client';
 import { RegisterInput } from '../dto/register.input';
 import { PasswordService } from '@app/auth';
 
@@ -22,7 +22,7 @@ export class AccountService {
         data: {
           ...payload,
           password: hashedPassword,
-          roles: ['User'],
+          roles: [UserRole.User],
         },
       });
       await this.prisma.tenant.update({ where: { id: tenantId }, data: { createdBy: user.id } })
