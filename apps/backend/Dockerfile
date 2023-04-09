@@ -19,4 +19,4 @@ COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/.env ./
 
 EXPOSE 8000
-CMD [ "yarn", "start:${project}" ]
+CMD [ "yarn", "start:account" ]
