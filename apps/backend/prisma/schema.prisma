@@ -28,7 +28,7 @@ model Tenant {
     updatedAt DateTime @updatedAt
     name      String?
     domain    String   @unique
-    creator   User?    @relation(fields: [createdBy], references: [id])
+    owner     User?    @relation(fields: [createdBy], references: [id])
     createdBy String?
 }
 

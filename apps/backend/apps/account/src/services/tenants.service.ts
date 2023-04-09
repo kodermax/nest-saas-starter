@@ -7,14 +7,12 @@ import { ConflictException, Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { CreateTenantInput } from '../dto/create-tenant.input';
 import { lastValueFrom } from 'rxjs';
-import { isConstructorDeclaration } from 'typescript';
 import { HttpService } from '@nestjs/axios';
 
 @Injectable()
 export class TenantsService {
 
     constructor(private readonly prisma: PrismaService, private readonly httpService: HttpService) { }
-
 
     public async checkAvailability(domain: string) {
         const tenant = await this.prisma.tenant.findFirst({ where: { domain: domain } })
@@ -48,5 +46,9 @@ export class TenantsService {
             }
             throw new Error(e);
         }
+    }
+
+    public async getTenant(id: string) {
+        return this.prisma.tenant.findFirst({ where: { id: id } });
     }
 }

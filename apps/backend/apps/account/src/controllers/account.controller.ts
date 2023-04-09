@@ -1,8 +1,9 @@
-import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Post, Req } from '@nestjs/common';
 import { AccountService } from '../services/account.service';
 import { ApiBadRequestResponse, ApiConflictResponse, ApiOperation } from '@nestjs/swagger';
 import { RegisterInput } from '../dto/register.input';
 import { ExistAccountInput } from '../dto/exist-account.input';
+import { Request } from 'express';
 
 @Controller('accounts')
 export class AccountController {
@@ -24,15 +25,17 @@ export class AccountController {
 
   @Post()
   @HttpCode(200)
-  @ApiOperation({ summary: 'Регистрация пользователя' })
+  @ApiOperation({ summary: 'Создание аккаунта пользователя' })
   @ApiBadRequestResponse({
     description: 'Одно из полей содержит не верные данные',
   })
   @ApiConflictResponse({ description: 'Такой пользователь уже существует' })
   async register(
     @Body() payload: RegisterInput,
+    @Req() request: Request
   ) {
-    const user = await this.accountService.createUser(payload);
+    const { tenantId } = request.cookies
+    const user = await this.accountService.createUser(payload, tenantId);
 
     return user;
   }

@@ -13,7 +13,7 @@ export class AccountService {
   }
 
 
-  public async createUser(payload: RegisterInput): Promise<User> {
+  public async createUser(payload: RegisterInput, tenantId: string): Promise<User> {
     const hashedPassword = await this.passwordService.hashPassword(
       payload.password
     );
@@ -25,6 +25,7 @@ export class AccountService {
           roles: ['User'],
         },
       });
+      await this.prisma.tenant.update({ where: { id: tenantId }, data: { createdBy: user.id } })
       return user;
     } catch (e) {
       if (

@@ -2,12 +2,12 @@
 https://docs.nestjs.com/controllers#controllers
 */
 
-import { Body, Controller, HttpCode, Post, Res } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Post, Req, Res } from '@nestjs/common';
 import { TenantsService } from '../services/tenants.service';
 import { CreateTenantInput } from '../dto/create-tenant.input';
 import { ApiConflictResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { CheckAvailabilityDto } from '../dto/check-availability.dto';
-import { Response } from 'express';
+import { Request, Response } from 'express';
 
 @ApiTags('Tenants')
 @Controller('tenants')
@@ -29,5 +29,12 @@ export class TenantsController {
         const tenant = await this.tenants.createTenant(payload);
         response.cookie('tenantId', tenant.id);
         return tenant;
+    }
+
+    @Get('me')
+    @ApiOperation({ summary: 'Возвращает ссылку на текущий сайт' })
+    async getCurrentTenant(@Req() request: Request) {
+        const tenant = await this.tenants.getTenant(request.cookies['tenantId']);
+        return { siteUrl: `https://${tenant.domain}` }
     }
 }

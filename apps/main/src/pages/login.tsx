@@ -17,9 +17,9 @@ import { _socials } from '../_mock/arrays'
 // components
 import Iconify from '../components/iconify'
 import { CustomTextField } from '../components/custom-input'
+import { ComingSoonIllustration } from 'src/assets/illustrations'
 
 // assets
-import { ComingSoonIllustration } from '../assets/illustrations'
 
 // ----------------------------------------------------------------------
 
