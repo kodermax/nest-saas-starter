@@ -37,4 +37,10 @@ export class TenantsController {
         const tenant = await this.tenants.getTenant(request.cookies['tenantId']);
         return { siteUrl: `https://${tenant.domain}` }
     }
+
+    @Get()
+    @ApiOperation({ summary: "Возвращает текущий тенант по url" })
+    async getTenantByUrl(@Req() request: Request) {
+        return this.tenants.getTenantByDomain(request.headers.host)
+    }
 }

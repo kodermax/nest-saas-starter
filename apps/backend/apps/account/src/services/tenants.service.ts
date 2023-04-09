@@ -51,4 +51,8 @@ export class TenantsService {
     public async getTenant(id: string) {
         return this.prisma.tenant.findFirst({ where: { id: id } });
     }
+
+    public async getTenantByDomain(domain: string) {
+        return this.prisma.tenant.findFirst({ where: { domain } })
+    }
 }

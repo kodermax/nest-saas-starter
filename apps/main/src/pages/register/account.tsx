@@ -6,9 +6,9 @@ import NextLink from 'next/link'
 import { Link, Typography } from '@mui/material'
 
 import Iconify from 'src/components/iconify'
-import { PlanPremiumIcon } from 'src/assets/icons'
 import CompactLayout from 'src/layouts/compact'
 import RegisterAccountForm from 'src/views/pages/register/RegisterAccountForm'
+import { PlanPremiumIcon } from 'src/assets/icons'
 
 // ----------------------------------------------------------------------
 

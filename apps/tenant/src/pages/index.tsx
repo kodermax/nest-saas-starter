@@ -12,6 +12,8 @@ import SimpleLayout from '../layouts/simple';
 
 // sections
 import { PricingPlanCard } from '../sections/pricing';
+import { useEffect, useState } from 'react';
+import { getTenantByUrl } from 'src/@core/services/tenants.service';
 
 // ----------------------------------------------------------------------
 
@@ -20,6 +22,17 @@ PricingPage.getLayout = (page: React.ReactElement) => <SimpleLayout>{page}</Simp
 // ----------------------------------------------------------------------
 
 export default function PricingPage() {
+  const [siteName, setSiteName] = useState<string>('');
+  useEffect(() => {
+    async function request() {
+      const {
+        data: { name },
+      } = await getTenantByUrl();
+      setSiteName(name);
+    }
+    request();
+  });
+
   return (
     <>
       <Head>
@@ -34,8 +47,7 @@ export default function PricingPage() {
         }}
       >
         <Typography variant="h3" align="center" paragraph>
-          Flexible plans for your
-          <br /> community&apos;s size and needs
+          {siteName}
         </Typography>
 
         <Typography align="center" sx={{ color: 'text.secondary' }}>

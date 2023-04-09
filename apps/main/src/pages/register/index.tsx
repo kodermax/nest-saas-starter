@@ -9,9 +9,9 @@ import { Link, Typography } from '@mui/material'
 
 // assets
 import Iconify from 'src/components/iconify'
-import { PlanPremiumIcon } from 'src/assets/icons'
 import CompactLayout from 'src/layouts/compact'
 import RegisterForm from 'src/views/pages/register/RegisterForm'
+import { PlanPremiumIcon } from 'src/assets/icons'
 
 // ----------------------------------------------------------------------
 

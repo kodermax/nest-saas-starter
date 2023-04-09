@@ -4,4 +4,4 @@ export const checkAvailability = (domain: string) => http.post(`${process.env.NE
 
 export const createTenant = (data: { domain: string, name: string }) => http.post(`${process.env.NEXT_PUBLIC_ACCOUNT_URL}/tenants`, { ...data })
 
-export const getCurrentTenant = () => http.get('/tenants/me')
+export const getCurrentTenant = () => http.get(`${process.env.NEXT_PUBLIC_ACCOUNT_URL}/tenants/me`)
