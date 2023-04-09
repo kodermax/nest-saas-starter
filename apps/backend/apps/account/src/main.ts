@@ -35,7 +35,13 @@ async function bootstrap() {
   if (corsConfig.enabled) {
     app.enableCors({
       credentials: true,
-      origin: configService.get('CORS_ORIGIN'),
+      origin: function (origin, callback) {
+        if (!origin || 'vercel.app'.indexOf(origin) !== -1) {
+          callback(null, true)
+        } else {
+          callback(new Error('Not allowed by CORS'))
+        }
+      },
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
       preflightContinue: false,
       optionsSuccessStatus: 204,
