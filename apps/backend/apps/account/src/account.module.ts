@@ -8,6 +8,7 @@ import config from '@app/common/configs/config';
 import { TenantsController } from './controllers/tenants.controller';
 import { TenantsService } from './services/tenants.service';
 import { ConfigModule } from '@nestjs/config';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [
@@ -17,7 +18,13 @@ import { ConfigModule } from '@nestjs/config';
       envFilePath: ['apps/account/.env', 'apps/account/.env.local'],
       load: [process.env.NODE_ENV === 'production' ? configProd : config]
     }),
-    PrismaModule
+    PrismaModule,
+    HttpModule.registerAsync({
+      useFactory: () => ({
+        timeout: 5000,
+        maxRedirects: 5,
+      }),
+    })
   ],
   controllers: [AccountController, TenantsController],
   providers: [AccountService, TenantsService],

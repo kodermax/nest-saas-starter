@@ -2,11 +2,12 @@
 https://docs.nestjs.com/controllers#controllers
 */
 
-import { Body, Controller, HttpCode, Post } from '@nestjs/common';
+import { Body, Controller, HttpCode, Post, Res } from '@nestjs/common';
 import { TenantsService } from '../services/tenants.service';
 import { CreateTenantInput } from '../dto/create-tenant.input';
 import { ApiConflictResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { CheckAvailabilityDto } from '../dto/check-availability.dto';
+import { Response } from 'express';
 
 @ApiTags('Tenants')
 @Controller('tenants')
@@ -24,7 +25,9 @@ export class TenantsController {
     @Post()
     @ApiOperation({ summary: 'Создание сайта пользователя' })
     @ApiConflictResponse({ description: 'Такой домен уже существует' })
-    async createTenant(@Body() payload: CreateTenantInput) {
-        return this.tenants.createTenant(payload);
+    async createTenant(@Body() payload: CreateTenantInput, @Res({ passthrough: true }) response: Response) {
+        const tenant = await this.tenants.createTenant(payload);
+        response.cookie('tenantId', tenant.id);
+        return tenant;
     }
 }

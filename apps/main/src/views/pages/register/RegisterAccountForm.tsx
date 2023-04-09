@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form'
 // @mui
 import { LoadingButton } from '@mui/lab'
 import FormProvider, { RHFTextField } from '../../../components/hook-form'
+import { createAccount } from 'src/@core/services/accounts.service'
 
 // components
 
@@ -46,6 +47,7 @@ export default function RegisterAccountForm() {
 
   const onSubmit = async (data: FormValuesProps) => {
     try {
+      await createAccount(data)
       push('/login')
     } catch (error) {
       console.error(error)

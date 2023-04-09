@@ -4,11 +4,11 @@ import { ApiBadRequestResponse, ApiConflictResponse, ApiOperation } from '@nestj
 import { RegisterInput } from '../dto/register.input';
 import { ExistAccountInput } from '../dto/exist-account.input';
 
-@Controller()
+@Controller('accounts')
 export class AccountController {
   constructor(private readonly accountService: AccountService) { }
 
-  @Post('exist-account')
+  @Post('check-availability')
   @HttpCode(200)
   @ApiOperation({ summary: 'Проверка существования пользователя' })
   @ApiConflictResponse({ description: 'Такой пользователь уже существует' })
@@ -22,7 +22,7 @@ export class AccountController {
     return this.accountService.getHello();
   }
 
-  @Post('register')
+  @Post()
   @HttpCode(200)
   @ApiOperation({ summary: 'Регистрация пользователя' })
   @ApiBadRequestResponse({

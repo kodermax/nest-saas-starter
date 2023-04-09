@@ -46,6 +46,7 @@ export default function RegisterForm() {
 
   const {
     handleSubmit,
+    setError,
     formState: { isSubmitting }
   } = methods
 
@@ -54,6 +55,7 @@ export default function RegisterForm() {
       await createTenant(data)
       push('/register/account')
     } catch (error) {
+      setError('domain', { type: 'custom', message: 'Сайт с таким URL-адресом уже существует' })
       console.error(error)
     }
   }
