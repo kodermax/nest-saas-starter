@@ -22,7 +22,7 @@ export class TenantsService {
     public async createTenant(payload: CreateTenantInput) {
         try {
             const domain = payload.domain + '.vercel.app';
-            await lastValueFrom(this.httpService.post(`https://api.vercel.com/v10/projects/prj_xk1V8uGV6CWrJIk3ncqn3s6c2WP1/domains?teamId=team_Ix7AvpkmJxLALUTQLnWGQWGF`, {
+            await lastValueFrom(this.httpService.post(`https://api.vercel.com/v10/projects/prj_PamUX1FfdKUIkyTEhBHWOpo43YMY/domains`, {
                 name: domain
             }, {
                 headers: {
