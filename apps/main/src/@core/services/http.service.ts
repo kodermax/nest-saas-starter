@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 
 class Http {
     private instance: AxiosInstance | null = null
@@ -10,10 +10,21 @@ class Http {
         const http = axios.create({
             withCredentials: true
         })
-
         this.instance = http
+        http.interceptors.response.use(
+            (response) => response,
+            (error) => {
+                const { response } = error;
+
+                return this.handleError(response);
+            }
+        );
 
         return http
+    }
+
+    private handleError(error: Error | AxiosError) {
+        return Promise.reject(error);
     }
 
     request<T = any, R = AxiosResponse<T>>(config: AxiosRequestConfig): Promise<R> {

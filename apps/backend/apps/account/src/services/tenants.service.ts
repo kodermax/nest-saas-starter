@@ -3,7 +3,7 @@ https://docs.nestjs.com/providers#services
 */
 
 import { PrismaService } from '@app/prisma';
-import { ConflictException, Injectable } from '@nestjs/common';
+import { BadRequestException, ConflictException, Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { CreateTenantInput } from '../dto/create-tenant.input';
 import { lastValueFrom } from 'rxjs';
@@ -44,7 +44,7 @@ export class TenantsService {
             ) {
                 throw new ConflictException(`Домен ${payload.domain} уже используется.`);
             }
-            return null;
+            throw new BadRequestException();
         }
     }
 

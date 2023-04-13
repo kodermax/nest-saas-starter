@@ -12,6 +12,7 @@ import { LoadingButton } from '@mui/lab'
 import FormProvider, { RHFTextField } from '../../../components/hook-form'
 import { InputAdornment, Typography } from '@mui/material'
 import { checkAvailability, createTenant } from 'src/@core/services/tenants.service'
+import { AxiosError } from 'axios'
 
 // components
 
@@ -24,11 +25,17 @@ type FormValuesProps = {
 const ResetPasswordSchema = Yup.object().shape({
   domain: Yup.string()
     .test('checkAvailabilty', 'Сайт с таким URL-адресом уже существует', async (value: any) => {
-      const {
-        data: { status }
-      } = await checkAvailability(value)
-
-      return status === 'available'
+      try {
+        const {
+          data: { status }
+        } = await checkAvailability(value)
+      
+        return status === 'available'
+      }
+      catch(e) {
+      }
+      
+      return false;
     })
     .required('Поле обязательно для заполнения')
 })
@@ -52,9 +59,8 @@ export default function RegisterForm() {
     try {
       await createTenant(data)
       push('/register/account')
-    } catch (error) {
-      setError('domain', { type: 'custom', message: 'Сайт с таким URL-адресом уже существует' })
-      console.error(error)
+    } catch (err) {
+        setError('domain', { type: 'custom', message: err === undefined || (err as AxiosError)?.status === 400 ? 'Сервис не доступен': 'Сайт с таким URL-адресом уже существует'})  
     }
   }
 
