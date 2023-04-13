@@ -5,17 +5,24 @@ import { RegisterInput } from '../dto/register.input';
 import { PasswordService } from '@app/auth';
 import { RedisService } from '@app/redis';
 import { MailService } from '@app/mail';
+import { JwtService } from '@nestjs/jwt';
+import { ConfigService } from '@nestjs/config';
+import { JwtPayload } from '@app/auth/models/jwt-payload';
+import { randomUUID } from 'crypto';
+import cookie from 'cookie';
 
 @Injectable()
 export class AccountService {
   constructor(private readonly prisma: PrismaService,
     private readonly passwordService: PasswordService,
     private readonly cacheManager: RedisService,
-    private readonly mailService: MailService
+    private readonly mailService: MailService,
+    private readonly jwtService: JwtService,
+    private readonly config: ConfigService
+
   ) {
 
   }
-
 
   public async createUser(payload: RegisterInput, tenantId: string): Promise<User> {
     const hashedPassword = await this.passwordService.hashPassword(
@@ -29,11 +36,16 @@ export class AccountService {
           roles: [UserRole.User],
         },
       });
-      if (tenantId) {
-        await this.prisma.tenant.update({ where: { id: tenantId }, data: { createdBy: user.id } })
+      try {
+        if (tenantId) {
+          await this.prisma.tenant.update({ where: { id: tenantId }, data: { createdBy: user.id } })
+        }
+      }
+      catch (e) {
+
       }
       const code = Math.random().toString().substring(2, 6)
-      await this.cacheManager.set(`mail_verify_code:${code}`, user.id, {
+      await this.cacheManager.set(`mail_verify_code:${code}`, user.email, {
         ttl: 604800 * 1000,
       });
       await this.mailService.sendRegisterVerifyCode(user.email, code);
@@ -56,9 +68,32 @@ export class AccountService {
     }
     return false;
   }
+  public getAccountRegisterToken(user: User) {
+    const payload: JwtPayload = {
+      jti: randomUUID(),
+      aud: this.config.get('siteUrl'),
+      sub: user.id,
+      roles: user.roles,
+    };
+    const token = this.generateRegisterToken(payload);
+    return token;
+
+  }
 
 
   public getHello(): string {
     return 'Hello World!';
+  }
+  public async verifyEmailCode(code: string) {
+    const value = await this.cacheManager.get(`mail_verify_code:${code}`);
+    console.log(value)
+    return value;
+  }
+
+  private generateRegisterToken(payload: JwtPayload): string {
+    return this.jwtService.sign(payload, {
+      secret: this.config.get('JWT_REGISTER_TOKEN_SECRET'),
+      expiresIn: 600
+    });
   }
 }

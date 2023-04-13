@@ -7,9 +7,11 @@ import configProd from '@app/common/configs/config.prod';
 import config from '@app/common/configs/config';
 import { TenantsController } from './controllers/tenants.controller';
 import { TenantsService } from './services/tenants.service';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { HttpModule } from '@nestjs/axios';
 import { MailModule } from '@app/mail';
+import { JwtModule } from '@nestjs/jwt';
+import { SecurityConfig } from '@app/common';
 
 @Module({
   imports: [
@@ -26,7 +28,19 @@ import { MailModule } from '@app/mail';
         maxRedirects: 5,
       }),
     }),
-    MailModule
+    MailModule,
+    JwtModule.registerAsync({
+      useFactory: async (configService: ConfigService) => {
+        const securityConfig = configService.get<SecurityConfig>('security');
+        return {
+          secret: configService.get<string>('JWT_REGISTER_TOKEN_SECRET'),
+          signOptions: {
+            expiresIn: securityConfig.expiresIn,
+          },
+        };
+      },
+      inject: [ConfigService],
+    }),
   ],
   controllers: [AccountController, TenantsController],
   providers: [AccountService, TenantsService],
