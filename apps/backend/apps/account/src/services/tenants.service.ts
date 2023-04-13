@@ -44,8 +44,7 @@ export class TenantsService {
             ) {
                 throw new ConflictException(`Домен ${payload.domain} уже используется.`);
             }
-            console.log(e.response.data.error)
-            throw new Error(e);
+            return null;
         }
     }
 
