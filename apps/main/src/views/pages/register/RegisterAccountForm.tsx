@@ -52,7 +52,7 @@ export default function RegisterAccountForm() {
   const onSubmit = async (data: FormValuesProps) => {
     try {
       await createAccount(data)
-      push('/register/ready')
+      push('/register/verify')
     } catch (error) {
       console.error(error)
     }

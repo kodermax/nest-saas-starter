@@ -16,7 +16,7 @@ function Scrollbar({ children, sx, ...other }: ScrollbarProps) {
 
   if (isMobile) {
     return (
-      <Box sx={{ overflowX: 'auto', ...sx }} {...other}>
+      <Box sx={{ overflowX: 'auto', ...sx }}>
         {children}
       </Box>
     );
