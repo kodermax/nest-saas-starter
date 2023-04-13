@@ -16,7 +16,7 @@ import Iconify from '../../components/iconify'
 
 // assets
 import { EmailInboxIcon } from '../../assets/icons'
-import AuthVerifyCodeForm from '../../views/pages/register/AuthVerifyCodeForm'
+import RegisterVerifyCodeForm from '../../views/pages/register/RegisterVerifyCodeForm'
 
 // ----------------------------------------------------------------------
 
@@ -41,7 +41,7 @@ export default function VerifyCodePage() {
         Ваш личный сайт 09080808.space.space создан! Для продолжения работы введите код из acb@domain email.
       </Typography>
 
-      <AuthVerifyCodeForm />
+      <RegisterVerifyCodeForm />
 
       <Typography variant='body2' sx={{ my: 3 }}>
         Не получили код? &nbsp;

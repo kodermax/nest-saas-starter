@@ -11,9 +11,6 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Stack, FormHelperText } from '@mui/material'
 import { LoadingButton } from '@mui/lab'
 
-// routes
-import { PATH_DASHBOARD } from '../../../routes/paths'
-
 // components
 import { useSnackbar } from '../../../components/snackbar'
 import FormProvider, { RHFCodes } from '../../../components/hook-form'
@@ -27,16 +24,16 @@ type FormValuesProps = {
   code4: string
 }
 
-export default function AuthVerifyCodeForm() {
+export default function RegisterVerifyCodeForm() {
   const { push } = useRouter()
 
   const { enqueueSnackbar } = useSnackbar()
 
   const VerifyCodeSchema = Yup.object().shape({
-    code1: Yup.string().required('Code is required'),
-    code2: Yup.string().required('Code is required'),
-    code3: Yup.string().required('Code is required'),
-    code4: Yup.string().required('Code is required'),
+    code1: Yup.string().required('Обязательное поле'),
+    code2: Yup.string().required('Обязательное поле'),
+    code3: Yup.string().required('Обязательное поле'),
+    code4: Yup.string().required('Обязательное поле'),
   })
 
   const defaultValues = {
@@ -64,7 +61,7 @@ export default function AuthVerifyCodeForm() {
 
       enqueueSnackbar('Verify success!')
 
-      push('register/ready')
+      push('/register/ready')
     } catch (error) {
       console.error(error)
     }
