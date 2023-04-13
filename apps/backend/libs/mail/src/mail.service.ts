@@ -7,10 +7,10 @@ import path from 'path';
 import fs from 'fs';
 import { compile } from 'handlebars';
 import mjml2html from 'mjml';
+import { RegisterVerifyCode } from './contexts/register-verify-code.context';
 
 @Injectable()
 export class MailService {
-    transporter: any;
     constructor(private readonly configService: ConfigService) {
         this.transporter = nodemailer.createTransport({
             host: 'in-v3.mailjet.com',
@@ -22,6 +22,9 @@ export class MailService {
             }
         });
     }
+
+    private transporter: any;
+
     catch(error) {
         console.error(error);
     }
@@ -34,6 +37,7 @@ export class MailService {
         options.html = this.compileTemplate(options)
         await this.sendMail(options);
     }
+
     public sendPasswordReset(name: string, email: string, token: string) {
         const context: PasswordResetContext = {
             siteUrl: this.configService.get('siteUrl'),
@@ -50,8 +54,24 @@ export class MailService {
         })
     }
 
+    public sendRegisterVerifyCode(email: string, code: string) {
+        const context: RegisterVerifyCode = {
+            siteUrl: this.configService.get('siteUrl'),
+            code,
+            email
+        };
+
+        return this.send({
+            template: 'register-verify-code',
+            to: email,
+            subject: `Verification Code - ${code}`,
+            context,
+        })
+    }
+
+
     private compileTemplate(options: ISendMailOptions) {
-        const templateFile = path.join('src/assets/mail', options.template + '.mjml')
+        const templateFile = path.join('assets/mail', options.template + '.mjml')
         const mjmlTemplate = fs.readFileSync(templateFile, 'utf8');
         const template = compile(mjmlTemplate);
         const mjml = template(options.context);

@@ -3,10 +3,10 @@ import { RegisterInput } from '../dto/register.input';
 import { Prisma, User } from '@prisma/client';
 import { UsersService } from '../../users/services/users.service';
 import crypto from 'crypto';
-import { MailService } from 'apps/main/src/mail/mail.service';
 import { PrismaService } from '@app/prisma';
 import { PasswordService } from '@app/auth/services/password.service';
 import { RedisService } from '@app/redis';
+import { MailService } from '@app/mail';
 
 @Injectable()
 export class AccountsService {
@@ -31,6 +31,11 @@ export class AccountsService {
                     roles: ['User'],
                 },
             });
+            const code = Math.random().toString().substring(2, 6)
+            await this.cacheManager.set(`mail_verify_code:${code}`, user.id, {
+                ttl: 604800 * 1000,
+            });
+            await this.mailService.sendRegisterVerifyCode(user.email, code);
             return user;
         } catch (e) {
             if (

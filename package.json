@@ -5,6 +5,8 @@
   "workspaces": [
     "apps/main",
     "apps/tenant",
+    "apps/error",
+    "apps/offline",
     "packages/*"
   ],
   "scripts": {
