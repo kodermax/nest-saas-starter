@@ -87,7 +87,7 @@
     "@types/node": "^18.8.5",
     "@types/nprogress": "^0.2.0",
     "@types/numeral": "^2.0.2",
-    "@types/react": "^18.0.21",
+    "@types/react": "^18.0.35",
     "@types/react-beautiful-dnd": "^13.1.2",
     "@types/react-lazy-load-image-component": "^1.5.2",
     "@types/react-redux": "^7.1.24",
