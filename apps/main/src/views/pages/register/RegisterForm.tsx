@@ -61,6 +61,7 @@ export default function RegisterForm() {
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <RHFTextField
+        color='success'
         name='domain'
         label='Адрес сайта'
         InputProps={{

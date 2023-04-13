@@ -4,7 +4,6 @@
   "private": true,
   "workspaces": [
     "apps/main",
-    "apps/tenant",
     "apps/error",
     "apps/offline",
     "packages/*"
