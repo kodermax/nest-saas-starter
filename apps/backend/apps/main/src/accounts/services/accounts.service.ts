@@ -31,11 +31,7 @@ export class AccountsService {
                     roles: ['User'],
                 },
             });
-            const code = Math.random().toString().substring(2, 6)
-            await this.cacheManager.set(`mail_verify_code:${code}`, user.id, {
-                ttl: 604800 * 1000,
-            });
-            await this.mailService.sendRegisterVerifyCode(user.email, code);
+
             return user;
         } catch (e) {
             if (

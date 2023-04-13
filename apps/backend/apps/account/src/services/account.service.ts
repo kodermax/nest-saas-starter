@@ -3,11 +3,15 @@ import { ConflictException, Injectable } from '@nestjs/common';
 import { Prisma, User, UserRole } from '@prisma/client';
 import { RegisterInput } from '../dto/register.input';
 import { PasswordService } from '@app/auth';
+import { RedisService } from '@app/redis';
+import { MailService } from '@app/mail';
 
 @Injectable()
 export class AccountService {
   constructor(private readonly prisma: PrismaService,
-    private readonly passwordService: PasswordService
+    private readonly passwordService: PasswordService,
+    private readonly cacheManager: RedisService,
+    private readonly mailService: MailService
   ) {
 
   }
@@ -25,7 +29,14 @@ export class AccountService {
           roles: [UserRole.User],
         },
       });
-      await this.prisma.tenant.update({ where: { id: tenantId }, data: { createdBy: user.id } })
+      if (tenantId) {
+        await this.prisma.tenant.update({ where: { id: tenantId }, data: { createdBy: user.id } })
+      }
+      const code = Math.random().toString().substring(2, 6)
+      await this.cacheManager.set(`mail_verify_code:${code}`, user.id, {
+        ttl: 604800 * 1000,
+      });
+      await this.mailService.sendRegisterVerifyCode(user.email, code);
       return user;
     } catch (e) {
       if (

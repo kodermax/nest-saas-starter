@@ -9,6 +9,7 @@ import { TenantsController } from './controllers/tenants.controller';
 import { TenantsService } from './services/tenants.service';
 import { ConfigModule } from '@nestjs/config';
 import { HttpModule } from '@nestjs/axios';
+import { MailModule } from '@app/mail';
 
 @Module({
   imports: [
@@ -24,7 +25,8 @@ import { HttpModule } from '@nestjs/axios';
         timeout: 5000,
         maxRedirects: 5,
       }),
-    })
+    }),
+    MailModule
   ],
   controllers: [AccountController, TenantsController],
   providers: [AccountService, TenantsService],
