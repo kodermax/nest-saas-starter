@@ -3,16 +3,18 @@ generator client {
 }
 
 datasource db {
-    provider = "mongodb"
-    url      = env("DATABASE_URL")
+    provider          = "postgresql"
+    url               = env("DATABASE_URL")
+    shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model User {
-    id                String     @id @default(uuid()) @map("_id")
+    id                String     @id @default(uuid())
     createdAt         DateTime   @default(now())
     updatedAt         DateTime   @updatedAt
     email             String     @unique
     firstName         String?
+    invitedBy         String?
     middleName        String?
     lastName          String?
     password          String?
@@ -20,16 +22,6 @@ model User {
     registrationToken String?
     roles             UserRole[]
     Tenant            Tenant[]
-}
-
-model Tenant {
-    id        String   @id @default(uuid()) @map("_id")
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    name      String?
-    domain    String   @unique
-    owner     User?    @relation(fields: [createdBy], references: [id])
-    createdBy String?
 }
 
 enum UserRole {
@@ -47,4 +39,14 @@ model Notes {
     id      String  @id @default(uuid()) @map("_id")
     title   String
     content String?
+}
+
+model Tenant {
+    id        String   @id @default(uuid()) @map("_id")
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    name      String?
+    domain    String   @unique
+    owner     User?    @relation(fields: [createdBy], references: [id])
+    createdBy String?
 }
