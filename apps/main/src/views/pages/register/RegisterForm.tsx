@@ -18,12 +18,10 @@ import { checkAvailability, createTenant } from 'src/@core/services/tenants.serv
 // ----------------------------------------------------------------------
 
 type FormValuesProps = {
-  name: string
   domain: string
 }
 
 const ResetPasswordSchema = Yup.object().shape({
-  name: Yup.string().required('Поле обязательно для заполнения'),
   domain: Yup.string()
     .test('checkAvailabilty', 'Сайт с таким URL-адресом уже существует', async (value: any) => {
       const {
@@ -40,7 +38,7 @@ export default function RegisterForm() {
 
   const methods = useForm<FormValuesProps>({
     resolver: yupResolver<any>(ResetPasswordSchema),
-    defaultValues: { domain: '', name: '' },
+    defaultValues: { domain: '' },
     mode: 'onBlur'
   })
 
@@ -62,7 +60,6 @@ export default function RegisterForm() {
 
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-      <RHFTextField name='name' label='Название сайта' sx={{ mb: 3 }} />
       <RHFTextField
         name='domain'
         label='Адрес сайта'

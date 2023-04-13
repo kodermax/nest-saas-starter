@@ -58,7 +58,7 @@ export default function Header() {
           <Box sx={{ flexGrow: 1 }} />
           {isDesktop && <NavDesktop isOffset={isOffset} data={navConfig} />}
           <Button variant='contained' href={PATH_MINIMAL_ON_STORE}>
-            Регистрация
+            Создать сайт
           </Button>
 
           {!isDesktop && <NavMobile isOffset={isOffset} data={navConfig} />}
