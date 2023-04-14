@@ -46,6 +46,7 @@ export default function RegisterAccountForm() {
 
   const {
     handleSubmit,
+    setError,
     formState: { isSubmitting }
   } = methods
 
@@ -53,13 +54,17 @@ export default function RegisterAccountForm() {
     try {
       await createAccount(data)
       push('/register/verify')
-    } catch (error) {
+    } catch (error:any) {
       console.error(error)
+      setError('email', {
+        message: error?.data?.message || 'Ошибка', 
+      });
     }
   }
 
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
+
       <RHFTextField name='email' label='Email' sx={{ mb: 3 }} />
       <RHFTextField
         name='password'

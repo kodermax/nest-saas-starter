@@ -30,7 +30,7 @@ export default function RegisterAccountPage() {
       </Typography>
       <RegisterAccountForm />
 
-      <NextLink href={'/login'} passHref legacyBehavior>
+      <NextLink href={'/register'} passHref legacyBehavior>
         <Link
           color='inherit'
           variant='subtitle2'
@@ -42,7 +42,7 @@ export default function RegisterAccountPage() {
           }}
         >
           <Iconify icon='eva:chevron-left-fill' width={16} />
-          Войти
+          Назад
         </Link>
       </NextLink>
     </>

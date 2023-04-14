@@ -29,7 +29,7 @@ export default function RegisterPage() {
       <PlanPremiumIcon sx={{ mb: 5, height: 96 }} />
 
       <Typography variant='h3' paragraph>
-        Nest SaaS
+        Создать сайт
       </Typography>
       <RegisterForm />
 
