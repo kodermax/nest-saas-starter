@@ -44,6 +44,7 @@ export class TenantsService {
             ) {
                 throw new ConflictException(`Домен ${payload.domain} уже используется.`);
             }
+            console.log(e)
             throw new BadRequestException();
         }
     }
