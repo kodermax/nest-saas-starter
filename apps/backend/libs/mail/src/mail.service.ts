@@ -62,7 +62,7 @@ export class MailService {
         };
 
         return this.send({
-            template: 'register-verify-code',
+            template: 'email-verify-code',
             to: email,
             subject: `Verification Code - ${code}`,
             context,
