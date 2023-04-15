@@ -45,7 +45,7 @@ export default function ReadyPage() {
 
         <MaintenanceIllustration sx={{ my: 10, height: 240 }} />
 
-        <NextLink href={siteUrl} passHref>
+        <NextLink href={`${siteUrl}/dashboard`} passHref>
           <Button size='large' variant='contained'>
             Открыть сайт
           </Button>
