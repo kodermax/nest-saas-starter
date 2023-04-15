@@ -12,6 +12,7 @@ import { HttpModule } from '@nestjs/axios';
 import { MailModule } from '@app/mail';
 import { JwtModule } from '@nestjs/jwt';
 import { SecurityConfig } from '@app/common';
+import { JwtRegStrategy } from './strategies/reg.stragegy';
 
 @Module({
   imports: [
@@ -43,6 +44,6 @@ import { SecurityConfig } from '@app/common';
     }),
   ],
   controllers: [AccountController, TenantsController],
-  providers: [AccountService, TenantsService],
+  providers: [AccountService, TenantsService, JwtRegStrategy],
 })
 export class AccountModule { }

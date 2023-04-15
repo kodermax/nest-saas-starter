@@ -73,7 +73,6 @@ export class AccountService {
       jti: randomUUID(),
       aud: this.config.get('siteUrl'),
       sub: user.id,
-      roles: user.roles,
     };
     const token = this.generateRegisterToken(payload);
     return token;

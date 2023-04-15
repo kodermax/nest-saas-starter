@@ -3,11 +3,11 @@ import { IsEmail, IsNotEmpty, MinLength } from 'class-validator';
 
 export class RegisterInput {
 
-    @ApiProperty({ example: 'kodermax@gmail.com' })
+    @ApiProperty({ default: 'kodermax@gmail.com' })
     @IsEmail()
     email: string;
 
-    @ApiProperty({ example: 'qwertymax' })
+    @ApiProperty({ default: 'qwertymax' })
     @IsNotEmpty()
     @MinLength(5)
     password: string;

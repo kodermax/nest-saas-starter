@@ -17,6 +17,8 @@ import Iconify from '../../components/iconify'
 // assets
 import { EmailInboxIcon } from '../../assets/icons'
 import RegisterVerifyCodeForm from '../../views/pages/register/RegisterVerifyCodeForm'
+import { useEffect, useState } from 'react'
+import { parseRegToken } from 'src/@core/services/accounts.service'
 
 // ----------------------------------------------------------------------
 
@@ -25,6 +27,15 @@ VerifyCodePage.getLayout = (page: React.ReactElement) => <CompactLayout>{page}</
 // ----------------------------------------------------------------------
 
 export default function VerifyCodePage() {
+  const [email, setEmail] = useState<string>('')
+  useEffect(()=> {
+   async function request() {
+      const {data:{email}} = await parseRegToken()
+      setEmail(email)
+    }
+    request()
+  },[])
+  
   return (
     <>
       <Head>
@@ -38,7 +49,7 @@ export default function VerifyCodePage() {
       </Typography>
 
       <Typography sx={{ color: 'text.secondary', mb: 5 }}>
-        Ваш личный сайт 09080808.space.space создан! Для продолжения работы введите код из acb@domain email.
+        Ваш личный сайт создан! Для продолжения работы введите код из {email}.
       </Typography>
 
       <RegisterVerifyCodeForm />

@@ -1,14 +1,17 @@
-import { Body, Controller, Get, HttpCode, Post, Req, Res } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Post, Req, Res, UseGuards } from '@nestjs/common';
 import { AccountService } from '../services/account.service';
 import { ApiBadRequestResponse, ApiConflictResponse, ApiOperation } from '@nestjs/swagger';
 import { RegisterInput } from '../dto/register.input';
 import { ExistAccountInput } from '../dto/exist-account.input';
 import { Request, Response } from 'express';
 import { VerifyEmailCode } from '../dto/verify-email-code.dto';
+import { JwtRegGuard } from '../guards/jwt-reg.guard';
+import { RequestWithUser } from '@app/auth/interfaces/user';
+import { ConfigService } from '@nestjs/config';
 
 @Controller('accounts')
 export class AccountController {
-  constructor(private readonly accountService: AccountService) { }
+  constructor(private readonly accountService: AccountService, private config: ConfigService) { }
 
   @Post('check-availability')
   @HttpCode(200)
@@ -22,6 +25,17 @@ export class AccountController {
   @Get()
   getHello(): string {
     return this.accountService.getHello();
+  }
+
+  @Get('reg-token')
+  @ApiOperation({ summary: 'Расшифровка RegToken' })
+  @UseGuards(JwtRegGuard)
+  parseRegToken(@Req() req: RequestWithUser) {
+    const { user } = req
+    return {
+      id: user.id,
+      email: user.email
+    }
   }
 
   @Post()
@@ -41,9 +55,10 @@ export class AccountController {
     response.cookie('RegToken', token, {
       httpOnly: true,
       sameSite: 'none',
-      secure: true,
+      secure: this.config.get('ENVIRONMENT') === 'development' ? false : true,
       path: '/',
-      maxAge: 0
+      maxAge: 3600 * 3600,
+      domain: 'localhost',
     });
     return user;
   }
