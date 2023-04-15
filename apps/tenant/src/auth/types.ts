@@ -1,16 +1,18 @@
+import { IsEmail, MinLength } from 'class-validator';
 import { UserCredential } from 'firebase/auth';
+import { User } from 'src/@core/services/user.types';
 
 // ----------------------------------------------------------------------
 
 export type ActionMapType<M extends { [index: string]: any }> = {
   [Key in keyof M]: M[Key] extends undefined
-    ? {
-        type: Key;
-      }
-    : {
-        type: Key;
-        payload: M[Key];
-      };
+  ? {
+    type: Key;
+  }
+  : {
+    type: Key;
+    payload: M[Key];
+  };
 };
 
 export type AuthUserType = null | Record<string, any>;
@@ -89,3 +91,38 @@ export type Auth0ContextType = {
   loginWithGithub?: () => void;
   loginWithTwitter?: () => void;
 };
+
+export type AuthValuesType = {
+  isAuthenticated: boolean
+  isInitialized: boolean
+  loading: boolean
+  method: string
+  logout: () => void
+  user: User | null
+  setLoading: (value: boolean) => void
+  setUser: (value: User | null) => void
+  login: (params: LoginParams) => Promise<void>
+  register: (params: RegisterInput, errorCallback?: ErrCallbackType) => void
+}
+
+export type ErrCallbackType = (err: { [key: string]: string }) => void
+
+export type LoginParams = {
+  email: string
+  password: string
+}
+
+export class RegisterInput {
+  @MinLength(2)
+  firstName: string;
+
+  @MinLength(2)
+  lastName: string;
+
+  @IsEmail()
+  email: string;
+
+  @MinLength(5)
+  password: string
+}
+

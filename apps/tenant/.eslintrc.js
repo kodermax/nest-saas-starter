@@ -1,6 +1,7 @@
 module.exports = {
   root: true,
   extends: ['custom'],
+  "plugins": ["@typescript-eslint"],
   rules: {
     'arrow-body-style': 1,
     'react/display-name': 0,

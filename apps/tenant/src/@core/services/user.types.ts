@@ -12,4 +12,14 @@ export interface User {
     name: string
     roles: UserRole[]
     email: string
+    displayName?: string
+    photoURL?: string
+    phoneNumber?: string
+    country?: string
+    address?: string
+    state?: string
+    city?: string
+    zipCode?: string
+    about?: string
+    isPublic?: boolean
 }

@@ -43,6 +43,7 @@
     "autosuggest-highlight": "^3.3.4",
     "axios": "^1.1.2",
     "change-case": "^4.1.2",
+    "class-validator": "^0.14.0",
     "date-fns": "^2.29.3",
     "firebase": "^9.12.1",
     "framer-motion": "^7.5.3",
@@ -96,9 +97,11 @@
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "eslint": "^8.25.0",
+    "eslint-config-custom": "*",
     "eslint-config-next": "^12.3.1",
     "eslint-config-prettier": "^8.5.0",
     "prettier": "^2.7.1",
+    "tsconfig": "*",
     "typescript": "4.8.4"
   }
 }

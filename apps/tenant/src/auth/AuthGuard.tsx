@@ -17,8 +17,7 @@ type AuthGuardProps = {
 };
 
 export default function AuthGuard({ children }: AuthGuardProps) {
-  const {  isInitialized } = useAuthContext();
-  const isAuthenticated = true;
+  const {  isAuthenticated, isInitialized } = useAuthContext();
   const { pathname, push } = useRouter();
 
   const [requestedLocation, setRequestedLocation] = useState<string | null>(null);

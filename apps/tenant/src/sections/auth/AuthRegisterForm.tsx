@@ -60,7 +60,7 @@ export default function AuthRegisterForm() {
   const onSubmit = async (data: FormValuesProps) => {
     try {
       if (register) {
-        await register(data.email, data.password, data.firstName, data.lastName);
+        await register(data);
       }
     } catch (error) {
       console.error(error);

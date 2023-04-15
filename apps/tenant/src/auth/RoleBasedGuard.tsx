@@ -25,9 +25,9 @@ export default function RoleBasedGuard({ hasContent, roles, children }: RoleBase
   const { user } = useAuthContext();
 
   // const currentRole = 'user';
-  const currentRole = user?.role; // admin;
+  const currentRole = user?.roles[0]; // admin;
 
-  if (typeof roles !== 'undefined' && !roles.includes(currentRole)) {
+  if (typeof roles !== 'undefined' && !roles.includes(currentRole || 'user')) {
     return hasContent ? (
       <Container component={MotionContainer} sx={{ textAlign: 'center' }}>
         <m.div variants={varBounce().in}>

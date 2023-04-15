@@ -11,7 +11,6 @@ import LoginLayout from '../../layouts/login';
 import { PATH_AUTH } from '../../routes/paths';
 
 //
-import AuthWithSocial from './AuthWithSocial';
 import AuthRegisterForm from './AuthRegisterForm';
 
 // ----------------------------------------------------------------------
@@ -48,7 +47,6 @@ export default function Register() {
         .
       </Typography>
 
-      <AuthWithSocial />
     </LoginLayout>
   );
 }

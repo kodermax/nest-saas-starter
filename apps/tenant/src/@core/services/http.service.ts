@@ -1,15 +1,24 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 
+type AxiosRequestConfigWithRetry = AxiosRequestConfig & { _retry: boolean }
+
 class Http {
     private instance: AxiosInstance | null = null
+    private isAlreadyFetchingAccessToken = false
     private get http(): AxiosInstance {
         return this.instance != null ? this.instance : this.initHttp()
     }
 
     initHttp() {
         const http = axios.create({
+            baseURL: process.env.NEXT_PUBLIC_MAIN_API,
             withCredentials: true
         })
+
+        http.interceptors.response.use(
+            response => response,
+            error => this.handleError(error)
+        )
 
         this.instance = http
 
@@ -35,6 +44,31 @@ class Http {
     delete<T = any, R = AxiosResponse<T>>(url: string, config?: AxiosRequestConfig): Promise<R> {
         return this.http.delete<T, R>(url, config)
     }
+
+    refreshToken() {
+        return this.http.get('/auth/refresh')
+    }
+
+    private async handleError(error: any) {
+        const originalRequest: AxiosRequestConfigWithRetry = error.config as AxiosRequestConfigWithRetry
+        if (error.response.status === 401 && !originalRequest._retry) {
+            if (!this.isAlreadyFetchingAccessToken) {
+                this.isAlreadyFetchingAccessToken = true
+                originalRequest._retry = true
+                try {
+                    await this.refreshToken()
+                } catch (error) {
+                    //logout()
+                }
+                this.isAlreadyFetchingAccessToken = false
+
+                return axios.request(originalRequest)
+            }
+        }
+
+        return Promise.reject(error)
+    }
 }
 
 export const http = new Http()
+
