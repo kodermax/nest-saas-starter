@@ -8,7 +8,7 @@
     "lint": "next lint",
     "lint:es": "eslint --ext .ts,.tsx .",
     "lint:fix": "eslint --fix --ext .ts,.tsx .",
-    "dev": "next dev -p 8081",
+    "dev": "next dev -p 3001",
     "start": "next start",
     "build": "next build",
     "build-netlify": "next build && cp -r .next _next && mv _next .next/",
