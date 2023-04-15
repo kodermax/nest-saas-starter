@@ -8,7 +8,8 @@ This turborepo uses [Yarn](https://classic.yarnpkg.com/) as a package manager. I
 
 ### Apps and Packages
 
-- `admin`: a [Next.js](https://nextjs.org/) app
+- `main`: a [Next.js](https://nextjs.org/) app
+- `tenant`: a [Next.js](https://nextjs.org/) app
 - `backend`: another [Nest.js](https://nestjs.org/) app
 - `strapi`: [Strapi](https://strapi.io)
 - `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
