@@ -42,6 +42,7 @@ const AuthProvider = ({ children }: Props) => {
 
   useEffect(() => {
     const initAuth = async (): Promise<void> => {
+      setIsInitialized(true)
       if (localStorage.getItem('userData')) {
         setLoading(true)
         try {
@@ -49,7 +50,6 @@ const AuthProvider = ({ children }: Props) => {
           setUser({ ...response.data })
           setLoading(false)
           setIsAuthenticated(true)
-          setIsInitialized(true)
         } catch {
           localStorage.removeItem('userData')
           setUser(null)
@@ -73,7 +73,7 @@ const AuthProvider = ({ children }: Props) => {
       setIsAuthenticated(true)
       window.localStorage.setItem('userData', JSON.stringify(response.data))
       const returnUrl = router.query.returnUrl as string
-      const redirectURL = returnUrl && returnUrl !== '/' && returnUrl.indexOf('.') < 0 ? returnUrl : '/'
+      const redirectURL = returnUrl && returnUrl !== '/' && returnUrl.indexOf('.') < 0 ? returnUrl : '/dashboard/app'
       router.replace(redirectURL as string)
     }
   }
