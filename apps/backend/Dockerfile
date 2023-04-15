@@ -17,7 +17,7 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/.env ./
-COPY --from=builder /app/assets ./
+COPY --from=builder /app/assets ./assets
 
 EXPOSE 8000
 CMD [ "yarn", "start:account" ]
