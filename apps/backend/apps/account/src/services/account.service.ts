@@ -92,8 +92,8 @@ export class AccountService {
 
 
   public async getAuthCookies(tenantId: string, user: RequestUser) {
-    const res = await this.prisma.tenant.findFirst({ where: { id: tenantId } });
-    const tokens = this.authService.generateTokens(user, `https://${res.domain}`);
+    const tenant = await this.prisma.tenant.findFirst({ where: { id: tenantId } });
+    const tokens = this.authService.generateTokens(user, `https://${tenant.domain}`);
     const cookies: CookieValues[] = [{
       'name': 'Authentication',
       'value': tokens.accessToken,
@@ -103,7 +103,7 @@ export class AccountService {
         secure: this.config.get('ENVIRONMENT') === 'development' ? false : true,
         path: '/',
         maxAge: 3600 * 3600,
-        domain: this.config.get('AUTH_COOKIE_TENANT_DOMAIN')
+        domain: tenant.domain
       }
     },
     {
@@ -115,7 +115,7 @@ export class AccountService {
         secure: this.config.get('ENVIRONMENT') === 'development' ? false : true,
         path: '/',
         maxAge: 3600 * 3600,
-        domain: this.config.get('AUTH_COOKIE_TENANT_DOMAIN')
+        domain: tenant.domain
       }
     }]
     return cookies;
