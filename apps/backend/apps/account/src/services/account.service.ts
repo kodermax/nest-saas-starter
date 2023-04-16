@@ -2,14 +2,21 @@ import { PrismaService } from '@app/prisma';
 import { ConflictException, Injectable } from '@nestjs/common';
 import { Prisma, User, UserRole } from '@prisma/client';
 import { RegisterInput } from '../dto/register.input';
-import { PasswordService } from '@app/auth';
+import { AuthService, PasswordService } from '@app/auth';
 import { RedisService } from '@app/redis';
 import { MailService } from '@app/mail';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { JwtPayload } from '@app/auth/models/jwt-payload';
 import { randomUUID } from 'crypto';
-import cookie from 'cookie';
+import { RequestUser } from '@app/auth/interfaces/user';
+import { CookieOptions } from 'express';
+
+interface CookieValues {
+  name: string;
+  options: CookieOptions;
+  value: string;
+}
 
 @Injectable()
 export class AccountService {
@@ -18,7 +25,8 @@ export class AccountService {
     private readonly cacheManager: RedisService,
     private readonly mailService: MailService,
     private readonly jwtService: JwtService,
-    private readonly config: ConfigService
+    private readonly config: ConfigService,
+    private readonly authService: AuthService
 
   ) {
 
@@ -61,6 +69,8 @@ export class AccountService {
     }
   }
 
+
+
   public async existAccount(email: any): Promise<boolean> {
     const user = await this.prisma.user.findFirst({ where: { email } })
     if (user !== null) {
@@ -68,6 +78,7 @@ export class AccountService {
     }
     return false;
   }
+
   public getAccountRegisterToken(user: User) {
     const payload: JwtPayload = {
       jti: randomUUID(),
@@ -80,12 +91,41 @@ export class AccountService {
   }
 
 
+  public async getAuthCookies(tenantId: string, user: RequestUser) {
+    const res = await this.prisma.tenant.findFirst({ where: { id: tenantId } });
+    const tokens = this.authService.generateTokens(user, `https://${res.domain}`);
+    const cookies: CookieValues[] = [{
+      'name': 'Authentication',
+      'value': tokens.accessToken,
+      'options': {
+        httpOnly: true,
+        sameSite: 'none',
+        secure: this.config.get('ENVIRONMENT') === 'development' ? false : true,
+        path: '/',
+        maxAge: 3600 * 3600,
+      }
+    },
+    {
+      'name': 'Refresh',
+      'value': tokens.refreshToken,
+      'options': {
+        httpOnly: true,
+        sameSite: 'none',
+        secure: this.config.get('ENVIRONMENT') === 'development' ? false : true,
+        path: '/',
+        maxAge: 3600 * 3600,
+      }
+    }]
+    return cookies;
+  }
+
+
   public getHello(): string {
     return 'Hello World!';
   }
+
   public async verifyEmailCode(code: string) {
     const value = await this.cacheManager.get(`mail_verify_code:${code}`);
-    console.log(value)
     return value;
   }
 

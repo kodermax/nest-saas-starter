@@ -66,10 +66,19 @@ export class AccountController {
 
   @Post('verify-email-code')
   @HttpCode(200)
+  @UseGuards(JwtRegGuard)
   @ApiOperation({ summary: 'Проверка кода верификации почты' })
-  async verifyEmailCode(@Body() payload: VerifyEmailCode) {
-    const res = await this.accountService.verifyEmailCode(payload.code)
-    return res;
+  async verifyEmailCode(@Body() payload: VerifyEmailCode, @Res({ passthrough: true }) response: Response, @Req() request: RequestWithUser
+  ) {
+    const { user, cookies: { tenantId } } = request
+    await this.accountService.verifyEmailCode(payload.code)
+    const cookies = await this.accountService.getAuthCookies(tenantId, user);
+    for (const item of cookies) {
+      response.cookie(item.name, item.value, item.options);
+    }
+    return {
+      status: 'ok'
+    };
   }
 }
 

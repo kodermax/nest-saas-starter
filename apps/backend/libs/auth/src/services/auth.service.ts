@@ -22,10 +22,10 @@ export class AuthService {
         private readonly cacheManager: RedisService,
     ) { }
 
-    public generateTokens(user: RequestUser): Token {
+    public generateTokens(user: RequestUser, siteUrl = ''): Token {
         const payload: JwtPayload = {
             jti: randomUUID(),
-            aud: this.config.get('siteUrl'),
+            aud: siteUrl || this.config.get('siteUrl'),
             sub: user.id,
             roles: user.roles,
         };
@@ -122,6 +122,7 @@ export class AuthService {
     public validateUser(userId: string): Promise<User> {
         return this.prisma.user.findUnique({ where: { id: userId } });
     }
+
     private generateAccessToken(payload: JwtPayload): string {
         return this.jwtService.sign(payload, {
             secret: this.config.get('JWT_ACCESS_TOKEN_SECRET'),

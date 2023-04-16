@@ -57,6 +57,6 @@ async function bootstrap() {
   app.use(cookieParser());
   app.set('trust proxy', true);
   app.disable('x-powered-by');
-  await app.listen(process.env.PORT || nestConfig.port || 3000);
+  await app.listen(process.env.PORT || nestConfig.port || 8000);
 }
 bootstrap();

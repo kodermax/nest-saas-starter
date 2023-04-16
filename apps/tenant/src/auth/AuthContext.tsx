@@ -43,7 +43,7 @@ const AuthProvider = ({ children }: Props) => {
   useEffect(() => {
     const initAuth = async (): Promise<void> => {
       setIsInitialized(true)
-      if (localStorage.getItem('userData')) {
+
         setLoading(true)
         try {
           const response = await authMe()
@@ -54,13 +54,7 @@ const AuthProvider = ({ children }: Props) => {
           localStorage.removeItem('userData')
           setUser(null)
           setLoading(false)
-          if (!router.pathname.includes('login')) {
-            router.replace('/login')
-          }
         }
-      } else {
-        setLoading(false)
-      }
     }
     initAuth()
     // eslint-disable-next-line react-hooks/exhaustive-deps
