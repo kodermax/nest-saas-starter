@@ -14,6 +14,7 @@ import { LoadingButton } from '@mui/lab'
 // components
 import { useSnackbar } from '../../../components/snackbar'
 import FormProvider, { RHFCodes } from '../../../components/hook-form'
+import { verifyEmailCode } from 'src/@core/services/accounts.service'
 
 // ----------------------------------------------------------------------
 
@@ -33,14 +34,14 @@ export default function RegisterVerifyCodeForm() {
     code1: Yup.string().required('Обязательное поле'),
     code2: Yup.string().required('Обязательное поле'),
     code3: Yup.string().required('Обязательное поле'),
-    code4: Yup.string().required('Обязательное поле'),
+    code4: Yup.string().required('Обязательное поле')
   })
 
   const defaultValues = {
     code1: '',
     code2: '',
     code3: '',
-    code4: '',
+    code4: ''
   }
 
   const methods = useForm({
@@ -56,11 +57,8 @@ export default function RegisterVerifyCodeForm() {
 
   const onSubmit = async (data: FormValuesProps) => {
     try {
-      await new Promise(resolve => setTimeout(resolve, 500))
-      console.log('DATA', Object.values(data).join(''))
-
+      await verifyEmailCode(Object.values(data).join(''))
       enqueueSnackbar('Verify success!')
-
       push('/register/ready')
     } catch (error) {
       console.error(error)
