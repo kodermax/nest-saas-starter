@@ -12,7 +12,7 @@ import { PrismaService } from '@app/prisma';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AccountModule);
   app.useGlobalPipes(new ValidationPipe());
-
+  app.setGlobalPrefix('accounts-api')
   const prismaService: PrismaService = app.get(PrismaService);
   await prismaService.enableShutdownHooks(app);
 
