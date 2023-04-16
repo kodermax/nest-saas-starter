@@ -35,7 +35,20 @@ async function bootstrap() {
   if (corsConfig.enabled) {
     app.enableCors({
       credentials: true,
-      origin: [configService.get('CORS_ORIGIN').split(',')],
+      origin: function (origin, callback) {
+        if (!origin) {
+          callback(null, true)
+          return
+        }
+        const origins = configService.get('CORS_ORIGIN').split(',')
+        for (const item of origins) {
+          if (origin.indexOf(item) >= 0) {
+            callback(null, true)
+            return
+          }
+        }
+        callback(new Error('Not allowed by CORS'))
+      },
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
       preflightContinue: false,
       optionsSuccessStatus: 204,
