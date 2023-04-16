@@ -1,7 +1,7 @@
 stages:
   - build
   - deploy
-docker-build-account:
+build-account:
   image: docker:dind
   variables:
     DOCKER_HOST: tcp://docker:2375
@@ -22,7 +22,7 @@ docker-build-account:
     - docker push $CI_REGISTRY_IMAGE/api-account:${CI_COMMIT_SHORT_SHA}
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
-docker-deploy-account:
+deploy-account:
   image:
     name: bitnami/kubectl:latest
     entrypoint: ['']
@@ -34,7 +34,7 @@ docker-deploy-account:
     - kubectl -n numera set image deployment/api-account api-account=$CI_REGISTRY_IMAGE/api-account:${CI_COMMIT_SHORT_SHA}
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
-docker-build-main:
+build-main:
   image: docker:dind
   variables:
     DOCKER_HOST: tcp://docker:2375
@@ -55,7 +55,7 @@ docker-build-main:
     - docker push $CI_REGISTRY_IMAGE/api-main:${CI_COMMIT_SHORT_SHA}
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
-docker-deploy-main:
+deploy-main:
   image:
     name: bitnami/kubectl:latest
     entrypoint: ['']
