@@ -12,7 +12,7 @@ RUN yarn build $project
 
 FROM node:18-alpine
 WORKDIR /app
-
+ARG project
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/dist ./dist
