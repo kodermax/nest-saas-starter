@@ -20,7 +20,7 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start": "nest start",
-    "start:prod": "node dist/apps/backend/main",
+    "start:main": "node dist/apps/backend/main",
     "start:account": "node dist/apps/account/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",

@@ -20,4 +20,5 @@ COPY --from=builder /app/.env ./
 COPY --from=builder /app/assets ./assets
 
 EXPOSE 8000
-CMD [ "yarn", "start:account" ]
+CMD ["sh", "-c", "ayrn start:$PROJECTNAME"]
+
