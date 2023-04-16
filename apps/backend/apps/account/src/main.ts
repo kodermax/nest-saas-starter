@@ -40,11 +40,14 @@ async function bootstrap() {
           callback(null, true)
           return
         }
-        if (origin.indexOf('vercel.app') >= 0 || origin.indexOf('localhost')) {
-          callback(null, true)
-        } else {
-          callback(new Error('Not allowed by CORS'))
+        const origins = configService.get('CORS_ORIGIN').split(',')
+        for (const item of origins) {
+          if (origin.indexOf(item) >= 0) {
+            callback(null, true)
+            return
+          }
         }
+        callback(new Error('Not allowed by CORS'))
       },
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
       preflightContinue: false,
