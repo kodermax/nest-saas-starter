@@ -58,7 +58,8 @@ export class AccountController {
       secure: this.config.get('ENVIRONMENT') === 'development' ? false : true,
       path: '/',
       maxAge: 3600 * 3600,
-      domain: 'localhost',
+      domain: this.config.get('AUTH_COOKIE_DOMAIN')
+      ,
     });
     return user;
   }
