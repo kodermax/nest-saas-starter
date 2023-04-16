@@ -11,6 +11,7 @@ COPY .production.env .env
 RUN yarn build $project
 
 FROM node:18-alpine
+ARG project
 WORKDIR /app
 
 COPY --from=builder /app/node_modules ./node_modules
