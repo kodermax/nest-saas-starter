@@ -13,6 +13,7 @@ import { MailModule } from '@app/mail';
 import { JwtModule } from '@nestjs/jwt';
 import { SecurityConfig } from '@app/common';
 import { JwtRegStrategy } from './strategies/reg.stragegy';
+import { IndexController } from './controllers/index.controller';
 
 @Module({
   imports: [
@@ -43,7 +44,7 @@ import { JwtRegStrategy } from './strategies/reg.stragegy';
       inject: [ConfigService],
     }),
   ],
-  controllers: [AccountController, TenantsController],
+  controllers: [AccountController, TenantsController, IndexController],
   providers: [AccountService, TenantsService, JwtRegStrategy],
 })
 export class AccountModule { }
