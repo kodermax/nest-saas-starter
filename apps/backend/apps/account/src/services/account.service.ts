@@ -103,7 +103,7 @@ export class AccountService {
         secure: this.config.get('ENVIRONMENT') === 'development' ? false : true,
         path: '/',
         maxAge: 3600 * 3600,
-        domain: tenant.domain
+        domain: this.config.get('AUTH_COOKIE_TENANT_DOMAIN')
       }
     },
     {
@@ -115,7 +115,7 @@ export class AccountService {
         secure: this.config.get('ENVIRONMENT') === 'development' ? false : true,
         path: '/',
         maxAge: 3600 * 3600,
-        domain: tenant.domain
+        domain: this.config.get('AUTH_COOKIE_TENANT_DOMAIN')
       }
     }]
     return cookies;
