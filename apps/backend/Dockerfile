@@ -21,5 +21,5 @@ COPY --from=builder /app/.env ./
 COPY --from=builder /app/assets ./assets
 
 EXPOSE 8000
-CMD ["sh", "-c", "yarn start:$project"]
+CMD yarn start:$project
 
