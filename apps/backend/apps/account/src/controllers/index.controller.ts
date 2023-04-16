@@ -9,7 +9,7 @@ export class IndexController {
 
     @Get()
     public index() {
-        return 'Hello, World!';
+        return 'Hello, Accounts!';
     }
 
 }
