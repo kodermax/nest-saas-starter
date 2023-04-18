@@ -26,7 +26,7 @@
     "@emotion/styled": "11.10.6",
     "@hookform/resolvers": "3.0.1",
     "@mui/icons-material": "5.11.16",
-    "@mui/material": "5.12.0",
+    "@mui/material": "5.12.1",
     "tsup": "6.7.0"
   },
   "devDependencies": {
