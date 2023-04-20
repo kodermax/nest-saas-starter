@@ -1,0 +1,36 @@
+{
+  "name": "nest-saas-starter",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "apps/main",
+    "apps/error",
+    "apps/offline",
+    "packages/*"
+  ],
+  "scripts": {
+    "admin": "turbo run dev --scope=admin",
+    "backend": "turbo run dev --scope=backend",
+    "backend:build": "turbo run dev --scope=backend",
+    "web": "turbo run dev --scope=web",
+    "offline": "turbo run dev --scope=offline",
+    "error": "turbo run dev --scope=error",
+    "build": "turbo run build",
+    "build:backend": "turbo run build --scope=backend",
+    "build:admin": "turbo run build --scope=admin",
+    "admin:build": "turbo run build --scope=admin",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "start": "turbo run start --scope=backend"
+  },
+  "devDependencies": {
+    "prettier": "2.8.7",
+    "turbo": "^1.9.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {},
+  "packageManager": "yarn@1.22.19"
+}

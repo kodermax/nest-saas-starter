@@ -1,0 +1,32 @@
+{
+  "defaultSeverity": "error",
+  "jsRules": {},
+  "rules": {
+    "deprecation": true,
+    "expect": false,
+    "no-boolean-literal-compare": false,
+    "no-empty-interface": false,
+    "no-unnecessary-callback-wrapper": false,
+    "no-unnecessary-generics": false,
+    "no-redundant-jsdoc": false,
+    "semicolon": false,
+    "max-len": ["error", { "code": 120 }],
+    "member-ordering": [
+      true,
+      {
+        "alphabetize": true,
+        "order": [
+          "public-static-field",
+          "public-instance-field",
+          "public-constructor",
+          "private-static-field",
+          "private-instance-field",
+          "private-constructor",
+          "public-instance-method",
+          "protected-instance-method",
+          "private-instance-method"
+        ]
+      }
+    ]
+  }
+}

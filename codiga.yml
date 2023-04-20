@@ -1,0 +1,4 @@
+rulesets:
+  - typescript-best-practices
+  - react-best-practices
+  - javascript-security

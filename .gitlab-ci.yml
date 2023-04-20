@@ -1,0 +1,69 @@
+stages:
+  - build
+  - deploy
+build-account:
+  image: docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ''
+  stage: build
+  services:
+    - name: docker:dind
+      alias: docker
+      command: ['--tls=false']
+
+  before_script:
+    - echo ${CI_REGISTRY_PASSWORD} | docker login --username "${CI_REGISTRY_USER}" --password-stdin $CI_REGISTRY
+  script:
+    - cd apps/backend
+    - docker build -f Dockerfile --build-arg project=account -t $CI_REGISTRY_IMAGE/api-account:latest -t $CI_REGISTRY_IMAGE/api-account:${CI_COMMIT_SHORT_SHA} .
+    - docker push $CI_REGISTRY_IMAGE/api-account:latest
+    - docker push $CI_REGISTRY_IMAGE/api-account:${CI_COMMIT_SHORT_SHA}
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+deploy-account:
+  image:
+    name: bitnami/kubectl:latest
+    entrypoint: ['']
+  stage: deploy
+  before_script:
+    - echo "$KUBE_CONFIG_PROD_DATA" > /tmp/config
+    - export KUBECONFIG=/tmp/config
+  script:
+    - kubectl -n numera set image deployment/api-account api-account=$CI_REGISTRY_IMAGE/api-account:${CI_COMMIT_SHORT_SHA}
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+build-main:
+  image: docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ''
+  stage: build
+  services:
+    - name: docker:dind
+      alias: docker
+      command: ['--tls=false']
+
+  before_script:
+    - echo ${CI_REGISTRY_PASSWORD} | docker login --username "${CI_REGISTRY_USER}" --password-stdin $CI_REGISTRY
+  script:
+    - cd apps/backend
+    - docker build -f Dockerfile --build-arg project=main -t $CI_REGISTRY_IMAGE/api-main:latest -t $CI_REGISTRY_IMAGE/api-main:${CI_COMMIT_SHORT_SHA} .
+    - docker push $CI_REGISTRY_IMAGE/api-main:latest
+    - docker push $CI_REGISTRY_IMAGE/api-main:${CI_COMMIT_SHORT_SHA}
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+deploy-main:
+  image:
+    name: bitnami/kubectl:latest
+    entrypoint: ['']
+  stage: deploy
+  before_script:
+    - echo "$KUBE_CONFIG_PROD_DATA" > /tmp/config
+    - export KUBECONFIG=/tmp/config
+  script:
+    - kubectl -n numera set image deployment/api-main api-main=$CI_REGISTRY_IMAGE/api-main:${CI_COMMIT_SHORT_SHA}
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
