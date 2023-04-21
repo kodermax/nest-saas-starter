@@ -1,7 +1,7 @@
 {
-  "name": "@minimal/material-kit-nextjs",
-  "author": "Minimals UI",
-  "version": "4.0.0",
+  "name": "tenant",
+  "author": "",
+  "version": "0.0.1",
   "description": "Next.Js & Typescript",
   "private": true,
   "scripts": {
