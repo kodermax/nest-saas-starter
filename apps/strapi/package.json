@@ -14,7 +14,7 @@
     "@strapi/plugin-i18n": "4.10.6",
     "@strapi/plugin-users-permissions": "4.10.6",
     "@strapi/provider-email-nodemailer": "^4.10.6",
-    "@strapi/strapi": "4.10.6",
+    "@strapi/strapi": "4.13.1",
     "better-sqlite3": "^8.4.0"
   },
   "author": {
