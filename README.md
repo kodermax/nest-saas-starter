@@ -40,3 +40,9 @@ To develop all apps and packages, run the following command:
 ```
 yarn run dev
 ```
+
+### AI Code review
+
+```
+CodeRabbit
+```
