@@ -41,7 +41,7 @@
     "amazon-cognito-identity-js": "^5.2.11",
     "apexcharts": "^3.36.0",
     "autosuggest-highlight": "^3.3.4",
-    "axios": "^1.1.2",
+    "axios": "^1.6.0",
     "change-case": "^4.1.2",
     "class-validator": "^0.14.0",
     "date-fns": "^2.29.3",
