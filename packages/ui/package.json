@@ -22,7 +22,7 @@
     "update-dependencies": "npx npm-check-updates -u"
   },
   "dependencies": {
-    "@emotion/react": "11.10.6",
+    "@emotion/react": "11.11.3",
     "@emotion/styled": "11.10.6",
     "@hookform/resolvers": "3.0.1",
     "@mui/icons-material": "5.11.16",
